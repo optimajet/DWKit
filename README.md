@@ -59,10 +59,10 @@ Designer of workflow is the menu "Routes" (or "Workflow" for administration pane
 </ul>
 
 <hr>
-<b></b>
+<b>How to start</b>
 
 <ol>
-<li>Resore database form DatabaseBackup\das_backup.bak</li>
+<li>Resore backup DatabaseBackup\das_backup.bak to MS SQL Server</li>
 <li>Check connection string in AdminPanel\Admin\Configuration\ConnectionString.config and ApprovalSystem\Workspaces\Configuration\ConnectionString.config</li>
 <li>Admin panel: AdminPanel.sln</li>
 <li>Application: ApprovalSystem.sln</li>

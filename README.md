@@ -59,6 +59,17 @@ Designer of workflow is the menu "Routes" (or "Workflow" for administration pane
 </ul>
 
 <hr>
-<b>Official web site</b> - <a href="workflowenginenet.com/DocumentApprovalSystem">Document approval system</a><br/>
-For technical questions, please contact <a href="mailto:wf@optimajet.com?subject=Qustion from github">wf@optimajet.com<a><br/>
+<b></b>
+
+<ol>
+<li>Resore database form DatabaseBackup\das_backup.bak</li>
+<li>Check connection string in AdminPanel\Admin\Configuration\ConnectionString.config and ApprovalSystem\Workspaces\Configuration\ConnectionString.config</li>
+<li>Admin panel: AdminPanel.sln</li>
+<li>Application: ApprovalSystem.sln</li>
+</ol>
+
+In metadata.xml have information about a data model, business objects, forms, source code of business rules etc.
+
+<hr>
+<b>Official web site</b> - <a href="http://workflowenginenet.com/DocumentApprovalSystem">Document approval system</a><br/>
 For commercial use, please contact <a href="mailto:sales@optimajet.com?subject=Qustion from github">sales@optimajet.com</a><br/>

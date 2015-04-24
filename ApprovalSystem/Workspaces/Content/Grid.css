@@ -1,0 +1,214 @@
+﻿.popup-edit .x-column-header {
+    font-family: Tahoma, Arial;
+}
+.popup-edit .custom-grid .x-grid-cell-inner,
+.popup-edit .custom-grid .x-column-header-inner,
+.popup-edit .custom-grid .x-column-header-inner .x-column-header-text {
+    white-space: normal;
+    font-size: 12px;
+}
+.popup-edit .custom-grid .x-column-header-inner .x-column-header-text {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.popup-edit .custom-grid .x-grid-table {
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+}
+.popup-edit .custom-grid .x-grid-with-row-lines .x-grid-cell {
+    border-top-color: #D9D9D9;
+    border-bottom-color: #D9D9D9;
+    vertical-align: top;
+}
+
+.popup-edit .custom-grid .x-grid-row-focused .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+.popup-edit .custom-grid .x-grid-row-selected .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+.popup-edit .custom-grid .x-grid-row-over .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+
+.popup-edit .custom-grid .x-column-header {
+    background-color: #8D8D8D;
+    border-right-color: #AAAAAA;
+    background-image: none;
+    color: white;
+}
+.popup-edit .custom-grid .x-grid-header-ct {
+    background-color: #8D8D8D;
+    background-image: none;
+}
+
+.popup-edit .custom-grid .x-column-header-over,
+.popup-edit .custom-grid .x-column-header-trigger {
+    background-color: #ABABAB;
+    background-image: none;
+}
+.popup-edit .custom-grid .x-column-header-trigger {
+    background-image: url(../images/grid/hd-pop.png);
+}
+.popup-edit .custom-grid .x-column-header-sort-ASC .x-column-header-text {
+    background-image: url(../images/grid/sort_asc.png);
+}
+.popup-edit .custom-grid .x-column-header-sort-DESC .x-column-header-text {
+    background-image: url(../images/grid/sort_desc.png);
+}
+
+.popup-edit .custom-grid .x-grid-cell-first {
+    border-left: 3px solid #5FA317;
+}
+
+.popup-edit .custom-toolbar {
+    background-color: #DBDBDB;
+}
+.popup-edit .custom-toolbar .x-btn-default-toolbar-small {
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    padding: 4px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+}
+.popup-edit .custom-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: black;
+}
+.popup-edit .custom-toolbar .x-btn-default-toolbar-small-over {
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+}
+
+.popup-edit .context-toolbar {
+    background-color: #DEBEA4;
+}
+.popup-edit .context-toolbar .x-btn-default-toolbar-small {
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    padding: 4px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+}
+.popup-edit .context-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: black;
+}
+.popup-edit .context-toolbar .x-btn-default-toolbar-small-over {
+    background-color: #FAE3D3;
+    border-color: #FAE3D3;
+}
+
+.popup-edit .custom-grid .toolbarContext_row td {
+    padding-bottom: 39px;
+}
+
+.popup-edit .x-panel-header-default {
+    background-color: transparent;
+}
+.popup-edit .accordion-panel .x-panel-header-default {
+    background-color: #DBDBDB;
+}
+.popup-edit .x-panel-header-text-container-default {
+    color: black;
+}
+
+
+
+.popup-edit .accordion-panel .x-panel-header-default-horizontal .x-tool-after-title {
+    left: 0px !important;
+}
+
+.popup-edit .accordion-panel .x-panel-header-default-horizontal .x-tool-after-title.accordeon-help {
+    left: auto !important;
+    right: 0 !important;
+}
+
+.popup-edit .accordion-panel .x-accordion-hd .x-panel-header-text-container {
+    left: 24px !important;
+    width: 100%;
+}
+.popup-edit .accordion-panel .x-accordion-hd .x-tool-expand-top,
+.popup-edit .accordion-panel .x-accordion-hd .x-tool-expand-bottom {
+    background-image: url(../images/Workspace/arrow_2.png);
+    background-color: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.popup-edit .accordion-panel .x-accordion-hd .x-tool-collapse-top,
+.popup-edit .accordion-panel .x-accordion-hd .x-tool-collapse-bottom {
+    background-image: url(../images/Workspace/arrow.png);
+    background-color: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.popup-edit .accordion-panel .x-grid .x-column-header {
+    background-color: white;
+    border-right-color: #EAEAEA;
+    background-image: none;
+    color: black;
+}
+.popup-edit .accordion-panel .x-grid .x-grid-header-ct {
+    background-color: white;
+    background-image: none;
+}
+.popup-edit .accordion-panel .x-grid .x-grid-cell-inner,
+.popup-edit .accordion-panel .x-grid .x-column-header-inner,
+.popup-edit .accordion-panel .x-grid .x-column-header-inner .x-column-header-text {
+    white-space: normal;
+}
+.popup-edit .accordion-panel .x-grid .x-grid-cell {
+    vertical-align: top;
+}
+.popup-edit .accordion-panel .x-grid .x-column-header-text {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+}
+.popup-edit .accordion-panel .x-grid .x-column-header-over {
+    background-color: #EEEEEE;
+    background-image: none;
+}
+.popup-edit .accordion-panel .x-grid .x-column-header-trigger {
+    background-color: #EEEEEE;
+}
+
+.popup-edit .accordion-panel .x-grid .x-grid-row-focused .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+.popup-edit .accordion-panel .x-grid .x-grid-row-selected .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+.popup-edit .accordion-panel .x-grid .x-grid-row-over .x-grid-td {
+    background-color: #FAE3D3 !important;
+}
+
+.popup-edit .accordion-panel .x-toolbar {
+    background-color: white;
+}
+.popup-edit .accordion-panel .x-toolbar .x-btn-default-toolbar-small {
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    padding: 4px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+}
+.popup-edit .accordion-panel .x-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: black;
+}
+.popup-edit .accordion-panel .x-toolbar .x-btn-default-toolbar-small-over {
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+}

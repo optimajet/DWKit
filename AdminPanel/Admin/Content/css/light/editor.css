@@ -1,0 +1,129 @@
+/*----------------------------------------------------------------------*/
+/* This is the styling of the html container
+/*----------------------------------------------------------------------*/
+
+@import 'http://fonts.googleapis.com/css?family=PT+Sans:regular,bold';
+
+/*----------------------------------------------------------------------*/
+/* Reset
+/*----------------------------------------------------------------------*/
+
+html,body,div,span,applet,object,iframe,input,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:100;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
+}
+*{
+   -webkit-text-size-adjust:none;
+   -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+/*----------------------------------------------------------------------*/
+/* Font Declaration
+/*----------------------------------------------------------------------*/
+
+html{ 
+	font-family:'PT Sans', sans-serif;
+}
+code, pre{
+	font-family:"Courier New", Courier, monospace;
+}
+html, body {
+	margin:0;
+	cursor:text;
+	margin:6px 2px;
+	line-height:18px;
+	font-size:13px;
+	color:#6F6F6F;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+}
+html{
+	margin:0;
+	background-color:#FFFFFF;
+	height:100%;
+	min-height:100%;
+	-webkit-box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+em{
+	font-style:italic;
+}
+strong, b{
+	font-weight:700;
+}
+big{
+	font-size:larger;
+}
+small{
+	font-size:smaller;
+}
+
+::-moz-selection{ background:#bada55; color:#FFFFFF; text-shadow:none; }
+::selection { background:#bada55; color:#FFFFFF; text-shadow:none; }
+
+a { color:#bada55; }
+
+h1, h2, h3, h4, h5, h6{
+	font-weight:700;
+	color:#777;
+}
+h1{
+	font-size:30px;
+	margin:9px 0;
+	line-height:36px;
+}
+h2{
+	font-size:20px;
+	margin:9px 0 7px;
+	line-height:18px;
+}
+h3{
+	font-size:18px;
+	margin:12px 0 6px;
+	line-height:18px;
+}
+h4{
+	font-size:16px;
+	font-weight:100;
+	margin:15px 0 3px;
+}
+h5{
+	font-size:14px;
+	margin:18px 0 2px;
+}
+h6{
+	font-size:14px;
+	font-weight:100;
+	margin:18px 0 2px;
+}
+
+p, ul, ol{
+	margin-top:9px;
+	margin-bottom:9px;
+	line-height:18px;
+	font-size:12px;
+}
+ul, ol{
+	margin-left:18px;
+	list-style-type:square;
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+	margin-bottom:18px;
+	background-image:url(images/paper_02.png);
+}
+table td{
+	border:1px solid;
+	border-color:#DDDDDD #E7E7E7 #DDDDDD #E7E7E7;
+	padding:6px 3px;
+	text-align:center;
+}

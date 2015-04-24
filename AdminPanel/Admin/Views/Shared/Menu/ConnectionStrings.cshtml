@@ -1,0 +1,41 @@
+﻿@using System.Configuration
+@using System.Linq
+
+@{
+    Dictionary<string, string> connections = new Dictionary<string, string>();
+    foreach (ConnectionStringSettings cs in ConfigurationManager.ConnectionStrings)
+    {
+        var c = new System.Data.SqlClient.SqlConnection(cs.ConnectionString); 
+        connections.Add(cs.Name,
+            string.Format("{3}: {0} {4}: {1} {5}: {2}", cs.Name, c.DataSource, c.Database, 
+            Resources.Resource.Key, Resources.Resource.Server, Resources.Resource.Database));
+            
+    }
+
+    var htmlAtt = new Dictionary<string, object>();
+    htmlAtt.Add("style", "width:100%");
+    htmlAtt.Add("onchange", "ConnectionKey_OnChange(this);");
+}
+
+<table>
+    <tr>
+        <td>
+            <label for="CurrentEmployee">@Resources.Resource.Server:</label>
+        </td>
+        <td>
+            @Html.DropDownList("ConnectionKey",
+                connections.Select(item => new SelectListItem()
+                {
+                    Text = item.Value,
+                    Value = item.Key,
+                    Selected = item.Key == Admin.DAL.Settings.ConnectionKey
+                }).ToList(), htmlAtt)
+        </td>
+    </tr>
+</table>
+
+<script>
+    function ConnectionKey_OnChange(sender) {
+        window.location.search = "ConnectionKey=" + sender.value;
+    }
+</script>

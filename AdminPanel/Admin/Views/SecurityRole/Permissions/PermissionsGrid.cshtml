@@ -1,0 +1,49 @@
+﻿@using System.Drawing
+@using System.Web.UI.WebControls
+@using DevExpress.Data
+@using OptimaJet.Security.Objects
+@using Admin.Helpers
+@model Guid
+
+
+@Html.DevExpress().GridView(
+    settings =>
+        {
+            CurrentSettings.LoadRelatedGridViewSettings(settings);
+            settings.KeyFieldName = "SecurityPermissionId";
+            settings.Name = "PermissionGrid";
+            settings.CallbackRouteValues = new {Controller = "SecurityRole", Action = "PermissionPartial", ObjectId = Model};
+            settings.CommandColumn.ShowSelectCheckbox = true;
+            settings.CommandColumn.Width = new Unit("70px");
+            settings.HtmlRowPrepared = (sender, e) => {
+                    if (e.RowType != GridViewRowType.Data) return;
+                
+                    byte accessType = Convert.ToByte(e.GetValue("AccessType"));
+                    if (accessType == 1) 
+                        e.Row.BackColor = Color.FromArgb(255, 144, 238, 144);
+                    if (accessType == 0) 
+                        e.Row.BackColor = Color.FromArgb(255, 238, 144, 144);
+                };
+            settings.Columns.Add(column =>
+                                     {
+                                         column.Caption = Resources.Resource.Group;
+                                         column.FieldName = "SecurityPermission.Group.Name";
+                                         column.SortOrder = ColumnSortOrder.Ascending;
+                                         column.GroupIndex = 0;
+                                     });
+            settings.Columns.Add("SecurityPermission.Name", Resources.Resource.Permissions).SortAscending();
+            settings.Columns.Add(column =>
+                                     {
+                                         column.FieldName = "AccessType";
+                                         column.Caption = Resources.Resource.Type;
+                                         column.Width = new Unit("300px");
+                                         column.SetDataItemTemplateContent(e =>
+                                                                           ViewContext.Writer.Write(
+                                                                               "<input type='radio' value='1' disabled " +
+                                                                               ((byte) DataBinder.Eval(e.DataItem, "AccessType") == 1 ? "checked" : "") +
+                                                                               "/> <span>" + Resources.Resource.Access + "</span> " +
+                                                                               "<input type='radio' value='0' disabled " + ((byte) DataBinder.Eval(e.DataItem, "AccessType") == 0 ? "checked" : "") + "/> <span>" + Resources.Resource.Denied + "</span> " +
+                                                                               "<input type='radio' value='255' disabled " + ((byte) DataBinder.Eval(e.DataItem, "AccessType") == 255 ? "checked" : "") + "/> <span>" + Resources.Resource.Undefined + "</span>"
+                                                                               ));
+                                     });
+        }).Bind(SecurityRoleHelper.GetPermissionByRoleId(Model, true)).GetHtml()

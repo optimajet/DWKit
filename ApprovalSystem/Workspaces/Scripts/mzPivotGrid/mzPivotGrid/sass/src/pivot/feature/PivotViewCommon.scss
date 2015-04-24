@@ -1,0 +1,131 @@
+/**
+ * Common classes
+ * 
+ */
+
+.#{$prefix}pivot-group-header {
+    background: $pivot-group-header-background-color !important;
+
+    border-width: $pivot-group-header-border-width !important;
+    border-style: $pivot-group-header-border-style !important;
+    border-color: $pivot-group-header-border-color !important;
+    white-space: nowrap;
+}
+
+.#{$prefix}pivot-group-header-collapsible {
+    cursor: $pivot-group-header-cursor;
+}
+
+.#{$prefix}pivot-group-header-collapsible {
+    .#{$prefix}pivot-group-title {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-image: theme-background-image('group-collapse');
+        padding: $pivot-group-icon-padding;
+    }
+}
+
+.#{$prefix}rtl.#{$prefix}grid-view .#{$prefix}pivot-group-header-collapsible .#{$prefix}pivot-group-title {
+    background-position: right center;
+    padding: rtl($pivot-group-icon-padding);
+}
+
+.#{$prefix}pivot-group-title {
+    color: $pivot-group-title-color;
+    font: $pivot-group-title-font;
+}
+
+.#{$prefix}pivot-group-header-collapsed {
+    .#{$prefix}pivot-group-title {
+        background-image: theme-background-image('group-expand');
+    }
+}
+
+.#{$prefix}grid-group-total { 
+
+    .#{$prefix}grid-cell-inner, 
+    .#{$prefix}column-header-inner {
+        color: $pivot-group-total-color;
+    }
+    
+    .#{$prefix}grid-cell {
+        font: $pivot-group-title-font;
+        border-color: $grid-row-cell-border-color;
+        border-style: $grid-row-cell-border-style;
+    }
+
+    .#{$prefix}pivot-group-header {
+        background-color: $pivot-group-total-bgcolor;
+    }
+}
+
+.#{$prefix}grid-grand-total {
+
+    .#{$prefix}grid-cell-inner, 
+    .#{$prefix}column-header-inner {
+        color: $pivot-grand-total-color;
+    }
+
+    .#{$prefix}grid-cell {
+        font: $pivot-group-title-font;
+        border-color: $grid-row-cell-border-color;
+        border-style: $grid-row-cell-border-style;
+    }
+    
+    .#{$prefix}pivot-group-header {
+        background-color: $pivot-grand-total-bgcolor;
+    }
+}
+
+/**
+ * Outline view classes
+ * 
+ */
+.#{$prefix}grid-with-row-lines {
+    .#{$prefix}pivot-outline-cell-hidden{
+        border-bottom-width: 0px;
+    }
+}
+.#{$prefix}grid-with-col-lines {
+    .#{$prefix}pivot-outline-cell-hidden{
+        border-right-width: 0px;
+    }
+}
+.#{$prefix}pivot-outline-cell-previous-expanded{
+    border-top-width: 1px !important;
+}
+
+/**
+ * Compact view classes
+ *
+ */
+ 
+.#{$prefix}pivot-group-header-compact {
+    border: none !important;
+    background: transparent !important;
+    border-width: 0 !important;
+    
+    .#{$prefix}grid-cell-inner {
+        background: $pivot-group-header-background-color !important;
+
+        border-width: $pivot-group-header-border-width !important;
+        border-style: $pivot-group-header-border-style !important;
+        border-color: $pivot-group-header-border-color !important;
+    }
+}
+
+
+/**
+ * Column grouping
+ */
+.#{$prefix}grid-row-expander {
+    width: $row-expander-width;
+    height: $row-expander-height;
+    cursor: $row-expander-cursor;
+    background-image: theme-background-image('group-collapse');
+
+    .#{$prefix}grid-row-collapsed & {
+        background-image: theme-background-image('group-expand');
+    }
+}

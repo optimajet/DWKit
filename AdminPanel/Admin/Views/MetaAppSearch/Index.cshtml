@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Поиск";
+}
+
+@model List<Admin.DAL.AppSettings>
+
+<h2>@ViewBag.Title</h2>
+<br/>
+
+<div id='resultSearchToolbar'></div>
+<div class="toolbar">
+    <a class="toolbar-search" href="javascript:RefreshAllIndex()">Обновить индексы у всех подключенных систем</a>
+</div>
+
+
+@using (Html.BeginForm("Save", "MetaAppSearch", FormMethod.Post))
+{
+    <fieldset>
+        <label>Настройки для поиска</label>
+        @foreach(var item in Model.OrderByDescending(c=>c.ParamName))
+        {
+            <section>
+                <label for="@item.Name">@item.ParamName</label>
+                <div>
+                    <input id="@item.Name" name="@item.Name" value="@item.Value"/>
+                </div>
+            </section> 
+        }
+    </fieldset>    
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+
+@Html.Partial("Partials/MainToolbar", new Admin.Helpers.ControlSetting.ToolBarSetting
+                                                    {
+                                                        ShowIsDeletedButton = false,
+                                                        Buttons = new List<string>()
+                                                        {
+                                                            "<a class='toolbar-search' href='javascript:Refresh()'>Обновить</a> | ",
+                                                            "<a class='toolbar-search' href='javascript:RefreshIndex()'>Обновить индекс</a>"
+                                                        }
+                                                    })
+@Html.Partial("MainGrid")
+<br /><br />
+@Html.Partial("Search")
+
+
+<script>
+    function Refresh() {
+        MainGrid.Refresh();
+        MainGrid.UnselectRows();
+    }
+
+    function RefreshAllIndex() {
+        var data = new Array();
+
+        $('#resultSearchToolbar')[0].innerHTML = '';
+        $('#resultSearchToolbar').load('@Url.Action("RefreshAllIndex")', data,
+            function () {
+            });
+    }
+
+    function OnRefreshIndex(selectedValues) {
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data.push({ name: 'checkedRecords', value: selectedValues[i] });
+        }
+
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("RefreshIndex")', data,
+        function () {
+            MainGrid.Refresh();
+            MainGrid.UnselectRows();
+        });
+    }
+
+    function RefreshIndex() {
+        if (MainGrid.GetSelectedRowCount() < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+        MainGrid.GetSelectedFieldValues("Id", OnRefreshIndex);
+    }
+</script>

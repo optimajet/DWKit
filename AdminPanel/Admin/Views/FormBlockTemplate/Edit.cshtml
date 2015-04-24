@@ -1,0 +1,77 @@
+﻿@model Admin.Models.FormBlockTemplateModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+@using (Html.BeginForm("Edit", "FormBlockTemplate", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Template</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Comment)
+            <div>
+                @Html.TextAreaFor(model => model.Comment) 
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Params)
+            <div>
+                @Html.TextAreaFor(model => model.Params)
+                @Html.ValidationMessageFor(model => model.Params)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Source)
+            <div>
+                @Html.TextAreaFor(model => model.Source, new {@rows = 12})
+                @Html.ValidationMessageFor(model => model.Source)
+            </div>
+        </section>
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script language="Javascript" type="text/javascript" src="@Url.Content("~/Content/edit_area/edit_area_full.js")"> </script>
+<script language="Javascript" type="text/javascript">
+    editAreaLoader.init({
+        id: "Source",
+        start_highlight: true,
+        font_size: "8",
+        font_family: "verdana, monospace",
+        allow_resize: "both",
+        allow_toggle: false,
+        language: "en",
+        syntax: "js",
+        load_callback: "my_load",
+        save_callback: "my_save",
+        plugins: "charmap",
+        charmap_default: "arrows",
+        word_wrap: false
+    });
+</script>

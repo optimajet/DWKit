@@ -1,0 +1,150 @@
+﻿
+@using OptimaJet.Meta.Objects
+@model Admin.Models.MetadataEntityAttributeModel
+
+@{
+    ViewBag.Title = Model.EntityCaption + ". " +
+                    (Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Caption));
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Edit", new {Id = Model.EntityId})
+</div>
+@using (Html.BeginForm("EditAttribute", "MetadataEntity", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.EntityId)
+        @Html.HiddenFor(model => model.EntityCaption)
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Attribute</label>
+        <section>
+            @Html.LabelFor(model => model.EntityCaption)
+            <div>
+                @Html.DisplayFor(model => model.EntityCaption)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Caption, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Caption)
+                @Html.ValidationMessageFor(model => model.Caption)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.ColumnName, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.ColumnName)
+                @Html.ValidationMessageFor(model => model.ColumnName)
+            </div>
+        </section>
+        <section style="display: none">
+            @Html.LabelFor(model => model.CustomCaption)
+            <div>
+                @Html.EditorFor(model => model.CustomCaption)
+                @Html.ValidationMessageFor(model => model.CustomCaption)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Purpose)
+            <div>
+                @Html.DropDownListFor(model => model.Purpose, new SelectList(Admin.Models.MetadataEntityAttributeModel.GetAttributePurpose(), "Id", "Name"))
+            </div>
+        </section>
+        <section>
+            <label>@Resources.Resource.Parameters</label>
+            <div>
+                <table>
+                    <tr style="text-align: center">
+                        <td>@Html.LabelFor(model => model.IsNullable)</td>
+                        <td>@Html.LabelFor(model => model.IsSystem)</td>
+                        <td>@Html.LabelFor(model => model.IsVirtual)</td>
+                        <td>@Html.LabelFor(model => model.IsCalculated)</td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td>@Html.CheckBoxFor(model => model.IsNullable)</td>
+                        <td>@Html.CheckBoxFor(model => model.IsSystem)</td>
+                        <td>@Html.CheckBoxFor(model => model.IsVirtual)</td>
+                        <td>@Html.CheckBoxFor(model => model.IsCalculated)</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        @*<section>
+            @Html.LabelFor(model => model.IsSystem)
+            <div>
+                @Html.CheckBoxFor(model => model.IsSystem)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsVirtual)
+            <div>
+                @Html.CheckBoxFor(model => model.IsVirtual)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsCalculated)
+            <div>
+                @Html.CheckBoxFor(model => model.IsCalculated)
+            </div>
+        </section>*@
+        <section>
+            @Html.LabelFor(model => model.DefaultValue)
+            <div>
+                @Html.EditorFor(model => model.DefaultValue)
+                @Html.ValidationMessageFor(model => model.DefaultValue)
+            </div>
+        </section>
+        <section style="display: none">
+            @Html.LabelFor(model => model.Comment)
+            <div>
+                @Html.TextAreaFor(model => model.Comment)
+            </div>
+        </section>
+
+    </fieldset>
+    <fieldset>
+        <label>@Resources.Resource.Type</label>
+        <section>
+            @Html.LabelFor(model => model.TypeId, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.HiddenFor(model => model.TypeId)
+                @Html.DisplayFor(model => model.AttributeTypeName)
+            </div>
+        </section>
+        @switch (Model.TypeId)
+        {
+            case 0:
+                @Html.Partial("AttributeTypes/ValueAttribute", @Model)
+                ;
+                break;
+            case 1:
+                @Html.Partial("AttributeTypes/ReferenceAttribute", @Model)
+                ;
+                break;
+        }
+        @if (Model.TypeId == 0)
+        {
+            <section>
+                @Html.LabelFor(model => model.ListId)
+                <div>
+                    @Html.HiddenFor(model => model.ListId)
+                    @Html.EditorFor(model => model.ListId)
+                    @Html.ValidationMessageFor(model => model.ListId)
+                </div>
+            </section>
+        }
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>

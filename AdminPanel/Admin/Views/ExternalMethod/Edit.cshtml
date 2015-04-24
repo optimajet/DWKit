@@ -1,0 +1,200 @@
+﻿@model Admin.Models.ExternalMethodModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<script src="@Url.Content("~/Scripts/ace.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/mode-csharp.js")" type="text/javascript"></script>
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<br />
+
+<div id='result'></div>
+
+@using (Html.BeginForm("Edit", "ExternalMethod", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Function</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.MethodName, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.MethodName)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.ClassName, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.ClassName)
+            </div>
+        </section>
+        @*<section>
+            @Html.LabelFor(model => model.AssemblyName)
+            <div>
+                @Html.DisplayFor(model => model.AssemblyName)
+                @Html.HiddenFor(model => model.AssemblyName)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.ReturnType)
+            <div>
+                @Html.DisplayFor(model => model.ReturnType)
+                @Html.HiddenFor(model => model.ReturnType)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Type)
+            <div>
+                @Html.DisplayFor(model => model.Type)
+                @Html.HiddenFor(model => model.Type)
+            </div>
+        </section>*@
+     
+        <section>
+            @Html.LabelFor(model => model.UsingText,
+            @<img src="@Url.Content("~/Images/Icons/autofill.png")" width="24px" onclick=" GetDefaultUsings() " title="@Resources.Resource.LoadParams"></img> 
+            )
+            <div>
+                @Html.TextAreaFor(model => model.UsingText, new { rows = 6 })
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.CodeText,
+            @<button type="button" onclick="CodeCompile()">@Resources.Resource.Compile</button>)
+            <div>
+                <div style="text-align:right">
+                    <button type="button" onclick="SetFilterTemplate()">Filter</button>
+                    <button type="button" onclick="SetViewHandlerTemplate()">ViewHandler</button>
+                    <button type="button" onclick="SetFormHandlerTemplate()">FormHandler</button>
+                </div>
+                @Html.TextAreaFor(model => model.CodeText, new { @rows = 30 })
+                @Html.ValidationMessageFor(model => model.CodeText)
+            </div>
+        </section>
+    </fieldset>
+    
+    @*<h2>Параметры</h2>
+    @Html.Partial("ParamsGrid", Model.Id)*@
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script language="Javascript" type="text/javascript" src="@Url.Content("~/Content/edit_area/edit_area_full.js")"> </script>
+<script language="Javascript" type="text/javascript">
+    editAreaLoader.init({
+        id: "CodeText",
+        start_highlight: true,
+        font_size: "8",
+        font_family: "verdana, monospace",
+        allow_resize: "both",
+        allow_toggle: false,
+        language: "en",
+        syntax: "cpp",
+        load_callback: "my_load",
+        save_callback: "my_save",
+        plugins: "charmap",
+        charmap_default: "arrows",
+        word_wrap: true
+    });
+
+    function GetDefaultUsings()
+    {
+        $('#UsingText')[0].value =
+            'System;\r\n' +
+            'System.Linq;\r\n' +
+            'System.Collections.Generic;\r\n' +
+            'OptimaJet.DynamicEntities.DataSource;\r\n' +
+            'OptimaJet.DynamicEntities.ExternalMethods;\r\n' +
+            'OptimaJet.DynamicEntities.Model;\r\n' +
+            'OptimaJet.DynamicEntities.Query;\r\n' +
+            'OptimaJet.DynamicEntities.View;';
+    }
+
+    function SetFilterTemplate()
+    {
+        var name = $('#MethodName').val();
+        var content = "public static ExternalMethodCallResult " + name + "(EntityMetadata metadata, Dictionary<string, string> parameters, string extra, ref FilterCriteriaSet filter)\r\n" +
+            "{\r\n" +
+            "\treturn ExternalMethodCallResult.SucessResult;\r\n" +
+            "}";
+        
+        editAreaLoader.setValue("CodeText", content);
+    }
+
+    function SetViewHandlerTemplate()
+    {
+        var name = $('#MethodName').val();
+        var content = "public static ExternalMethodCallResult " + name + "(EntityMetadata metadata,\r\n" +
+            "   Dictionary<string, string> parameters,\r\n" +
+            "   IEnumerable<DynamicEntity> entities)\r\n" +
+            "{\r\n" +
+            "\treturn ExternalMethodCallResult.SucessResult;\r\n" +
+            "}";
+
+        editAreaLoader.setValue("CodeText", content);
+    }
+
+    function SetFormHandlerTemplate()
+    {
+        var name = $('#MethodName').val();
+        var content = "public static ExternalMethodCallResult " + name + "(string formName, string id,\r\n" +
+        "   Dictionary<string, string> parameters,\r\n" +
+        "   Dictionary<string, string> request,\r\n" +
+        "   ref VisibilitySettings visibility,\r\n" +
+        "   ref Dictionary<string, string> formparameters)\r\n" +
+            "{\r\n" +
+            "\treturn ExternalMethodCallResult.SucessResult;\r\n" +
+            "}";
+
+        editAreaLoader.setValue("CodeText", content);
+    }
+
+    function CodeCompile() {
+        $('#result')[0].innerHTML = '';
+
+        var data = new Array();
+        var className = $('#ClassName').val();
+        var method = $('#MethodName').val();
+        data.push({ name: 'class', value: className });
+        data.push({ name: 'method', value: method });
+        data.push({ name: 'using', value: encodeURIComponent($('#UsingText').val()) });
+        data.push({ name: 'code', value: encodeURIComponent(editAreaLoader.getValue("CodeText")) });
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("CompileText", "ExternalMethod")",
+            data: data,
+        success: function(msg) {
+            
+            if (msg.Success) {
+                $('#result').append("<div id='CodeCompile' class='alert success' onclick='$(this).hide();'>@Resources.Resource.CompileSuccess</div>");
+            } else {
+                $('#result').append("<div id='CodeCompile' class='alert warning'>"+ msg.Message + "</div>");
+            }
+        }
+    });
+    }
+</script>

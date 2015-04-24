@@ -1,0 +1,10 @@
+﻿<link rel="stylesheet" href="@Url.Content("~/Content/sencha-touch.css")">
+<script src="@Url.Content("~/Scripts/sencha-touch-all.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/optimajet-utils.js")"></script>
+
+<script>@foreach(var f in Directum.ExternalMethods.Folders.GetRootFolderForCurrentUser())
+    {
+        @Html.Raw(string.Format("optimajet.Settings.Folder{0} = '{1}';", f.Key, f.Value));
+    }
+</script>

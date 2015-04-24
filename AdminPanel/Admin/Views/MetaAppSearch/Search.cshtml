@@ -1,0 +1,47 @@
+﻿Строка поиска: <input id="query" style="width:400px" onkeyup="QueryOnKeyUp();" /> <button onclick="OnSearch(0)" type="button">Найти</button>
+<div id="searchResult"></div>
+
+<style>
+    div#searchResult{
+	    background:#FBFBFB;
+	    border:1px solid #CCC;
+	    margin-bottom:10px;
+	    padding:10px;
+	    width:98%;
+	    overflow: auto;
+    }
+
+    div.SearchItem {
+        margin-bottom: 20px;        
+    }
+
+    div.ItemCaption {
+       font-size:125%;       
+    }
+
+    div.ItemBody {
+       margin-top:10px;
+    }
+    
+
+</style>
+
+<script>
+    function QueryOnKeyUp() {
+        if (event.keyCode == 13)
+            OnSearch(0);
+    }
+    
+    function OnSearch(page) {
+
+        var query = $('#query');
+        var data = new Array();
+        data.push({ name: 'Query', value: query[0].value });
+        data.push({ name: 'page', value: page });
+        
+        $('#searchResult')[0].innerHTML = 'Поиск...';
+        $('#searchResult').load('@Url.Action("Search")', data,
+            function () {
+            });
+    }
+</script>

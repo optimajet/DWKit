@@ -1,0 +1,133 @@
+﻿@using OptimaJet.Localization;
+@{
+    var user = OptimaJet.Security.Providers.SecurityCache.CurrentUser;
+    string userName = "Unknown";
+    if (user != null)
+    {
+        userName = user.Name;
+    }
+
+    var division = OptimaJet.BJet.CommonSettings.CurrentDivision;
+    var currentImp = OptimaJet.BJet.CommonSettings.ImpersonationInfo;
+}
+
+@functions
+{
+    private string GetBudgetItemsUrl(string type)
+    {
+        var json = String.Format("{{\"type\":\"{0}\"}}", type);
+        var extra = HttpUtility.UrlEncode(json);
+        var urlFormat = "#WS/BudgetItem/GetContent?extra={0}";
+        var result = Url.Content(String.Format(urlFormat, extra));
+
+        return result;
+    }
+}
+
+<div class="page-sidebar" id="main-menu">
+    <!-- BEGIN MINI-PROFILE -->
+    <div class="user-info-wrapper">
+        @*<div class="profile-wrapper">
+                <img src="@Url.Content("~/Content/assets/img/profiles/avatar.jpg")" alt="" data-src="@Url.Content("~/Content/assets/img/profiles/avatar.jpg")" data-src-retina="@Url.Content("~/Content/assets/img/profiles/avatar2x.jpg")" width="69" height="69" />
+            </div>*@
+        <div class="user-info">
+            <div class="username">@(currentImp == null ? userName : currentImp.Name)</div>
+            <div class="status">@(division != null ? division.ITArea : null)</div>
+            <div class="status">@(division != null ? division.ITFunction : null)</div>
+            @if (currentImp != null)
+            {
+                <div class="status"><a href="/"><div class="status-icon red"></div>@LocalizationProvider.Provider.Get("switch to") @userName</a></div>
+            }
+            
+            <table style="font-size: 12px;">
+                <tr><td width="100px;"><div class="status-icon green"></div>@LocalizationProvider.Provider.Correct("menu", "Budget"):</td><td id="ProfileBudgetSum" style="text-align: right;">?</td></tr>
+                <tr><td><div class="status-icon blue"></div>@LocalizationProvider.Provider.Correct("menu", "Prev Version"):</td><td id="ProfilePrevVersionSum" style="text-align: right;">?</td></tr>
+                <tr><td><div class="status-icon blue"></div>@LocalizationProvider.Provider.Correct("menu", "Prev Budget"):</td><td id="ProfilePrevBudgetSum" style="text-align: right;">?</td></tr>
+            </table>
+
+        </div>
+    </div>
+    <!-- END MINI-PROFILE -->
+
+        <!-- BEGIN SIDEBAR MENU -->
+        @*<ul>
+                <li class="start active "> <a href="@Url.Content("~/")"> <i class="icon-custom-home"></i> <span class="title">@LocalizationProvider.Provider.Get("sidebar:Home")</span></a> </li>
+            </ul>*@
+        <div class="side-bar-widgets">
+            <p class="menu-title">@LocalizationProvider.Provider.Get("Inbox")<span class="pull-right"><a href="javascript:UpdateInboxCount();"><i class="fa fa-refresh" title="@LocalizationProvider.Provider.Get("Refresh")"></i></a></span></p>
+            <ul class="folders">
+                <li><a href="@GetBudgetItemsUrl("inbox")"><div class="status-icon green"></div>@LocalizationProvider.Provider.Correct("menu", "Budget Items") <span id="FolderInboxBudetItems" class="badge badge-important pull-right">?</span></a></li>
+                <li><a href="#WS/Invoice/GetContent"><div class="status-icon red"></div>@LocalizationProvider.Provider.Correct("menu", "Invoices")</a></li>
+                <li><a href="#WS/Contract/GetContent"><div class="status-icon blue"></div>@LocalizationProvider.Provider.Correct("menu", "Contracts")</a></li>
+            </ul>
+        </div>
+        <ul>
+            <li>
+                <a>
+                    <i class="fa fa-flag"></i>
+                    <span class="title">@LocalizationProvider.Provider.Get("My documents")</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="@GetBudgetItemsUrl("my")"><span class=" title">@LocalizationProvider.Provider.Correct("menu", "Budget Items")</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-folder-open"></i>
+                    <span class="title">@LocalizationProvider.Provider.Get("Processed")</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="@GetBudgetItemsUrl("processed")"><span class=" title">@LocalizationProvider.Provider.Correct("menu", "Budget Items")</span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+        <p class="menu-title">@LocalizationProvider.Provider.Get("Menu")</p>
+        @Html.Partial("Menu/MainMenu")
+
+        <a href="#" class="scrollup">@LocalizationProvider.Provider.Get("Scroll")</a>
+        <div class="clearfix"></div>
+        <!-- END SIDEBAR MENU -->
+
+        <div class="footer-widget" style="padding-bottom: 30px;position:inherit">
+            <div class="pull-right">
+                <a href="/Account/LogOn"><i class="fa fa-power-off"></i></a>
+            </div>
+        </div>
+    </div>
+<script>
+    function UpdateInboxCount() {
+        var waitSymbol = '?';
+        $('#FolderInboxBudetItems')[0].innerHTML = waitSymbol;
+        $('#ProfileBudgetSum')[0].innerHTML = waitSymbol;
+        $('#ProfilePrevVersionSum')[0].innerHTML = waitSymbol;
+        $('#ProfilePrevBudgetSum')[0].innerHTML = waitSymbol;
+
+        setTimeout(function () {
+            var info = optimajet.GetBusinessObject('InfoServiceInboxCount', undefined);
+            if (info != undefined) {
+                if (info.budgetitemcount != undefined) {
+                    $('#FolderInboxBudetItems')[0].innerHTML = info.budgetitemcount;
+
+                    $('#ProfileBudgetSum')[0].innerHTML = optimajet.FormatNumber(info.budgetsum);
+                    $('#ProfilePrevVersionSum')[0].innerHTML = optimajet.FormatNumber(info.prevversionsum);
+                    $('#ProfilePrevBudgetSum')[0].innerHTML = optimajet.FormatNumber(info.prevbudgetsum);
+
+                    if ($('#ProfilePrevVersionSum')[0].innerHTML == "0")
+                        $('#ProfilePrevVersionSum')[0].innerHTML = "-";
+
+                    if ($('#ProfilePrevBudgetSum')[0].innerHTML == "0")
+                        $('#ProfilePrevBudgetSum')[0].innerHTML = "-";
+                }
+            }
+        }, 100);
+    }
+</script>

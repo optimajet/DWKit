@@ -1,0 +1,65 @@
+﻿@model Guid
+<div id='usersResult'></div>
+
+<div class="toolbar">
+    <a class="toolbar-add" href="javascript:UserGridAdd();">@Resources.Resource.Add</a>
+    <a class="toolbar-delete" href="javascript:UserGridDeleteCheckedRows();">@Resources.Resource.Delete</a>
+</div>
+
+@Html.Partial("Users/UsersInGroupGrid", Model)
+@Html.Partial("Users/Popup")
+
+<script>
+    function UserGridDeleteCheckedRows() {
+        if (UserGrid.GetSelectedRowCount() < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+        UserGrid.GetSelectedFieldValues("Id", OnUserGridDeleteCheckedRows);
+    }
+
+    function OnUserGridDeleteCheckedRows(selectedValues) {
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data[data.length] = { name: 'checkedRecords', value: selectedValues[i] };
+        }
+        data[data.length] = { name: 'objectId', value: '@Model' };
+
+        $('#usersResult').innerHTML = '';
+        $('#usersResult').load('@Url.Action("ExcludeUserRows")', data,
+            function() {
+                UserGrid.Refresh();
+            });
+    }
+
+    function UserGridAdd() {
+        userPopupControl.Show();
+    }
+
+    function OnUserPopupGridDeleteCheckedRows(selectedValues) {
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data[data.length] = { name: 'checkedRecords', value: selectedValues[i] };
+        }
+        data[data.length] = { name: 'objectId', value: '@Model' };
+
+        $('#usersResult').innerHTML = '';
+        $('#usersResult').load('@Url.Action("IncludeUserRows")', data,
+            function() {
+                UserGrid.Refresh();
+                userPopupGridControl.UnselectRows();
+            });
+    }
+
+    function userPopupControlSelect() {
+        if (userPopupGridControl.GetSelectedRowCount() > 0) {
+            userPopupGridControl.GetSelectedFieldValues("Id", OnUserPopupGridDeleteCheckedRows);
+        }
+
+        userPopupControl.Hide();
+    }
+
+    function userPopupControlCancel() {
+        userPopupControl.Hide();
+    }
+</script>

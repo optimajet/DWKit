@@ -1,0 +1,23 @@
+﻿@model List<string>
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        Admin.Helpers.CurrentSettings.LoadRelatedGridViewSettings(settings);
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.KeyFieldName = "FileName";
+        settings.Name = "AchiveList";
+        settings.CallbackRouteValues = new { Controller = "EventsLog", Action = "AchiveListPartial" };
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Архив";
+            column.FieldName = "FileName";
+            column.SetDataItemTemplateContent(
+                c => ViewContext.Writer.Write(
+                    "<a href='" + Url.Action("DownloadArchive") + "/" + DataBinder.Eval(c.DataItem, "FileName")
+                    + "'>" + DataBinder.Eval(c.DataItem, "FileName") + "</a>"));
+            column.SortDescending();
+        });
+        
+    }).Bind(Model.Select(c=> new {FileName = c}).ToArray()).GetHtml()

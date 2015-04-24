@@ -1,0 +1,36 @@
+﻿@model Admin.Models.MetadataEntityAttributeModel
+ 
+<section>
+    @Html.LabelFor(model => model.ReferencedEntityId, @<span class="required">&nbsp;</span>)
+    <div>
+        @Html.HiddenFor(model => model.ReferencedEntityId)
+        @Html.EditorFor(model => model.ReferencedEntityId/*, new {ChildComboBox = "DisplayedAttributeId"}*/)
+        @Html.ValidationMessageFor(model => model.ReferencedEntityId)
+    </div>
+</section>
+<section>
+    <label>@Resources.Resource.Parameters</label>
+    <div>
+    <table>
+        <tr style="text-align:center">
+            <td>@Html.LabelFor(model => model.IsCreateConstraint)</td>
+            <td>@Html.LabelFor(model => model.IsUpdateCascade)</td>
+            <td>@Html.LabelFor(model => model.IsDeleteCascade)</td>
+        </tr>
+        <tr style="text-align:center">
+            <td>
+                @Html.CheckBoxFor(model => model.IsCreateConstraint)
+                @Html.ValidationMessageFor(model => model.IsCreateConstraint)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.IsUpdateCascade)
+                @Html.ValidationMessageFor(model => model.IsUpdateCascade)
+            </td>
+            <td>
+                @Html.CheckBoxFor(model => model.IsDeleteCascade)
+                @Html.ValidationMessageFor(model => model.IsDeleteCascade)
+            </td>
+        </tr>
+    </table>
+        </div>
+</section>

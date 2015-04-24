@@ -1,0 +1,25 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@model Guid
+@Html.DevExpress().GridView(
+    settings =>
+        {
+            CurrentSettings.LoadRelatedGridViewSettings(settings);
+            settings.Name = "AttributeGrid";
+            settings.CallbackRouteValues = new {Controller = "MetadataEntity", Action = "AttributeGridPartial", objectId = Model};
+            settings.CommandColumn.ClearFilterButton.Visible = true;
+            settings.CommandColumn.ShowSelectCheckbox = true;
+            settings.Columns.Add(column =>
+                                     {
+                                         column.Caption = Resources.Resource.Name;
+                                         column.FieldName = "Caption";
+                                         column.SortAscending();
+                                         column.SetDataItemTemplateContent(
+                                             c => ViewContext.Writer.Write(
+                                                 "<a href='" + Url.Action("EditAttribute") + "/" + DataBinder.Eval(c.DataItem, "Id")
+                                                 + "'>" + DataBinder.Eval(c.DataItem, "Caption") + "</a>"));
+                                     });
+            settings.Columns.Add("ColumnName", Resources.Resource.ColumnName);
+            settings.Columns.Add("IsNullable", "IsNullable");
+            settings.Columns.Add("IsSystem", Resources.Resource.System, MVCxGridViewColumnType.CheckBox);
+        }).Bind(MetadataEntityHelper.GetAttributesByEntityId(Model)).GetHtml()

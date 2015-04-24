@@ -1,0 +1,163 @@
+﻿/*Main menu*/
+.main_menu_main_toolbar {
+	background-color: #157fcc;
+	width: 100%;
+    height : 40px;
+}
+#ChildMainToolbar {
+    background-color: #515151;
+    width: 100%;
+}
+
+.main_menu_main_toolbar_home {
+    float: left;
+    margin: 8px 15px;
+}
+.main_menu_main_toolbar_notifications {
+    float: right;
+    margin: 8px 15px;
+}
+.main_menu_main_toolbar_notifications a {
+    padding: 4px 15px 0px 15px;
+    border-left: 1px solid #3B3B3B;
+    color:white;
+}
+
+/* ParentMenu */
+.mainMenu_parentitem {
+    height: 40px;
+    padding: 10px 15px;
+}
+.main_menu_main_toolbar .x-unselectable {
+    cursor: pointer;
+}
+.mainMenu_parentitem a {
+    color: white;
+    text-decoration: none;
+    font-family: Tahoma, Arial;
+    font-size: 10pt;
+}
+.mainMenu_parentitem a:visited {
+    color: white;
+}
+.mainMenu_parentitem_active {
+    background-color: #515151;
+}
+.mainMenu_parentitem_passive {
+
+}
+
+/* ChildMenu */
+.mainMenu_childitem {
+    height: 40px;
+    padding: 12px 15px;
+}
+.main_menu_childmain_toolbar .x-unselectable {
+    cursor: pointer;
+}
+.mainMenu_childitem a {
+    padding: 5px;
+    color: white;
+    background-color: #515151;
+}
+.mainMenu_childitem_active a {
+    color: black;
+    background-color: white;
+}
+.mainMenu_childitem_passive a {
+
+}
+
+
+/*
+.mainMenu_parentitem-center
+{
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    font-family: Tahoma;
+    font-size: 8pt;
+    font-weight: bold;
+    padding-top: 5px;
+   
+}
+
+a.mainMenu_parentitem-center
+{
+    padding-top: 15px;   
+}
+
+.mainMenu_parentitem-inner 
+{
+     
+}
+.mainMenu_parentitem-icon {
+    
+}
+
+.mainMenu_childitem
+{
+   padding-left: 5px;
+   color: #006BBD;
+}
+
+.mainMenu_childitem-center
+{
+      white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    font-family: Tahoma;
+    font-size: 8pt;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+
+
+
+
+.mainMenu_childitem-inner
+{
+    
+}
+
+.workspace_main_menu_submenu {
+     padding-left: 5px;
+}
+
+.workspace_main_menu_submenu-center {
+     white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    font-family: Tahoma;
+    font-size: 8pt;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+
+.workspace_main_menu_submenu-inner {
+    
+}
+
+.workspace_main_menu_submenu_child {
+   
+}
+
+.workspace_main_menu_submenu_child span {
+   color:  #006BBD;
+   font-size: 8pt;
+}*/
+
+.main_menu .user-name {
+    color: white;
+    padding-left: 15px;
+}
+
+.main_menu .user-logo {
+    position: relative;
+    top: 2px;
+}

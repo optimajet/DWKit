@@ -1,0 +1,12 @@
+﻿@using Admin.Helpers.ControlSetting
+
+@{
+    ViewBag.Title = Resources.Resource.View;
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting
+                                                    {
+                                                        ShowIsDeletedButton = true
+                                                    })
+@Html.Partial("MainGrid", false)

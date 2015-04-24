@@ -1,0 +1,15 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta
+@using OptimaJet.Meta.Objects
+@model object
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        CurrentSettings.LoadComboBoxSettings(settings, ViewData, Url.Action("Edit", "ExternalMethod"));
+        settings.CallbackRouteValues = new { Controller = "ExternalMethod", Action = "EditorCombox", PropertyName = ViewData.ModelMetadata.PropertyName, IsNullableValueType = ViewData.ModelMetadata.IsNullableValueType };
+        settings.Properties.Columns.Add("Name", Resources.Resource.Name);
+        settings.Properties.Columns.Add("ClassName", Resources.Resource.Class);
+        settings.Properties.Columns.Add("MethodName", Resources.Resource.Method);
+    }
+).BindList(ExternalMethodHelper.GetAll()).Bind(Model).GetHtml()

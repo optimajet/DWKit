@@ -1,0 +1,62 @@
+﻿@using Admin.Controllers
+
+@model Admin.Models.MetaReportModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? "Создание объекта" : ("Редактирование объекта " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<br />
+
+@using (Html.BeginForm("Edit", "MetaReport", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>Отчет</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.QueryFormedReport)
+            <div>
+                @Html.TextAreaFor(model => model.QueryFormedReport)
+                @Html.ValidationMessageFor(model => model.QueryFormedReport)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.QuerySelect)
+            <div>
+                @Html.EditorFor(model => model.QuerySelect)
+                @Html.ValidationMessageFor(model => model.QuerySelect)
+            </div>
+        </section>
+        @if (Model.Id != Guid.Empty)
+        {
+            <label>Колонки</label>
+            <section>
+                @Html.Partial("Items", MetaReportController.GetItemsForReport(@Model))
+            </section>
+        }
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>

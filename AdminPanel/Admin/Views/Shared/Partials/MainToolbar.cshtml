@@ -1,0 +1,40 @@
+﻿@model Admin.Helpers.ControlSetting.ToolBarSetting
+
+<div id='result'></div>
+<div class="toolbar">
+    @if (string.IsNullOrEmpty(Model.CustomAddAction))
+    {
+        <a class="toolbar-add" href="@Url.Action("Edit")">@Resources.Resource.Create</a>
+    }
+    else
+    {
+        <a class="toolbar-add" href="@Model.CustomAddAction">@Resources.Resource.Create</a>
+    }
+    <a class="toolbar-delete" href="javascript:MainGridDeleteCheckedRows();">@Resources.Resource.Delete</a>
+    
+    @if (Model.ShowIsDeletedButton)
+    {
+        <a class="toolbar-separator" href="#"> | </a>
+        <a class="toolbar-showdeleted" href="javascript:MainGridShowDeleted();">@Resources.Resource.ShowDeleted</a>
+        <a class="toolbar-restore" style="display: none" href="javascript:MainGridRestoreCheckedRows();">@Resources.Resource.Restore</a>
+    }
+    
+    @if (Model.Buttons.Count > 0)
+    {
+        <a class="toolbar-separator" href="#"> | </a>
+    }
+
+    @foreach (string s in Model.Buttons)
+    {
+        @Html.Raw(s);
+        @Html.Raw(" ");
+    }
+
+</div>
+
+<script>
+    var MainGridDeleteAction = '@Url.Action("DeleteRows")';
+    var MainGridRemoveAction = '@Url.Action("RemoveRows")';
+    var MainGridRestoreAction = '@Url.Action("RestoreRows")';
+    var MainGridIsShowDeleted = false;
+</script>

@@ -1,0 +1,29 @@
+﻿@using System.Web.UI.WebControls
+@using OptimaJet.Meta.Objects
+@using OptimaJet.Security.Objects
+@using Admin.Helpers
+@model Guid
+
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        CurrentSettings.LoadMainGridViewSettings(settings);
+        settings.Name = "ExternalMethodGrid";
+        settings.CallbackRouteValues = new { Controller = "MetaView", Action = "ExternalMethodGrid", objectId = Model };
+        settings.Columns.Add(column =>
+        {
+            column.Caption = Resources.Resource.Name;
+            column.FieldName = "ExternalMethod.Name";
+            column.SortAscending();
+            column.SetDataItemTemplateContent(
+                c => ViewContext.Writer.Write(
+                    "<a href='" + Url.Action("Edit", "ExternalMethod") + "/" + DataBinder.Eval(c.DataItem, "ExternalMethod.Id")
+                    + "'>" + DataBinder.Eval(c.DataItem, "ExternalMethod.Name") + "</a>"));
+        });
+        settings.Columns.Add("ExternalMethodOpType.Name", Resources.Resource.Type);
+        settings.Columns.Add("Params", Resources.Resource.Parameters);
+//        settings.ClientSideEvents.RowClick = @"function(s, e) {
+//        var key = s.GetRowKey(e.visibleIndex);
+//        ExternalMethodGridEdit(key);
+//        }";
+    }).Bind(MetaViewHelper.GetExternalMethods(Model)).GetHtml()

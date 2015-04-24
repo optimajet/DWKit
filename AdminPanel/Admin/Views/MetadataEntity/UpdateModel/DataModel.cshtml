@@ -1,0 +1,72 @@
+﻿@using OptimaJet.Meta.Class
+@using OptimaJet.Meta.Objects
+
+@model bool
+
+@Html.DevExpress().TreeView(
+            settings =>
+            {
+                settings.Name = "dataModelTree";
+                settings.AllowCheckNodes = true;
+                settings.AllowSelectNode = true;
+                settings.CheckNodesRecursive = true;
+                settings.EnableAnimation = false;
+                settings.ShowTreeLines = true;
+                settings.ShowExpandButtons = true;
+                settings.Width = 300;
+                settings.Height = 400;
+                settings.CallbackRouteValues = new { Controller = "MetadataEntity", Action = "UpdateModelTreeViewPartial" };
+                settings.ClientSideEvents.ExpandedChanging = "function(){ dataModelTree_ExpandedChanging();}";
+                settings.ClientSideEvents.ExpandedChanged = "function(){ dataModelTree_ExpandedChanged();}";
+                List<MetaTable> changeModel = Model ? Session["dataModelTree_changeModel"] as List<MetaTable> : null;
+                if (changeModel == null)
+                {
+                    changeModel = MetadataEntityHelper.FormedChangeDataModel("MsSQLProvider");
+                    Session["dataModelTree_changeModel"] = changeModel;
+                }
+
+                var nodeTables = new MVCxTreeViewNode()
+                {
+                    Text = "Tables",
+                    Expanded = true
+                };
+                settings.Nodes.Add(nodeTables);
+
+                var nodeViews = new MVCxTreeViewNode()
+                {
+                    Text = "Views",
+                    Expanded = true
+                };
+
+                settings.Nodes.Add(nodeViews);
+
+                for (int i = 0; i < changeModel.Count; i++)
+                {
+                    var table = changeModel[i];
+                    var currentNode = table.IsView ? nodeViews : nodeTables;
+
+                    currentNode.Nodes.Add(node =>
+                    {
+                        node.Text = table.Entity == null ?
+                            string.Format("{0}.{1}", table.SchemeName, table.TableName) :
+                            string.Format("{0}.{1} ({2})", table.SchemeName, table.TableName, table.Caption);
+                        node.Name = string.Format("{0}.{1}", table.SchemeName, table.TableName);
+                        node.ToolTip = table.Tooltip;
+                        node.NodeStyle.BackColor = MetaTable.GetColorByChangeType(table.ChangeType);
+                        for (int j = 0; j < table.Columns.Count; j++)
+                        {
+                            var col = table.Columns[j];
+                            node.Nodes.Add(subNode =>
+                            {
+                                subNode.Text = col.Attribute == null ?
+                                    string.Format("{0}", col.ColumnName) :
+                                    string.Format("{0} ({1})", col.ColumnName, col.Caption);
+                                subNode.Name = string.Format("{0}.{1}.{2}", table.SchemeName, table.TableName, col.ColumnName);
+                                subNode.ToolTip = col.Tooltip;
+                                subNode.NodeStyle.BackColor = MetaTable.GetColorByChangeType(col.ChangeType);
+                            });
+                        }
+                    });
+                }
+                settings.ShowTreeLines = true;
+            }).GetHtml()

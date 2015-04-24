@@ -1,0 +1,167 @@
+﻿@model Workspaces.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Вход";
+    Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+}
+
+<style>
+    #Errors{
+        background-color:red;
+        color:white;
+    }
+
+</style>
+
+<script>   
+    Ext.application({
+        id: 'App',
+        startupImage: {
+            '320x460': '@Url.Content("~/Images/Touch/startup/Default.jpg")', // Non-retina iPhone, iPod touch, and all Android devices
+            '640x920': '@Url.Content("~/Images/Touch/startup/640x920.jpg")', // Retina iPhone and iPod touch
+            '640x1096': '@Url.Content("~/Images/Touch/startup/640x1096.jpg")', // iPhone 5 and iPod touch (fifth generation)
+            '768x1004': '@Url.Content("~/Images/Touch/startup/768x1004.jpg")', //  Non-retina iPad (first and second generation) in portrait orientation
+            '748x1024': '@Url.Content("~/Images/Touch/startup/748x1024.jpg")', //  Non-retina iPad (first and second generation) in landscape orientation
+            '1536x2008': '@Url.Content("~/Images/Touch/startup/1536x2008.jpg")', // : Retina iPad (third generation) in portrait orientation
+            '1496x2048': '@Url.Content("~/Images/Touch/startup/1496x2048.jpg")' // : Retina iPad (third generation) in landscape orientation
+        },
+
+        isIconPrecomposed: false,
+        icon: {
+            57: '@Url.Content("~/Images/Touch/icons/icon.png")',
+            72: '@Url.Content("~/Images/Touch/icons/icon@72.png")',
+            114: '@Url.Content("~/Images/Touch/icons/icon@2x.png")',
+            144: '@Url.Content("~/Images/Touch/icons/icon@144.png")'
+        },
+       
+        requires: [
+            'Ext.form.*',
+            'Ext.field.*',
+            'Ext.Button',
+            'Ext.Toolbar',
+            'Ext.data.Store'
+        ],       
+        launch: function () {
+            Ext.Viewport.setMasked({ xtype: 'loadmask', message: 'Подключение...' });
+
+            var loginPanel = {
+                id: 'loginPanel',
+                xtype: 'formpanel',
+                iconCls: 'user',
+                title: 'Вход',
+                items: [{
+                    xtype: 'image',
+                    src: '@Url.Content("~/Images/logo-login.png")',
+                    width: 193,
+                    height: 50,
+                    style: {
+                        'margin-top': '10px',
+                        'margin-bottom': '10px'
+                    }
+                }, {
+                    id: 'Errors',
+                    xtype: 'textfield',
+                    readOnly: true,
+                    hidden: true,
+                    html: '<div id="Errors"></div>'
+                }, {
+                    id: 'Login',
+                    xtype: 'textfield',
+                    label: 'Логин'
+                }, {
+                    id: 'Pass',
+                    xtype: 'passwordfield',                    
+                    label: 'Пароль'
+                }, {
+                    id: 'RememberMe',
+                    xtype: 'checkboxfield',
+                    label: 'Запомнить',
+                    checked: true
+                }, {
+                    xtype: 'button',
+                    name: 'logon',
+                    text: 'Войти',
+                    style: {
+                        'margin-top': '10px',
+                        'margin-left': '10px',
+                        'margin-right': '10px'
+                    },
+                    handler: function () {
+                        LogIn(Ext.getCmp('Login').getValue(), Ext.getCmp('Pass').getValue(), Ext.getCmp('RememberMe').getChecked());
+                    }
+                }] 
+            };
+
+            Ext.create('Ext.tab.Panel', {
+                id: 'MainPanel',
+                fullscreen: true,
+                tabBar: {
+                    docked: 'bottom',
+                    layout: {
+                        pack: 'center',
+                        align: 'center'
+                    },
+                    scrollable: {
+                        direction: 'horizontal',
+                        indicators: false
+                    }
+                },
+                ui: 'light',               
+                items: [
+                    loginPanel,
+                    {
+                        id: 'card_info',
+                        iconCls: 'info',
+                        title: 'О продукте',
+                        scrollable: true,
+                        html: '<div id="card_info">Система альтернативного web-доступа обладает широким набором функций, поддерживаемых системой электронного документооборота Directum. Все основные функции по делопроизводству, организации деловых процессов, структур хранения документов вы можете использовать в системе web-доступа так же как будто вы работаете в стандартном Windows клиенте Directum.' +
+                            '<br /><br /> <a href="' + optimajet.CorrectUrl('/Account/LogOn') + '?nomobile=1">Перейти к веб-версии</a></div>'                        
+                    },
+                ]
+            });
+
+            Ext.Viewport.setMasked(false);
+        }
+    });
+
+    function LogIn(user, pass, remember) {        
+        Ext.Viewport.setMasked({ xtype: 'loadmask', message: 'Авторизация...' });
+
+        var url = optimajet.CorrectUrl('/Account/JsonLogOn');
+
+        var data = new Array();
+        data.push({ name:'UserName', value: user });
+        data.push({ name: 'Password', value: pass });
+        data.push({ name: 'RememberMe', value: remember });
+
+
+        $.post(url, data, function (res) {
+            if (res.success) {
+                var redirect = optimajet.CorrectUrl('/');
+                window.location.href = redirect;
+            }
+            else {
+                ClearErrors(); 
+                for (var i = 0; i < res.errors.length; i++) {
+                    var err = '<span>' + res.errors[i] + '</span>';
+                    if(i != res.errors.length + 1)
+                        err += '<br />';
+                    SetError(err);                    
+                }
+            }
+        })
+        .fail(function () { ClearErrors(); SetError("Ошибка соединения с сервером"); })
+        .always(function () { Ext.Viewport.setMasked(false); });
+    }
+
+    function SetError(msg){
+        $('#Errors')[0].innerHTML += msg;
+        Ext.getCmp('Errors').show();
+
+        $('#Errors').click(function () { Ext.getCmp('Errors').hide(); });
+    }
+
+    function ClearErrors(){
+        $('#Errors')[0].innerHTML = '';        
+    }
+</script>   

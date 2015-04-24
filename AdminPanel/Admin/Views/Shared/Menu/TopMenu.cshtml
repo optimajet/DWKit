@@ -1,0 +1,28 @@
+﻿<div id="resultTop"></div>
+
+ <ul id="headernav">
+    <li><ul> 
+            <li><a href="javascript: ExportMetadata()">@Resources.Resource.DownloadMetadataе</a></li>
+            <li><a href="javascript: $('#fileMetadata').click()">@Resources.Resource.UploadMetadata</a></li>            
+        </ul></li>
+</ul>
+
+<form id="uploadMetadata" method="post" enctype="multipart/form-data" action="@Url.Action("UploadMetadata", "Settings")" style="display:none;">
+    <input type="file" id="fileMetadata" name="fileMetadata" onchange="UploadMetadata()" />
+</form>
+<script>
+    function ExportMetadata(){
+        window.open('@Url.Action("ExportMetadata", "Settings")');
+    }
+    
+    function UploadMetadata() {
+        var file = $('#fileMetadata');
+       
+        if (file == undefined || file.val().length == 0) {
+            alert('@Resources.Resource.YouDontSelectedFileForUpload');
+            return false;
+        }
+
+        $('#uploadMetadata').submit();
+    }
+</script>

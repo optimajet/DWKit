@@ -1,0 +1,27 @@
+﻿@using Admin.Helpers
+
+@Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "createViewPopupControl";
+    settings.CallbackRouteValues = new { Controller = "MetadataEntity", Action = "CreateViewPopupPartial" };
+    CurrentSettings.LoadPopupViewSettings(settings);
+    settings.Height = new System.Web.UI.WebControls.Unit("100px");
+    settings.HeaderText = Resources.Resource.GenerateObjects;
+
+    settings.SetContent(() =>
+    {
+        ViewContext.Writer.Write(Html.Partial("CreateView/CreateViewParam"));
+        
+    });
+
+
+    settings.SetFooterTemplateContent(c =>
+    {
+        ViewContext.Writer.Write("<div style=\"overflow: hidden\"><div style=\"padding: 3px; float: right;\">");
+        ViewContext.Writer.Write(
+            "<a class=\"popup-select\" href=\"javascript:createViewApply();\">" + Resources.Resource.Apply + "</a> ");
+        ViewContext.Writer.Write(
+            "<a class=\"popup-close\" href=\"javascript:createViewPopupControl.Hide();\">" + Resources.Resource.Cancel + "</a>");
+        ViewContext.Writer.Write("</div></div>");
+    });
+}).GetHtml()

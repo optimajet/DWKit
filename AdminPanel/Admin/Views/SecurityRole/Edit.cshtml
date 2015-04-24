@@ -1,0 +1,82 @@
+﻿@model Admin.Models.SecurityRoleModel
+
+@{
+    ViewBag.Title = string.IsNullOrEmpty(Model.Code) ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<br />
+
+@using (Html.BeginForm("Edit", "SecurityRole", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Roles</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.Code, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Code)
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.IsSystem)
+            <div>
+                @Html.CheckBoxFor(model => model.IsSystem)
+                @Html.ValidationMessageFor(model => model.IsSystem)
+            </div>
+        </section>           
+        <section>
+            @Html.LabelFor(model => model.DomainGroup)
+            <div>
+                @Html.EditorFor(model => model.DomainGroup)
+                @Html.ValidationMessageFor(model => model.DomainGroup)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Comment)
+            <div>
+                @Html.TextAreaFor(model => model.Comment)
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Groups)
+            <div>
+                @Html.EditorFor(model => model.Groups)
+                @Html.ValidationMessageFor(model => model.Groups)
+            </div>
+        </section>        
+    </fieldset>
+
+    if (!string.IsNullOrEmpty(Model.Code))
+    {
+        @Html.Partial("Users/UsersInRole", @Model.Id)<br/>
+        @Html.Partial("Permissions/Permissions", @Model.Id)
+        ;
+    }
+
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>

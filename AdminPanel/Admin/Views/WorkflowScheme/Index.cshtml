@@ -1,0 +1,44 @@
+﻿@using Admin.Helpers.ControlSetting
+
+@{
+    ViewBag.Title = Resources.Resource.Workflow;
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting() 
+{ 
+    ShowIsDeletedButton = false
+})
+
+<script>
+    MainGridDeleteAction = '@Url.Action("DeleteRows2")';
+</script>
+
+@Html.Partial("MainGrid")
+
+
+<script>
+    MainGridCustomKeyFieldName = "Code";
+    function MainGridSetObloslete() {
+        if (MainGrid.GetSelectedRowCount() < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+        MainGrid.GetSelectedFieldValues(MainGridCustomKeyFieldName, OnMainGridSetObloslete);
+
+    }
+
+    function OnMainGridSetObloslete(selectedValues) {
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data.push({ name: 'checkedRecords', value: selectedValues[i].name });
+        }
+
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("SetObloslete")', data,
+            function () {
+                MainGrid.Refresh();
+                MainGrid.UnselectRows();
+            });
+    }
+</script>

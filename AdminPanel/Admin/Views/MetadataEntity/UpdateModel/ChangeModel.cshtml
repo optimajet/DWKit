@@ -1,0 +1,30 @@
+﻿@Html.Partial("UpdateModel/Popup")
+
+<script>
+    function UpdateMetadataModel() {
+        @(string.IsNullOrWhiteSpace(Admin.DAL.Settings.ConnectionFodUpdateModel) ?
+                    Html.Raw("alert('" + Resources.Resource.SetConnectionStringInSettings + "'); return;") : 
+            Html.Raw("updateModelPopupControl.Show(); updateModelPopupControl.PerformCallback();"))
+    }
+
+    function updateModelApply() {
+        var selectedValues = TreeViewGetCheckedNodes(dataModelTree);
+        if (selectedValues.length < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data.push({ name: 'checkedRecords', value: selectedValues[i].name });
+        }
+
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("UpdateDataModel")', data,
+            function () {
+                MainGrid.Refresh();
+            });
+
+        updateModelPopupControl.Hide();
+    }
+</script>

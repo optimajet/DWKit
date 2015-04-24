@@ -1,0 +1,12 @@
+{
+    "name": "mzPivotMatrix",
+    "type": "code",
+    "creator": "mzSolutions & Software SRL (www.mzsolutions.eu)",
+    "summary": "Pivot matrix",
+    "detailedDescription": "ExtJS component which is able to pivot data",
+    "version": "3.4.0",
+    "compatVersion": "3.0.0",
+    "format": "1",
+    "local": true,
+    "requires": []
+}

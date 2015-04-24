@@ -1,0 +1,509 @@
+﻿/*Header*/
+.workspace_header {
+    background: #343434;
+	background-image : url(../Images/Workspace/header_bg.png);
+	background-repeat : repeat-x;
+	height: 50px;
+	margin : 0px;
+	padding-top : 1px;
+	padding-bottom : 1px;
+	text-align : left;
+    width: 100%;
+}
+
+.workspace_logo {
+    margin-left: 15px;
+    background-image : url(../Images/Workspace/logo.png);
+    background-repeat : no-repeat;
+    background-color: transparent;
+    vertical-align: center;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+}
+
+.workspace_logo_name {
+    margin-left: 70px;
+    margin-top: 11px;
+    color: #A0EBFF;
+    font-family: Tahoma;
+    font-size: 16pt;
+    position: absolute;
+   
+}
+
+.workspace_login_panel 
+{
+    margin-top: 11px;
+    margin-right:  410px;
+    height: 34px;
+    float: right;
+    width: 100px;
+}
+
+.workspace_login_panel_left_border 
+{   
+    
+    background-image : url(../Images/Workspace/workspace_login_panel_left_border.png);
+    background-repeat : no-repeat;
+    width: 10px;
+    height: 34px;
+    position: relative;
+    float: left;
+    left: -10px;
+  
+}
+
+.workspace_login_panel_right_border 
+{   
+    
+    background-image : url(../Images/Workspace/workspace_login_panel_right_border.png);
+    background-repeat : no-repeat;
+    width: 10px;
+    height: 34px;
+    position: relative;
+    float: right;
+    left: 410px;
+
+}
+
+.workspace_login_panel_middle_border 
+{   
+    border-top: solid 1px #535353;
+    border-bottom: solid 1px #535353; 
+    height: 34px;
+    overflow: hidden;
+    width: 500px;
+    float: left;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.workspace_login_panel_icon
+{ 
+    margin-top: 6px;
+    position: absolute;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+    background-image: url(../Images/Workspace/user_info.png);
+    height: 21px;
+    width: 27px;
+}
+
+.workspace_login_panel_username 
+{
+    margin-top: 9px;
+    font-family: Tahoma;
+    font-size: 7.9pt;
+    padding-left: 30px;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: grey;
+    position: absolute;
+  
+}
+
+.workspace_login_panel_username .userinfo_links
+{
+    font-family: Tahoma;
+    font-size: 7.9pt;
+    white-space: nowrap;
+    color: #A0EBFF;
+    text-decoration: none;
+}
+
+.userinfo_links a:link, .userinfo_links a:visited {
+color: #A0EBFF;
+text-decoration: none;
+}
+
+.workspace_login_panel_username a
+{
+   color: #FFC135;
+   text-decoration: none;
+    
+}
+
+
+/*Main area*/
+.workspace_main_area {
+  padding:0 0 0 0;
+}
+
+.workspace_container {
+  margin-bottom: 1px;
+  margin:0 auto;
+}
+
+
+/*Styles for extjs check column*/
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+    padding-top: 4px;
+    padding-bottom: 2px;
+    line-height: 14px;
+}
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+    padding-top: 3px;
+}
+.x-grid-checkheader 
+{
+    width: 14px;
+    height: 14px;
+    background-image: url('../Images/Workspace/unchecked.gif');
+    background-position: 50% -2px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.x-grid-checkheader-checked {
+    background-image: url('../Images/Workspace/checked.gif');
+}
+
+.x-grid-checkheader-editor .x-form-cb-wrap {
+    text-align: center;
+}
+
+.workspace_error_border {
+    border: 1px;
+    border-color: red;
+    border-style: solid;
+}
+
+#mainPanel {
+    padding-top: 5px;
+}
+
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input[type="text"].input-validation-error,
+input[type="password"].input-validation-error {
+    border: solid 1px #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    /*font-weight: bold;
+    font-size: 1.1em;*/
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.tabs {
+    background-image: url("../images/tabs.gif") !important;
+}
+
+.toolbar-include {
+    background-image: url("../images/workspace/include_black.png") !important;
+}
+
+.toolbar-exclude {
+    background-image: url("../images/workspace/exclude_black.png") !important;
+}
+
+.toolbar-create {
+    background-image: url("../images/workspace/create_black.png") !important;
+}
+.toolbar-copy {
+    background-image: url("../images/workspace/copy_black.png") !important;
+}
+.toolbar-edit {
+   background-image: url("../images/workspace/edit_black.png") !important;
+}
+.toolbar-delete {
+    background-image: url("../images/workspace/delete_black.png") !important;
+}
+.toolbar-groupdeleted {
+    background-image: url("../images/groupdeleted.png") !important;
+}
+.toolbar-excel {
+    background-image: url("../images/workspace/excel_black.png") !important;
+}
+.toolbar-print {
+    background-image: url("../images/workspace/print_black.png") !important;
+}
+
+.toolbar-showdeleted {
+    background-image: url("../images/search.png") !important;
+}
+
+.toolbar-recover {
+    background-image: url("../images/recover.png") !important;
+}
+
+.toolbar-search {
+    background-image: url("../images/search.png") !important;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+
+.toolbar-showall {
+    background-image: url("../images/showall.png") !important;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+
+.toolbar-execute {
+    background-image: url("../images/execute.png") !important;
+}
+
+.toolbar-cancel {
+    background-image: url("../images/workspace/delete_black.png") !important;
+}
+
+.toolbar-exit {
+    background-image: url("../images/workspace/exit.png") !important;
+}
+
+
+.toolbar-createtask {
+    background-image: url("../images/workspace/createtask.png") !important;
+}
+
+.toolbar-createdocument {
+    background-image: url("../images/workspace/createdoc.png") !important;
+}
+
+.toolbar-createfolder {
+    background-image: url("../images/workspace/createfolder.png") !important;
+}
+
+.toolbar-change {
+    background-image: url("../images/workspace/change.png") !important;
+}
+
+.toolbar-back {
+    background-image: url("../images/workspace/back.png") !important;
+}
+
+.toolbar-save {
+    background-image: url("../images/workspace/save.png") !important;
+}
+
+.toolbar-saveexit {
+    background-image: url("../images/workspace/save.png") !important;
+}
+.toolbar-download {
+    background-image: url("../images/workspace/download.png") !important;
+}
+
+.toolbar-download-zip {
+    background-image: url("../images/workspace/download_zip.png") !important;
+}
+
+.toolbar-upload {
+    background-image: url("../images/workspace/upload.png") !important;
+}
+
+.toolbar-createsubtask {
+    background-image: url("../images/workspace/createsubtask.png") !important;
+}
+
+.toolbar-starttask {
+    background-image: url("../images/workspace/starttask.png") !important;
+}
+
+.toolbar-stoptask {
+    background-image: url("../images/workspace/stoptask.png") !important;
+}
+
+.toolbar-sitemap {
+    background-image: url("../images/workspace/sitemap.png") !important;
+    background-size: 16px;
+}
+
+.toolbar-import {
+    background-image: url("../images/workspace/import.png") !important;
+    background-size: 16px;
+}
+
+.toolbar-workflow {
+    background-image: url("../images/workspace/workflow.png") !important;
+    background-size: 16px;
+}
+
+.toolbar-closed {
+    background-image: url("../images/workspace/closed.png") !important;
+    background-size: 16px;
+}
+
+.popup-edit{
+    border-width: 0px;
+}
+
+.popup-edit .x-border-layout-ct {
+    background-color:white;    
+}
+.popup-edit .execution-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: white;
+}
+.popup-edit .execution-toolbar .x-btn-default-toolbar-small-over {
+    background-color: #4A4A4A;
+    border-color: #4A4A4A;
+}
+.popup-edit .execution-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: white;
+}
+.popup-edit .execution-toolbar .toolbar-btn-save {
+    background-color: #156EB0;
+}
+
+
+
+/*One column*/
+.one_col {
+    width: 100%; 
+    border-width: 0px;
+}
+.one_col_middle {
+     width:100%;vertical-align: top;
+}
+
+
+.cols_label {
+     float:left; width:30%; padding-left: 0px; padding-bottom: 2px; padding-top: 2px;
+     margin-top: 8px;
+}
+.cols_control {
+     float:right; 
+     width:70%; 
+     padding-bottom: 2px; padding-top: 2px
+}
+
+.x-trigger-cell{
+    vertical-align:middle;
+}
+
+.form_buttons {
+    float: right;
+}
+
+
+
+.x-form-invalid .uneditable-input,
+.x-form-invalid textarea,
+.x-form-invalid input[type="text"],
+.x-form-invalid input[type="password"],
+.x-form-invalid input[type="datetime"],
+.x-form-invalid input[type="datetime-local"],
+.x-form-invalid input[type="date"],
+.x-form-invalid input[type="month"],
+.x-form-invalid input[type="time"],
+.x-form-invalid input[type="week"],
+.x-form-invalid input[type="number"],
+.x-form-invalid input[type="email"],
+.x-form-invalid input[type="url"],
+.x-form-invalid input[type="search"],
+.x-form-invalid input[type="tel"],
+.x-form-invalid input[type="color"] {
+    border-color: #d94e37;
+}
+
+.x-form-cb {
+    margin-top: 8px;
+}
+
+
+.tabs-pane > .pull-pane{
+    display: none;
+}
+
+.tabs-pane > .active{
+    display: block;
+}
+
+.two_cols_right {
+    padding-left: 10px;
+    width:50%;
+}
+
+.two_cols_left {
+    width:50%;
+}
+
+.two_cols {
+    width: 99%;
+}
+
+.one_col {
+    width: 99%; 
+}
+
+/*grid multiline*/
+.x-grid-row .x-grid-cell-inner {
+    white-space: normal;
+}
+.x-grid-row-over .x-grid-cell-inner {
+    white-space: normal;
+}
+
+
+.grid-row-error{
+    color: #FF0000;
+}
+
+.x-tool-close{
+    margin-bottom: 7px;
+}
+
+.x-tbar-page-number input[type="text"]{
+    padding: 6px 2px !important;
+    text-align: center;
+}
+
+input[readonly="readonly"], textarea[readonly="readonly"]   {
+    background-color: #F5F5F5;
+}
+
+/*.x-item-disabled .x-form-item-label, .x-item-disabled .x-form-field, .x-item-disabled .x-form-display-field, .x-item-disabled .x-form-cb-label, .x-item-disabled*/
+
+.x-item-disabled .x-form-item-label, .x-item-disabled .x-form-field, .x-item-disabled .x-form-display-field, .x-item-disabled .x-form-cb-label {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    opacity: 0.6;
+    background-color: #F5F5F5;
+}
+
+.x-form-form-item td {
+ border-top: 0px solid transparent; 
+}
+
+/*  Fix for WEB-99.
+    https://iigdev.atlassian.net/browse/WEB-99
+    Fix from Extjs 4.2.1.883
+*/
+.x-form-display-field {
+  line-height: normal !important;
+  margin-top: 4px !important;
+}
+
+
+.documentworkflow-wasback > td.x-grid-cell{
+    background-color: #FAE1E1;
+}
+
+.budgetItem-isprevperiod > td.x-grid-cell{
+    background-color: #99CCFF;
+}
+
+.invoice-overspent > td.x-grid-cell{
+    background-color: #FFFFCC;
+}
+
+.invoice-mismatch > td.x-grid-cell{
+    background-color: #FFFFCC;
+}
+
+
+li.dropdown-header{
+    font-weight: bold;
+    color: black;
+    text-indent: 10%;
+}

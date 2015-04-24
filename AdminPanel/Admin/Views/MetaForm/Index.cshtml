@@ -1,0 +1,37 @@
+﻿@using Admin.Helpers.ControlSetting
+
+@{
+    ViewBag.Title = Resources.Resource.Forms;
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting
+                                                    {
+                                                        ShowIsDeletedButton = true,
+                                                        Buttons = new List<string>()
+            {
+                string.Format("<a class=\"toolbar-createpermission\" href=\"javascript:CreateSecurityPermissions()\">{0}</a>", Resources.Resource.CreatePermissions)
+            }
+                                                    })
+@Html.Partial("MainGrid", false)
+
+<script>
+function OnCreateSecurityPermissions(selectedValues) {
+    var data = new Array();
+    for (var i = 0; i < selectedValues.length; i++) {
+        data.push({ name: 'checkedRecords', value: selectedValues[i] });
+    }
+
+    $('#result').innerHTML = '';
+    $('#result').load('@Url.Action("CreateSecurityPermissions")', data,
+        function () {
+            MainGrid.Refresh();
+            MainGrid.UnselectRows();
+            createViewPopupControl.Hide();
+        });
+}
+
+function CreateSecurityPermissions() {
+    MainGrid.GetSelectedFieldValues("Id", OnCreateSecurityPermissions);
+}
+</script>

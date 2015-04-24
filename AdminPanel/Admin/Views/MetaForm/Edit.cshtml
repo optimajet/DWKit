@@ -1,0 +1,147 @@
+﻿@model Admin.Models.MetaFormModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Caption);
+    Html.EnableClientValidation(true);
+}
+
+<div id='result'></div>
+<div class="toolbar">
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+
+    @if (Model.Id != Guid.Empty)
+    {
+        <a class="toolbar-separator" href="#"> | </a>
+        <a class="toolbar-copy" href="javascript:Copy();">@Resources.Resource.Copy</a>
+        
+        <script>
+            function Copy() {
+                if (confirm(@Resources.Resource.CopyConfirm)) {
+                    $('#result').innerHTML = '';
+                    var data = new Array();
+                    data.push({ name: 'Id', value: '@Model.Id' });
+
+                    $('#result').load('@Url.Action("Copy")', data,
+                    function () {
+                    });
+                }
+            }
+        </script>
+    
+        if (Model.ShowImportExportOptions)
+        {
+            <a class="toolbar-separator" href="#"> | </a>
+            @Html.ActionLink(Resources.Resource.DownloadTemplateForDataImport, "DownloadImportTemplate", new { name = Model.Name }, new { target = "_blank" })
+        }
+     }
+
+   
+</div>
+
+@using (Html.BeginForm("Edit", "MetaForm", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Form</label>
+        <section>
+            @Html.LabelFor(model => model.ParentId)
+            <div>
+                @Html.HiddenFor(model => model.ParentId)
+                @Html.EditorFor(model => model.ParentId)
+                @Html.ValidationMessageFor(model => model.ParentId)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>     
+        <section>
+            @Html.LabelFor(model => model.Caption, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Caption)
+                @Html.ValidationMessageFor(model => model.Caption)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.IsAvailableForSearch)
+            <div>
+                @Html.CheckBoxFor(model => model.IsAvailableForSearch)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.SearchWeight)
+            <div>
+                @Html.EditorFor(model => model.SearchWeight)
+                @Html.ValidationMessageFor(model => model.SearchWeight)
+            </div>
+        </section> 
+        @if (Model.ShowImportExportOptions)
+        {
+            <section>
+                @Html.LabelFor(model => model.IsAvailableForImportExport)
+                <div>
+                    @Html.CheckBoxFor(model => model.IsAvailableForImportExport)
+                </div>
+            </section>
+        }
+        <section>
+            @Html.LabelFor(model => model.Source)
+            <div>
+                @Html.TextAreaFor(model => model.Source, new { @rows = 12 })
+                @Html.ValidationMessageFor(model => model.Source)
+            </div>
+        </section>  
+        @if (Model.Id != Guid.Empty)
+        {
+            <section>
+                <label>@Resources.Resource.Functions</label>
+                <div>
+                    @Html.Partial("ExternalMethods", @Model.Id)
+                </div>
+            </section>
+            <section>
+                <label>@Resources.Resource.Blocks</label>
+                <div>
+                    @Html.Partial("Blocks", @Model.Id)
+                </div>
+            </section>
+        }     
+    </fieldset>
+    
+     
+
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script language="Javascript" type="text/javascript" src="@Url.Content("~/Content/edit_area/edit_area_full.js")"> </script>
+<script language="Javascript" type="text/javascript">
+    editAreaLoader.init({
+        id: "Source",
+        start_highlight: true,
+        font_size: "8",
+        font_family: "verdana, monospace",
+        allow_resize: "both",
+        allow_toggle: false,
+        language: "en",
+        syntax: "js",
+        load_callback: "my_load",
+        save_callback: "my_save",
+        plugins: "charmap",
+        charmap_default: "arrows",
+        word_wrap: true
+    });
+</script>

@@ -1,0 +1,134 @@
+﻿
+@model Admin.Models.MetaFormBlockModel
+
+@{
+    ViewBag.Title = Model.MetaFormCaption + ". " +
+                    (Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Name));
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Edit", new {Id = Model.MetaFormId})
+</div>
+
+<br />
+
+@using (Html.BeginForm("EditBlock", "MetaForm", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.MetaFormId)
+        @Html.HiddenFor(model => model.MetaFormCaption)
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Block</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.Order)
+            <div>
+                @Html.TextBoxFor(model => model.Order)
+                @Html.ValidationMessageFor(model => model.Order)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsLazyLoad)
+            <div>
+                @Html.CheckBoxFor(model => model.IsLazyLoad)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Code)
+            <div>
+                @Html.EditorFor(model => model.Code)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsDeleted)
+            <div>
+                @Html.CheckBoxFor(model => model.IsDeleted)
+            </div>
+        </section>
+         <section>
+            @Html.LabelFor(model => model.IsExcludedFromImportExport)
+            <div>
+                @Html.CheckBoxFor(model => model.IsExcludedFromImportExport)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.MetaFormCaption)
+            <div>
+                @Html.DisplayFor(model => model.MetaFormCaption)
+            </div>
+        </section>        
+        <section>
+            @Html.LabelFor(model => model.TemplateId)
+            <div>
+                @Html.HiddenFor(model => model.TemplateId)
+                @Html.EditorFor(model => model.TemplateId)
+                @Html.ValidationMessageFor(model => model.TemplateId)                    
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.TemplateParams, @<img src="@Url.Content("~/Images/Icons/autofill.png")" width="24px" onclick=" GetTemplateParams() " title="@Resources.Resource.LoadParams"></img>)
+            <div>
+                @Html.TextAreaFor(model => model.TemplateParams)
+                @Html.ValidationMessageFor(model => model.TemplateParams)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Source)
+            <div>
+                @Html.TextAreaFor(model => model.Source, new {@rows = 12})
+                @Html.ValidationMessageFor(model => model.Source)
+            </div>
+        </section>
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script language="Javascript" type="text/javascript" src="@Url.Content("~/Content/edit_area/edit_area_full.js")"> </script>
+<script language="Javascript" type="text/javascript">
+    editAreaLoader.init({
+        id: "Source",
+        start_highlight: true,
+        font_size: "8",
+        font_family: "verdana, monospace",
+        allow_resize: "both",
+        allow_toggle: false,
+        language: "en",
+        syntax: "js",
+        load_callback: "my_load",
+        save_callback: "my_save",
+        plugins: "charmap",
+        charmap_default: "arrows",
+        word_wrap: true
+    });
+
+    function GetTemplateParams() {
+        var data = new Array();
+        data[data.length] = { name: 'id', value: TemplateIdComboBox.GetValue() };
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("GetTemplateParam", "FormBlockTemplate")",
+            data: data,
+            success: function(msg) {
+                $("#TemplateParams").val(msg);
+            }
+        });
+    }
+</script>

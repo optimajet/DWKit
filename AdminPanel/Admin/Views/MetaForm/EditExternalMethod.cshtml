@@ -1,0 +1,100 @@
+﻿
+@model Admin.Models.MetaFormExternalMethodModel
+
+@{
+    ViewBag.Title = Model.MetaFormCaption + ". " +
+                    (Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.ExternalMethodName));
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Edit", new {Id = Model.MetaFormId})
+</div>
+
+<br />
+
+@using (Html.BeginForm("EditExternalMethod", "MetaForm", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.MetaFormId)
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Function</label>
+         <section>
+            @Html.LabelFor(model => model.Order)
+            <div>
+                @Html.TextBoxFor(model => model.Order)
+                @Html.ValidationMessageFor(model => model.Order)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.MetaFormCaption)
+            <div>
+                @Html.DisplayFor(model => model.MetaFormCaption)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.TypeId)
+            <div>
+                @Html.HiddenFor(model => model.TypeId)
+                @Html.EditorFor(model => model.TypeId)
+                @Html.ValidationMessageFor(model => model.TypeId)                    
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.ExternalMethodId)
+            <div>
+                @Html.HiddenFor(model => model.ExternalMethodId)
+                @Html.EditorFor(model => model.ExternalMethodId)
+                @Html.ValidationMessageFor(model => model.ExternalMethodId)                    
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Params)
+            <div>
+                @Html.TextAreaFor(model => model.Params, new { @rows = 30 })
+                @Html.ValidationMessageFor(model => model.Params)
+            </div>
+        </section>
+      @*  <section>
+            @Html.LabelFor(model => model.TemplateParams, @<img src="@Url.Content("~/Images/Icons/autofill.png")" width="24px" onclick=" GetTemplateParams() " title="Заполнить параметры метода"></img>)
+            <div>
+                @Html.TextAreaFor(model => model.TemplateParams)
+                @Html.ValidationMessageFor(model => model.TemplateParams)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Source)
+            <div>
+                @Html.TextAreaFor(model => model.Source, new {@rows = 12})
+                @Html.ValidationMessageFor(model => model.Source)
+            </div>
+        </section>*@
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script type="text/javascript">
+    function GetTemplateParams() {
+        var data = new Array();
+        data[data.length] = { name: 'id', value: TemplateIdComboBox.GetValue() };
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("GetTemplateParam", "FormBlockTemplate")",
+            data: data,
+            success: function(msg) {
+                $("#TemplateParams").val(msg);
+            }
+        });
+    }
+</script>

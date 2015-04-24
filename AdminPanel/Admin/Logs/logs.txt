@@ -1,0 +1,4 @@
+﻿2015-04-24 18:07:32,894 [16] ERROR OptimaJet.Common.Logger [(null)] - System.Web.HttpException (0x80004005): Путь '/Views/ExternalMethod/Scan/ScanGrid.cshtml' не найден.
+   в System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   в System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   в System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

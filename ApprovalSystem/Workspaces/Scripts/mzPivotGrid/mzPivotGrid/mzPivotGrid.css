@@ -1,0 +1,256 @@
+/* including package mzPivotGrid */
+/**
+ * Common classes
+ * 
+ */
+/* line 6, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header {
+  background: #f5f5f5 !important;
+  border-width: 0 1px 1px 1px !important;
+  border-style: solid !important;
+  border-color: #b8b8b8 !important;
+  white-space: nowrap;
+}
+
+/* line 15, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header-collapsible {
+  cursor: pointer;
+}
+
+/* line 20, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header-collapsible .x-pivot-group-title {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-image: url(resources/images/group-collapse.png);
+  padding: 0 0 0 14px;
+}
+
+/* line 29, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-rtl.x-grid-view .x-pivot-group-header-collapsible .x-pivot-group-title {
+  background-position: right center;
+  padding: 0 14px 0 0;
+}
+
+/* line 34, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-title {
+  color: #01060a;
+  font: bold 13px/15px helvetica, arial, verdana, sans-serif;
+}
+
+/* line 40, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header-collapsed .x-pivot-group-title {
+  background-image: url(resources/images/group-expand.png);
+}
+
+/* line 48, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-group-total .x-grid-cell-inner,
+.x-grid-group-total .x-column-header-inner {
+  color: green;
+}
+/* line 52, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-group-total .x-grid-cell {
+  font: bold 13px/15px helvetica, arial, verdana, sans-serif;
+  border-color: #ededed;
+  border-style: solid;
+}
+/* line 58, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-group-total .x-pivot-group-header {
+  background-color: #f5f5f5;
+}
+
+/* line 66, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-grand-total .x-grid-cell-inner,
+.x-grid-grand-total .x-column-header-inner {
+  color: red;
+}
+/* line 70, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-grand-total .x-grid-cell {
+  font: bold 13px/15px helvetica, arial, verdana, sans-serif;
+  border-color: #ededed;
+  border-style: solid;
+}
+/* line 76, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-grand-total .x-pivot-group-header {
+  background-color: white;
+}
+
+/**
+ * Outline view classes
+ * 
+ */
+/* line 86, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-with-row-lines .x-pivot-outline-cell-hidden {
+  border-bottom-width: 0px;
+}
+
+/* line 91, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-with-col-lines .x-pivot-outline-cell-hidden {
+  border-right-width: 0px;
+}
+
+/* line 95, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-outline-cell-previous-expanded {
+  border-top-width: 1px !important;
+}
+
+/**
+ * Compact view classes
+ *
+ */
+/* line 104, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header-compact {
+  border: none !important;
+  background: transparent !important;
+  border-width: 0 !important;
+}
+/* line 109, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-pivot-group-header-compact .x-grid-cell-inner {
+  background: #f5f5f5 !important;
+  border-width: 0 1px 1px 1px !important;
+  border-style: solid !important;
+  border-color: #b8b8b8 !important;
+}
+
+/**
+ * Column grouping
+ */
+/* line 122, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-row-expander {
+  width: 11px;
+  height: 11px;
+  cursor: pointer;
+  background-image: url(resources/images/group-collapse.png);
+}
+/* line 128, ../../../../packages/resources/sass/src/pivot/feature/PivotViewCommon.scss */
+.x-grid-row-collapsed .x-grid-row-expander {
+  background-image: url(resources/images/group-expand.png);
+}
+
+/**
+*   These are css patches to fix issues in ExtJS
+*/
+/* line 4, ../../../../packages/resources/sass/src/pivot/Grid.scss */
+.x-column-header-inner .x-grid-row-expander {
+  float: none !important;
+  background-repeat: no-repeat;
+  background-position: 0 2px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+/* line 12, ../../../../packages/resources/sass/src/pivot/Grid.scss */
+.x-column-header-last {
+  border-right: 1px solid silver;
+}
+
+/* line 15, ../../../../packages/resources/sass/src/pivot/Grid.scss */
+.x-rtl.x-column-header-last {
+  border-left: 1px solid silver;
+}
+
+/* line 19, ../../../../packages/resources/sass/src/pivot/Grid.scss */
+.x-pivot-gridview-locked {
+  overflow: hidden !important;
+}
+
+/**
+*    That's a fix for IE and ExtJS 4.2.0 regarding background-color for sub-headers.
+*    Uncomment the following definition if you are using ExtJS 4.2.0.
+*/
+/**
+* .#{$prefix}group-sub-header, 
+* .#{$prefix}nlg .#{$prefix}column-header  {
+*     background-color: rgb(245, 245, 245) !important;
+*  }
+*/
+/* configurator plugin */
+/* line 2, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-panel-ct {
+  background-color: darkgray;
+  border: solid gray;
+  border-width: 0 0 1px 1px;
+}
+
+/* line 8, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-panel-text {
+  color: white;
+  padding: 5px;
+}
+
+/* line 13, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column {
+  background-image: none !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+/* line 20, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column .x-column-header-sort-ASC,
+.x-config-column .x-column-header-sort-DESC {
+  background-color: transparent !important;
+}
+
+/* line 24, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-inner {
+  padding: 3px;
+  height: 21px;
+  border: 1px solid gray;
+  margin: 2px;
+  font: bold 13px/15px helvetica, arial, verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* line 41, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-customize {
+  padding-right: 17px;
+  background: no-repeat;
+  background-position: right center;
+  background-image: url(resources/images/gear-small.png);
+}
+
+/* line 48, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-filtered {
+  padding-right: 17px;
+  background: no-repeat;
+  background-position: right center;
+  background-image: url(resources/images/filtered.png);
+}
+
+/* line 56, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-sort-ASC,
+.x-config-column-sort-DESC {
+  padding-right: 17px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+/* line 62, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-sort-ASC {
+  background-image: url(resources/images/sort_asc.png);
+}
+
+/* line 66, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-config-column-sort-DESC {
+  background-image: url(resources/images/sort_desc.png);
+}
+
+/* line 70, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-clearFilterIcon {
+  background-image: url(resources/images/filter-clear.png);
+}
+
+/* line 73, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-sortAscIcon {
+  background-image: url(resources/images/sort-asc.png);
+}
+
+/* line 76, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-sortDescIcon {
+  background-image: url(resources/images/sort-desc.png);
+}
+
+/* line 79, ../../../../packages/resources/sass/src/pivot/plugin/Configurator.scss */
+.x-sortDisableIcon {
+  background-image: url(resources/images/sort-clear.png);
+}

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = string.Format("{0} - {1}", ViewBag.Title, Admin.DAL.Settings.ApplicationName);
+
+    string localization = "en";
+    var user = OptimaJet.Security.Providers.SecurityCache.CurrentUser;
+    if (user != null && !string.IsNullOrWhiteSpace(user.Localization))
+    {
+        localization = OptimaJet.Security.Providers.SecurityCache.CurrentUser.Localization;
+    }
+}
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!--[if lte IE 8]><script src="@Url.Content("~/BrowserCheck/oldies.js")" charset="utf-8"></script><![endif]-->
+    <script src="@Url.Content("~/scripts/optimajet-utils.js")" type="text/javascript"></script>
+    <script src="@Url.Content(string.Format("~/SG/Localization/{0}.js", localization))" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/optimajet-budget.js")" type="text/javascript"></script>
+
+    @Html.Partial("ExtJSLoading")
+
+    @Scripts.Render("~/bundles/linq")
+    @Scripts.Render("~/bundles/moment")
+
+
+    <!-- BEGIN WORKFLOW CSS -->
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/workflowdesigner.css")" rel="stylesheet" type="text/css" media="screen" />
+    <!-- END WORKFLOW CSS -->
+    <!-- BEGIN PLUGIN CSS -->
+    <link href="@Url.Content("~/Content/assets/plugins/dropzone/css/dropzone.css")" rel="stylesheet" type="text/css" media="screen" />
+
+    <link href="@Url.Content("~/Content/assets/plugins/fullcalendar/fullcalendar.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/assets/plugins/pace/pace-theme-flash.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/assets/plugins/gritter/css/jquery.gritter.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/plugins/bootstrap-datepicker/css/datepicker.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/jquery-ricksaw-chart/css/rickshaw.css")" type="text/css" media="screen">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/jquery-morris-chart/css/morris.css")" type="text/css" media="screen">
+    <link href="@Url.Content("~/Content/assets/plugins/jquery-slider/css/jquery.sidr.light.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/assets/plugins/bootstrap-select2/select2.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/assets/plugins/jquery-jvectormap/css/jquery-jvectormap-1.2.2.css")" rel="stylesheet" type="text/css" media="screen" />
+    <link href="@Url.Content("~/Content/assets/plugins/boostrap-checkbox/css/bootstrap-checkbox.css")" rel="stylesheet" type="text/css" media="screen" />
+    <!-- END PLUGIN CSS -->
+    <!-- BEGIN CORE CSS FRAMEWsORK -->
+
+    <link href="@Url.Content("~/Content/assets/plugins/boostrapv3/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/plugins/boostrapv3/css/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/plugins/font-awesome/css/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/css/animate.min.css")" rel="stylesheet" type="text/css" />
+    <!-- END CORE CSS FRAMEWORK -->
+    <!-- BEGIN CSS TEMPLATE -->
+    <link href="@Url.Content("~/Content/assets/css/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/css/responsive.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/assets/css/custom-icon-set.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/Workspace.css")" rel="stylesheet" type="text/css" media="screen" />
+    <!-- END CSS TEMPLATE -->
+
+    <!-- BEGIN CORE JS FRAMEWORK-->
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/boostrapv3/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/breakpoints.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-unveil/jquery.unveil.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery.cookie.js")" type="text/javascript"></script>
+    <!-- END CORE JS FRAMEWORK -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    @*<script src="@Url.Content("~/Content/assets/plugins/pace/pace.min.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Content/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-block-ui/jqueryblockui.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-select2/select2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ricksaw-chart/js/raphael-min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ricksaw-chart/js/d3.v2.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ricksaw-chart/js/rickshaw.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-morris-chart/js/morris.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-easy-pie-chart/js/jquery.easypiechart.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-slider/jquery.sidr.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-jvectormap/js/jquery-jvectormap-us-lcc-en.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-sparkline/jquery-sparkline.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-flot/jquery.flot.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-flot/jquery.flot.animator.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/skycons/skycons.js")"></script>
+    <!-- END PAGE LEVEL PLUGINS   -->
+    <!-- PAGE JS -->
+    <!-- BEGIN CORE TEMPLATE JS -->
+    <script src="@Url.Content("~/Content/assets/js/core.js")" type="text/javascript"></script>
+    <!-- END CORE TEMPLATE JS -->
+
+    <!-- BEGIN WORKFLOW JS -->
+    <script src="@Url.Content("~/Scripts/kinetic-v5.1.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ace.js")" type="text/javascript"></script>
+    
+    <script src="@Url.Content("~/Scripts/workflowdesigner.min.js")" type="text/javascript"></script>
+    @if (localization == "ru")
+    {
+        <script src="@Url.Content("~/Scripts/DesignerCostants-ru.js")" type="text/javascript"></script>
+    }
+   
+    <!-- END WORKFLOW JS -->
+
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            optimajet.UrlPrefix = '@System.Configuration.ConfigurationManager.AppSettings["UrlPrefix"]';
+
+            var globalMessageBox = new Ext.window.MessageBox();
+            globalMessageBox.msg.on("change", function () {
+                globalMessageBox.doLayout();
+            });
+            Ext.MessageBox = globalMessageBox;
+
+
+            WorkspaceControls.MainPanelControl = new SinglePanelControl("#maindiv");
+
+            var rtime = new Date(1, 1, 2000, 12, 00, 00);
+            var timeout = false;
+            var delta = 100;
+            $(window).resize(function () {
+                rtime = new Date();
+                if (timeout === false) {
+                    timeout = true;
+                    setTimeout(resizeend, delta);
+                }
+            });
+
+            function resizeend() {
+                if (new Date() - rtime < delta) {
+                    setTimeout(resizeend, delta);
+                } else {
+                    timeout = false;
+                    WorkspaceControls.FireGlobalResize();
+                }
+            }
+
+            if (Ext.MessageBox) {
+                Ext.MessageBox.buttonText = {
+                    ok: "OK",
+                    cancel: optimajet.localization.get("Cancel"),
+                    yes: optimajet.localization.get("Yes"),
+                    no: optimajet.localization.get("No")
+                };
+            }
+
+            if ($.cookie("layout-condensed-toggle") == "hide") {
+                $('#layout-condensed-toggle').click();
+            }
+
+            UpdateInboxCount();
+            Dropzone.prototype.defaultOptions.maxFilesize = 100;
+
+            $(document).unbind('keydown').bind('keydown', function (event) {
+                var doPrevent = false;
+                if (event.keyCode === 8) {
+                    var d = event.srcElement || event.target;
+                    if ((d.tagName.toUpperCase() === 'INPUT' &&
+                         (
+                             d.type.toUpperCase() === 'TEXT' ||
+                             d.type.toUpperCase() === 'PASSWORD' ||
+                             d.type.toUpperCase() === 'FILE' ||
+                             d.type.toUpperCase() === 'EMAIL' ||
+                             d.type.toUpperCase() === 'SEARCH' ||
+                             d.type.toUpperCase() === 'DATE')
+                         ) ||
+                         d.tagName.toUpperCase() === 'TEXTAREA') {
+                        doPrevent = d.readOnly || d.disabled;
+                    }
+                    else {
+                        doPrevent = true;
+                    }
+                }
+
+                if (doPrevent) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="" style="height: 400px;">
+    <!--Загрузка ExtJS-->
+    <!--//Загрузка Форматирования-->
+    @Html.Partial("Formatters")
+    <script src="@Url.Content("~/Content/assets/plugins/dropzone/dropzone.js")" type="text/javascript"></script>
+
+    <!-- BEGIN HEADER -->
+    <div id="refheader">
+        @Html.Partial("Panel/Header")
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row">
+        <!-- BEGIN SIDEBAR -->
+        @Html.Partial("Panel/Sidebar")
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            @*<div id="portlet-config" class="modal hide">
+                    <div class="modal-header">
+                        <button data-dismiss="modal" class="close" type="button"></button>
+                        <h3>Widget Settings</h3>
+                    </div>
+                    <div class="modal-body"> Widget settings form goes here </div>
+                </div>*@
+            <div class="clearfix"></div>
+            <div class="content">
+                <div id="maindiv" style="height:100%;width:99%" class="grid simple">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+</body>
+
+</html>

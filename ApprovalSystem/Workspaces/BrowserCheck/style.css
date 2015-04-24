@@ -1,0 +1,156 @@
+﻿/***************************
+		CSS RESET
+***************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body
+{
+	line-height: 1;
+	color: black;
+	background: white;
+}
+
+ol, ul
+{
+	list-style: none;
+}
+
+h1, h2
+{
+	font-family: Tahoma, Segoe UI, Verdana, Helvetica, Arial, sans-serif; /* Follows MSCOM Typography Guidelines */
+}
+
+html
+{
+	background: #e6e6e6 url('images/bkg-html.jpg') repeat-x;
+	height: 100%;
+	/*width: 100%;*/
+}
+
+/***************************
+	END CSS RESET
+***************************/
+
+body
+{
+	background: transparent url('images/bkg-body.jpg') no-repeat right top;
+	height: 100%;
+	/*width: 100%;*/
+	font-family: Tahoma, Verdana, Helvetica, Arial, sans-serif; /* Follows MSCOM Typography Guidelines */
+	color: #4b4b4b;
+	font-size: 0.78em;
+}
+
+/* Links */
+a:link, a:visited
+{
+  color: #1f5ca1;
+  text-decoration: none;
+}
+
+a:hover
+{
+  color: #0062A0;
+  text-decoration: underline;
+}
+
+#old
+{
+	width:783px;
+	margin: auto;
+}
+
+#header
+{
+	text-align:justify;
+	width:744px;
+	padding:10px 20px 20px;
+}
+
+#header h1
+{
+	text-align: center;
+	font-weight:normal;
+	margin:0 0 10px;
+	font-size: 20pt;
+}
+
+#header font
+{
+	font-size: 10pt;
+}
+
+#modern-browser
+{
+	margin:0;
+	padding:10px 20px 20px;
+	list-style:none;
+}
+
+#modern-browser li
+{
+	padding-left:130px;
+	margin-top:20px;
+}
+
+#modern-browser li.ie8{background:url('images/big-ie8.gif') no-repeat 5px top;}
+#modern-browser li.chrome{background:url('images/big-chrome.gif') no-repeat 15px top;}
+#modern-browser li.opera{background:url('images/big-opera.gif') no-repeat left top;}
+#modern-browser li.firefox{background:url('images/big-firefox.gif') no-repeat 10px top;}
+
+#modern-browser h2
+{
+	margin:0 0 10px 10px;
+	font-weight:bold;
+}
+
+#modern-browser .file
+{
+	padding:0;
+	margin:10px 0 0;
+	list-style:none;
+}
+
+#modern-browser .file li
+{
+	padding:2px 0 2px 22px;
+	margin:0;
+}
+
+#modern-browser .file li.microsoft{background:url('images/fav-ie.gif') no-repeat left;}
+#modern-browser .chrome .file li{background:url('images/fav-chrome.gif') no-repeat left;}
+#modern-browser .opera .file li{background:url('images/fav-opera.gif') no-repeat left;}
+#modern-browser .firefox .file li{background:url('images/fav-firefox.gif') no-repeat left;}
+
+.descriptiontext
+{
+	text-align: justify;  /* Выравнивание по ширине */
+	text-indent: 1.5em; /* Отступ первой строки */
+	font-size: 10pt; /* Размер шрифта в пунктах */
+	margin: 15px;
+}
+
+.delim
+{
+	background-color: silver;
+	height: 1px;
+	border-width:0px; /* Убрать рамки вокруг элемента */
+}

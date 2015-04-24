@@ -1,0 +1,13 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@model object
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        CurrentSettings.LoadComboBoxSettings(settings, ViewData, Url.Action("Edit", "MetaForm"));
+        settings.CallbackRouteValues = new { Controller = "MetaForm", Action = "EditorCombox", PropertyName = ViewData.ModelMetadata.PropertyName, IsNullableValueType = ViewData.ModelMetadata.IsNullableValueType };
+        settings.Properties.Columns.Add("Name", Resources.Resource.Name);
+        settings.Properties.Columns.Add("Caption", Resources.Resource.Caption);
+    }
+               ).BindList(MetaFormHelper.GetAll()).Bind(Model).GetHtml()

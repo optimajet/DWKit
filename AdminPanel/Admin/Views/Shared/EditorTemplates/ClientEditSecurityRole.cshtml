@@ -1,0 +1,19 @@
+﻿@using Admin.Controls
+@using OptimaJet.Security.Objects
+@model List<Guid>
+
+
+
+@Html.CheckBoxList(SecurityRoleHelper.GetAll().Select(
+    o => new CheckBoxListItem
+             {
+                 Id = o.Id,
+                 Name = o.Name,
+                 Check = Model != null && Model.Contains(o.Id)
+             }).ToList(), new Admin.Controls.CheckBoxListSettings
+                              {
+                                  cblName = "Roles",
+                                  cblDirection = Admin.Controls.Direction.Vertical,
+                                  cblRepeatColumns = RepeatColumns.FiveColumns,
+                                  cblLayout = Layoutt.Table
+                              }, null)

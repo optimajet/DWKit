@@ -1,0 +1,20 @@
+﻿@using Admin.Helpers
+@using DevExpress.Data
+@using OptimaJet.Meta.Objects
+@using OptimaJet.Security.Objects
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        CurrentSettings.LoadMainGridViewSettings(settings);
+        settings.CallbackRouteValues = new { Controller = "MetaList", Action = "MainGridPartial" };
+        settings.Columns.Add(column =>
+        {
+            column.Caption = Resources.Resource.Name;
+            column.FieldName = "Name";
+            column.SetDataItemTemplateContent(
+                c => ViewContext.Writer.Write(
+                    "<a href='" + Url.Action("Edit") + "/" + DataBinder.Eval(c.DataItem, "Id")
+                    + "'>" + DataBinder.Eval(c.DataItem, "Name") + "</a>"));
+            column.SortOrder = ColumnSortOrder.Ascending;
+        });
+        }).Bind(MetaListHelper.GetAll()).GetHtml()

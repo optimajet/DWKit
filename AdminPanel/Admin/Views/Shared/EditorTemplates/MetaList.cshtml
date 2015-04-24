@@ -1,0 +1,18 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@model object
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        CurrentSettings.LoadComboBoxSettings(settings, ViewData, Url.Action("Edit", "MetaList", new { id = DBNull.Value }));
+        settings.CallbackRouteValues = new { Controller = "MetaList", Action = "EditorCombox", PropertyName = ViewData.ModelMetadata.PropertyName, IsNullableValueType = ViewData.ModelMetadata.IsNullableValueType };
+        settings.Properties.Columns.Add("Name", Resources.Resource.Name);
+        if (ViewData.ContainsKey("ChildComboBox"))
+        {
+            settings.Properties.ClientSideEvents.SelectedIndexChanged +=
+                string.Format("function(s, e) {{ {0}ComboBox.PerformCallback(); }}", ViewData["ChildComboBox"]);
+        }
+    }).BindList(MetaListHelper.GetAll()).Bind(
+            Model is Guid && (Guid)Model == Guid.Empty ? null : Model
+               ).GetHtml()

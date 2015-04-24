@@ -1,0 +1,32 @@
+﻿@Html.Partial("Scan/Popup")
+
+<script>
+    function createExternalMethod() {
+        scanPopupControl.Show();
+    }
+
+    function scanExternalMethodApply() {
+        if (ScanGrid.GetSelectedRowCount() < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+
+        ScanGrid.GetSelectedFieldValues("Id", OnScanGridApplyCheckedRows);
+    }
+    
+    function OnScanGridApplyCheckedRows(selectedValues){
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data.push({ name: 'ids', value: selectedValues[i] });
+        }
+        
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("CreateExternalMethod")', data,
+            function () {
+                MainGrid.Refresh();
+            });
+
+        scanPopupControl.Hide();
+        ScanGrid.UnselectRows();
+    }
+</script>

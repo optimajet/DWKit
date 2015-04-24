@@ -1,0 +1,46 @@
+﻿@using Admin.Controls
+@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+<table style="width: 100%">
+    <tr>
+        <td>
+            <label for="cbType">@Resources.Resource.Type</label>
+        </td>
+        <td>
+            
+            @{
+                var externalMethodOpTypes = ExternalMethodHelper.CurrentTypeListView;
+            }
+            @Html.DropDownList("cbType",
+                               new SelectList(externalMethodOpTypes, "Id", "Name"))
+
+        </td>
+    </tr>       
+    <tr>
+        <td>
+            <label for="cbEM">@Resources.Resource.Function</label>
+        </td>
+        <td>
+            
+            <input type="hidden" id="cbEM"/>
+            @Html.DevExpress().ComboBox(
+                settings =>
+                    {
+                        CurrentSettings.LoadComboBoxSettings(settings, "cbEM", true, Url.Action("Edit", "ExternalMethod"));
+                        settings.CallbackRouteValues = new { Controller = "ExternalMethod", Action = "EditorCombox" };
+                        settings.Properties.Columns.Add("Name", Resources.Resource.Name);
+                        settings.Properties.Columns.Add("ClassName", Resources.Resource.Class);
+                        settings.Properties.Columns.Add("MethodName", Resources.Resource.Method);
+                        
+                    }).BindList(ExternalMethodHelper.GetAll()).GetHtml()
+        </td>
+    </tr>       
+    <tr>
+        <td>
+            <label for="txtParams">@Resources.Resource.Parameters <img src="@Url.Content("~/Images/Icons/autofill.png")" width="24px" onclick="GetEMParams() " title="@Resources.Resource.LoadParams"></img></label>
+        </td>
+        <td>
+            @Html.TextArea("txtParams", "", new {@rows = 12})
+        </td>
+    </tr>     
+</table>

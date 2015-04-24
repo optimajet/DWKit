@@ -1,0 +1,35 @@
+/**
+*   These are css patches to fix issues in ExtJS
+*/
+.#{$prefix}column-header-inner .#{$prefix}grid-row-expander {
+    float: none !important;
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    font-size: $font-size;
+    line-height: $grid-column-header-line-height;
+}
+
+.#{$prefix}column-header-last {
+    border-right: $grid-header-trigger-border;
+}
+.#{$prefix}rtl.#{$prefix}column-header-last {
+    border-left: $grid-header-trigger-border;
+}
+
+.#{$prefix}pivot-gridview-locked{
+    overflow: hidden !important;
+}
+
+/**
+*    That's a fix for IE and ExtJS 4.2.0 regarding background-color for sub-headers.
+*    Uncomment the following definition if you are using ExtJS 4.2.0.
+*/
+
+/**
+* .\#{$prefix}group-sub-header, 
+* .\#{$prefix}nlg .\#{$prefix}column-header  {
+*     background-color: rgb(245, 245, 245) !important;
+*  }
+*/
+
+

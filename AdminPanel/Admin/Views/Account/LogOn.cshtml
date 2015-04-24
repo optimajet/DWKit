@@ -1,0 +1,36 @@
+﻿@model Admin.Models.LogOnModel
+
+@{
+    ViewBag.Title = Resources.Resource.LoginTitle;
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+@Html.ValidationSummary(true, "Войти не удалось. Исправьте ошибки и повторите попытку.")
+<br/>
+@using (Html.BeginForm((string) ViewBag.FormAction, "Account"))
+{
+    @Html.Partial("Menu/ConnectionStrings")
+    <fieldset>
+        <section>
+        </section>
+        <section>
+            @Html.LabelFor(m => m.UserName)
+            <div>
+                @Html.TextBoxFor(m => m.UserName, new {@id = "username", @name = "username", @autofocus = ""})
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(m => m.Password)
+            <div>
+                @Html.PasswordFor(m => m.Password, new {id = "password", name = "password"}) 
+                @Html.CheckBoxFor(m => m.RememberMe, new {id = "remember", name = "remember"})
+                @Html.LabelFor(m => m.RememberMe, new {@class = "checkbox"})
+            </div>
+        </section>
+        <section>
+            <div>                
+                <div><button type="submit" class="fr submit">@Resources.Resource.LoginButtonText</button></div>
+            </div>
+        </section>        
+    </fieldset>
+}

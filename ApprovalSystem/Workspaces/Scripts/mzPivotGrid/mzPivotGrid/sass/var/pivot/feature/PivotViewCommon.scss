@@ -1,0 +1,118 @@
+/**
+ * @var {color}
+ * The background color of group headers
+ */
+$pivot-group-header-background-color: mix(#fff, $neutral-color, 68%) !default;
+
+/**
+ * @var {number/list}
+ * The border-width of group headers
+ */
+$pivot-group-header-border-width: 0 1px 1px 1px !default;
+
+/**
+ * @var {string}
+ * The border-style of group headers
+ */
+$pivot-group-header-border-style: solid !default;
+
+/**
+ * @var {color}
+ * The border-color of group headers
+ */
+$pivot-group-header-border-color: adjust-color($neutral-color, $hue: 0deg, $saturation: 0%, $lightness: -16.078%) !default;
+
+/**
+ * @var {string}
+ * The cursor of group headers
+ */
+$pivot-group-header-cursor: pointer !default;
+
+/**
+ * @var {color}
+ * The text color of group header titles
+ */
+$pivot-group-title-color: adjust-color($base-color, $hue: 0.952deg, $saturation: -6.718%, $lightness: -41.961%) !default;
+
+/**
+ * @var {string}
+ * The font-family of group header titles
+ */
+$pivot-group-title-font-family: $font-family !default;
+
+/**
+ * @var {number}
+ * The font-size of group header titles
+ */
+$pivot-group-title-font-size: $font-size !default;
+
+/**
+ * @var {string}
+ * The font-weight of group header titles
+ */
+$pivot-group-title-font-weight: bold !default;
+
+/**
+ * @var {number}
+ * The line-height of group header titles
+ */
+$pivot-group-title-line-height: round($pivot-group-title-font-size * 1.15) !default;
+
+// private
+$pivot-group-title-font: $pivot-group-title-font-weight #{$pivot-group-title-font-size}/#{$pivot-group-title-line-height} $pivot-group-title-font-family !default;
+
+/**
+ * @var {number/list}
+ * The amount of padding to add to the group title element.  This is typically used
+ * to reserve space for an icon by setting the amountof space to be reserved for the icon
+ * as the left value and setting the remaining sides to 0.
+ */
+$pivot-group-icon-padding: 0 0 0 14px !default; 
+
+$pivot-group-total-color: green !default;
+$pivot-group-total-bgcolor: $pivot-group-header-background-color !default;
+
+$pivot-grand-total-color: red !default;
+$pivot-grand-total-bgcolor: white !default;
+
+
+/**
+ * @class Ext.grid.plugin.RowExpander
+ */
+
+/**
+ * @var {number}
+ * The height of the RowExpander icon
+ */
+$row-expander-height: 11px !default;
+
+/**
+ * @var {number}
+ * The width of the RowExpander icon
+ */
+$row-expander-width: 11px !default;
+
+/**
+ * @var {number}
+ * The horizontal space before the RowExpander icon
+ */
+$row-expander-cell-spacing-before: 6px !default;
+
+/**
+ * @var {number}
+ * The horizontal space after the RowExpander icon
+ */
+$row-expander-cell-spacing-after: 6px !default;
+
+/**
+ * @var {string}
+ * The cursor for the RowExpander icon
+ */
+$row-expander-cursor: pointer !default;
+
+// private
+$row-expander-cell-padding:
+    max(ceil(($grid-row-height - $row-expander-height) / 2), 0)
+    $row-expander-cell-spacing-after
+    max(floor(($grid-row-height - $row-expander-height) / 2), 0)
+    $row-expander-cell-spacing-before;

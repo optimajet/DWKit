@@ -1,0 +1,1309 @@
+/*----------------------------------------------------------------------*/
+/* colors
+/* #731717 #8c1c1c red
+/* #357317 #418c1c green
+/* #736e17 #8c871c yellow
+/* #176d73 #1c858c blue
+/* #731771 #8c1c8b pink
+/* #491773 #581c8c purple
+/*
+/* contrast color #287e84
+/*----------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------*/
+/* Imports
+/*----------------------------------------------------------------------*/
+
+@import 'jquery-ui.css';
+@import 'jquery.miniColors.css';
+@import 'jquery.tipsy.css';
+@import 'jquery.uniform.css';
+@import 'jquery.wysiwyg.css';
+@import 'jquery.fullcalendar.css';
+@import 'jquery.elfinder.css';
+@import 'jquery.fancybox.css';
+@import 'jquery.datatables.css';
+
+
+/*----------------------------------------------------------------------*/
+/* General Section
+/*----------------------------------------------------------------------*/
+
+html, body, textarea, input { 
+	color:#c1c1c1;
+}
+html{
+	background-color:#2e2e33;
+	background-image:url(images/paper_02.png);
+}
+a, a:hover, a:visited, a:link {color:#c0c0c0;}
+
+::-moz-selection{ background:#287e84; color:#cacaca; text-shadow:none; }
+::selection { background:#287e84; color:#cacaca; text-shadow:none; }
+
+
+nav ul li a span{
+	background-image:url(../images/icons/light/arrow_right.png);
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-shadow:0 -1px 0 #000;
+	color:#a8a8a8;
+}
+h1{
+	text-shadow:0 -1px 0 #000;
+}
+h1 span{
+	text-shadow:0 -1px 0 #000;
+}
+blockquote{
+	border-color:#666666;
+	color:#666666;
+}
+
+hr { 
+	border-top-color:#1e1e1e;
+	border-bottom-color:#2e2e33;
+}
+/*----------------------------------------------------------------------*/
+/* jQuery UI mods
+/*----------------------------------------------------------------------*/
+.ui-widget-header a, .ui-accordion-header a{
+	color:#bbbbbb;
+	text-shadow:0 0 1px #2e2e33;
+}
+.ui-widget-header{
+	border-top-color:#2e2e33 !important;
+	border-bottom-color:#555555 !important;
+	margin:0;
+}
+.ui-widget-overlay{
+	background-image:url(images/paper_02.png);
+	background-color:#cccccc;
+}
+.ui-state-default a{
+	border-top-color:#2e2e33 !important;
+}
+.ui-slider-range.ui-widget-header{
+	background-color:#e1e1e1;
+	background-image:url(../images/bg/01.png);
+}
+.ui-slider{
+	border-color:#555555 !important;
+	background-color:#2c2c2c;
+	background-image:url(images/paper_02.png);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.ui-slider .ui-slider-handle{
+	border-color:#555555 !important;
+	background-image:url(images/slider_handler.png);
+	-webkit-box-shadow:0 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow:0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/*----------------------------------------------------------------------*/
+/* Pageoptions
+/*----------------------------------------------------------------------*/
+
+#pageoptions h1, #pageoptions h2,#pageoptions h3, #pageoptions h4, #pageoptions h5, #pageoptions h6{
+	text-shadow:0 2px 0 #ffffff;
+	color:#202020;
+}
+#pageoptions ul li a{
+	color:#f1f1f1;
+}
+#pageoptions ul li a:hover, #pageoptions ul li a.active{
+	color:#2e2e33;
+	background-color:#ffffff;
+}
+#pageoptions > div{
+	color:#202020;
+	background-color:#ffffff;
+	-webkit-box-shadow:inset 0 2px 1px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:inset 0 2px 1px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 2px 1px rgba(0, 0, 0, 0.5);
+}
+/*----------------------------------------------------------------------*/
+/* Tables
+/*----------------------------------------------------------------------*/
+
+table{
+	background-image:url(images/paper_01.png);
+}
+table td, table th{
+	border-color:#333333 #222222 #333333 #222222;
+}
+table thead tr,table tfoot tr, table th{
+	background-image:url(images/paper_02.png);
+}
+table th{
+	text-shadow:0 -1px 0 #2e2e33;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Header
+/*----------------------------------------------------------------------*/
+
+
+header{
+	-webkit-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	border-top-color:#3d3d3d;
+
+	background:#2b2b2b;
+	/* the filter causes an overflow problem on IE9 http://stackoverflow.com/questions/3619383/internet-explorer-css-property-filter-ignores-overflowvisible
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');*/
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+#logo, #logo a{
+	text-shadow:0 -1px 0 #000;
+	color:#2e2e33;
+}
+#header ul li ul li{
+	border-color:#2c2c2c #3d3d3d #3d3d3d #2c2c2c;
+}
+#header ul li ul li a{
+	color:#cacaca;
+	text-shadow:0px 1px 0 #2e2e33;
+	border-top-color:#555;
+	
+	background:#202020;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#151515');
+	background:-webkit-gradient(linear, left top, left bottom, from(#202020), to(#151515));
+	background:-moz-linear-gradient(top,  #202020,  #151515);
+	background:-o-linear-gradient(top,  #202020,  #151515);
+}
+#header ul li ul li a:hover{
+
+	background:#2c2c2c;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+#header ul li ul li a:active, #header ul li ul li a.active{
+	-webkit-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	-moz-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	
+	background:#151515;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#151515', endColorstr='#1c1c1c');
+	background:-webkit-gradient(linear, left top, left bottom, from(#151515), to(#1c1c1c));
+	background:-moz-linear-gradient(top,  #151515,  #1c1c1c);
+	background:-o-linear-gradient(top,  #151515,  #1c1c1c); 
+}
+#header ul li ul li:active, #header ul li ul li.active{
+}
+#header ul li ul li ul{
+	background-color:#a8a8a8;
+}
+#header ul li ul li span{
+	background-color:#731717;
+	color:#ffffff;
+	border-color: #333;
+	-webkit-box-shadow: inset 0px 2px 2px rgba(255,255,255, 0.2), inset 0px -2px 3px rgba(255,25,25, 0.2);
+	-moz-box-shadow: inset 0px 2px 2px rgba(255,255,255, 0.2), inset 0px -2px 3px rgba(255,25,25, 0.2);
+	box-shadow: inset 0px 2px 2px rgba(255,255,255, 0.2), inset 0px -2px 3px rgba(255,25,25, 0.2);
+}
+#header ul li ul li ul li{
+	border-color:#222222;
+}
+#searchbox{
+	border-color:#2c2c2c #3d3d3d #3d3d3d #2c2c2c;
+}
+form#searchform input#search{
+	color:#cacaca;
+	text-shadow:0px 1px 0 #2e2e33;
+	border-top-color:#555555;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	
+	background:#202020;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#151515');
+	background:-webkit-gradient(linear, left top, left bottom, from(#202020), to(#151515));
+	background:-moz-linear-gradient(top,  #202020,  #151515);
+	background:-o-linear-gradient(top,  #202020,  #151515);
+}
+form#searchform input#search:hover{
+	background:#2c2c2c;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+form#searchform input#search:focus{
+	-webkit-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	-moz-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.3);
+	background:#2e2e33;
+	filter:none;
+}
+form#searchform input#search.load{
+	background-image:url(images/loading.gif) !important;
+}
+
+
+ /* Live Search
+ /*---------------------------------------------------------------------*/
+
+ul#searchboxresult{
+	border-top-color:#121212;
+	-webkit-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:0px 0px 4px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 0px 4px rgba(0, 0, 0, 0.3);
+}
+ul#searchboxresult li a{
+	border-color:#2e2e33 #080808 #121212 #080808;
+	background-color:#202020;
+}
+ul#searchboxresult li a:hover{
+	background-color:#2c2c2c;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Navigation
+/*----------------------------------------------------------------------*/
+
+nav{
+	border-right-color:#1e1e1e !important;
+	border-left-color:#2e2e33;
+	-webkit-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow:2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav ul{
+	border-top-color:#121212;
+	background-color:#a8a8a8;
+}
+nav ul li{
+	background-image:none !important;
+}
+nav ul li a{
+	background:#202020;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#151515');
+	background:-webkit-gradient(linear, left top, left bottom, from(#202020), to(#151515));
+	background:-moz-linear-gradient(top,  #202020,  #151515);
+	background:-o-linear-gradient(top,  #202020,  #151515);
+}
+nav ul li a:hover{
+	background:#2c2c2c;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+nav ul li a span{
+	color:#cacaca;
+	text-shadow:0 -1px 0 #000;
+	border-color:#2e2e33 #080808 #121212 #080808;
+}
+nav ul li a:active, nav ul li a.active{
+	background-image:url(images/nav_active.png);
+	background-repeat:repeat-x;
+	background-color:#287e84;
+	background-position:left center;
+	filter:none;
+}
+nav ul li a:active span, nav ul li a.active span{
+	color:#cacaca;
+	text-shadow:0px -1px 0 rgba(0,0,0,0.3);
+}
+
+nav ul li ul{
+	border-bottom-color:#222222;
+}
+nav ul li ul li{
+	background-image:none !important;
+}
+nav ul li ul li a{
+}
+nav ul li ul li a span{
+	border-top-color:#222222;
+	background-image:none !important;
+}
+/*----------------------------------------------------------------------*/
+/* Content
+/*----------------------------------------------------------------------*/
+
+#content{
+	-webkit-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow:3px 0 4px rgba(0, 0, 0, 0.1);
+	background-color:#111111;
+	background-image:url(images/paper_01.png);
+	border-color:#121212 #2e2e33 #2e2e33 #2e2e33;
+}
+
+.bgsample{
+	border-color:#666666;
+	-webkit-box-shadow:inset 0 0 2px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:inset 0 0 2px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 0 2px rgba(0, 0, 0, 0.5);
+	background-color:#2e2e33;
+}
+
+/*----------------------------------------------------------------------*/
+/* Breadcrumb
+/*----------------------------------------------------------------------*/
+
+
+.breadcrumb li a{
+	color:#666666;
+	text-shadow:0 -1px 0 #000;
+	border-color:#111111 #222222 #222222 #222222;
+	background-image:url(images/breadcrumb.png);
+}
+.breadcrumb li:first-child a{
+	border-left-color:#111111;
+}
+.breadcrumb li:last-child a{
+}
+.breadcrumb.disabled li a:hover{
+	color:#666666;
+}
+.breadcrumb li a.previous{
+	color:#555555;
+}
+.breadcrumb.disabled li a.previous:hover{
+	color:#555555;
+}
+.breadcrumb li a:hover{
+	color:#a8a8a8;
+}
+.breadcrumb li a:active, .breadcrumb li a.active, .breadcrumb.disabled li a.active:hover{
+	color:#aaaaaa;
+	text-shadow:0 0 -1px #2e2e33;
+}
+
+/*----------------------------------------------------------------------*/
+/* Gallery
+/*----------------------------------------------------------------------*/
+
+.gallery{
+	border-color:#000000 #181818 #333333 #181818;
+	background-image:url(images/paper_02.png);
+}
+.gallery .sortable_placeholder{
+	background-color:#2c2c2c;
+	background-image:url(images/paper_02.png);
+}
+
+.gallery li{
+	border-color:#2e2e33 #181818 #333333 #181818;
+	background-image:url(images/paper_01.png);
+}
+.gallery li > a{
+	background-image:url(images/loading.gif);
+}
+.gallery li img{
+}
+.gallery li span{
+	background-color:#ffffff;
+	border-top-color:#999999;
+	-webkit-box-shadow:0 -1px 0 #ffffff;
+	-moz-box-shadow:0 -1px 0 #ffffff;
+	box-shadow:0 -1px 0 #ffffff;
+}
+.gallery li > a span a{
+	color:#2e2e33;
+}
+.gallery li a span a.edit{
+	background-image:url(../images/icons/dark/pencil.png);
+}
+.gallery li a span a.delete{
+	background-image:url(../images/icons/dark/cross.png);
+}
+
+/*----------------------------------------------------------------------*/
+/* Message Box
+/*----------------------------------------------------------------------*/
+
+#wl_msg .msg-box, #wl_msg .msg-box-close{
+	border-color:#1e1e1e;
+	color:#202020;
+	
+	background:#f1f1f1;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#e8e8e8');
+	background:-webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#e8e8e8));
+	background:-moz-linear-gradient(top,  #f1f1f1,  #e8e8e8);
+	background:-o-linear-gradient(top,  #f1f1f1,  #e8e8e8);
+}
+#wl_msg .msg-box-close{
+}
+#wl_msg .msg-box-close:hover{
+	background-color:#1e1e1e;
+	color:#ffffff;
+}
+#wl_msg .msg-box h3, #wl_msg .msg-close{
+	color:#202020;
+	text-shadow:0 1px 0 #eeeeee;
+}
+#wl_msg .msg-box h3{
+	border-bottom-color:#aaaaaa;
+}
+#wl_msg .msg-close{
+	border-left-color:#aaaaaa;
+	border-bottom-color:#aaaaaa;
+	background-image:url(../images/icons/dark/cross.png);
+}
+#wl_msg .msg-close:hover{
+	background-image:url(../images/icons/light/cross.png);
+	background-color:#202020;
+}
+#wl_msg .msg-content{
+}
+/*----------------------------------------------------------------------*/
+/* Alert Boxes
+/*----------------------------------------------------------------------*/
+
+div.alert{
+	border-color:#2d2d2d #181818 #181818 #2d2d2d;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.2);
+	color:#f1f1f1;
+	background-color:#2e2e33;
+	-webkit-box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.3), inset 0 2px 5px rgba(204, 204, 204, 0.2), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.3), inset 0 2px 5px rgba(204, 204, 204, 0.2), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+	box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.3), inset 0 2px 5px rgba(204, 204, 204, 0.2), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+	margin:9px 0;
+}
+div.alert:hover{
+	border-color:#2d2d2d;
+}
+div.alert a{
+	color:#a8a8a8;
+}
+div.alert a:hover{
+	color:#bbbbbb;
+}
+
+div.alert.red, div.alert.warning{
+	background-color:#731717;
+}
+div.alert.red:hover, div.alert.warning:hover{
+	background-color:#8c1c1c;
+}
+div.alert.green, div.alert.success{
+	background-color:#357317;
+}
+div.alert.green:hover, div.alert.success:hover{
+	background-color:#418c1c;
+}
+div.alert.yellow, div.alert.note{
+	background-color:#736e17;
+}
+div.alert.yellow:hover, div.alert.note:hover{
+	background-color:#8c871c;
+}
+div.alert.blue, div.alert.info{
+	background-color:#176d73;
+}
+div.alert.blue:hover, div.alert.info:hover{
+	background-color:#1c858c;
+}
+div.alert.pink{
+	background-color:#731771;
+}
+div.alert.pink:hover{
+	background-color:#8c1c8b;
+}
+div.alert.purple{
+	background-color:#491773;
+}
+div.alert.purple:hover{
+	background-color:#581c8c;
+}
+
+div.alert.warning{
+	background-image:url(../images/icons/light/alert.png);
+}
+div.alert.success{
+	background-image:url(../images/icons/light/tick.png);
+}
+div.alert.note{
+	background-image:url(../images/icons/light/light_bulb.png);
+}
+div.alert.info{
+	background-image:url(../images/icons/light/information.png);
+}
+/*----------------------------------------------------------------------*/
+/* Form Elements
+/*----------------------------------------------------------------------*/
+
+pre{
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+pre, code{
+	background-image:url(images/paper_02.png);
+	background-color:#202020;
+	border-color:#444444;
+}
+pre code{
+	background-image:url(images/code_lines.png);
+}
+
+input,textarea{
+	background-color:#2e2e33;
+	border-color:#444444;
+}
+input.placeholder,textarea.placeholder{
+	color:#555555;
+}
+input.error{
+	color:#c49090;
+}
+input, textarea, input:invalid, input:required, textarea:required{
+	-webkit-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+input:hover,input:focus,textarea:hover,textarea:focus{
+	-webkit-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+select optgroup, select option{
+	color:#555555;
+}
+select option{
+	border-color:#ffffff #f7f7f7 #dddddd #f7f7f7;
+}
+form{
+	border-color:#000000 #181818 #222222 #181818;
+	background-image:url(images/paper_02.png);
+}
+form .wl_formstatus{
+	color:#731717;
+}
+form span.required{
+	background-image:url(images/required.png);
+}
+
+form fieldset{
+	border-color:#222222 #181818 #444444 #181818;
+}
+form label{
+	border-top-color:#2e2e33;
+	color:#bbbbbb;
+	text-shadow:0 1px 0 #2e2e33;
+	
+	background:#202020;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#151515');
+	background:-webkit-gradient(linear, left top, left bottom, from(#202020), to(#151515));
+	background:-moz-linear-gradient(top,  #202020,  #151515);
+	background:-o-linear-gradient(top,  #202020,  #151515);
+}
+form fieldset > section{
+	border-top-color:#2e2e33;
+	border-bottom-color:#181818;
+	
+	background:#2c2c2c;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+form fieldset > section > div{
+	border-left-color:#222222;
+}
+form fieldset > section > div span{
+}
+form fieldset > section.error{
+	background:#8c1c1c;
+	border-bottom-color:#8c1c1c;
+	filter:none;
+}
+form fieldset > section.error > label{
+	text-shadow:none;
+}
+form fieldset > section label{
+}
+div.passwordstrength{
+	text-shadow:0 1px 0 #222222;
+	-webkit-box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+div.passwordstrength.s_1{background-color:#731717;}
+div.passwordstrength.s_2{background-color:#0f2d4a;}
+div.passwordstrength.s_3{background-color:#736e17;}
+div.passwordstrength.s_4{background-color:#176d73;}
+div.passwordstrength.s_5{background-color:#357317;}
+
+/*----------------------------------------------------------------------*/
+/* jQuery Checkbox
+/*----------------------------------------------------------------------*/
+
+.jquery-checkbox span.checkboxplaceholder { 
+	background-image:url(images/checkbox.png);
+}
+
+/*----------------------------------------------------------------------*/
+/* File Upload
+/*----------------------------------------------------------------------*/
+
+div.fileuploadui{
+}
+div.fileuploadui a{
+}
+ul.fileuploadpool{
+	border-color:#000000;
+	background-image:url(images/paper_02.png);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+ul.fileuploadpool.drop{
+	background-image:url(images/dragndrop.png),url(images/paper_02.png);
+}
+ul.fileuploadpool.single{
+}
+ul.fileuploadpool li{
+	border-color:#2e2e33 #181818 #333333 #181818;
+	background-color:#202020;
+}
+ul.fileuploadpool li.error{
+	background-color:#8c1c1c;
+}
+ul.fileuploadpool li .name{
+}
+ul.fileuploadpool li a{
+}
+ul.fileuploadpool li a:hover{
+}
+ul.fileuploadpool li a.cancel{
+	background-image:url(../images/icons/light/cross.png);
+}
+ul.fileuploadpool li a.remove{
+	background-image:url(../images/icons/light/cross.png);
+}
+ul.fileuploadpool li .progress{
+	background-color:#8c1c1c;
+	background-image:url(images/upload.gif);
+}
+ul.fileuploadpool li.success .progress{
+	background-color:#418c1c;
+	background-image:none;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Comboselect
+/*----------------------------------------------------------------------*/
+
+div.comboselectbox div.combowrap{
+	border-color:#2e2e33 #181818 #333333 #181818;
+	background-image:url(images/paper_02.png);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+div.comboselectbox ul.comboselect li{
+	border-color:#2e2e33 #181818 #333333 #181818;
+	background-color:#202020;
+}
+div.comboselectbox ul.comboselect li:hover a{
+	color:#fff;
+}
+div.comboselectbox ul.comboselect li a.add{
+	background-image:url(../images/icons/light/plus.png);
+}
+div.comboselectbox ul.comboselect li a.remove{
+	background-image:url(../images/icons/light/cross.png);
+}
+div.comboselectbox ul.comboselect li.used a{
+	color:#444;
+}
+div.comboselectbox ul.comboselect li.selected{
+	background-color:#404040;
+}
+div.comboselectbox div.comboselectbuttons a.add{
+	background-image:url(../images/icons/light/triangle_right.png);
+}
+div.comboselectbox div.comboselectbuttons a.remove{
+	background-image:url(../images/icons/light/triangle_left.png);
+}
+div.comboselectbox div.comboselectbuttons a.addall{
+	background-image:url(../images/icons/light/triangle_double_right.png);
+}
+div.comboselectbox div.comboselectbuttons a.removeall{
+	background-image:url(../images/icons/light/triangle_double_left.png);
+}
+
+@media screen and (max-width:700px){
+	div.comboselectbox div.comboselectbuttons a.add{
+		background-image:url(../images/icons/light/triangle_down.png);
+	}
+	div.comboselectbox div.comboselectbuttons a.remove{
+		background-image:url(../images/icons/light/triangle_up.png);
+	}
+	div.comboselectbox div.comboselectbuttons a.addall{
+		background-image:url(../images/icons/light/triangle_double_down.png);
+	}
+	div.comboselectbox div.comboselectbuttons a.removeall{
+		background-image:url(../images/icons/light/triangle_double_up.png);
+	}
+}
+
+/*----------------------------------------------------------------------*/
+/* Buttons
+/*----------------------------------------------------------------------*/
+
+
+button, a.btn,
+.dataTables_paginate span.paginate_button,
+.dataTables_paginate span.paginate_active{
+	border-color:#2d2d2d #181818 #181818 #2d2d2d;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.2);
+	color:#f1f1f1;
+	background-color:#222222;
+	-webkit-box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.2), inset 0 2px 5px rgba(204, 204, 204, 0.1), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.2), inset 0 2px 5px rgba(204, 204, 204, 0.1), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+	box-shadow:inset 0 1px 0 rgba(204, 204, 204, 0.2), inset 0 2px 5px rgba(204, 204, 204, 0.1), inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+button.icon, a.btn.icon{
+}
+button{
+}
+a.btn{
+}
+button:hover, a.btn:hover,
+.dataTables_paginate span.paginate_active:hover{
+	background-color:#333333;
+}
+button:active, a.btn:active,
+.dataTables_paginate span.paginate_active{
+	background-color:#333333;
+	border-color:#2d2d2d #181818 #181818 #2d2d2d;
+	-webkit-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.1);
+	-moz-box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.1);
+	box-shadow:inset 0 2px 1px rgba(204, 204, 204, 0.1);
+}
+
+button.red, a.btn.red{
+	background-color:#731717;
+}
+button.red:hover, a.btn.red:hover{
+	background-color:#8c1c1c;
+}
+button.green, a.btn.green{
+	background-color:#357317;
+}
+button.green:hover, a.btn.green:hover{
+	background-color:#418c1c;
+}
+button.yellow, a.btn.yellow{
+	background-color:#736e17;
+}
+button.yellow:hover, a.btn.yellow:hover{
+	background-color:#8c871c;
+}
+button.blue, a.btn.blue{
+	background-color:#176d73;
+}
+button.blue:hover, a.btn.blue:hover{
+	background-color:#1c858c;
+}
+button.pink, a.btn.pink{
+	background-color:#731771;
+}
+button.pink:hover, a.btn.pink:hover{
+	background-color:#8c1c8b;
+}
+button.purple, a.btn.purple{
+	background-color:#491773;
+}
+button.purple:hover, a.btn.purple:hover{
+	background-color:#581c8c;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Widgets
+/*----------------------------------------------------------------------*/
+
+.widget, .widget.loading{
+	background-color:#2e2e33;
+	border-color:#555555 #2a2a2a #1e1e1e #2a2a2a;
+	background-image:url(images/paper_02.png);
+}
+.widget > div{
+	border-color:#333333 #181818 #222222 #181818;
+	background-image:url(images/paper_01.png);
+}
+.widget > div.ui-widget{
+	background-image:none;
+}
+.widget:hover{
+	border-color:#333333;
+}
+.widget.ui-sortable-helper{
+	-webkit-box-shadow:0px 5px 6px rgba(155, 155, 155, 0.1);
+	-moz-box-shadow:0px 5px 6px rgba(155, 155, 155, 0.1);
+	box-shadow:0px 5px 6px rgba(155, 155, 155, 0.1);
+}
+.widget h3.handle{
+	text-shadow:0 -1px 0 rgba(0,0,0,0.2);
+	color:#f1f1f1;
+	border-top-color:#2e2e33;
+	border-bottom-color:#555555;
+	
+	background:#202020;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#202020', endColorstr='#151515');
+	background:-webkit-gradient(linear, left top, left bottom, from(#202020), to(#151515));
+	background:-moz-linear-gradient(top,  #202020,  #151515);
+	background:-o-linear-gradient(top,  #202020,  #151515);
+}
+.widget h3.handle:hover{
+	-webkit-box-shadow:inset 0 -3px 12px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:inset 0 -3px 12px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 -3px 12px rgba(0, 0, 0, 0.5);
+	
+	background:#2c2c2c;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c', endColorstr='#202020');
+	background:-webkit-gradient(linear, left top, left bottom, from(#2c2c2c), to(#202020));
+	background:-moz-linear-gradient(top,  #2c2c2c,  #202020);
+	background:-o-linear-gradient(top,  #2c2c2c,  #202020);
+}
+
+.widget h3.handle .collapse{
+	background-image:url(../images/icons/light/collapse.png);
+}
+.widget h3.handle .reload{
+	background-image:url(../images/icons/light/refresh_3.png);
+}
+.widget.collapsed{
+	border-bottom-color:#555555;
+}
+.widget.collapsed h3.handle .collapse{
+	background-image:url(../images/icons/light/expand.png);
+}
+.widget.loading h3.handle .reload{
+	background-image:url(images/loading.gif);
+}
+.widget.number-widget > div ul li{
+	border-top-color:#aaaaaa;
+}
+.widget.number-widget > div ul li a{
+	color:#aaaaaa;
+	text-shadow:0 1px 0 #2e2e33;
+}
+.widget.number-widget > div ul li a:hover{
+	color:#666666;
+}
+.widget.number-widget ul li a span{
+}
+
+.sortable_placeholder{
+	border-color:#2e2e33;
+	background-color:#2c2c2c;
+	background-image:url(images/paper_02.png);
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/*----------------------------------------------------------------------*/
+/* Footer
+/*----------------------------------------------------------------------*/
+
+footer{
+	color:#f1f1f1;
+}
+
+
+
+/* Move the Headernav to a drop down menu to the right */
+@media screen and (max-width:960px) {
+	#header ul#headernav{
+		background-image:url(../images/icons/light/expand.png);
+		border-left-color:#181818;
+	}
+	#header ul#headernav li ul li ul{
+		background-image:url(../images/bg/04.png);
+		background-color:#ffffff;
+	}
+}
+
+/* iPhone and real small devicces */
+@media screen and (max-width:480px) {
+	nav ul li a:active span, nav ul li a.active span{
+		border-top-color:#2e2e33;
+	}
+	nav{
+		border-top-color:#1e1e1e;
+	}
+	nav ul {
+		background:#202020;
+	}
+	nav ul li a span{
+		border-left-color:#1e1e1e;
+	}
+}
+
+/*----------------------------------------------------------------------*/
+/* Icons
+/*----------------------------------------------------------------------*/
+
+nav ul li.i_abacus a span, .i_abacus{ background-image: url(../images/icons/light/abacus.png);}
+nav ul li.i_access_denied a span, .i_access_denied{ background-image: url(../images/icons/light/access_denied.png);}
+nav ul li.i_address_book a span, .i_address_book{ background-image: url(../images/icons/light/address_book.png);}
+nav ul li.i_admin_user a span, .i_admin_user{ background-image: url(../images/icons/light/admin_user.png);}
+nav ul li.i_admin_user_2 a span, .i_admin_user_2{ background-image: url(../images/icons/light/admin_user_2.png);}
+nav ul li.i_airplane a span, .i_airplane{ background-image: url(../images/icons/light/airplane.png);}
+nav ul li.i_alarm a span, .i_alarm{ background-image: url(../images/icons/light/alarm.png);}
+nav ul li.i_alarm_2 a span, .i_alarm_2{ background-image: url(../images/icons/light/alarm_2.png);}
+nav ul li.i_alarm_clock a span, .i_alarm_clock{ background-image: url(../images/icons/light/alarm_clock.png);}
+nav ul li.i_alert a span, .i_alert{ background-image: url(../images/icons/light/alert.png);}
+nav ul li.i_android a span, .i_android{ background-image: url(../images/icons/light/android.png);}
+nav ul li.i_application a span, .i_application{ background-image: url(../images/icons/light/application.png);}
+nav ul li.i_archive a span, .i_archive{ background-image: url(../images/icons/light/archive.png);}
+nav ul li.i_arrow_down a span, .i_arrow_down{ background-image: url(../images/icons/light/arrow_down.png);}
+nav ul li.i_arrow_down_left a span, .i_arrow_down_left{ background-image: url(../images/icons/light/arrow_down_left.png);}
+nav ul li.i_arrow_down_right a span, .i_arrow_down_right{ background-image: url(../images/icons/light/arrow_down_right.png);}
+nav ul li.i_arrow_left a span, .i_arrow_left{ background-image: url(../images/icons/light/arrow_left.png);}
+nav ul li.i_arrow_right a span, .i_arrow_right{ background-image: url(../images/icons/light/arrow_right.png);}
+nav ul li.i_arrow_up a span, .i_arrow_up{ background-image: url(../images/icons/light/arrow_up.png);}
+nav ul li.i_arrow_up_left a span, .i_arrow_up_left{ background-image: url(../images/icons/light/arrow_up_left.png);}
+nav ul li.i_arrow_up_right a span, .i_arrow_up_right{ background-image: url(../images/icons/light/arrow_up_right.png);}
+nav ul li.i_bag a span, .i_bag{ background-image: url(../images/icons/light/bag.png);}
+nav ul li.i_balloons a span, .i_balloons{ background-image: url(../images/icons/light/balloons.png);}
+nav ul li.i_bandaid a span, .i_bandaid{ background-image: url(../images/icons/light/bandaid.png);}
+nav ul li.i_battery a span, .i_battery{ background-image: url(../images/icons/light/battery.png);}
+nav ul li.i_battery_33 a span, .i_battery_33{ background-image: url(../images/icons/light/battery_33.png);}
+nav ul li.i_battery_66 a span, .i_battery_66{ background-image: url(../images/icons/light/battery_66.png);}
+nav ul li.i_battery_empty a span, .i_battery_empty{ background-image: url(../images/icons/light/battery_empty.png);}
+nav ul li.i_battery_full a span, .i_battery_full{ background-image: url(../images/icons/light/battery_full.png);}
+nav ul li.i_bended_arrow_down a span, .i_bended_arrow_down{ background-image: url(../images/icons/light/bended_arrow_down.png);}
+nav ul li.i_bended_arrow_left a span, .i_bended_arrow_left{ background-image: url(../images/icons/light/bended_arrow_left.png);}
+nav ul li.i_bended_arrow_right a span, .i_bended_arrow_right{ background-image: url(../images/icons/light/bended_arrow_right.png);}
+nav ul li.i_bended_arrow_up a span, .i_bended_arrow_up{ background-image: url(../images/icons/light/bended_arrow_up.png);}
+nav ul li.i_big_brush a span, .i_big_brush{ background-image: url(../images/icons/light/big_brush.png);}
+nav ul li.i_blackberry a span, .i_blackberry{ background-image: url(../images/icons/light/blackberry.png);}
+nav ul li.i_blocks_images a span, .i_blocks_images{ background-image: url(../images/icons/light/blocks_images.png);}
+nav ul li.i_blu-ray a span, .i_blu-ray{ background-image: url(../images/icons/light/blu-ray.png);}
+nav ul li.i_bluetooth a span, .i_bluetooth{ background-image: url(../images/icons/light/bluetooth.png);}
+nav ul li.i_bluetooth_2 a span, .i_bluetooth_2{ background-image: url(../images/icons/light/bluetooth_2.png);}
+nav ul li.i_book a span, .i_book{ background-image: url(../images/icons/light/book.png);}
+nav ul li.i_book_large a span, .i_book_large{ background-image: url(../images/icons/light/book_large.png);}
+nav ul li.i_books a span, .i_books{ background-image: url(../images/icons/light/books.png);}
+nav ul li.i_breadcrumb a span, .i_breadcrumb{ background-image: url(../images/icons/light/breadcrumb.png);}
+nav ul li.i_brush a span, .i_brush{ background-image: url(../images/icons/light/brush.png);}
+nav ul li.i_buildings a span, .i_buildings{ background-image: url(../images/icons/light/buildings.png);}
+nav ul li.i_bulls_eye a span, .i_bulls_eye{ background-image: url(../images/icons/light/bulls_eye.png);}
+nav ul li.i_calculator a span, .i_calculator{ background-image: url(../images/icons/light/calculator.png);}
+nav ul li.i_calendar a span, .i_calendar{ background-image: url(../images/icons/light/calendar.png);}
+nav ul li.i_calendar_day a span, .i_calendar_day{ background-image: url(../images/icons/light/calendar_day.png);}
+nav ul li.i_camera a span, .i_camera{ background-image: url(../images/icons/light/camera.png);}
+nav ul li.i_camera_2 a span, .i_camera_2{ background-image: url(../images/icons/light/camera_2.png);}
+nav ul li.i_car a span, .i_car{ background-image: url(../images/icons/light/car.png);}
+nav ul li.i_cash_register a span, .i_cash_register{ background-image: url(../images/icons/light/cash_register.png);}
+nav ul li.i_cassette a span, .i_cassette{ background-image: url(../images/icons/light/cassette.png);}
+nav ul li.i_cat a span, .i_cat{ background-image: url(../images/icons/light/cat.png);}
+nav ul li.i_cd a span, .i_cd{ background-image: url(../images/icons/light/cd.png);}
+nav ul li.i_chair a span, .i_chair{ background-image: url(../images/icons/light/chair.png);}
+nav ul li.i_chart a span, .i_chart{ background-image: url(../images/icons/light/chart.png);}
+nav ul li.i_chart_2 a span, .i_chart_2{ background-image: url(../images/icons/light/chart_2.png);}
+nav ul li.i_chart_3 a span, .i_chart_3{ background-image: url(../images/icons/light/chart_3.png);}
+nav ul li.i_chart_4 a span, .i_chart_4{ background-image: url(../images/icons/light/chart_4.png);}
+nav ul li.i_chart_5 a span, .i_chart_5{ background-image: url(../images/icons/light/chart_5.png);}
+nav ul li.i_chart_6 a span, .i_chart_6{ background-image: url(../images/icons/light/chart_6.png);}
+nav ul li.i_chart_7 a span, .i_chart_7{ background-image: url(../images/icons/light/chart_7.png);}
+nav ul li.i_chart_8 a span, .i_chart_8{ background-image: url(../images/icons/light/chart_8.png);}
+nav ul li.i_chemical a span, .i_chemical{ background-image: url(../images/icons/light/chemical.png);}
+nav ul li.i_chrome a span, .i_chrome{ background-image: url(../images/icons/light/chrome.png);}
+nav ul li.i_clipboard a span, .i_clipboard{ background-image: url(../images/icons/light/clipboard.png);}
+nav ul li.i_clock a span, .i_clock{ background-image: url(../images/icons/light/clock.png);}
+nav ul li.i_cloud a span, .i_cloud{ background-image: url(../images/icons/light/cloud.png);}
+nav ul li.i_cloud_download a span, .i_cloud_download{ background-image: url(../images/icons/light/cloud_download.png);}
+nav ul li.i_cloud_upload a span, .i_cloud_upload{ background-image: url(../images/icons/light/cloud_upload.png);}
+nav ul li.i_cog a span, .i_cog{ background-image: url(../images/icons/light/cog.png);}
+nav ul li.i_cog_2 a span, .i_cog_2{ background-image: url(../images/icons/light/cog_2.png);}
+nav ul li.i_cog_3 a span, .i_cog_3{ background-image: url(../images/icons/light/cog_3.png);}
+nav ul li.i_cog_4 a span, .i_cog_4{ background-image: url(../images/icons/light/cog_4.png);}
+nav ul li.i_collapse a span, .i_collapse{ background-image: url(../images/icons/light/collapse.png);}
+nav ul li.i_companies a span, .i_companies{ background-image: url(../images/icons/light/companies.png);}
+nav ul li.i_compress a span, .i_compress{ background-image: url(../images/icons/light/compress.png);}
+nav ul li.i_copy a span, .i_copy{ background-image: url(../images/icons/light/copy.png);}
+nav ul li.i_coverflow a span, .i_coverflow{ background-image: url(../images/icons/light/coverflow.png);}
+nav ul li.i_create_write a span, .i_create_write{ background-image: url(../images/icons/light/create_write.png);}
+nav ul li.i_cross a span, .i_cross{ background-image: url(../images/icons/light/cross.png);}
+nav ul li.i_cup a span, .i_cup{ background-image: url(../images/icons/light/cup.png);}
+nav ul li.i_cursor a span, .i_cursor{ background-image: url(../images/icons/light/cursor.png);}
+nav ul li.i_delicious a span, .i_delicious{ background-image: url(../images/icons/light/delicious.png);}
+nav ul li.i_desk a span, .i_desk{ background-image: url(../images/icons/light/desk.png);}
+nav ul li.i_digg a span, .i_digg{ background-image: url(../images/icons/light/digg.png);}
+nav ul li.i_digg_2 a span, .i_digg_2{ background-image: url(../images/icons/light/digg_2.png);}
+nav ul li.i_document a span, .i_document{ background-image: url(../images/icons/light/document.png);}
+nav ul li.i_document_add a span, .i_document_add{ background-image: url(../images/icons/light/document_add.png);}
+nav ul li.i_document_delete a span, .i_document_delete{ background-image: url(../images/icons/light/document_delete.png);}
+nav ul li.i_documents a span, .i_documents{ background-image: url(../images/icons/light/documents.png);}
+nav ul li.i_download a span, .i_download{ background-image: url(../images/icons/light/download.png);}
+nav ul li.i_download_to_computer a span, .i_download_to_computer{ background-image: url(../images/icons/light/download_to_computer.png);}
+nav ul li.i_dress a span, .i_dress{ background-image: url(../images/icons/light/dress.png);}
+nav ul li.i_dribbble a span, .i_dribbble{ background-image: url(../images/icons/light/dribbble.png);}
+nav ul li.i_dribbble_2 a span, .i_dribbble_2{ background-image: url(../images/icons/light/dribbble_2.png);}
+nav ul li.i_dropbox a span, .i_dropbox{ background-image: url(../images/icons/light/dropbox.png);}
+nav ul li.i_drupal a span, .i_drupal{ background-image: url(../images/icons/light/drupal.png);}
+nav ul li.i_duplicate a span, .i_duplicate{ background-image: url(../images/icons/light/duplicate.png);}
+nav ul li.i_dvd a span, .i_dvd{ background-image: url(../images/icons/light/dvd.png);}
+nav ul li.i_eject a span, .i_eject{ background-image: url(../images/icons/light/eject.png);}
+nav ul li.i_electricty_input a span, .i_electricty_input{ background-image: url(../images/icons/light/electricty_input.png);}
+nav ul li.i_electricty_plug a span, .i_electricty_plug{ background-image: url(../images/icons/light/electricty_plug.png);}
+nav ul li.i_empty a span, .i_empty{ background-image: url(../images/icons/light/empty.png);}
+nav ul li.i_excel_document a span, .i_excel_document{ background-image: url(../images/icons/light/excel_document.png);}
+nav ul li.i_excel_documents a span, .i_excel_documents{ background-image: url(../images/icons/light/excel_documents.png);}
+nav ul li.i_exclamation a span, .i_exclamation{ background-image: url(../images/icons/light/exclamation.png);}
+nav ul li.i_exit a span, .i_exit{ background-image: url(../images/icons/light/exit.png);}
+nav ul li.i_expand a span, .i_expand{ background-image: url(../images/icons/light/expand.png);}
+nav ul li.i_expose a span, .i_expose{ background-image: url(../images/icons/light/expose.png);}
+nav ul li.i_expression_engine a span, .i_expression_engine{ background-image: url(../images/icons/light/expression_engine.png);}
+nav ul li.i_eyedropper a span, .i_eyedropper{ background-image: url(../images/icons/light/eyedropper.png);}
+nav ul li.i_facebook a span, .i_facebook{ background-image: url(../images/icons/light/facebook.png);}
+nav ul li.i_facebook_like a span, .i_facebook_like{ background-image: url(../images/icons/light/facebook_like.png);}
+nav ul li.i_fax a span, .i_fax{ background-image: url(../images/icons/light/fax.png);}
+nav ul li.i_female a span, .i_female{ background-image: url(../images/icons/light/female.png);}
+nav ul li.i_female_contour a span, .i_female_contour{ background-image: url(../images/icons/light/female_contour.png);}
+nav ul li.i_file_cabinet a span, .i_file_cabinet{ background-image: url(../images/icons/light/file_cabinet.png);}
+nav ul li.i_film a span, .i_film{ background-image: url(../images/icons/light/film.png);}
+nav ul li.i_film_2 a span, .i_film_2{ background-image: url(../images/icons/light/film_2.png);}
+nav ul li.i_filmcamera a span, .i_filmcamera{ background-image: url(../images/icons/light/filmcamera.png);}
+nav ul li.i_finish_flag a span, .i_finish_flag{ background-image: url(../images/icons/light/finish_flag.png);}
+nav ul li.i_firefox a span, .i_firefox{ background-image: url(../images/icons/light/firefox.png);}
+nav ul li.i_flag a span, .i_flag{ background-image: url(../images/icons/light/flag.png);}
+nav ul li.i_flag_2 a span, .i_flag_2{ background-image: url(../images/icons/light/flag_2.png);}
+nav ul li.i_folder a span, .i_folder{ background-image: url(../images/icons/light/folder.png);}
+nav ul li.i_folder_add a span, .i_folder_add{ background-image: url(../images/icons/light/folder_add.png);}
+nav ul li.i_folder_closed a span, .i_folder_closed{ background-image: url(../images/icons/light/folder_closed.png);}
+nav ul li.i_folder_delete a span, .i_folder_delete{ background-image: url(../images/icons/light/folder_delete.png);}
+nav ul li.i_folder_download a span, .i_folder_download{ background-image: url(../images/icons/light/folder_download.png);}
+nav ul li.i_folder_lock a span, .i_folder_lock{ background-image: url(../images/icons/light/folder_lock.png);}
+nav ul li.i_folder_love a span, .i_folder_love{ background-image: url(../images/icons/light/folder_love.png);}
+nav ul li.i_folder_upload a span, .i_folder_upload{ background-image: url(../images/icons/light/folder_upload.png);}
+nav ul li.i_footprint a span, .i_footprint{ background-image: url(../images/icons/light/footprint.png);}
+nav ul li.i_forward a span, .i_forward{ background-image: url(../images/icons/light/forward.png);}
+nav ul li.i_fountain_pen a span, .i_fountain_pen{ background-image: url(../images/icons/light/fountain_pen.png);}
+nav ul li.i_frames a span, .i_frames{ background-image: url(../images/icons/light/frames.png);}
+nav ul li.i_fullscreen a span, .i_fullscreen{ background-image: url(../images/icons/light/fullscreen.png);}
+nav ul li.i_globe a span, .i_globe{ background-image: url(../images/icons/light/globe.png);}
+nav ul li.i_globe_2 a span, .i_globe_2{ background-image: url(../images/icons/light/globe_2.png);}
+nav ul li.i_google_buzz a span, .i_google_buzz{ background-image: url(../images/icons/light/google_buzz.png);}
+nav ul li.i_google_maps a span, .i_google_maps{ background-image: url(../images/icons/light/google_maps.png);}
+nav ul li.i_graph a span, .i_graph{ background-image: url(../images/icons/light/graph.png);}
+nav ul li.i_grid a span, .i_grid{ background-image: url(../images/icons/light/grid.png);}
+nav ul li.i_hd a span, .i_hd{ background-image: url(../images/icons/light/hd.png);}
+nav ul li.i_hd_2 a span, .i_hd_2{ background-image: url(../images/icons/light/hd_2.png);}
+nav ul li.i_hd_3 a span, .i_hd_3{ background-image: url(../images/icons/light/hd_3.png);}
+nav ul li.i_headphones a span, .i_headphones{ background-image: url(../images/icons/light/headphones.png);}
+nav ul li.i_help a span, .i_help{ background-image: url(../images/icons/light/help.png);}
+nav ul li.i_house a span, .i_house{ background-image: url(../images/icons/light/house.png);}
+nav ul li.i_house_2 a span, .i_house_2{ background-image: url(../images/icons/light/house_2.png);}
+nav ul li.i_ice_cream a span, .i_ice_cream{ background-image: url(../images/icons/light/ice_cream.png);}
+nav ul li.i_ice_cream_2 a span, .i_ice_cream_2{ background-image: url(../images/icons/light/ice_cream_2.png);}
+nav ul li.i_ichat a span, .i_ichat{ background-image: url(../images/icons/light/ichat.png);}
+nav ul li.i_imac a span, .i_imac{ background-image: url(../images/icons/light/imac.png);}
+nav ul li.i_image a span, .i_image{ background-image: url(../images/icons/light/image.png);}
+nav ul li.i_image_2 a span, .i_image_2{ background-image: url(../images/icons/light/image_2.png);}
+nav ul li.i_images a span, .i_images{ background-image: url(../images/icons/light/images.png);}
+nav ul li.i_images_2 a span, .i_images_2{ background-image: url(../images/icons/light/images_2.png);}
+nav ul li.i_inbox a span, .i_inbox{ background-image: url(../images/icons/light/inbox.png);}
+nav ul li.i_incomming a span, .i_incomming{ background-image: url(../images/icons/light/incomming.png);}
+nav ul li.i_information a span, .i_information{ background-image: url(../images/icons/light/information.png);}
+nav ul li.i_ipad a span, .i_ipad{ background-image: url(../images/icons/light/ipad.png);}
+nav ul li.i_iphone_3g a span, .i_iphone_3g{ background-image: url(../images/icons/light/iphone_3g.png);}
+nav ul li.i_iphone_4 a span, .i_iphone_4{ background-image: url(../images/icons/light/iphone_4.png);}
+nav ul li.i_ipod a span, .i_ipod{ background-image: url(../images/icons/light/ipod.png);}
+nav ul li.i_ipod_nano a span, .i_ipod_nano{ background-image: url(../images/icons/light/ipod_nano.png);}
+nav ul li.i_joomla a span, .i_joomla{ background-image: url(../images/icons/light/joomla.png);}
+nav ul li.i_key a span, .i_key{ background-image: url(../images/icons/light/key.png);}
+nav ul li.i_key_2 a span, .i_key_2{ background-image: url(../images/icons/light/key_2.png);}
+nav ul li.i_ladys_purse a span, .i_ladys_purse{ background-image: url(../images/icons/light/ladys_purse.png);}
+nav ul li.i_lamp a span, .i_lamp{ background-image: url(../images/icons/light/lamp.png);}
+nav ul li.i_laptop a span, .i_laptop{ background-image: url(../images/icons/light/laptop.png);}
+nav ul li.i_lastfm a span, .i_lastfm{ background-image: url(../images/icons/light/lastfm.png);}
+nav ul li.i_lemonade_stand a span, .i_lemonade_stand{ background-image: url(../images/icons/light/lemonade_stand.png);}
+nav ul li.i_light_bulb a span, .i_light_bulb{ background-image: url(../images/icons/light/light_bulb.png);}
+nav ul li.i_link a span, .i_link{ background-image: url(../images/icons/light/link.png);}
+nav ul li.i_link_2 a span, .i_link_2{ background-image: url(../images/icons/light/link_2.png);}
+nav ul li.i_linux a span, .i_linux{ background-image: url(../images/icons/light/linux.png);}
+nav ul li.i_list a span, .i_list{ background-image: url(../images/icons/light/list.png);}
+nav ul li.i_list_image a span, .i_list_image{ background-image: url(../images/icons/light/list_image.png);}
+nav ul li.i_list_images a span, .i_list_images{ background-image: url(../images/icons/light/list_images.png);}
+nav ul li.i_loading_bar a span, .i_loading_bar{ background-image: url(../images/icons/light/loading_bar.png);}
+nav ul li.i_locked a span, .i_locked{ background-image: url(../images/icons/light/locked.png);}
+nav ul li.i_locked_2 a span, .i_locked_2{ background-image: url(../images/icons/light/locked_2.png);}
+nav ul li.i_macos a span, .i_macos{ background-image: url(../images/icons/light/macos.png);}
+nav ul li.i_magic_mouse a span, .i_magic_mouse{ background-image: url(../images/icons/light/magic_mouse.png);}
+nav ul li.i_magnifying_glass a span, .i_magnifying_glass{ background-image: url(../images/icons/light/magnifying_glass.png);}
+nav ul li.i_mail a span, .i_mail{ background-image: url(../images/icons/light/mail.png);}
+nav ul li.i_male a span, .i_male{ background-image: url(../images/icons/light/male.png);}
+nav ul li.i_male_contour a span, .i_male_contour{ background-image: url(../images/icons/light/male_contour.png);}
+nav ul li.i_map a span, .i_map{ background-image: url(../images/icons/light/map.png);}
+nav ul li.i_marker a span, .i_marker{ background-image: url(../images/icons/light/marker.png);}
+nav ul li.i_maximize a span, .i_maximize{ background-image: url(../images/icons/light/maximize.png);}
+nav ul li.i_medical_case a span, .i_medical_case{ background-image: url(../images/icons/light/medical_case.png);}
+nav ul li.i_megaphone a span, .i_megaphone{ background-image: url(../images/icons/light/megaphone.png);}
+nav ul li.i_microphone a span, .i_microphone{ background-image: url(../images/icons/light/microphone.png);}
+nav ul li.i_mighty_mouse a span, .i_mighty_mouse{ background-image: url(../images/icons/light/mighty_mouse.png);}
+nav ul li.i_minimize a span, .i_minimize{ background-image: url(../images/icons/light/minimize.png);}
+nav ul li.i_minus a span, .i_minus{ background-image: url(../images/icons/light/minus.png);}
+nav ul li.i_mobile_phone a span, .i_mobile_phone{ background-image: url(../images/icons/light/mobile_phone.png);}
+nav ul li.i_mobypicture a span, .i_mobypicture{ background-image: url(../images/icons/light/mobypicture.png);}
+nav ul li.i_money a span, .i_money{ background-image: url(../images/icons/light/money.png);}
+nav ul li.i_money_2 a span, .i_money_2{ background-image: url(../images/icons/light/money_2.png);}
+nav ul li.i_monitor a span, .i_monitor{ background-image: url(../images/icons/light/monitor.png);}
+nav ul li.i_mouse a span, .i_mouse{ background-image: url(../images/icons/light/mouse.png);}
+nav ul li.i_myspace a span, .i_myspace{ background-image: url(../images/icons/light/myspace.png);}
+nav ul li.i_next a span, .i_next{ background-image: url(../images/icons/light/next.png);}
+nav ul li.i_note_book a span, .i_note_book{ background-image: url(../images/icons/light/note_book.png);}
+nav ul li.i_outgoing a span, .i_outgoing{ background-image: url(../images/icons/light/outgoing.png);}
+nav ul li.i_pacman a span, .i_pacman{ background-image: url(../images/icons/light/pacman.png);}
+nav ul li.i_pacman_ghost a span, .i_pacman_ghost{ background-image: url(../images/icons/light/pacman_ghost.png);}
+nav ul li.i_paint_brush a span, .i_paint_brush{ background-image: url(../images/icons/light/paint_brush.png);}
+nav ul li.i_pants a span, .i_pants{ background-image: url(../images/icons/light/pants.png);}
+nav ul li.i_paperclip a span, .i_paperclip{ background-image: url(../images/icons/light/paperclip.png);}
+nav ul li.i_paste a span, .i_paste{ background-image: url(../images/icons/light/paste.png);}
+nav ul li.i_pause a span, .i_pause{ background-image: url(../images/icons/light/pause.png);}
+nav ul li.i_paypal a span, .i_paypal{ background-image: url(../images/icons/light/paypal.png);}
+nav ul li.i_paypal_2 a span, .i_paypal_2{ background-image: url(../images/icons/light/paypal_2.png);}
+nav ul li.i_paypal_3 a span, .i_paypal_3{ background-image: url(../images/icons/light/paypal_3.png);}
+nav ul li.i_pdf_document a span, .i_pdf_document{ background-image: url(../images/icons/light/pdf_document.png);}
+nav ul li.i_pdf_documents a span, .i_pdf_documents{ background-image: url(../images/icons/light/pdf_documents.png);}
+nav ul li.i_pencil a span, .i_pencil{ background-image: url(../images/icons/light/pencil.png);}
+nav ul li.i_phone a span, .i_phone{ background-image: url(../images/icons/light/phone.png);}
+nav ul li.i_phone_2 a span, .i_phone_2{ background-image: url(../images/icons/light/phone_2.png);}
+nav ul li.i_phone_hook a span, .i_phone_hook{ background-image: url(../images/icons/light/phone_hook.png);}
+nav ul li.i_piggy_bank a span, .i_piggy_bank{ background-image: url(../images/icons/light/piggy_bank.png);}
+nav ul li.i_plane_suitecase a span, .i_plane_suitecase{ background-image: url(../images/icons/light/plane_suitecase.png);}
+nav ul li.i_play a span, .i_play{ background-image: url(../images/icons/light/play.png);}
+nav ul li.i_plixi a span, .i_plixi{ background-image: url(../images/icons/light/plixi.png);}
+nav ul li.i_plus a span, .i_plus{ background-image: url(../images/icons/light/plus.png);}
+nav ul li.i_post_card a span, .i_post_card{ background-image: url(../images/icons/light/post_card.png);}
+nav ul li.i_power a span, .i_power{ background-image: url(../images/icons/light/power.png);}
+nav ul li.i_powerpoint_document a span, .i_powerpoint_document{ background-image: url(../images/icons/light/powerpoint_document.png);}
+nav ul li.i_powerpoint_documents a span, .i_powerpoint_documents{ background-image: url(../images/icons/light/powerpoint_documents.png);}
+nav ul li.i_presentation a span, .i_presentation{ background-image: url(../images/icons/light/presentation.png);}
+nav ul li.i_prev a span, .i_prev{ background-image: url(../images/icons/light/prev.png);}
+nav ul li.i_preview a span, .i_preview{ background-image: url(../images/icons/light/preview.png);}
+nav ul li.i_price_tag a span, .i_price_tag{ background-image: url(../images/icons/light/price_tag.png);}
+nav ul li.i_price_tags a span, .i_price_tags{ background-image: url(../images/icons/light/price_tags.png);}
+nav ul li.i_printer a span, .i_printer{ background-image: url(../images/icons/light/printer.png);}
+nav ul li.i_question a span, .i_question{ background-image: url(../images/icons/light/question.png);}
+nav ul li.i_radio a span, .i_radio{ background-image: url(../images/icons/light/radio.png);}
+nav ul li.i_record a span, .i_record{ background-image: url(../images/icons/light/record.png);}
+nav ul li.i_recycle a span, .i_recycle{ background-image: url(../images/icons/light/recycle.png);}
+nav ul li.i_refresh a span, .i_refresh{ background-image: url(../images/icons/light/refresh.png);}
+nav ul li.i_refresh_2 a span, .i_refresh_2{ background-image: url(../images/icons/light/refresh_2.png);}
+nav ul li.i_refresh_3 a span, .i_refresh_3{ background-image: url(../images/icons/light/refresh_3.png);}
+nav ul li.i_refresh_4 a span, .i_refresh_4{ background-image: url(../images/icons/light/refresh_4.png);}
+nav ul li.i_repeat a span, .i_repeat{ background-image: url(../images/icons/light/repeat.png);}
+nav ul li.i_rewind a span, .i_rewind{ background-image: url(../images/icons/light/rewind.png);}
+nav ul li.i_robot a span, .i_robot{ background-image: url(../images/icons/light/robot.png);}
+nav ul li.i_rss a span, .i_rss{ background-image: url(../images/icons/light/rss.png);}
+nav ul li.i_ruler a span, .i_ruler{ background-image: url(../images/icons/light/ruler.png);}
+nav ul li.i_ruler_2 a span, .i_ruler_2{ background-image: url(../images/icons/light/ruler_2.png);}
+nav ul li.i_running_man a span, .i_running_man{ background-image: url(../images/icons/light/running_man.png);}
+nav ul li.i_safari a span, .i_safari{ background-image: url(../images/icons/light/safari.png);}
+nav ul li.i_scan_label a span, .i_scan_label{ background-image: url(../images/icons/light/scan_label.png);}
+nav ul li.i_scissors a span, .i_scissors{ background-image: url(../images/icons/light/scissors.png);}
+nav ul li.i_sd a span, .i_sd{ background-image: url(../images/icons/light/sd.png);}
+nav ul li.i_sd_2 a span, .i_sd_2{ background-image: url(../images/icons/light/sd_2.png);}
+nav ul li.i_sd_3 a span, .i_sd_3{ background-image: url(../images/icons/light/sd_3.png);}
+nav ul li.i_settings a span, .i_settings{ background-image: url(../images/icons/light/settings.png);}
+nav ul li.i_settings_2 a span, .i_settings_2{ background-image: url(../images/icons/light/settings_2.png);}
+nav ul li.i_shopping_bag a span, .i_shopping_bag{ background-image: url(../images/icons/light/shopping_bag.png);}
+nav ul li.i_shopping_basket a span, .i_shopping_basket{ background-image: url(../images/icons/light/shopping_basket.png);}
+nav ul li.i_shopping_basket_2 a span, .i_shopping_basket_2{ background-image: url(../images/icons/light/shopping_basket_2.png);}
+nav ul li.i_shopping_cart a span, .i_shopping_cart{ background-image: url(../images/icons/light/shopping_cart.png);}
+nav ul li.i_shopping_cart_2 a span, .i_shopping_cart_2{ background-image: url(../images/icons/light/shopping_cart_2.png);}
+nav ul li.i_shopping_cart_3 a span, .i_shopping_cart_3{ background-image: url(../images/icons/light/shopping_cart_3.png);}
+nav ul li.i_shopping_cart_4 a span, .i_shopping_cart_4{ background-image: url(../images/icons/light/shopping_cart_4.png);}
+nav ul li.i_shuffle a span, .i_shuffle{ background-image: url(../images/icons/light/shuffle.png);}
+nav ul li.i_sign_post a span, .i_sign_post{ background-image: url(../images/icons/light/sign_post.png);}
+nav ul li.i_skype a span, .i_skype{ background-image: url(../images/icons/light/skype.png);}
+nav ul li.i_sleeveless_shirt a span, .i_sleeveless_shirt{ background-image: url(../images/icons/light/sleeveless_shirt.png);}
+nav ul li.i_socks a span, .i_socks{ background-image: url(../images/icons/light/socks.png);}
+nav ul li.i_sound a span, .i_sound{ background-image: url(../images/icons/light/sound.png);}
+nav ul li.i_speech_bubble a span, .i_speech_bubble{ background-image: url(../images/icons/light/speech_bubble.png);}
+nav ul li.i_speech_bubble_2 a span, .i_speech_bubble_2{ background-image: url(../images/icons/light/speech_bubble_2.png);}
+nav ul li.i_speech_bubbles a span, .i_speech_bubbles{ background-image: url(../images/icons/light/speech_bubbles.png);}
+nav ul li.i_speech_bubbles_2 a span, .i_speech_bubbles_2{ background-image: url(../images/icons/light/speech_bubbles_2.png);}
+nav ul li.i_sport_shirt a span, .i_sport_shirt{ background-image: url(../images/icons/light/sport_shirt.png);}
+nav ul li.i_stop a span, .i_stop{ background-image: url(../images/icons/light/stop.png);}
+nav ul li.i_stop_watch a span, .i_stop_watch{ background-image: url(../images/icons/light/stop_watch.png);}
+nav ul li.i_strategy a span, .i_strategy{ background-image: url(../images/icons/light/strategy.png);}
+nav ul li.i_strategy_2 a span, .i_strategy_2{ background-image: url(../images/icons/light/strategy_2.png);}
+nav ul li.i_stubleupon a span, .i_stubleupon{ background-image: url(../images/icons/light/stubleupon.png);}
+nav ul li.i_suitecase a span, .i_suitecase{ background-image: url(../images/icons/light/suitecase.png);}
+nav ul li.i_sweater a span, .i_sweater{ background-image: url(../images/icons/light/sweater.png);}
+nav ul li.i_t-shirt a span, .i_t-shirt{ background-image: url(../images/icons/light/t-shirt.png);}
+nav ul li.i_table a span, .i_table{ background-image: url(../images/icons/light/table.png);}
+nav ul li.i_tag a span, .i_tag{ background-image: url(../images/icons/light/tag.png);}
+nav ul li.i_tags a span, .i_tags{ background-image: url(../images/icons/light/tags.png);}
+nav ul li.i_television a span, .i_television{ background-image: url(../images/icons/light/television.png);}
+nav ul li.i_tick a span, .i_tick{ background-image: url(../images/icons/light/tick.png);}
+nav ul li.i_timer a span, .i_timer{ background-image: url(../images/icons/light/timer.png);}
+nav ul li.i_trashcan a span, .i_trashcan{ background-image: url(../images/icons/light/trashcan.png);}
+nav ul li.i_trashcan_2 a span, .i_trashcan_2{ background-image: url(../images/icons/light/trashcan_2.png);}
+nav ul li.i_travel_suitecase a span, .i_travel_suitecase{ background-image: url(../images/icons/light/travel_suitecase.png);}
+nav ul li.i_tree a span, .i_tree{ background-image: url(../images/icons/light/tree.png);}
+nav ul li.i_triangle_double_down a span, .i_triangle_double_down{ background-image: url(../images/icons/light/triangle_double_down.png);}
+nav ul li.i_triangle_double_left a span, .i_triangle_double_left{ background-image: url(../images/icons/light/triangle_double_left.png);}
+nav ul li.i_triangle_double_right a span, .i_triangle_double_right{ background-image: url(../images/icons/light/triangle_double_right.png);}
+nav ul li.i_triangle_double_up a span, .i_triangle_double_up{ background-image: url(../images/icons/light/triangle_double_up.png);}
+nav ul li.i_triangle_down a span, .i_triangle_down{ background-image: url(../images/icons/light/triangle_down.png);}
+nav ul li.i_triangle_down_left a span, .i_triangle_down_left{ background-image: url(../images/icons/light/triangle_down_left.png);}
+nav ul li.i_triangle_down_right a span, .i_triangle_down_right{ background-image: url(../images/icons/light/triangle_down_right.png);}
+nav ul li.i_triangle_left a span, .i_triangle_left{ background-image: url(../images/icons/light/triangle_left.png);}
+nav ul li.i_triangle_left_right a span, .i_triangle_left_right{ background-image: url(../images/icons/light/triangle_left_right.png);}
+nav ul li.i_triangle_right a span, .i_triangle_right{ background-image: url(../images/icons/light/triangle_right.png);}
+nav ul li.i_triangle_up a span, .i_triangle_up{ background-image: url(../images/icons/light/triangle_up.png);}
+nav ul li.i_triangle_up_down a span, .i_triangle_up_down{ background-image: url(../images/icons/light/triangle_up_down.png);}
+nav ul li.i_triangle_up_left a span, .i_triangle_up_left{ background-image: url(../images/icons/light/triangle_up_left.png);}
+nav ul li.i_triangle_up_right a span, .i_triangle_up_right{ background-image: url(../images/icons/light/triangle_up_right.png);}
+nav ul li.i_trolly a span, .i_trolly{ background-image: url(../images/icons/light/trolly.png);}
+nav ul li.i_truck a span, .i_truck{ background-image: url(../images/icons/light/truck.png);}
+nav ul li.i_tumbler a span, .i_tumbler{ background-image: url(../images/icons/light/tumbler.png);}
+nav ul li.i_twitter a span, .i_twitter{ background-image: url(../images/icons/light/twitter.png);}
+nav ul li.i_twitter_2 a span, .i_twitter_2{ background-image: url(../images/icons/light/twitter_2.png);}
+nav ul li.i_typo a span, .i_typo{ background-image: url(../images/icons/light/typo.png);}
+nav ul li.i_umbrella a span, .i_umbrella{ background-image: url(../images/icons/light/umbrella.png);}
+nav ul li.i_under_construction a span, .i_under_construction{ background-image: url(../images/icons/light/under_construction.png);}
+nav ul li.i_unlocked a span, .i_unlocked{ background-image: url(../images/icons/light/unlocked.png);}
+nav ul li.i_upload a span, .i_upload{ background-image: url(../images/icons/light/upload.png);}
+nav ul li.i_user a span, .i_user{ background-image: url(../images/icons/light/user.png);}
+nav ul li.i_user_2 a span, .i_user_2{ background-image: url(../images/icons/light/user_2.png);}
+nav ul li.i_user_comment a span, .i_user_comment{ background-image: url(../images/icons/light/user_comment.png);}
+nav ul li.i_users a span, .i_users{ background-image: url(../images/icons/light/users.png);}
+nav ul li.i_users_2 a span, .i_users_2{ background-image: url(../images/icons/light/users_2.png);}
+nav ul li.i_v-card a span, .i_v-card{ background-image: url(../images/icons/light/v-card.png);}
+nav ul li.i_v-card_2 a span, .i_v-card_2{ background-image: url(../images/icons/light/v-card_2.png);}
+nav ul li.i_vault a span, .i_vault{ background-image: url(../images/icons/light/vault.png);}
+nav ul li.i_vimeo a span, .i_vimeo{ background-image: url(../images/icons/light/vimeo.png);}
+nav ul li.i_vimeo_2 a span, .i_vimeo_2{ background-image: url(../images/icons/light/vimeo_2.png);}
+nav ul li.i_walking_man a span, .i_walking_man{ background-image: url(../images/icons/light/walking_man.png);}
+nav ul li.i_wifi_signal a span, .i_wifi_signal{ background-image: url(../images/icons/light/wifi_signal.png);}
+nav ul li.i_wifi_signal_2 a span, .i_wifi_signal_2{ background-image: url(../images/icons/light/wifi_signal_2.png);}
+nav ul li.i_windows a span, .i_windows{ background-image: url(../images/icons/light/windows.png);}
+nav ul li.i_winner_podium a span, .i_winner_podium{ background-image: url(../images/icons/light/winner_podium.png);}
+nav ul li.i_wizard a span, .i_wizard{ background-image: url(../images/icons/light/wizard.png);}
+nav ul li.i_word_document a span, .i_word_document{ background-image: url(../images/icons/light/word_document.png);}
+nav ul li.i_word_documents a span, .i_word_documents{ background-image: url(../images/icons/light/word_documents.png);}
+nav ul li.i_wordpress a span, .i_wordpress{ background-image: url(../images/icons/light/wordpress.png);}
+nav ul li.i_wordpress_2 a span, .i_wordpress_2{ background-image: url(../images/icons/light/wordpress_2.png);}
+nav ul li.i_youtube a span, .i_youtube{ background-image: url(../images/icons/light/youtube.png);}
+nav ul li.i_youtube_2 a span, .i_youtube_2{ background-image: url(../images/icons/light/youtube_2.png);}
+nav ul li.i_zip_file a span, .i_zip_file{ background-image: url(../images/icons/light/zip_file.png);}
+nav ul li.i_zip_files a span, .i_zip_files{ background-image: url(../images/icons/light/zip_files.png);}

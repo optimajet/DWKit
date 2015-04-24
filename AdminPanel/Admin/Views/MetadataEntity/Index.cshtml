@@ -1,0 +1,48 @@
+﻿@using Admin.Helpers.ControlSetting
+
+@{
+    ViewBag.Title = Resources.Resource.DataModel;
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting
+{
+    ShowIsDeletedButton = true,
+    Buttons = new List<string>()
+            {
+                string.Format("<a class=\"toolbar-createview\" href=\"" + Url.Action("Index", "MetaList") + "\">{0}</a>", Resources.Resource.Lists),
+                string.Format("<a class=\"toolbar-separator\" href=\"#\"> | </a>"),
+                string.Format("<a class=\"toolbar-updatemodel\" href=\"javascript:UpdateMetadataModel()\">{0}</a>", Resources.Resource.UpdateModel),
+                string.Format("<a class=\"toolbar-updatemodel\" href=\"javascript:UpdateDatabase()\">{0}</a>", Resources.Resource.SyncDBForSelectItem),
+                string.Format("<a class=\"toolbar-separator\" href=\"#\"> | </a>"),
+                string.Format("<a class=\"toolbar-createview\" href=\"javascript:ModelCreateView()\">{0}</a>", Resources.Resource.GenerateObjects)                
+            }
+
+})
+@Html.Partial("MainGrid", false)
+@Html.Partial("UpdateModel/ChangeModel")
+@Html.Partial("CreateView/PopupContainer")
+
+<script>
+    function UpdateDatabase() {
+        if (MainGrid.GetSelectedRowCount() < 1) {
+            alert('@Resources.Resource.NotSelectRows');
+            return;
+        }
+
+        MainGrid.GetSelectedFieldValues("Id", OnUpdateDatabaseCheckedRows);
+    }
+
+    function OnUpdateDatabaseCheckedRows(selectedValues) {
+        var data = new Array();
+        for (var i = 0; i < selectedValues.length; i++) {
+            data.push({ name: 'checkedRecords', value: selectedValues[i] });
+        }
+              
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("UpdateDatabase")', data,
+            function () {
+
+            });
+    }
+</script>

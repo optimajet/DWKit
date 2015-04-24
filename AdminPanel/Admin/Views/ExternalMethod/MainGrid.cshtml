@@ -1,0 +1,22 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@Html.DevExpress().GridView(
+    settings =>
+    {
+        CurrentSettings.LoadMainGridViewSettings(settings);
+        settings.CallbackRouteValues = new { Controller = "ExternalMethod", Action = "MainGridPartial" };
+        settings.Columns.Add(column =>
+        {
+            column.Caption = Resources.Resource.Caption;
+            column.FieldName = "Name";
+            column.SortAscending();
+            column.SetDataItemTemplateContent(
+                c => ViewContext.Writer.Write(
+                    "<a href='" + Url.Action("Edit") + "/" + DataBinder.Eval(c.DataItem, "Id")
+                    + "'>" + DataBinder.Eval(c.DataItem, "Name") + "</a>"));
+        });
+        //settings.Columns.Add("AssemblyName", "Сборка");
+        settings.Columns.Add("ClassName", Resources.Resource.Class);
+        settings.Columns.Add("MethodName", Resources.Resource.Method);
+        //settings.Columns.Add("Type", "Тип");
+    }).Bind(ExternalMethodHelper.GetAll()).GetHtml()

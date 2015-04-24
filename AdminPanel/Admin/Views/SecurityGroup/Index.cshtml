@@ -1,0 +1,9 @@
+﻿@using Admin.Helpers.ControlSetting
+
+@{
+    ViewBag.Title = Resources.Resource.Groups;
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting())
+@Html.Partial("MainGrid")

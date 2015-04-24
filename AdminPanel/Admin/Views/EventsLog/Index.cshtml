@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Журнал событий";
+}
+@using Admin.Helpers.ControlSetting
+@model List<string>
+
+<h1>@ViewBag.Title</h1><br />
+
+
+
+<div id='result'></div>
+<div class="toolbar">
+    <a class="toolbar-refresh" href="javascript:MainGridRefresh();">Обновить</a>
+    <a class="toolbar-separator" href="#"> | </a>
+    <a class="toolbar-archive" href="javascript:MainGridArchive();">Архивировать</a>
+</div>
+
+@Html.Partial("MainGrid")
+
+<script>
+@*function MainGridClean() {
+    if (confirm('Вы уверены, что хотите очистить журнал?')) {
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("Clean")',  '',
+        function () {
+            MainGrid.Refresh();
+        });
+    }
+}*@
+
+function MainGridArchive() {
+    if (confirm('Вы уверены, что хотите заархивировать журнал?')) {
+        $('#result').innerHTML = '';
+        $('#result').load('@Url.Action("Archive")', '',
+    function () {
+        MainGrid.Refresh();
+    });
+}
+}
+
+function MainGridRefresh() {
+    MainGrid.Refresh();
+}
+</script>
+
+
+<br /><br />
+<h2>Архивы</h2>
+
+
+<div id='result2'></div>
+<div class="toolbar">
+    <a class="toolbar-refresh" href="javascript:AchiveListRefresh();">Обновить</a>
+    <a class="toolbar-delete" href="javascript:AchiveListDeleteCheckedRows();">Удалить выбранные</a>
+</div>
+@Html.Partial("AchiveList", Model)
+
+<script>
+
+function AchiveListDeleteCheckedRows() {
+    if (AchiveList.GetSelectedRowCount() < 1) {
+        alert('@Resources.Resource.NotSelectRows');
+        return;
+    }
+
+    if (!confirm('Вы действительно хотите удалить выбранные записи?'))
+        return;
+
+    AchiveList.GetSelectedFieldValues("FileName", OnAchiveListDeleteCheckedRows);
+}
+
+function OnAchiveListDeleteCheckedRows(selectedValues) {
+    var data = new Array();
+    for (var i = 0; i < selectedValues.length; i++) {
+        data[data.length] = { name: 'checkedRecords', value: selectedValues[i] };
+    }
+
+    $('#result2').innerHTML = '';
+
+    $('#result2').load('@Url.Action("AchiveListDelete")', data,
+        function () {
+            AchiveList.Refresh();
+            AchiveList.UnselectRows();
+        });
+}
+
+function AchiveListRefresh() {
+        AchiveList.Refresh();
+}
+</script>

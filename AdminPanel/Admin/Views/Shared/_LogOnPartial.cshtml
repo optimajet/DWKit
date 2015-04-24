@@ -1,0 +1,22 @@
+﻿@{
+    var user = OptimaJet.Security.Providers.SecurityCache.CurrentUser;
+    if (Request.IsAuthenticated && user == null)
+    {
+        FormsAuthentication.SignOut();
+    }
+
+    if (Request.IsAuthenticated && user != null)
+    {
+        <p>
+            @Html.ActionLink(user.Name, "ChangePassword", "Account", null, new {@class = "username"})
+            @Html.ActionLink(Resources.Resource.Logoff, "LogOff", "Account")
+        </p>
+    }
+    else
+    {
+        <ul>
+            <li>@Html.ActionLink(Resources.Resource.Register, "Register", "Account")</li>
+            <li>@Html.ActionLink(Resources.Resource.LoginTitle, "LogOn", "Account")</li>
+        </ul>
+    }
+}

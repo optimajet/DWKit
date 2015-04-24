@@ -1,0 +1,179 @@
+/*----------------------------------------------------------------------*/
+/* This stylesheet is for IE 7 and IE8
+/* Selectors with *:first-child+html is for IE 7 only
+/*----------------------------------------------------------------------*/
+
+body{
+}
+
+nav{
+	border-right:1px solid;
+}
+
+header{
+	filter:none !important;
+	background-image:url(images/header_bg.png) !important;
+	background-repeat:repeat-x;
+}
+#header ul li ul li ul li{
+	width:160px;
+	margin:0;
+	padding:0;
+}
+#header ul li ul li ul li a{
+	width:120px;
+	margin:0;
+}
+form#searchform{
+	padding:0;
+	margin:0;
+	border:0;
+}
+form#searchform input#search{
+	border-left:0;
+	border-right:0;
+	border-bottom:0;
+	margin:0 !important;
+}
+
+/*----------------------------------------------------------------------*/
+/* Buttons
+/*----------------------------------------------------------------------*/
+
+a.btn{
+	padding:0 12px;
+	line-height:30px;
+	min-height:32px;
+	min-width:8px;
+	background-position:4px 4px;
+}
+button{
+	min-width:auto;
+	min-height:auto;
+}
+*:first-child+html button{
+	line-height:30px;
+	padding:0;
+}
+button.big{
+}
+a.btn.big{
+	height:10px;
+	padding:3px 16px;
+	padding-left:23px;
+}
+*:first-child+html button.icon{
+	padding-left:13px;
+}
+button.icon, a.btn.icon{
+	background-position:3px 2px;
+	padding-left:27px;
+}
+*:first-child+html a.btn.big{
+	height:10px;
+	padding:3px 23px;
+}
+*:first-child+html button.small{
+	height:20px;
+	line-height:30px;
+	padding:3px;
+	padding-top:0;
+	line-height:15px;
+	padding:0;
+}
+*:first-child+html button.small.icon{
+	height:22px;
+	line-height:10px;
+	padding:3px;
+	padding-left:7px;
+	background-position:0 -4px;
+}
+a.btn.big.icon{
+	height:10px;
+	padding:3px 20px;
+	padding-left:23px;
+}
+*:first-child+html button.big.icon{
+	height:40px;
+	background-position:6px 4px;
+	padding-left:14px;
+}
+*:first-child+html a.btn.big.icon{
+	background-position:6px 4px;
+	padding-left:32px;
+}
+
+div.checker, div.radio{
+	clear:none;
+}
+form fieldset > section > div > div.checker, form fieldset > section > div > div.radio{
+	padding:0;
+	overflow:hidden;
+	left:4px;
+	margin-right:4px;
+	zoom:1;
+	*display:inline;
+}
+*:first-child+html form fieldset > section > div > div.checker, *:first-child+html form fieldset > section > div > div.radio{
+	top:4px;
+	zoom:1;
+	*display:inline;
+}
+*:first-child+html form fieldset > section > div > div.checker span, *:first-child+html form fieldset > section > div > div.radio span{
+	padding:0;
+	zoom:1;
+	*display:inline;
+}
+*:first-child+html form fieldset > section > div label{
+	position:static;
+}
+*:first-child+html ul.fileuploadpool li a{
+	margin-top:-14px;
+}
+*:first-child+html form{
+	padding:8px;
+}
+*:first-child+html form .wl_formstatus, *:first-child+html form .timeformat,  *:first-child+html form .miniColors-trigger{
+	position:relative;
+	top:-8px;
+}
+*:first-child+html div.comboselectbox ul.comboselect li{
+	width:86%;
+	margin-right:0;
+}
+*:first-child+html div.comboselectbox div.comboselectbuttons a{
+	display:block;
+}
+
+/*----------------------------------------------------------------------*/
+/* jQuery Checkbox
+/*----------------------------------------------------------------------*/
+
+*:first-child+html .jquery-checkbox span.checkboxplaceholder{
+	display:inline-block;
+	vertical-align:bottom;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Widgets
+/*----------------------------------------------------------------------*/
+
+*:first-child+html .widget h3.handle.icon{
+	padding-left:30px;
+}
+*:first-child+html .widget h3.handle .icon{
+	margin-top:-30px;
+	margin-left:4px;
+}
+
+/*----------------------------------------------------------------------*/
+/* Breadcrumb
+/*----------------------------------------------------------------------*/
+.breadcrumb li a{
+	padding:10px 30px 5px 25px;
+}
+.breadcrumb li.last a{
+	padding-right:13px;
+}
+

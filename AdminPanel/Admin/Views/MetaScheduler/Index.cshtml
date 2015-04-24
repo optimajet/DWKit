@@ -1,0 +1,9 @@
+﻿@using Admin.Helpers.ControlSetting
+@model System.Collections.IEnumerable
+@{
+    ViewBag.Title = "Планироващик";
+}
+<h1>@ViewBag.Title</h1><br />
+
+@Html.Partial("Partials/MainToolbar", new ToolBarSetting())
+@Html.Partial("MainGrid")

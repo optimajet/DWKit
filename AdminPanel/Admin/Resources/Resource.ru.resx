@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Database" xml:space="preserve">
+    <value>База</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Модель данных</value>
+  </data>
+  <data name="Forms" xml:space="preserve">
+    <value>Формы</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функции</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Группы</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Ключ</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Локализация</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Разрешения</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Запомнить</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Роли</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>Безопасность</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Сервер</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TemplateForm" xml:space="preserve">
+    <value>Шаблоны форм</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Представления</value>
+  </data>
+  <data name="Workflow" xml:space="preserve">
+    <value>Документооборот</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>Доступ</value>
+  </data>
+  <data name="AccessType" xml:space="preserve">
+    <value>Тип доступа</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Активный</value>
+  </data>
+  <data name="AdapterAssembly" xml:space="preserve">
+    <value>Сборка адаптера</value>
+  </data>
+  <data name="AdapterType" xml:space="preserve">
+    <value>Тип адаптера</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="AddInMenu" xml:space="preserve">
+    <value>Добавить в меню</value>
+  </data>
+  <data name="AlterName" xml:space="preserve">
+    <value>Альтернативное название</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="Assembly" xml:space="preserve">
+    <value>Сборка</value>
+  </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Атрибут</value>
+  </data>
+  <data name="AvailableForImportExport" xml:space="preserve">
+    <value>Доступен для импорта/экспорта</value>
+  </data>
+  <data name="AvailableForSearch" xml:space="preserve">
+    <value>Доступен для поиска</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Блок</value>
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value>Блоки</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Рассчитать</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Caption" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+    <value>Класс</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Свернуть все</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Колонки</value>
+  </data>
+  <data name="ColumnName" xml:space="preserve">
+    <value>Имя колонки</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Столбцы</value>
+  </data>
+  <data name="ColumnType" xml:space="preserve">
+    <value>Тип колонки</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Сравнить</value>
+  </data>
+  <data name="Compile" xml:space="preserve">
+    <value>Компиляции</value>
+  </data>
+  <data name="CompileSuccess" xml:space="preserve">
+    <value>Компиляция успешна.</value>
+  </data>
+  <data name="ControlEdit" xml:space="preserve">
+    <value>Контрол редактирования</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="CopyConfirm" xml:space="preserve">
+    <value>Вы уверены, что хотите скопировать?</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="CreateColumn" xml:space="preserve">
+    <value>Создать колонку</value>
+  </data>
+  <data name="CreateConstraint" xml:space="preserve">
+    <value>Создать ограничение</value>
+  </data>
+  <data name="CreateForm" xml:space="preserve">
+    <value>Создать форму</value>
+  </data>
+  <data name="CreateLink" xml:space="preserve">
+    <value>Создать ссылку</value>
+  </data>
+  <data name="CreateObject" xml:space="preserve">
+    <value>Создать объект</value>
+  </data>
+  <data name="CreatePermissions" xml:space="preserve">
+    <value>Создать разрешение</value>
+  </data>
+  <data name="CustomCaption" xml:space="preserve">
+    <value>Альтернативный заголовок</value>
+  </data>
+  <data name="Database1" xml:space="preserve">
+    <value>База данных</value>
+  </data>
+  <data name="DataModel1" xml:space="preserve">
+    <value>Модель данных</value>
+  </data>
+  <data name="DefaultSort" xml:space="preserve">
+    <value>Сортировка по умолчанию</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Значение по умолчанию</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DeleteCascade" xml:space="preserve">
+    <value>Каскадное удаление</value>
+  </data>
+  <data name="DeleteConfirm" xml:space="preserve">
+    <value>Вы действительно хотите удалить выбранную запись?</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Удален</value>
+  </data>
+  <data name="Denied" xml:space="preserve">
+    <value>Отказано</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="DomainGroup" xml:space="preserve">
+    <value>Группа домена</value>
+  </data>
+  <data name="DownloadMetadataе" xml:space="preserve">
+    <value>Скачать метаданные</value>
+  </data>
+  <data name="DownloadScheme" xml:space="preserve">
+    <value>Скачать схему</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="EditObject" xml:space="preserve">
+    <value>Редактирование объекта</value>
+  </data>
+  <data name="ErrorInFields" xml:space="preserve">
+    <value>Ошибка в одном или нескольких полях!</value>
+  </data>
+  <data name="ExcludedFromImportExport" xml:space="preserve">
+    <value>Исключено из импорта/экспорта</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Развернуть все</value>
+  </data>
+  <data name="ExternalId" xml:space="preserve">
+    <value>Внешний код</value>
+  </data>
+  <data name="FileDownload" xml:space="preserve">
+    <value>Загрузка файла</value>
+  </data>
+  <data name="FileUploaded" xml:space="preserve">
+    <value>Файл загружен!</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Форма</value>
+  </data>
+  <data name="FormatString" xml:space="preserve">
+    <value>Формат строки</value>
+  </data>
+  <data name="Function" xml:space="preserve">
+    <value>Функция</value>
+  </data>
+  <data name="GenerateObjects" xml:space="preserve">
+    <value>Генерировать объекты</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="HideDeleted" xml:space="preserve">
+    <value>Скрыть удаленные</value>
+  </data>
+  <data name="IdBaseVersionEntity" xml:space="preserve">
+    <value>ID базовой версии сущности</value>
+  </data>
+  <data name="IdVersionEntity" xml:space="preserve">
+    <value>ID версии сущности</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Url изображения</value>
+  </data>
+  <data name="ImportExport" xml:space="preserve">
+    <value>Импорт/Экспорт</value>
+  </data>
+  <data name="IncorrectlyFolderForScan" xml:space="preserve">
+    <value>Неправильно указана папка для сканирования.</value>
+  </data>
+  <data name="IndexStorageFolder" xml:space="preserve">
+    <value>Папка для хранения индекса</value>
+  </data>
+  <data name="IntervalSecond" xml:space="preserve">
+    <value>Интервал (секунды)</value>
+  </data>
+  <data name="LazyLoad" xml:space="preserve">
+    <value>Отложенная загрузка</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Ссылка</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Список</value>
+  </data>
+  <data name="ListFormat" xml:space="preserve">
+    <value>Значение строки в формате "&lt;ключ&gt; = &lt;значение&gt;"</value>
+  </data>
+  <data name="Lists" xml:space="preserve">
+    <value>Списки</value>
+  </data>
+  <data name="LoadParams" xml:space="preserve">
+    <value>Параметры загрузки</value>
+  </data>
+  <data name="DownloadTemplateForDataImport" xml:space="preserve">
+    <value>Скачать шаблон-файл</value>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Заблокирован</value>
+  </data>
+  <data name="LogicalDeleted" xml:space="preserve">
+    <value>Логическое исключение</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="MetadataUploadSuccess" xml:space="preserve">
+    <value>Метаданные загружены успешно.</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Метод</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Namespace" xml:space="preserve">
+    <value>Пространство имен</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Обычная</value>
+  </data>
+  <data name="Nothing" xml:space="preserve">
+    <value>Ничего</value>
+  </data>
+  <data name="NotSelectFile" xml:space="preserve">
+    <value>Вы не выбрали файл для загрузки!</value>
+  </data>
+  <data name="NotSelectRows" xml:space="preserve">
+    <value>Вы не выберали строки.</value>
+  </data>
+  <data name="NumberInPeriod" xml:space="preserve">
+    <value>Номер в периоде</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Объект</value>
+  </data>
+  <data name="OpenInNewWindow" xml:space="preserve">
+    <value>Открыть в новом окне</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Порядок</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Родитель</value>
+  </data>
+  <data name="ParentRef" xml:space="preserve">
+    <value>Ссылка на родителя</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="PrimaryKey" xml:space="preserve">
+    <value>Первичный ключ</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Приоритет</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Remember1" xml:space="preserve">
+    <value>Запомнить</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Востановить</value>
+  </data>
+  <data name="ReturnType" xml:space="preserve">
+    <value>Возвращаемый Тип</value>
+  </data>
+  <data name="RowNotFound" xml:space="preserve">
+    <value>Строка не найдена!</value>
+  </data>
+  <data name="RowsDeleted" xml:space="preserve">
+    <value>Строки удалены</value>
+  </data>
+  <data name="RowsRestored" xml:space="preserve">
+    <value>Строки восстановлены</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Ошибка сохранения</value>
+  </data>
+  <data name="SaveExit" xml:space="preserve">
+    <value>Сохранить и Выйти</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Сохранение успешно.</value>
+  </data>
+  <data name="Scheme" xml:space="preserve">
+    <value>Схема</value>
+  </data>
+  <data name="SearchWeight" xml:space="preserve">
+    <value>Вес для поиска</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Выбрать</value>
+  </data>
+  <data name="SetConnectionStringInSettings" xml:space="preserve">
+    <value>Укажите строку подключения в настройках</value>
+  </data>
+  <data name="SetModelItemsForAddOrUpdate" xml:space="preserve">
+    <value>Выберите элементы модели для добавления/обновления</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Показать</value>
+  </data>
+  <data name="ShowDeleted" xml:space="preserve">
+    <value>Показать удаленные</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Размер</value>
+  </data>
+  <data name="SortOrder" xml:space="preserve">
+    <value>Порядок сортировки</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Источник</value>
+  </data>
+  <data name="SourceCode" xml:space="preserve">
+    <value>Исходный код</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Время начала</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="SupportOptimisticLock" xml:space="preserve">
+    <value>Поддержка оптимистичных блокировок</value>
+  </data>
+  <data name="SyncDBForSelectItem" xml:space="preserve">
+    <value>Синхронизация БД для выбранных строк</value>
+  </data>
+  <data name="SyncWithDomainGroup" xml:space="preserve">
+    <value>Синхронизация с доменной группой</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Системная</value>
+  </data>
+  <data name="TableName" xml:space="preserve">
+    <value>Имя таблицы</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="TemplateParams" xml:space="preserve">
+    <value>Параметры шаблона</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Шаблоны</value>
+  </data>
+  <data name="Timezone" xml:space="preserve">
+    <value>Часовой пояс</value>
+  </data>
+  <data name="TokenFile" xml:space="preserve">
+    <value>Токен файла</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Undefined" xml:space="preserve">
+    <value>Не определено</value>
+  </data>
+  <data name="UpdateCascade" xml:space="preserve">
+    <value>Обновление каскад</value>
+  </data>
+  <data name="UpdateModel" xml:space="preserve">
+    <value>Обновление модели</value>
+  </data>
+  <data name="UpdateVersionTableConfirm" xml:space="preserve">
+    <value>Ты уверен, что хочешь обновить версионируемые таблицы?</value>
+  </data>
+  <data name="UpdateVersionTables" xml:space="preserve">
+    <value>Обновление версионируемых таблиц</value>
+  </data>
+  <data name="UpdatingModel" xml:space="preserve">
+    <value>Обновление модели</value>
+  </data>
+  <data name="UploadMetadata" xml:space="preserve">
+    <value>Загрузить метаданные</value>
+  </data>
+  <data name="UploadScheme" xml:space="preserve">
+    <value>Загрузить схема</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Использовать</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="VersionFrom" xml:space="preserve">
+    <value>Версия с</value>
+  </data>
+  <data name="VersioningField" xml:space="preserve">
+    <value>Поле для версионирования</value>
+  </data>
+  <data name="VersioningType" xml:space="preserve">
+    <value>Тип версионирования</value>
+  </data>
+  <data name="VersionTo" xml:space="preserve">
+    <value>Версия по</value>
+  </data>
+  <data name="ViewForSelect" xml:space="preserve">
+    <value>Представление для выбора</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Виртуальная</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Ширина</value>
+  </data>
+  <data name="YouDontSelectedFileForUpload" xml:space="preserve">
+    <value>Вы не выберите файл для загрузки!</value>
+  </data>
+  <data name="StateChanged" xml:space="preserve">
+    <value>Статус изменен</value>
+  </data>
+</root>

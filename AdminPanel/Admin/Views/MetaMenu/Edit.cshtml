@@ -1,0 +1,147 @@
+﻿
+@using OptimaJet.Meta.Objects
+@model Admin.Models.MetaMenuModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? Resources.Resource.CreateObject : (Resources.Resource.EditObject + " " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+@using (Html.BeginForm("Edit", "MetaMenu", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>@Resources.Resource.Menu</label>
+        <section>
+            @Html.LabelFor(model => model.ParentId)
+            <div>
+                @Html.HiddenFor(model => model.ParentId)   
+                @Html.EditorFor(model => model.ParentId)                    
+                @Html.ValidationMessageFor(model => model.ParentId)                    
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.FormId)
+            <div>
+                @Html.HiddenFor(model => model.FormId)   
+                @Html.EditorFor(model => model.FormId)   
+                @Html.ValidationMessageFor(model => model.FormId) 
+            </div>
+        </section>  
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Caption)
+            <div>
+                @Html.EditorFor(model => model.Caption)
+                @Html.ValidationMessageFor(model => model.Caption)
+            </div>
+        </section>
+         <section>
+            @Html.LabelFor(model => model.TypeId)
+            <div>
+                @Html.DropDownListFor(model => model.TypeId,
+                                new SelectList(MetaMenuHelper.CurrentTypeList, "Id", "Name"))
+            </div>
+        </section> 
+         <section>
+            @Html.LabelFor(model => model.ImageUrl)
+            <div>
+                @Html.EditorFor(model => model.ImageUrl)
+                @Html.ValidationMessageFor(model => model.ImageUrl)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsShow)
+            <div>
+                @Html.CheckBoxFor(model => model.IsShow)
+            </div>
+        </section>  
+        <section>
+            @Html.LabelFor(model => model.SortOrder)
+            <div>
+                @Html.EditorFor(model => model.SortOrder)
+            </div>
+        </section> 
+        <section>
+            @Html.LabelFor(model => model.OpenInNewWindow)
+            <div>
+                @Html.CheckBoxFor(model => model.OpenInNewWindow)
+            </div>
+        </section>         
+        <section>
+            @Html.LabelFor(model => model.Url)
+            <div>
+                @Html.EditorFor(model => model.Url)
+            </div>
+        </section>  
+        <section>
+            @Html.LabelFor(model => model.AddParams)
+            <div>
+                @Html.EditorFor(model => model.AddParams)
+            </div>
+        </section>        
+    </fieldset>
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<script>
+    jQuery(function () {
+        FormIdComboBox.ValueChanged.AddHandler(function ()
+        {
+            if ( ($('#Name').value == undefined || $('#Name').value == '') &&
+                ($('#Caption').value == undefined || $('#Caption').value == '')) {
+
+                var data = new Array();
+                data[data.length] = { name: 'id', value: FormIdComboBox.GetValue() };
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("GetFormParam", "MetaForm")",
+                    data: data,
+                    success: function (msg) {
+                        if (msg != undefined) {
+                            $('#Name').val(msg.Name);
+                            $('#Caption').val(msg.Caption);
+                        }
+                    }
+                });
+            }
+        });
+
+        ParentIdComboBox.ValueChanged.AddHandler(function () {
+            
+            var data = new Array();
+            data[data.length] = { name: 'id', value: ParentIdComboBox.GetValue() };
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetMenuTypeParam", "MetaMenu")",
+                data: data,
+                success: function (msg) {
+                    $("#TypeId").val(msg);
+                }
+            });
+
+        });
+                
+    });
+</script>

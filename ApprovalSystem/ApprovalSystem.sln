@@ -1,0 +1,107 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workspaces", "Workspaces\Workspaces.csproj", "{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimaJet.BJet", "OptimaJet.BJet\OptimaJet.BJet.csproj", "{9613546C-3804-4328-BA0A-68D3606A0D68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimaJet.BJet.VTB", "OptimaJet.BJet.VTB\OptimaJet.BJet.VTB.csproj", "{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Metadata", "Metadata", "{FE779E1A-285E-484E-9685-BCF532D3F7AA}"
+	ProjectSection(SolutionItems) = preProject
+		metadata.xml = metadata.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.DAL", "..\dwkit\Admin.DAL\Admin.DAL.csproj", "{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimaJet.DynamicEntities", "..\dwkit\OptimaJet.DynamicEntities\OptimaJet.DynamicEntities.csproj", "{352026BF-F30D-4163-8599-CDB7AC84FFD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5FAFBB31-26AD-4F18-B228-B35539F24B1F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimaJet.DynamicEntities.SQLDataProvider", "..\dwkit\OptimaJet.DynamicEntities.SQLDataProvider\OptimaJet.DynamicEntities.SQLDataProvider.csproj", "{1079ADDF-1AB2-41EA-A087-1015ED8C3344}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Globex|Any CPU = Globex|Any CPU
+		Release|Any CPU = Release|Any CPU
+		WebBudgetGlobex|Any CPU = WebBudgetGlobex|Any CPU
+		WebBudgetVtb|Any CPU = WebBudgetVtb|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Globex|Any CPU.ActiveCfg = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Globex|Any CPU.Build.0 = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.WebBudgetGlobex|Any CPU.ActiveCfg = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.WebBudgetGlobex|Any CPU.Build.0 = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.WebBudgetVtb|Any CPU.ActiveCfg = Release|Any CPU
+		{767BD3D8-8415-4C51-9B4C-D3AB7042F4F5}.WebBudgetVtb|Any CPU.Build.0 = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Globex|Any CPU.ActiveCfg = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Globex|Any CPU.Build.0 = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.WebBudgetGlobex|Any CPU.ActiveCfg = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.WebBudgetGlobex|Any CPU.Build.0 = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.WebBudgetVtb|Any CPU.ActiveCfg = Release|Any CPU
+		{9613546C-3804-4328-BA0A-68D3606A0D68}.WebBudgetVtb|Any CPU.Build.0 = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Globex|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Globex|Any CPU.Build.0 = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.WebBudgetGlobex|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.WebBudgetGlobex|Any CPU.Build.0 = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.WebBudgetVtb|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEF96BF-4A6F-43C7-8282-5B9E51696DE5}.WebBudgetVtb|Any CPU.Build.0 = Release|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Globex|Any CPU.ActiveCfg = Globex|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Globex|Any CPU.Build.0 = Globex|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.WebBudgetGlobex|Any CPU.ActiveCfg = WebBudgetGlobex|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.WebBudgetGlobex|Any CPU.Build.0 = WebBudgetGlobex|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.WebBudgetVtb|Any CPU.ActiveCfg = WebBudgetVtb|Any CPU
+		{39E4FD6E-DDC9-4005-8DC6-0A95571D76B9}.WebBudgetVtb|Any CPU.Build.0 = WebBudgetVtb|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Globex|Any CPU.ActiveCfg = Globex|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Globex|Any CPU.Build.0 = Globex|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.WebBudgetGlobex|Any CPU.ActiveCfg = WebBudgetGlobex|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.WebBudgetGlobex|Any CPU.Build.0 = WebBudgetGlobex|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.WebBudgetVtb|Any CPU.ActiveCfg = WebBudgetVtb|Any CPU
+		{352026BF-F30D-4163-8599-CDB7AC84FFD4}.WebBudgetVtb|Any CPU.Build.0 = WebBudgetVtb|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Globex|Any CPU.ActiveCfg = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Globex|Any CPU.Build.0 = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.WebBudgetGlobex|Any CPU.ActiveCfg = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.WebBudgetGlobex|Any CPU.Build.0 = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.WebBudgetVtb|Any CPU.ActiveCfg = Release|Any CPU
+		{1079ADDF-1AB2-41EA-A087-1015ED8C3344}.WebBudgetVtb|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

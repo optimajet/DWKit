@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="DataModel" xml:space="preserve">
+    <value>Data model</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DownloadMetadataе" xml:space="preserve">
+    <value>Download metadata</value>
+  </data>
+  <data name="Forms" xml:space="preserve">
+    <value>Forms</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localization</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginButtonText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>Logoff</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Remember</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShowDeleted" xml:space="preserve">
+    <value>Show deleted</value>
+  </data>
+  <data name="TemplateForm" xml:space="preserve">
+    <value>Template for form</value>
+  </data>
+  <data name="UploadMetadata" xml:space="preserve">
+    <value>Upload metadata</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Workflow" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+  <data name="YouDontSelectedFileForUpload" xml:space="preserve">
+    <value>You dont select a file for upload!</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="CreateObject" xml:space="preserve">
+    <value>Create object</value>
+  </data>
+  <data name="EditObject" xml:space="preserve">
+    <value>Edit object</value>
+  </data>
+  <data name="ErrorInFields" xml:space="preserve">
+    <value>An error in one or more fields!</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveExit" xml:space="preserve">
+    <value>Save &amp; Exit</value>
+  </data>
+  <data name="AdapterAssembly" xml:space="preserve">
+    <value>Adapter assembly</value>
+  </data>
+  <data name="AdapterType" xml:space="preserve">
+    <value>Adapter type</value>
+  </data>
+  <data name="AlterName" xml:space="preserve">
+    <value>Alternative name</value>
+  </data>
+  <data name="Assembly" xml:space="preserve">
+    <value>Assembly</value>
+  </data>
+  <data name="AvailableForImportExport" xml:space="preserve">
+    <value>Available for import/export</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="ColumnName" xml:space="preserve">
+    <value>Column name</value>
+  </data>
+  <data name="ColumnType" xml:space="preserve">
+    <value>Column type</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CreateConstraint" xml:space="preserve">
+    <value>Create constraint</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Default value</value>
+  </data>
+  <data name="DeleteCascade" xml:space="preserve">
+    <value>Delete cascade</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="IndexStorageFolder" xml:space="preserve">
+    <value>Folder for index storage</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Namespace" xml:space="preserve">
+    <value>Namespace</value>
+  </data>
+  <data name="Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="ReturnType" xml:space="preserve">
+    <value>Return type</value>
+  </data>
+  <data name="Scheme" xml:space="preserve">
+    <value>Scheme</value>
+  </data>
+  <data name="SourceCode" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="SupportOptimisticLock" xml:space="preserve">
+    <value>Support optimistic lock</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="TableName" xml:space="preserve">
+    <value>Table name</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UpdateCascade" xml:space="preserve">
+    <value>Update cascade</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="VersioningType" xml:space="preserve">
+    <value>Versioning type</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
+  </data>
+  <data name="AccessType" xml:space="preserve">
+    <value>Access type</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AvailableForSearch" xml:space="preserve">
+    <value>Available for search</value>
+  </data>
+  <data name="Caption" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="ControlEdit" xml:space="preserve">
+    <value>Control for edit</value>
+  </data>
+  <data name="CustomCaption" xml:space="preserve">
+    <value>Caption custom</value>
+  </data>
+  <data name="DefaultSort" xml:space="preserve">
+    <value>Default sort</value>
+  </data>
+  <data name="DomainGroup" xml:space="preserve">
+    <value>Domain group</value>
+  </data>
+  <data name="ExcludedFromImportExport" xml:space="preserve">
+    <value>Excluded from import/export</value>
+  </data>
+  <data name="ExternalId" xml:space="preserve">
+    <value>External ID</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="FormatString" xml:space="preserve">
+    <value>Format string</value>
+  </data>
+  <data name="Function" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Image url</value>
+  </data>
+  <data name="ImportExport" xml:space="preserve">
+    <value>Import/Export</value>
+  </data>
+  <data name="IntervalSecond" xml:space="preserve">
+    <value>Interval (second)</value>
+  </data>
+  <data name="LazyLoad" xml:space="preserve">
+    <value>Lazy load</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="NumberInPeriod" xml:space="preserve">
+    <value>Number in period</value>
+  </data>
+  <data name="OpenInNewWindow" xml:space="preserve">
+    <value>Open in new window</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="SearchWeight" xml:space="preserve">
+    <value>Search weight</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="SortOrder" xml:space="preserve">
+    <value>Sort order</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="SyncWithDomainGroup" xml:space="preserve">
+    <value>Sync with domain group</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="TemplateParams" xml:space="preserve">
+    <value>Template params</value>
+  </data>
+  <data name="Timezone" xml:space="preserve">
+    <value>Timezone</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ViewForSelect" xml:space="preserve">
+    <value>View for select</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="NotSelectRows" xml:space="preserve">
+    <value>You dont select rows.</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddInMenu" xml:space="preserve">
+    <value>Add in menu</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Block</value>
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value>Blocks</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CopyConfirm" xml:space="preserve">
+    <value>Do you sure want copy?</value>
+  </data>
+  <data name="CreateColumn" xml:space="preserve">
+    <value>Create column</value>
+  </data>
+  <data name="CreateForm" xml:space="preserve">
+    <value>Create form</value>
+  </data>
+  <data name="CreateLink" xml:space="preserve">
+    <value>Create link</value>
+  </data>
+  <data name="CreatePermissions" xml:space="preserve">
+    <value>Create permissions</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="GenerateObjects" xml:space="preserve">
+    <value>Generate objects</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Lists" xml:space="preserve">
+    <value>Lists</value>
+  </data>
+  <data name="LoadParams" xml:space="preserve">
+    <value>Load params</value>
+  </data>
+  <data name="DownloadTemplateForDataImport" xml:space="preserve">
+    <value>Download template for import</value>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="MetadataUploadSuccess" xml:space="preserve">
+    <value>Metadata is uploaded successfully.</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SetConnectionStringInSettings" xml:space="preserve">
+    <value>Set connection string in Settings</value>
+  </data>
+  <data name="SetModelItemsForAddOrUpdate" xml:space="preserve">
+    <value>Set model items for add/update</value>
+  </data>
+  <data name="SyncDBForSelectItem" xml:space="preserve">
+    <value>Sync DB for selec item</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="UpdateModel" xml:space="preserve">
+    <value>Update model</value>
+  </data>
+  <data name="UpdateVersionTableConfirm" xml:space="preserve">
+    <value>Do you sure want update versions table?</value>
+  </data>
+  <data name="UpdateVersionTables" xml:space="preserve">
+    <value>Update version's tables</value>
+  </data>
+  <data name="UpdatingModel" xml:space="preserve">
+    <value>Updating model</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="CollapseAll" xml:space="preserve">
+    <value>Collapse all</value>
+  </data>
+  <data name="Denied" xml:space="preserve">
+    <value>Denied</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Expand all</value>
+  </data>
+  <data name="Undefined" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+  <data name="DeleteConfirm" xml:space="preserve">
+    <value>Do you want to delete the selected entry?</value>
+  </data>
+  <data name="FileDownload" xml:space="preserve">
+    <value>File download</value>
+  </data>
+  <data name="IdBaseVersionEntity" xml:space="preserve">
+    <value>Id base version entity</value>
+  </data>
+  <data name="IdVersionEntity" xml:space="preserve">
+    <value>Id version entity</value>
+  </data>
+  <data name="LogicalDeleted" xml:space="preserve">
+    <value>Logical deleted</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ParentRef" xml:space="preserve">
+    <value>Reference to parent</value>
+  </data>
+  <data name="PrimaryKey" xml:space="preserve">
+    <value>Primary key</value>
+  </data>
+  <data name="TokenFile" xml:space="preserve">
+    <value>Token file</value>
+  </data>
+  <data name="VersionFrom" xml:space="preserve">
+    <value>Version from</value>
+  </data>
+  <data name="VersioningField" xml:space="preserve">
+    <value>Field for versioning</value>
+  </data>
+  <data name="VersionTo" xml:space="preserve">
+    <value>Version to</value>
+  </data>
+  <data name="HideDeleted" xml:space="preserve">
+    <value>Hide deleted</value>
+  </data>
+  <data name="ListFormat" xml:space="preserve">
+    <value>The value specified line in the format "&lt;key&gt; = &lt;value&gt;"</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Clean</value>
+  </data>
+  <data name="Compile" xml:space="preserve">
+    <value>Compile</value>
+  </data>
+  <data name="CompileSuccess" xml:space="preserve">
+    <value>Compilation succeeded.</value>
+  </data>
+  <data name="DownloadScheme" xml:space="preserve">
+    <value>Download scheme</value>
+  </data>
+  <data name="FileUploaded" xml:space="preserve">
+    <value>The file is uploaded!</value>
+  </data>
+  <data name="IncorrectlyFolderForScan" xml:space="preserve">
+    <value>Incorrectly specified folder for scanning.</value>
+  </data>
+  <data name="Nothing" xml:space="preserve">
+    <value>Nothing</value>
+  </data>
+  <data name="NotSelectFile" xml:space="preserve">
+    <value>You did not select a file to upload!</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Save succeeded.</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="UploadScheme" xml:space="preserve">
+    <value>Upload scheme</value>
+  </data>
+  <data name="RowsDeleted" xml:space="preserve">
+    <value>Rows have been deleted</value>
+  </data>
+  <data name="RowsRestored" xml:space="preserve">
+    <value>Rows have been restored</value>
+  </data>
+  <data name="RowNotFound" xml:space="preserve">
+    <value>Row is not found!</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Save error</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="StateChanged" xml:space="preserve">
+    <value>State changed</value>
+  </data>
+</root>

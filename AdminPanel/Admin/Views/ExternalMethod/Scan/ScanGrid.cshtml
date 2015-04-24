@@ -1,0 +1,58 @@
+﻿@using Admin.DAL
+@using OptimaJet.Meta.Class
+@using OptimaJet.Meta.Objects
+
+@{
+    string folderName = Server.MapPath(Settings.Current["ExternalMethod.FolderToScan"]);
+    
+}
+
+@if (Directory.Exists(folderName))
+{
+    Html.DevExpress().GridView(
+        settings =>
+        {
+            Admin.Helpers.CurrentSettings.LoadMainGridViewSettings(settings);
+            settings.SettingsPager.PageSize = 15;
+            settings.Name = "ScanGrid";
+            settings.CallbackRouteValues = new { Controller = "ExternalMethod", Action = "ScanGridPartial" };
+            settings.Columns.Add(column =>
+                                     {
+                                         column.Caption = Resources.Resource.Assembly;
+                                         column.FieldName = "AssemblyName";
+                                         column.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+                                         column.GroupIndex = 0;
+                                     });
+            settings.Columns.Add("ClassName", Resources.Resource.Class);
+            settings.Columns.Add("MethodName", Resources.Resource.Method);
+            
+            settings.HtmlRowCreated += delegate(object sender, ASPxGridViewTableRowEventArgs args)
+                                           {
+                                               if (args.RowType == GridViewRowType.Data)
+                                               {
+                                                   var mParams = args.GetValue("ExternalMethodParams") as IEnumerable<ExternalMethodParams>;
+                                                   System.Text.StringBuilder tooltip = new System.Text.StringBuilder(Resources.Resource.Parameters + ":");
+                                                   if(mParams != null && mParams.Count() > 0 )
+                                                   {
+                                                       int i = 0;
+                                                       foreach(ExternalMethodParams item  in mParams)
+                                                       {
+                                                           if (i > 0) tooltip.Append(", ");
+                                                           tooltip.AppendFormat("{0} {1}",item.Type, item.Name);
+                                                           i++;
+                                                       }
+                                                   }
+                                                   else
+                                                   {
+                                                       tooltip.Append(Resources.Resource.Nothing);
+                                                   }
+                                                   
+                                                   args.Row.ToolTip = tooltip.ToString(); 
+                                               }
+                                           };
+        }).Bind(ExternalMethodHelper.ScanFolder(folderName)).GetHtml();
+}
+else
+{
+    <div style="overflow: hidden">@Resources.Resource.IncorrectlyFolderForScan<br />Go to <a href="@Url.Action("Index", "Settings")">@Resources.Resource.Settings</a> and set correct the param.</div>
+}

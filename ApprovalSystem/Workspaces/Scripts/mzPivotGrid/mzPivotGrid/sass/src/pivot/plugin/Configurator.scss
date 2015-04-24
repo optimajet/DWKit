@@ -1,0 +1,80 @@
+/* configurator plugin */
+.#{$prefix}config-panel-ct {
+    background-color: $config-panel-bgcolor;
+    border: solid gray;
+    border-width: 0 0 1px 1px;
+}
+
+.#{$prefix}config-panel-text {
+    color: $config-panel-color;
+    padding: 5px;
+}
+
+.#{$prefix}config-column {
+    background-image: none !important;
+    background-color: transparent !important;
+    cursor: pointer;    
+}
+
+.#{$prefix}config-column .#{$prefix}column-header-sort-ASC, 
+.#{$prefix}config-column .#{$prefix}column-header-sort-DESC {
+    background-color: transparent !important;
+}
+
+.#{$prefix}config-column-inner {
+    padding: 3px;
+    height: 21px;
+    border: 1px solid gray;
+    margin: 2px;
+    font: $grid-column-header-font;
+    @if $grid-header-background-gradient == null {
+        background-color: $grid-header-background-color;
+    } @else{
+        @include background-gradient($grid-header-background-color, $grid-header-background-gradient);
+    }
+}
+
+.#{$prefix}config-column-text {
+}
+
+.#{$prefix}config-column-customize {
+    padding-right: 17px;
+    background: no-repeat;
+    background-position: right center;
+    background-image: theme-background-image('gear-small');
+}
+
+.#{$prefix}config-column-filtered {
+    padding-right: 17px;
+    background: no-repeat;
+    background-position: right center;
+    background-image: theme-background-image('filtered');
+}
+
+.#{$prefix}config-column-sort-ASC,
+.#{$prefix}config-column-sort-DESC {
+    padding-right: 17px;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.#{$prefix}config-column-sort-ASC{
+    background-image: theme-background-image('sort_asc');
+}
+
+.#{$prefix}config-column-sort-DESC {
+    background-image: theme-background-image('sort_desc');
+}
+
+.#{$prefix}clearFilterIcon {
+    background-image: theme-background-image('filter-clear');
+}
+.#{$prefix}sortAscIcon {
+    background-image: theme-background-image('sort-asc');
+}
+.#{$prefix}sortDescIcon {
+    background-image: theme-background-image('sort-desc');
+}
+.#{$prefix}sortDisableIcon {
+    background-image: theme-background-image('sort-clear');
+}

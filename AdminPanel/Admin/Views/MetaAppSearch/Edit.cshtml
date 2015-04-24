@@ -1,0 +1,114 @@
+﻿@using Admin.Controllers
+@model Admin.Models.MetaAppSearchModel
+
+@{
+    ViewBag.Title = Model.Id == Guid.Empty ? "Создание объекта" : ("Редактирование объекта " + Model.Name);
+    Html.EnableClientValidation(true);
+}
+
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+<br />
+
+@using (Html.BeginForm("Edit", "MetaAppSearch", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, Resources.Resource.ErrorInFields)
+    <fieldset>
+        @Html.HiddenFor(model => model.Id)
+        <label>Модуль подключения к поиску</label>
+        <section>
+            @Html.LabelFor(model => model.Name, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.IsActive , @<span>&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.IsActive)
+            </div>
+        </section>
+        <section>
+            @Html.LabelFor(model => model.Status, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.DisplayFor(model => model.Status)
+            </div>
+        </section>     
+        <section>
+            @Html.LabelFor(model => model.Priority, @<span class="required">&nbsp;</span> )
+            <div>
+                @Html.EditorFor(model => model.Priority)
+                @Html.ValidationMessageFor(model => model.Priority)
+            </div>
+        </section>  
+        <section>
+            @Html.LabelFor(model => model.AlterIndexPath)
+            <div>
+                @Html.EditorFor(model => model.AlterIndexPath)
+                @Html.ValidationMessageFor(model => model.AlterIndexPath)
+            </div>
+        </section>    
+        <section>
+            @Html.LabelFor(model => model.AssemblyName, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.AssemblyName)
+                @Html.ValidationMessageFor(model => model.AssemblyName)
+            </div>
+        </section>          
+        <section>
+            @Html.LabelFor(model => model.TypeName, @<span class="required">&nbsp;</span>)
+            <div>
+                @Html.EditorFor(model => model.TypeName)
+                @Html.ValidationMessageFor(model => model.TypeName)
+            </div>
+        </section>    
+        <section>
+            @Html.LabelFor(model => model.Parameters, @<img src="@Url.Content("~/Images/Icons/autofill.png")" width="24px" onclick="GetParams() " title="Заполнить параметры"></img>)
+            <div>
+                @Html.TextAreaFor(model => model.Parameters, new { @rows = 12 }) 
+                @Html.ValidationMessageFor(model => model.Parameters)
+            </div>
+        </section>
+    </fieldset> 
+    <fieldset>
+        <section>
+            <div>
+                <button name="button" class="fr submit" value="SaveAndExit">@Resources.Resource.SaveExit</button>
+                <button name="button" class="fr submit" value="Save">@Resources.Resource.Save</button>
+            </div>
+        </section>
+    </fieldset>
+}  
+<div>
+    @Html.ActionLink(Resources.Resource.Back, "Index")
+</div>
+
+
+<script>
+    function GetParams() {
+        var assembly = $("#AssemblyName");
+        var type = $("#TypeName");
+
+        if (assembly[0].value.length == 0 || type[0].value.length == 0) {
+            alert('Заполните обязательные поля!');
+            return;
+        }
+
+        var data = new Array();
+        data.push({ name: 'AssemblyName', value: assembly[0].value });
+        data.push({ name: 'TypeName', value: type[0].value });
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("GetParams", "MetaAppSearch")",
+            data: data,
+            success: function (msg) {
+                $("#Parameters").val(msg);
+            }
+        });
+    }
+
+</script>

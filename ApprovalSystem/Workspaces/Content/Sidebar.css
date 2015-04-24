@@ -1,0 +1,109 @@
+﻿#sidebox-placeholder * {
+    font-size: 12px;
+    font-family: Tahoma, Arial;
+    font-weight: normal;
+}
+
+#sidebox-placeholder .x-btn-inner {
+    white-space:normal;
+}
+
+#sidebox-placeholder .x-btn-button {
+    height:auto;
+}
+
+#sidebox-placeholder .x-btn-button:hover {
+    text-decoration:underline;
+}
+
+#sidebox-placeholder .big-orange-button {
+    width: 100%;
+    background-color: #E36C0C;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    padding: 10px;
+    background-image: none;
+    border-color: #D06109;
+}
+#sidebox-placeholder .big-orange-button.x-btn-default-small-over {
+    background-color: #FC780D;
+    border-color: #E46A0A;
+}
+#sidebox-placeholder .big-orange-button.x-btn-default-small-pressed {
+    background-color: #C75E0A;
+    border-color: #B84608;
+}
+
+#sidebox-placeholder .big-orange-button.x-btn-default-small-over .x-btn-button, 
+#sidebox-placeholder .big-orange-button.x-btn-default-small-pressed .x-btn-button {
+    text-decoration: none;
+}   
+
+#sidebox-placeholder .big-orange-button .x-btn-button .x-btn-inner {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#sidebox-placeholder #SidebarCreateNewDiv {
+    padding-bottom: 20px;
+}
+
+#sidebox-placeholder {
+    background-color: #FAFAFA;
+    /*border-right: 1px solid #F1F1F1;*/
+}
+
+#sidebox-placeholder .sidebox-placeholder-block {
+    padding: 20px;
+}
+#sidebox-placeholder .sidebox-placeholder-block-alt {
+    background-color: #EDEDED;
+}
+
+#sidebox-placeholder .sidebox-placeholder-block {
+    padding: 20px;
+}
+
+#sidebox-placeholder .x-btn {
+    width: 100%;
+}
+#sidebox-placeholder .x-btn-button .x-btn-inner {
+    text-align: left;
+}
+
+#sidebox-placeholder .x-btn-inner {
+    color: #006DBD;    
+}   
+
+#sidebox-placeholder h3 {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+
+#sidebox-placeholder .directory-black {
+    background-image: url("../images/workspace/directory_black.png") !important;
+}
+#sidebox-placeholder .templates-black {
+    background-image: url("../images/workspace/templates_black.png") !important;
+}
+#sidebox-placeholder .contacts-black {
+    background-image: url("../images/workspace/contacts_black.png") !important;
+}
+#sidebox-placeholder .message-black {
+    background-image: url("../images/workspace/message_black.png") !important;
+}
+#sidebox-placeholder .approved-black {
+    background-image: url("../images/workspace/adopted_black.png") !important;    
+}
+#sidebox-placeholder .rejected-black {
+    background-image: url("../images/workspace/disabled_black.png") !important;
+}
+#sidebox-placeholder .adopted-black {
+    background-image: url("../images/workspace/agreement_black.png") !important;
+}

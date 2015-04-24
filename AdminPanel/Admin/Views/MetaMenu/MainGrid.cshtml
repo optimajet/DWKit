@@ -1,0 +1,29 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@model bool
+@Html.DevExpress().GridView(
+    settings =>
+        {
+            CurrentSettings.LoadMainGridViewSettings(settings);
+            settings.CallbackRouteValues = new {Controller = "MetaMenu", Action = "MainGridPartial"};
+            settings.ClientSideEvents.BeginCallback =
+                @"function OnBeginCallback(s, e) {
+                e.customArgs[""MainGridIsShowDeleted""] = MainGridIsShowDeleted;
+            }";
+            settings.Columns.Add("Parent.Name", Resources.Resource.Parent).SortAscending();
+            settings.Columns.Add(column =>
+                                     {
+                                         column.Caption = Resources.Resource.Name;
+                                         column.FieldName = "Name";
+                                         column.SortAscending();
+                                         column.SetDataItemTemplateContent(
+                                             c => ViewContext.Writer.Write(
+                                                 "<a href='" + Url.Action("Edit") + "/" + DataBinder.Eval(c.DataItem, "Id")
+                                                 + "'>" + DataBinder.Eval(c.DataItem, "Name") + "</a>"));
+                                     });
+            settings.Columns.Add("Caption", Resources.Resource.Caption);
+            settings.Columns.Add("IsShow", Resources.Resource.Show, MVCxGridViewColumnType.CheckBox);
+            settings.Columns.Add("Type.Name", Resources.Resource.Type);
+            settings.Columns.Add("Form.Name", Resources.Resource.Form);
+            settings.Columns.Add("IsDeleted", Resources.Resource.Deleted, MVCxGridViewColumnType.CheckBox);
+        }).Bind(MetaMenuHelper.GetAll(Model)).GetHtml()

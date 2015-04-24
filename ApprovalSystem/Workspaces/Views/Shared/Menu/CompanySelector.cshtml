@@ -1,0 +1,10 @@
+﻿@using OptimaJet.DynamicEntities.View;
+
+<select>
+    <option title="">Все компании</option>
+
+    @foreach (var item in DynamicEntityJSONDataSource.GetDataStatic("OurOrganization", null, null))
+    {
+         <option title="">@item.NameAn</option>
+    }    
+</select>

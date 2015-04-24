@@ -1,0 +1,59 @@
+﻿@using Admin.Helpers
+
+<ul id="nav">
+    @*<li class="i_house">
+           <a @CurrentSettings.GeMainMenuStyle("Home") href="@Url.Action("Index", "Home")"><span>@Resources.Resource.Home</span></a>
+    </li>*@
+     
+    <li class="i_book">
+        <a @CurrentSettings.GeMainMenuStyle("MetadataEntity") href="@Url.Action("Index", "MetadataEntity")"><span>@Resources.Resource.DataModel</span></a>
+     </li>
+    
+    <li class="i_file_cabinet">
+            <a @CurrentSettings.GeMainMenuStyle("MetaView") href="@Url.Action("Index", "MetaView")"><span>@Resources.Resource.View</span></a>
+        </li>
+    
+    <li class="i_breadcrumb">
+            <a @CurrentSettings.GeMainMenuStyle("MetaMenu") href="@Url.Action("Index", "MetaMenu")"><span>@Resources.Resource.Menu</span></a>
+        </li>
+    <li class="i_file_cabinet">
+            <a @CurrentSettings.GeMainMenuStyle("FormBlockTemplate") href="@Url.Action("Index", "FormBlockTemplate")"><span>@Resources.Resource.TemplateForm</span></a>
+        </li>
+    <li class="i_create_write">
+            <a @CurrentSettings.GeMainMenuStyle("MetaForm") href="@Url.Action("Index", "MetaForm")"><span>@Resources.Resource.Forms</span></a>
+        </li>
+    
+    <li class="i_blocks_images">
+            <a @CurrentSettings.GeMainMenuStyle("WorkflowScheme") href="@Url.Action("Index", "WorkflowScheme")"><span>@Resources.Resource.Workflow</span></a>
+        </li>
+    <li class="i_breadcrumb">
+            <a @CurrentSettings.GeMainMenuStyle("ExternalMethod") href="@Url.Action("Index", "ExternalMethod")"><span>@Resources.Resource.Functions</span></a>
+        </li>
+    <li class="i_images">
+       <a @CurrentSettings.GeMainMenuStyle("Settings") href="@Url.Action("Index", "Settings")"><span>@Resources.Resource.Settings</span></a>
+    </li>
+    <li class="i_grid">
+        <a @CurrentSettings.GeMainMenuStyle("Security") href="#"><span>@Resources.Resource.Security</span></a>
+        <ul>
+           <li><a href="@Url.Action("Index", "SecurityGroup")"><span>@Resources.Resource.Groups</span></a></li>
+           <li><a href="@Url.Action("Index", "SecurityPermission")"><span>@Resources.Resource.Permissions</span></a></li>
+           <li><a href="@Url.Action("Index", "SecurityUser")"><span>@Resources.Resource.Users</span></a></li>
+           <li><a href="@Url.Action("Index", "SecurityRole")"><span>@Resources.Resource.Roles</span></a></li>
+        </ul>
+    </li>
+        @*<li class="i_file_cabinet">
+        <a @CurrentSettings.GeMainMenuStyle("EventsLog") href="@Url.Action("Index", "EventsLog")"><span>@Resources.Resource.EventLogs</span></a>
+    </li>*@
+       @*<li class="i_preview">
+            <a @CurrentSettings.GeMainMenuStyle("MetaAppSearch") href="@Url.Action("Index", "MetaAppSearch")"><span>@Resources.Resource.Search</span></a>
+       </li>
+    <li class="i_timer">
+           <a @CurrentSettings.GeMainMenuStyle("MetaScheduler") href="@Url.Action("Index", "MetaScheduler")"><span>@Resources.Resource.Scheduler</span></a>
+       </li>*@
+   <li class="i_megaphone">
+           <a @CurrentSettings.GeMainMenuStyle("Localization") href="@Url.Action("Index", "Localization")"><span>@Resources.Resource.Localization</span></a>
+       </li>
+    @*<li class="i_books">
+        <a @CurrentSettings.GeMainMenuStyle("MetaReport") href="@Url.Action("Index", "MetaReport")"><span>@Resources.Resource.Reports</span></a>
+    </li>*@
+</ul>

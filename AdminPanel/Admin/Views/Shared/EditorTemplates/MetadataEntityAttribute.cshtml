@@ -1,0 +1,16 @@
+﻿@using Admin.Helpers
+@using OptimaJet.Meta.Objects
+@model object
+
+@Html.DevExpress().ComboBox(
+    settings =>
+        {
+            CurrentSettings.LoadComboBoxSettings(settings, "DisplayedAttributeId", true, Url.Action("EditAttribute", "MetadataEntity", new {id = DBNull.Value}));
+            settings.CallbackRouteValues = new {Controller = "MetadataEntity", Action = "EditorAttributeCombox", PropertyName = ViewData.ModelMetadata.PropertyName, IsNullableValueType = ViewData.ModelMetadata.IsNullableValueType};
+            settings.Properties.Columns.Add("Caption", Resources.Resource.Name);
+            settings.Properties.Columns.Add("Type.Name", Resources.Resource.Type);
+            settings.Properties.ClientSideEvents.BeginCallback +=
+                string.Format("function(s, e) {{ e.customArgs['objectId'] = {0}ComboBox.GetValue(); }}",
+                              ViewData["ParentComboBox"] ?? "ReferencedEntityId");
+        }).BindList(MetadataEntityHelper.GetAttributesByEntityId(ViewData["EntityId"] is Guid ? (Guid) ViewData["EntityId"] : Guid.Empty)).Bind(
+            (Model is Guid && (Guid) Model == Guid.Empty) ? null : Model).GetHtml()

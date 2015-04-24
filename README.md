@@ -1,5 +1,4 @@
-Document approval system
-with WorkflowEngine.NET 1.4
+Document approval system with WorkflowEngine.NET 1.4
 ==================
 
 You can see how to used WFE in a enterprise project. We give you complete access to the system. The project based on WorkflowEngine.NET and DWKit (The platform for fast development of business applications) . The acticle about document approval systems: <a href="http://workflowenginenet.com/Articles/Item/documentaprovalsystem">here</a>. 

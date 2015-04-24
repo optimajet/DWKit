@@ -68,7 +68,7 @@ Designer of workflow is the menu "Routes" (or "Workflow" for administration pane
 <li>Application: ApprovalSystem.sln</li>
 </ol>
 
-In metadata.xml have information about a data model, business objects, forms, source code of business rules etc.
+Metadata.xml contains information about a data model, business objects, forms, source code of business rules etc.
 
 <hr>
 <b>Official web site</b> - <a href="http://workflowenginenet.com/DocumentApprovalSystem">Document approval system</a><br/>

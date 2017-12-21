@@ -19,16 +19,24 @@ Hence, we made DWKit’s source code available to our customers so that they can
 </ul>
 
 <h2>Screenshots:</h2>
-<a href="http://demo.dwkit.com"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/dwkit_sample.png" alt="Demo" width="580" style="
+
+<table>
+<tr>
+	<td>
+<a href="http://demo.dwkit.com"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/dwkit_sample.png" alt="Demo" width="200" style="
     border: 1px solid;
     border-color: #3e4d5c;"></a>
-<a href="http://demo.dwkit.com/admin?apanel=forms&aid=DocumentEdit"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/designer.png" alt="Form builder" width="580" style="
+</td><td>
+<a href="http://demo.dwkit.com/admin?apanel=forms&aid=DocumentEdit"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/designer.png" alt="Form builder" width="200" style="
 	    border: 1px solid;
 	    border-color: #3e4d5c;"></a>
-
-<a href="http://demo.dwkit.com/admin?apanel=workflow&aid=VacationRequest"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/workflow.png" alt="Workflow" width="580" style="
+</td><td>
+<a href="http://demo.dwkit.com/admin?apanel=workflow&aid=VacationRequest"><img src="https://raw.githubusercontent.com/optimajet/DWKit/master/Resources/workflow.png" alt="Workflow" width="200" style="
 	    border: 1px solid;
 	    border-color: #3e4d5c;"></a>
+		</td>
+</tr>
+</table>
 
 <h2>Development:</h2>
 <ul>

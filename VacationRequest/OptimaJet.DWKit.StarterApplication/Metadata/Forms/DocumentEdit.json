@@ -1,0 +1,216 @@
+[
+  {
+    "key": "workflow",
+    "data-buildertype": "workflowbar",
+    "events": {
+      "onCommandClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save",
+          "workflowExecuteCommand",
+          "refresh"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onSetStateClick": {
+        "actions": [
+          "validate",
+          "save",
+          "workflowSetState",
+          "refresh"
+        ],
+        "active": true,
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "form",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "formgroup_1",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "other-required": true,
+            "other-customValidation": "",
+            "defaultValue": "",
+            "other-visibleConition": "",
+            "other-readOnlyConition": "",
+            "events": {}
+          },
+          {
+            "key": "managerId",
+            "data-buildertype": "dictionary",
+            "label": "Manager",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "dwSecurityUser",
+            "columns": "Name ASC",
+            "other-required": true
+          },
+          {
+            "key": "number",
+            "data-buildertype": "input",
+            "label": "Number",
+            "fluid": true,
+            "type": "number",
+            "disabled": false,
+            "readOnly": true
+          }
+        ]
+      },
+      {
+        "key": "formgroup_3",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "amount",
+            "data-buildertype": "input",
+            "label": "Money amount (Must be more 0!)",
+            "fluid": true,
+            "type": "number",
+            "other-required": true,
+            "other-customValidation": "value > 0 ? true : \"Must be more 0\"",
+            "defaultValue": "",
+            "events": {}
+          },
+          {
+            "key": "author",
+            "data-buildertype": "input",
+            "label": "Author",
+            "fluid": true,
+            "readOnly": true
+          },
+          {
+            "key": "stateName",
+            "data-buildertype": "input",
+            "label": "State",
+            "fluid": true,
+            "readOnly": true
+          }
+        ]
+      },
+      {
+        "key": "comment",
+        "data-buildertype": "textarea",
+        "label": "Comment",
+        "fluid": true,
+        "autoHeight": true,
+        "rows": "2",
+        "other-visibleConition": "",
+        "events": {},
+        "other-readOnlyConition": ""
+      }
+    ]
+  },
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Document's Transition History",
+    "size": "medium"
+  },
+  {
+    "key": "gridHistory",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "from",
+        "name": "From",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "to",
+        "name": "To",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "key": "command",
+        "name": "Command",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "key": "executor",
+        "name": "Executor",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "name": "Availiable for",
+        "key": "availiablefor",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      }
+    ],
+    "rowKey": "id",
+    "disableSort": true,
+    "autoHeight": true,
+    "resizecolumns": true,
+    "events": {},
+    "minHeight": "150px",
+    "offSet": "620px",
+    "defaultSort": "Order ASC"
+  },
+  {
+    "key": "save",
+    "data-buildertype": "button",
+    "content": "Save",
+    "primary": true,
+    "events-onClick": true,
+    "events-onClick-actions": [
+      "save"
+    ],
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "saveexit",
+    "data-buildertype": "button",
+    "content": "Save & Exit",
+    "secondary": true,
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save",
+          "exit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  }
+]

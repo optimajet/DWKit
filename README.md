@@ -1,75 +1,58 @@
-Document approval system with WorkflowEngine.NET 1.4
+DWKit
 ==================
 
-You can see how to used WFE in a enterprise project. We give you complete access to the system. The project based on WorkflowEngine.NET and DWKit (The platform for fast development of business applications) . The acticle about document approval systems: <a href="http://workflowenginenet.com/Articles/Item/documentaprovalsystem">here</a>. 
+DWKit is a .NET BPM system made with simplicity and flexibility in mind. DWKit allows you to model, automate and execute mission-critical business processes, whatever industry you’re operating in.
 
-The system for planning, accounting and approval of the budget in a holding company. Consists of two parts: Workspaces & Administration panel.
+A ready-made BPM solution is often not enough to satisfy your business requirements. Be it the need to ensure regulatory compliance or to build custom logic that goes beyond what the system has to offer, we believe that making the source code open is the way to go.
 
-<table border="0" style="width: 100%;" cellspacing="10" cellpadding="10">
-<tbody>
-<tr>
-<td><a href="http://demo.dwkit.com" target="_blank"><img src="http://workflowenginenet.com/Cms_Data/Contents/WFE/Media/content_images/dwkit_ws.png" width="400"></a>&nbsp;</td>
-<td>&nbsp;<a href="http://panel.dwkit.com" target="_blank"><img src="http://workflowenginenet.com/Cms_Data/Contents/WFE/Media/content_images/dwkit_panel.png" width="400"></a>&nbsp;&nbsp;</td>
-</tr>
-<tr>
-<td>
-<p>Url: <a href="http://demo.dwkit.com" target="_blank">demo.dwkit.com</a><br> Login: admin<br> Password: 1</p>
-</td>
-<td>
-<p>Url: <a href="http://panel.dwkit.com" target="_blank">panel.dwkit.com</a><br> Login: admin<br> Password: 1</p>
-</td>
-</tr>
-</tbody>
-</table>
+Hence, we made DWKit’s source code available to our customers so that they can alter whatever it is that will make their business more efficient.
 
-Other users: John, Margo, Maria, Mark, Max, Silviya. Password: 1.
-Designer of workflow is the menu "Routes" (or "Workflow" for administration panel).
-
-<a href="http://workflowenginenet.com/Cms_Data/Contents/WFE/Media/content_images/dwkit_designer.jpg" title="Document approval system" target="_blank"><img style="display: block; margin-left: auto; margin-right: auto;" src="http://workflowenginenet.com/Cms_Data/Contents/WFE/Media/content_images/dwkit_designer_small.jpg" width="600" height="707"></a>
-
-<b>Key objects:</b>
+<h2>Features:</h2>
 <ul>
-<li>Budget item - the object for planning and approval of budget. The status of the object changes in <li>accordance with the selected route.</li>
-<li>Contract - the object for registration agreement.</li>
-<li>Invoice - the object for registration invoices and control of expenses.</li>
-<li>Route - the object for define scheme of workflow. Two types: by Stages & by Designer.</li>
+<li>Drag-&-drop form builder</li>
+<li>Designer of workflow</li>
+<li>User Interface on React (JSX)</li>
+<li>Role-based access control</l>
+<li>Admin panel</l>
+<li>Support MSSQL & PosgreSQL databases</li>
+<li>Works fine on Windows/Linux/MacOSX</li>
 </ul>
 
-<b>Business function:</b>
-
+<h2>System requirements:</h2>
 <ul>
-<li>Budget planing & approval</li>
-<li>Invoice accounting</li>
-<li>Accrual accounting</li>
-<li>Multi-currency</li>
-<li>Multi-language</li>
+	<li>OS Windows/Linux/MacOS</li>
+	<li>CPU 1 core 1 Ghz</li>
+	<li>RAM 1 Gb</li>
+	<li>HDD/SSD 5 Gb</li>
+	<li><a href="https://www.microsoft.com/net/download">.NET Core Runtime >=2</a></li>
 </ul>
 
-<b>Workflow function:</b>
-
+<h2>Development:</h2>
 <ul>
-<li>Creating/modifying workflow schemes</li>
-<li>Routing a document</li>
-<li>Getting the current status</li>
-<li>Storing routes and states of documents in the database</li>
-<li>History recording and preparation of the route for the document</li>
-<li>Inbox\outbox folders for users</li>
-<li>Schema change of an active document</li>
-<li>Impersonation (replacement)</li>
+	<li><a href="https://www.microsoft.com/net/download">.NET Core SDK >=2.1</a></li>
+	<li><a href="https://www.visualstudio.com/free-developer-offers/">IDE Visual Studio 2017 (free)</a></li>
+	<li><a href=" https://www.jetbrains.com/rider/ ">JetBrains Rider EAP</a></li>
 </ul>
 
-<hr>
-<b>How to start</b>
+<h2>Samples:</h2>
+<b>1. Starter Pack</b>
+<b>2. Vacation Request</b>
 
-<ol>
-<li>Resore backup DatabaseBackup\das_backup.bak to MS SQL Server</li>
-<li>Check connection string in AdminPanel\Admin\Configuration\ConnectionString.config and ApprovalSystem\Workspaces\Configuration\ConnectionString.config</li>
-<li>Admin panel: AdminPanel.sln</li>
-<li>Application: ApprovalSystem.sln</li>
-</ol>
+<b>Official web site</b> - <a href="https://dwkit.com">https://dwkit.com</a><br/>
+<b>Documentation</b> - <a href="https://dwkit.com/documentation/">https://dwkit.com/documentation/</a><br/>
+<b>Demo</b> - <a href="https://dwkit.com/demo/">https://dwkit.com/demo/</a><br/>
+<b>Admin panel</b> - <a href="http://demo.dwkit.com/admin">http://demo.dwkit.com/admin</a><br/>
+<b>Form Builder</b> - <a href="http://builder.dwkit.com/">http://builder.dwkit.com/</a><br/>
+<b>Workflow Designer</b> - <a href="http://demo.dwkit.com/admin?apanel=workflow&aid=VacationRequest">http://demo.dwkit.com/admin?apanel=workflow&aid=VacationRequest</a><br/>
 
-Metadata.xml contains information about a data model, business objects, forms, source code of business rules etc.
 
-<hr>
-<b>Official web site</b> - <a href="http://workflowenginenet.com/DocumentApprovalSystem">Document approval system</a><br/>
-For commercial use, please contact <a href="mailto:sales@optimajet.com?subject=Qustion from github">sales@optimajet.com</a><br/>
+For technical questions, please contact <a href="mailto:wf@optimajet.com?subject=DWKit question from github">wf@optimajet.com</a><br/>
+For commercial use, please contact <a href="mailto:sales@optimajet.com?subject=DWKit question from github">sales@optimajet.com</a><br/>
+
+<b>Free limits (development use only):</b>
+<ul>
+<li>Instances: 1*</li>
+<li>Users: 20</li>
+<li>Forms: 20</li>
+<li>Workflow: 1 schema</li>
+</ul>

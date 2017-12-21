@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <Version>2.0.0</Version>
+    <Authors>OptimaJet, LLC</Authors>
+    <Company>OptimaJet, LLC</Company>
+    <Description>The sample for DWKit</Description>
+    <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
+    <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
+    <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
+    <Copyright>OptimaJet DWKit 2018</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BundlerMinifier.Core" Version="2.4.337" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="React.AspNet" Version="3.1.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="2.2.3" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="2.2.4" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="2.2.3" />
+    <PackageReference Include="DWKit-Core" Version="2.0.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.0.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.0.0" />
+    <PackageReference Include="DWKit-Security" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptimaJet.DWKit.Application\OptimaJet.DWKit.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\js\login.js" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<style>
+    #parent {
+        position: relative; 
+        height: calc(100vh - 80px);
+        background: #F9F9F9;
+    }
+    #child {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20%;
+        right: 20%;
+        height: 50%;
+        margin: auto;
+        z-index: 1000;
+    }
+    
+    #content {
+        background: #FFFFFF;
+        box-shadow: 0 4px 24px 0 rgba(45,45,45,0.20);
+        border-radius: 2px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+     .dwkit-app-sample-footer{
+         position: absolute;
+         top: calc(100vh - 80px);
+         bottom: 0;
+         left: 20%;
+         right: 20%;
+         height: 80px;
+         margin: auto;
+         color: #6D6D6D;
+         padding-top: 30px;
+         text-align: center;
+    }
+    
+    .dwkit-app-sample-footer a {
+        color: #F24D00;
+    }
+</style>
+
+<div id="parent">
+    <div id="child">
+        <div id="content"></div>
+    </div>
+    
+</div>
+<div class="dwkit-app-sample-footer">
+    Only non-commercial use. For commercial use, please contact <a href="mailto:sales@optimajet.com">sales@optimajet.com</a>. Official site - <a href="https://dwkit.com">https://dwkit.com</a>.
+</div>
+<script src="@Url.Content("~/js/login.js")"></script>

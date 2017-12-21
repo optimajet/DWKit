@@ -1,0 +1,61 @@
+[
+  {
+    "key": "dwkit-application-header",
+    "data-buildertype": "container",
+    "style-customcss": "dwkit-application-header",
+    "children": [
+      {
+        "key": "dwkit-application-header-left",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "logo",
+            "data-buildertype": "image",
+            "src": "/images/logo.svg",
+            "style-height": "",
+            "style-width": "",
+            "href": "/",
+            "style-customcss": "dwkit-application-header-logo"
+          }
+        ],
+        "style-marginLeft": "",
+        "style-customcss": "dwkit-application-header-left"
+      },
+      {
+        "key": "dwkit-application-header-right",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "currentUser",
+            "data-buildertype": "dropdowntrigger",
+            "defaultValue": "User",
+            "items": [
+              {
+                "target": "/admin",
+                "title": "Admin panel"
+              },
+              {
+                "target": "/account/logoff",
+                "title": "Logout"
+              }
+            ],
+            "events": {
+              "onItemClick": {
+                "active": true,
+                "actions": [
+                  "redirect"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "imageUrl": "/images/unknown.png"
+          }
+        ],
+        "style-float": "right",
+        "style-customcss": "dwkit-application-header-right"
+      }
+    ]
+  }
+]

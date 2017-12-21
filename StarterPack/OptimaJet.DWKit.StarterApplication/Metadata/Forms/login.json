@@ -1,0 +1,76 @@
+[
+  {
+    "key": "divLoginPage",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "formLogin",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "divLogo",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "image_1",
+                "data-buildertype": "image",
+                "src": "/images/logo.svg",
+                "style-height": "51px",
+                "style-marginLeft": "auto",
+                "style-marginRight": "auto"
+              }
+            ],
+            "style-width": "",
+            "style-marginLeft": "auto",
+            "style-marginRight": "auto",
+            "style-height": "",
+            "style-marginBottom": "50px",
+            "style-marginTop": ""
+          },
+          {
+            "key": "login",
+            "data-buildertype": "input",
+            "label": "Login",
+            "fluid": true
+          },
+          {
+            "key": "password",
+            "data-buildertype": "input",
+            "label": "Password",
+            "fluid": true,
+            "type": "password"
+          },
+          {
+            "key": "remember",
+            "data-buildertype": "checkbox",
+            "label": "Remember",
+            "slider": false
+          },
+          {
+            "key": "btnLogin",
+            "data-buildertype": "button",
+            "content": "Login",
+            "fluid": true,
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "login"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ],
+        "style-width": ""
+      }
+    ],
+    "style-width": "350px",
+    "style-marginLeft": "auto",
+    "style-marginRight": "auto",
+    "style-source": "",
+    "style-height": ""
+  }
+]

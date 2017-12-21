@@ -1,0 +1,37 @@
+{
+  "dataModel": [],
+  "codeActions": [
+    {
+      "id": "10a33dff-4f9b-0eab-0f06-14182449cb5e",
+      "name": "rerr",
+      "definedOnServer": false,
+      "type": 1,
+      "source": "//TODO: Call your actons;\nreturn null;",
+      "usings": "System;\nSystem.Collections;\nSystem.Collections.Generic;\nSystem.Linq;\nSystem.Threading;\nSystem.Threading.Tasks;\nOptimaJet.Workflow;\nOptimaJet.Workflow.Core.Model;\nOptimaJet.DWKit.Core;\nOptimaJet.DWkit.Model;",
+      "isAsync": false
+    }
+  ],
+  "businessFlow": [
+    {
+      "id": "4414f1b6-de45-4692-be97-d835f9e70d05",
+      "name": "Project mapping",
+      "scheme": "invoicing",
+      "defaultForm": "projectform",
+      "map": [
+        {
+          "activity": "draft",
+          "form": "simpleproject"
+        },
+        {
+          "activity": "step1",
+          "form": "projectform"
+        },
+        {
+          "activity": "final",
+          "form": "simpleproject"
+        }
+      ]
+    }
+  ],
+  "modules": []
+}

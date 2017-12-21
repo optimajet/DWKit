@@ -1,0 +1,25 @@
+[
+  {
+    "key": "div",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<b>Only non-commercial use. For commercial use, please contact <a href=\"mailto:sales@optimajet.com\">sales@optimajet.com</a>.</b>\nOfficial site - <a href=\"https://dwkit.com\">https://dwkit.com</a>",
+        "isHtml": true,
+        "style-source": "paddingTop: 20px;",
+        "style-marginTop": "",
+        "style-width": ""
+      }
+    ],
+    "style-customcss": "dwkit-application-footer",
+    "style-marginLeft": "",
+    "style-marginRight": "",
+    "style-width": "",
+    "style-float": "",
+    "style-source": "clear:both;\ntextAlign:center;",
+    "style-marginTop": "",
+    "style-marginBottom": ""
+  }
+]

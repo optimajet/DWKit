@@ -1,9 +1,0 @@
-﻿File: ext-all.js
-function: showToolTip
-d.mouseOffset=[b.getWidth()-e.getWidth()+c.lastScrollLeft+15,0]; -> d.mouseOffset=[/*b.getWidth()-e.getWidth()*/+c.lastScrollLeft /*+15*/,23];
-
-
-function: beforeEdit
-a.showToolTip(); -> /*a.showToolTip();*/
-
-if(j.errorSummary){if(k){j.hideToolTip()}else{j.showToolTip()}} -> if(j.errorSummary){if(k){j.hideToolTip()}else{/*j.showToolTip()*/}}

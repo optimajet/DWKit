@@ -1,0 +1,170 @@
+{
+  "name": "DocumentEdit",
+  "lastUpdate": "2017-12-20T12:34:54.2417+03:00",
+  "entityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
+  "triggers": [
+    {
+      "triggers": [
+        "AfterSelect"
+      ],
+      "codeActionId": "7e8b0051-3d86-cf9a-d562-94190cdc200f"
+    }
+  ],
+  "schemes": [
+    "VacationRequest"
+  ],
+  "dataMap": [
+    {
+      "id": "10621110-5b57-c695-c324-5cce417c298a",
+      "attributeId": "960d9be8-ba70-464a-9258-4c26612e1dd2",
+      "control": "amount",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3b132bd9-76a2-d87b-657c-79ec498436ed",
+      "attributeId": "b92689f8-8e7f-4478-8bbd-8bdb5930a9e7",
+      "control": "comment",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "f5ff66d9-eea7-58b2-ded7-936c1ff5fa6b",
+      "attributeId": "04584ffe-ca47-4fa8-a93a-193c8f696baf",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "70ce3a50-dba0-9494-0408-2028ebb64322",
+      "attributeId": "06baf863-39df-4ef0-a018-7979c4a4409c",
+      "control": "name",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "03920d98-951e-76a9-b3ea-55030baba2c7",
+      "attributeId": "ea00696d-7514-43cc-90a9-3809996855ec",
+      "control": "number",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "6bf76ce0-ee7c-ccd9-c937-14c936d8da2c",
+      "attributeId": "c93c08d0-3f00-4d3b-9815-5b29d9f80151",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "53770c45-172a-473b-8dda-2867c81e7ec6",
+      "attributeId": "337bd239-eb2c-4c53-8900-133a6639c142",
+      "control": "stateName",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "52d25cb7-03b1-3cbe-8bd9-7ac0297d8602",
+      "attributeId": "9210bca0-890d-4feb-830e-74ff39f67daa",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "cc33ca02-8247-32b8-86a0-522ee5d652dd",
+      "attributeId": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
+      "control": "author",
+      "parentId": "52d25cb7-03b1-3cbe-8bd9-7ac0297d8602",
+      "isEditable": false,
+      "isLoadable": true
+    },
+    {
+      "id": "f45c0179-10d5-f615-a804-37d40f2a15a2",
+      "attributeId": "d22872a5-c81b-4c97-9f6e-e4b937500556",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "9b8e6570-f1b5-f682-5c6e-e19f77e7138e",
+      "attributeId": "d6db8185-5762-4372-adb6-568169f09812",
+      "control": "managerId",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [
+    {
+      "id": "11d072b0-c5ce-392e-ed64-78c6f853a1d9",
+      "entityId": "dc4975e0-7908-434d-9924-8bb36ec203d9",
+      "control": "gridHistory",
+      "dataMap": [
+        {
+          "id": "a6e0f7bd-eb5a-deb4-77dc-235104ef607f",
+          "attributeId": "0ba49a20-f2c3-490c-8d7e-5ae10dfd0f3b",
+          "control": "availiablefor",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "1e167970-7fd5-96c9-a366-d736c38c3eef",
+          "attributeId": "c67fd220-e0d8-40ba-9c30-615c1418ae8c",
+          "control": "command",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "521eb34d-96d0-6a2e-7f9a-0ea6ad2cbb90",
+          "attributeId": "886a791d-fdc7-4f4f-b93e-617b331ab8cf",
+          "control": "to",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "f664e862-cabe-ce9c-d6fd-b4468e7b26f2",
+          "attributeId": "59f4d3da-4ae8-4d01-9ef2-0b89ec2dcde5",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "0086230f-6b17-f035-1d86-88708bccf18d",
+          "attributeId": "7cd1a346-59b5-452d-9769-3d1451499fab",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "da9c7fa5-0c04-c88d-bc9a-61d90e823d69",
+          "attributeId": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
+          "control": "executor",
+          "parentId": "0086230f-6b17-f035-1d86-88708bccf18d",
+          "isEditable": false,
+          "isLoadable": true
+        },
+        {
+          "id": "381730f4-f2af-e63a-d8b3-6354eac8abf8",
+          "attributeId": "b37062ee-9ac8-4147-9210-926e9d5a90d0",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "24c8e1bb-ae7d-83df-a7bc-27f8b2d12141",
+          "attributeId": "8e61d12a-cf5e-41c8-82d0-bc06a983e7d3",
+          "control": "from",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "44024ea0-ed2d-7cb7-3840-12846d134ab0",
+          "attributeId": "9b873c49-a1af-4489-9c3d-29a23698f60c",
+          "control": "",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "efe7d52a-6ed8-2ce0-2cbc-d3fd1a2c0207",
+          "attributeId": "3a89f7c2-6856-44cb-ae57-9b7d6c17ce1f",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": true
+    }
+  ],
+  "securityGroup": ""
+}

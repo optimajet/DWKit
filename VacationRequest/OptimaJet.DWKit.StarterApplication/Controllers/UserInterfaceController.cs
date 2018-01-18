@@ -36,6 +36,14 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                         var userId = DWKitRuntime.Security.CurrentUser.GetOperationUserId();
                         await form.FillPermissions(userId);
                     }
+                    await form.FillMapping();
+
+                    var localization = DWKitRuntime.Security.CurrentUser.Localization;
+                    if (!string.IsNullOrWhiteSpace(localization))
+                    {
+                        await form.Localizate(localization);
+                    }
+
                     return Json(new ItemSuccessResponse<object>(form));
                 }
 
@@ -51,9 +59,21 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 throw;
             }
         }
-        
+
+        [Route("ui/localization.js")]
+        public ActionResult GetLocalization()
+        {
+            var cu = DWKitRuntime.Security.CurrentUser;
+            if(cu == null)
+            {
+                return Content("");
+            }
+            var localization = cu.Localization;
+            return Content(DWKitRuntime.Metadata.GetLocalizationScript(localization));
+        }
+
         [Route("ui/form/businessobjects.js")]
-        public async Task<ActionResult> GetFormsBusinesscode()
+        public  ActionResult GetFormsBusinesscode()
         {
             return Content(DWKitRuntime.Metadata.GetFormsBusinessCode());
         }

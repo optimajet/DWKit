@@ -10,6 +10,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using OptimaJet.DWKit.Application;
 using React.AspNet;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.Internal;
+using Microsoft.AspNetCore.Mvc;
 
 namespace OptimaJet.DWKit.StarterApplication
 {
@@ -23,19 +26,32 @@ namespace OptimaJet.DWKit.StarterApplication
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-           
+
         }
 
         public IConfigurationRoot Configuration { get; }
 
-       
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options => {
+                options.LoginPath = "/Account/Login/";
+            });
+
+            services.AddMvc(options => {
+                options.Filters.Add(typeof(Security.AuthorizationFilter));
+                options.Filters.Add(
+                         new ResponseCacheFilter(
+                            new CacheProfile()
+                            {
+                                NoStore = true
+                            }));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,16 +70,9 @@ namespace OptimaJet.DWKit.StarterApplication
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = "Cookies",
-                LoginPath = new PathString("/account/login"),
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true
-            });
 
+            app.UseAuthentication();
             app.UseStaticFiles();
-
 
             app.UseMvc(routes =>
             {
@@ -76,16 +85,11 @@ namespace OptimaJet.DWKit.StarterApplication
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=StarterApplication}/{action=Index}/");
-                
-//For Admin panel
-//                routes.MapRoute(
-//                    name: "default",
-//                    template: "{controller=ConfigAPI}/{action=Admin}/");
             });
-           
+
             //DWKIT Init
             Configurator.Configure(
-                (IHttpContextAccessor)app.ApplicationServices.GetService(typeof(IHttpContextAccessor)), 
+                (IHttpContextAccessor)app.ApplicationServices.GetService(typeof(IHttpContextAccessor)),
                 Configuration);
         }
     }

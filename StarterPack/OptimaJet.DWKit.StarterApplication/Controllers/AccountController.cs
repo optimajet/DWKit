@@ -27,7 +27,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             if (await DWKitRuntime.Security.ValidateUserByLoginAsync(login, password))
             {
-                await DWKitRuntime.Security.Authorize(login, remember);
+                await DWKitRuntime.Security.SignIn(login, remember);
                 return Json(new SuccessResponse());
             }
 

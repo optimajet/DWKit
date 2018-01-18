@@ -33,7 +33,7 @@ namespace OptimaJet.DWKit.Application
                     var licenseText = File.ReadAllText(licensefile);
                     DWKitRuntime.RegisterLicense(licenseText);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     //TODO add write to log
                 }
@@ -49,7 +49,7 @@ namespace OptimaJet.DWKit.Application
             DWKitRuntime.ConnectionStringData = configuration[$"ConnectionStrings:{connectionstringName}"];
             DWKitRuntime.DbProvider = AutoDetectProvider();
             DWKitRuntime.Security = new SecurityProvider(httpContextAccessor);
-            DWKitRuntime.Metadata = new DefaultMetadataProvider("Metadata/metadata.json", "Metadata/Forms");
+            DWKitRuntime.Metadata = new DefaultMetadataProvider("Metadata/metadata.json", "Metadata/Forms", "Metadata/Localization");
 
             if (configuration["DWKit:BlockMetadataChanges"] == "True")
             {
@@ -69,8 +69,9 @@ namespace OptimaJet.DWKit.Application
 
             try
             {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DWKitRuntime.ConnectionStringData)) ;
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(DWKitRuntime.ConnectionStringData)) { };
                 provider = new SQLServerProvider();
+                
             }
             catch (ArgumentException) { }
 
@@ -78,7 +79,7 @@ namespace OptimaJet.DWKit.Application
             {
                 try
                 {
-                    using (IDbConnection connection = new Npgsql.NpgsqlConnection(DWKitRuntime.ConnectionStringData)) ;
+                    using (IDbConnection connection = new Npgsql.NpgsqlConnection(DWKitRuntime.ConnectionStringData)) { };
                     provider = new PostgreSqlProvider();
                 }
                 catch (ArgumentException) { }

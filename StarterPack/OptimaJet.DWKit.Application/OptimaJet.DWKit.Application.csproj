@@ -12,15 +12,15 @@
     <Copyright>OptimaJet DWKit 2018</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.4.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="1.1.2" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="2.2.3" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="2.2.4" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="2.2.3" />
-    <PackageReference Include="DWKit-Core" Version="2.0.0" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.0.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.0.0" />
-    <PackageReference Include="DWKit-Security" Version="2.0.0" />
+    <PackageReference Include="DWKit-Core" Version="2.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.0.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="2.3.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="2.3.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="2.3.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.0.6" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.0.6" />
+    <PackageReference Include="DWKit-Security" Version="2.0.6" />
   </ItemGroup>
 </Project>

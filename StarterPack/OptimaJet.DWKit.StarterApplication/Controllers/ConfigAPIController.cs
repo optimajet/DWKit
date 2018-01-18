@@ -30,7 +30,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("Admin")]
-        public async Task<ActionResult> Admin()
+        public ActionResult Admin()
         {
             if (!CheckAccess())
             {
@@ -83,7 +83,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             if (string.IsNullOrEmpty(role) || role == "*")
                 return true;
 
-            return DWKitRuntime.Security.CurrentUser.IsInRole(role);
+            return (DWKitRuntime.Security.CurrentUser != null && DWKitRuntime.Security.CurrentUser.IsInRole(role));
         }
 
         private ActionResult AccessDenied()

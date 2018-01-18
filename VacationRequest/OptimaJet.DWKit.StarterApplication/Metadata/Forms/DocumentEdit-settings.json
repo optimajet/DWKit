@@ -1,6 +1,6 @@
 {
   "name": "DocumentEdit",
-  "lastUpdate": "2017-12-20T12:34:54.2417+03:00",
+  "lastUpdate": "2018-01-18T03:18:57.3223348+03:00",
   "entityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
   "triggers": [
     {
@@ -73,12 +73,6 @@
       "control": "author",
       "parentId": "52d25cb7-03b1-3cbe-8bd9-7ac0297d8602",
       "isEditable": false,
-      "isLoadable": true
-    },
-    {
-      "id": "f45c0179-10d5-f615-a804-37d40f2a15a2",
-      "attributeId": "d22872a5-c81b-4c97-9f6e-e4b937500556",
-      "isEditable": true,
       "isLoadable": true
     },
     {

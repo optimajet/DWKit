@@ -25,7 +25,36 @@
         "targets": [],
         "parameters": []
       }
-    }
+    },
+    "style-source": "float:left"
+  },
+  {
+    "key": "btnOpenWorkflowDesigner",
+    "data-buildertype": "button",
+    "content": "Open in Workflow Designer",
+    "floated": "left",
+    "secondary": false,
+    "circular": true,
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "openworkflowdesginer"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "other-visibleConition": "(typeof(data.Id) == \"string\" && data.Id.length > 1) ? true : false",
+    "other-required": false,
+    "style-hidden": false,
+    "compact": false,
+    "toggle": false
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-source": "clear:both"
   },
   {
     "key": "form",

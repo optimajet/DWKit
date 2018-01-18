@@ -19,7 +19,7 @@ using OptimaJet.Workflow.Core.Runtime;
 
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class WorkflowController : Controller
     {
         [Route("workflow/designerapi")]

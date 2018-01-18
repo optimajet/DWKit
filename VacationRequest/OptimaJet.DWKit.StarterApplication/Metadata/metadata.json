@@ -80,15 +80,6 @@
           "isCalculated": false
         },
         {
-          "id": "d22872a5-c81b-4c97-9f6e-e4b937500556",
-          "name": "Number",
-          "type": "Int32",
-          "typeId": 0,
-          "isNullable": false,
-          "isVirtual": false,
-          "isCalculated": true
-        },
-        {
           "id": "d6db8185-5762-4372-adb6-568169f09812",
           "referenceEntityId": "1b535314-d142-4421-900a-93917ffd5515",
           "name": "ManagerId",

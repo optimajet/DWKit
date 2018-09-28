@@ -27,7 +27,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             if (await DWKitRuntime.Security.ValidateUserByLoginAsync(login, password))
             {
-                await DWKitRuntime.Security.SignIn(login, remember);
+                await DWKitRuntime.Security.SignInAsync(login, remember);
                 return Json(new SuccessResponse());
             }
 
@@ -52,7 +52,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             try
             {
-                await DWKitRuntime.Security.SignOut();
+                await DWKitRuntime.Security.SignOutAsync();
                 return Redirect("/");
             }
             catch (Exception e)

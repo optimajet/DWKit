@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using OptimaJet.DWKit.Application;
 using OptimaJet.DWKit.Core;
@@ -22,6 +23,21 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     [Authorize]
     public class WorkflowController : Controller
     {
+        private IHostingEnvironment _env;
+        private IConfigurationRoot _configuration;
+        public WorkflowController(IHostingEnvironment env)
+        {
+            _env = env;
+            DWKitRuntime.Metadata.SetRootPath(_env.ContentRootPath);
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            _configuration = builder.Build();
+        }
+
         [Route("workflow/designerapi")]
         public IActionResult DesignerAPI()
         {
@@ -47,6 +63,18 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                         pars.Add(key, Request.Form[key]);
                     }
                 }
+            }
+
+            var operation = pars["operation"].ToLower();
+            if (operation == "save")
+            {
+                if (!CheckAccess())
+                {
+                    return AccessDenied();
+                }
+
+                if (DWKitRuntime.Metadata.BlockMetadataChanges)
+                    return Content("ConfigAPI: Changes are locked!");
             }
 
             var res = WorkflowInit.Runtime.DesignerAPI(pars, filestream);
@@ -94,8 +122,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
                 else
                 {
-                    var data = await DataSource.GetDataForFormAsync(new GetDataRequest(name) {Filter = filterItems, FilterActionName = filterActionName});
-                    entityId = (Guid?) data?.GetId();
+                    var data = await DataSource.GetDataForFormAsync(new GetDataRequest(name) { Filter = filterItems, FilterActionName = filterActionName });
+                    entityId = (Guid?)data.Entity?.GetId();
                 }
 
                 var userId = GetUserId();
@@ -103,16 +131,16 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 if (entityId.HasValue && (await WorkflowInit.Runtime.IsProcessExistsAsync(entityId.Value)))
                 {
                     var commands = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(entityId.Value, userId.ToString())).Select(c =>
-                        new ClientWorkflowCommand() {Text = c.LocalizedName, Type = (byte) c.Classifier, Value = c.CommandName}).ToList();
+                        new ClientWorkflowCommand() { Text = c.LocalizedName, Type = (byte)c.Classifier, Value = c.CommandName }).ToList();
                     var states = (await WorkflowInit.Runtime.GetAvailableStateToSetAsync(entityId.Value)).Select(s =>
-                        new ClientWorkflowState() {Value = s.Name, Text = s.VisibleName}).ToList();
+                        new ClientWorkflowState() { Value = s.Name, Text = s.VisibleName }).ToList();
 
-                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() {Commands = commands, States = states}));
+                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() { Commands = commands, States = states }));
                 }
                 else
                 {
                     var commands = await GetInitialCommands(name, userId);
-                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() {Commands = commands, States = new List<ClientWorkflowState>()}));
+                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() { Commands = commands, States = new List<ClientWorkflowState>() }));
                 }
             }
             catch (Exception e)
@@ -149,7 +177,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
 
                 var commandObject = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(idGuid, userId.ToString())).FirstOrDefault(c => c.CommandName.Equals(command));
-                
+
                 if (commandObject == null)
                     return Json(new FailResponse("Command not found."));
 
@@ -163,7 +191,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 return Json(new FailResponse(e));
             }
         }
-        
+
         [Route("workflow/set")]
         [HttpPost]
         public async Task<ActionResult> SetState(string name, string id, string state)
@@ -178,7 +206,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     return Json(new FailResponse($"Process with id={id} is not found."));
                 }
 
-                await WorkflowInit.Runtime.SetStateAsync(idGuid, userId.ToString(), userId.ToString(),state);
+                await WorkflowInit.Runtime.SetStateAsync(idGuid, userId.ToString(), userId.ToString(), state);
 
                 return Json(new SuccessResponse());
             }
@@ -193,7 +221,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
         }
-        
+
         private async Task<List<ClientWorkflowCommand>> GetInitialCommands(string name, Guid userId)
         {
             List<string> schemeNames = DWKitRuntime.Metadata.GetWorkflowByForm(name);
@@ -207,7 +235,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                         new ClientWorkflowCommand()
                         {
                             Text = c.LocalizedName,
-                            Type = (byte) c.Classifier,
+                            Type = (byte)c.Classifier,
                             Value = c.CommandName,
                             Scheme = schemeName
                         }).ToList();
@@ -216,6 +244,20 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
             }
             return commands;
+        }
+
+        private bool CheckAccess()
+        {
+            var role = _configuration["DWKit:AdminRole"];
+            if (string.IsNullOrEmpty(role) || role == "*")
+                return true;
+
+            return (DWKitRuntime.Security.CurrentUser != null && DWKitRuntime.Security.CurrentUser.IsInRole(role));
+        }
+
+        private ActionResult AccessDenied()
+        {
+            return Content("It's just for admins!");
         }
     }
 }

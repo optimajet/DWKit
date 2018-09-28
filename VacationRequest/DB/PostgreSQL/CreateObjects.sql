@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS "Document"
   "Comment" character varying(1024) NULL,
   "AuthorId" uuid NOT NULL REFERENCES "dwSecurityUser",
   "ManagerId" uuid REFERENCES "dwSecurityUser",
-  "Amount" money NOT NULL DEFAULT 0::money,
+  "Amount" numeric NOT NULL DEFAULT 0::numeric,
   "State" character varying(256) NOT NULL DEFAULT 'Draft',
   "StateName" character varying(256) ,
   CONSTRAINT "Document_pkey" PRIMARY KEY ("Id")

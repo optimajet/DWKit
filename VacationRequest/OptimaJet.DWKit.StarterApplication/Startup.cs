@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +12,9 @@ using React.AspNet;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using OptimaJet.DWKit.Core;
+using OptimaJet.DWKit.Security;
 
 namespace OptimaJet.DWKit.StarterApplication
 {
@@ -26,12 +28,12 @@ namespace OptimaJet.DWKit.StarterApplication
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-
+           
         }
 
         public IConfigurationRoot Configuration { get; }
 
-
+       
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,9 +42,9 @@ namespace OptimaJet.DWKit.StarterApplication
             services.AddReact();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options => {
+                options.ExpireTimeSpan = TimeSpan.FromDays(365);
                 options.LoginPath = "/Account/Login/";
             });
-
             services.AddMvc(options => {
                 options.Filters.Add(typeof(Security.AuthorizationFilter));
                 options.Filters.Add(
@@ -52,6 +54,13 @@ namespace OptimaJet.DWKit.StarterApplication
                                 NoStore = true
                             }));
             });
+
+            services.AddSignalR(o =>
+            {
+                o.EnableDetailedErrors = true;
+            });
+
+            services.AddSingleton<IUserIdProvider, SignalRIdProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +82,7 @@ namespace OptimaJet.DWKit.StarterApplication
 
             app.UseAuthentication();
             app.UseStaticFiles();
-
+   
             app.UseMvc(routes =>
             {
                 routes.MapRoute("form", "form/{formName}/{*other}",
@@ -86,11 +95,20 @@ namespace OptimaJet.DWKit.StarterApplication
                     name: "default",
                     template: "{controller=StarterApplication}/{action=Index}/");
             });
+            
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ClientNotificationHub>("/hubs/notifications");
+            });
 
+    
+           
             //DWKIT Init
             Configurator.Configure(
                 (IHttpContextAccessor)app.ApplicationServices.GetService(typeof(IHttpContextAccessor)),
+                (IHubContext<ClientNotificationHub>)app.ApplicationServices.GetService(typeof(IHubContext<ClientNotificationHub>)),
                 Configuration);
+
         }
     }
 }

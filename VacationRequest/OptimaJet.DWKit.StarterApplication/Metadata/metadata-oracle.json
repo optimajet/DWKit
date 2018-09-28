@@ -1,0 +1,873 @@
+{
+  "dataModel": [
+    {
+      "id": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
+      "name": "Document",
+      "dbObjectName": "Document",
+      "schemaName": "",
+      "triggers": [],
+      "attributes": [
+        {
+          "id": "960d9be8-ba70-464a-9258-4c26612e1dd2",
+          "name": "Amount",
+          "type": "Decimal",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b92689f8-8e7f-4478-8bbd-8bdb5930a9e7",
+          "name": "Comment",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "04584ffe-ca47-4fa8-a93a-193c8f696baf",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "06baf863-39df-4ef0-a018-7979c4a4409c",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "ea00696d-7514-43cc-90a9-3809996855ec",
+          "name": "Number",
+          "type": "Int64",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": true,
+          "isExtension": false
+        },
+        {
+          "id": "c93c08d0-3f00-4d3b-9815-5b29d9f80151",
+          "name": "State",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "337bd239-eb2c-4c53-8900-133a6639c142",
+          "name": "StateName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "9210bca0-890d-4feb-830e-74ff39f67daa",
+          "referenceEntityId": "1b535314-d142-4421-900a-93917ffd5515",
+          "name": "AuthorId",
+          "typeId": 1,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "d6db8185-5762-4372-adb6-568169f09812",
+          "referenceEntityId": "1b535314-d142-4421-900a-93917ffd5515",
+          "name": "ManagerId",
+          "typeId": 1,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "1b535314-d142-4421-900a-93917ffd5515",
+      "name": "dwSecurityUser",
+      "dbObjectName": "dwSecurityUser",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "709b447a-a303-40c6-8728-78577495a60e",
+          "name": "DecimalSeparator",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "6f3b3111-8dbd-4b41-a441-ef7e18271b68",
+          "name": "Email",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b25a4d34-6adb-4f98-b9e4-9ccde76bae86",
+          "name": "ExternalId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "09fd1ca6-bb53-4d29-8548-dd1146e1343e",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "78299986-246a-4bec-a5a4-dfa4b8dacf1d",
+          "name": "IsHead",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "0e896b55-a269-435e-88af-0d73eb6f337c",
+          "name": "IsLocked",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "9243de5d-cbdc-436b-8f40-16bbefaf0b81",
+          "name": "IsRTL",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "6b19c771-889d-42c8-9ca9-0364a42140ed",
+          "name": "Localization",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "4f8276c8-eced-45de-9753-df5555f86b79",
+          "name": "PageSize",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "46d7ba68-f43c-40a9-9e6f-19567ab77834",
+          "name": "StartPage",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "74ef7760-4db5-4ef5-98d0-ab283efeec8d",
+          "name": "StructDivisionId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "91752447-aa10-4ff7-aa30-4b443fab78b0",
+          "name": "Timezone",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "dc4975e0-7908-434d-9924-8bb36ec203d9",
+      "name": "DocumentTransitionHistory",
+      "dbObjectName": "DocumentTransitionHistory",
+      "schemaName": "",
+      "triggers": [],
+      "attributes": [
+        {
+          "id": "0ba49a20-f2c3-490c-8d7e-5ae10dfd0f3b",
+          "name": "AllowedToEmployeeNames",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "c67fd220-e0d8-40ba-9c30-615c1418ae8c",
+          "name": "Command",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "886a791d-fdc7-4f4f-b93e-617b331ab8cf",
+          "name": "DestinationState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "59f4d3da-4ae8-4d01-9ef2-0b89ec2dcde5",
+          "referenceEntityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
+          "name": "DocumentId",
+          "typeId": 1,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "7cd1a346-59b5-452d-9769-3d1451499fab",
+          "referenceEntityId": "1b535314-d142-4421-900a-93917ffd5515",
+          "name": "EmployeeId",
+          "typeId": 1,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b37062ee-9ac8-4147-9210-926e9d5a90d0",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "8e61d12a-cf5e-41c8-82d0-bc06a983e7d3",
+          "name": "InitialState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "9b873c49-a1af-4489-9c3d-29a23698f60c",
+          "name": "Order",
+          "type": "Int64",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": true,
+          "isExtension": false
+        },
+        {
+          "id": "3a89f7c2-6856-44cb-ae57-9b7d6c17ce1f",
+          "name": "TransitionTime",
+          "type": "DateTime",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "5c4f1d9c-fb7b-480e-8841-32633dfa8ad7",
+      "name": "StructDivision",
+      "dbObjectName": "StructDivision",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "07e9391f-c1b3-4ae8-a228-6ea9228ac5be",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "ea2f6e04-bc63-49a6-96c4-5b82420cf5a0",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "e2f0469b-086d-4084-be71-2068e006a906",
+          "name": "ParentId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "6fcb47cc-9167-4871-82f8-d67f3816b121",
+      "name": "WorkflowInbox",
+      "dbObjectName": "WorkflowInbox",
+      "schemaName": "",
+      "triggers": [],
+      "attributes": [
+        {
+          "id": "014fe586-1d86-4784-96f5-0b87942438b6",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "bdb077c7-518f-42ab-8662-b692336b49f7",
+          "name": "IdentityId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "a164b309-fdaf-4e5b-9364-903b33bf00e1",
+          "name": "ProcessId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "f9b358b7-a601-4f1d-8d92-2230f08a704d",
+      "name": "dwSecurityRole",
+      "dbObjectName": "dwSecurityRole",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "7b676974-66f0-4cd8-9185-1744b0fe2514",
+          "name": "Code",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "e938b500-90f1-46f5-8b12-5b5d6ab4d552",
+          "name": "Comment",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "0892938f-3b6d-4e9d-8b20-1c9a843e60b8",
+          "name": "DomainGroup",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "814fdbfa-723e-43e9-bc10-2ebbc46a005a",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "fe8419e4-1144-4ccc-9027-5019be1e903e",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "521ee4f0-f9c1-4122-a06e-5b1eecea11f6",
+      "name": "dwV_Security_UserRole",
+      "dbObjectName": "dwV_Security_UserRole",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "e06581a6-8b25-4de2-996a-c90254cfdf05",
+          "name": "RoleId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "d0881999-a245-4676-afd3-5752904a4f23",
+          "name": "UserId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ]
+    },
+    {
+      "id": "1f177b32-fb14-4857-9dbe-36c0dfa33f42",
+      "name": "vHeads",
+      "dbObjectName": "vHeads",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "2f79e8c5-7b9c-4bfb-96ac-b3b6e86089a4",
+          "name": "HeadId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "1e44a74d-1461-4ac2-9fa1-25958b31f95b",
+          "name": "HeadName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "c5e3f530-4415-45fe-834d-fa1382938ccb",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "58c4c673-85f4-4f50-8292-4f16ee2024b9",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ]
+    },
+    {
+      "id": "37b16af9-0144-410d-81e5-b6429a1300cc",
+      "name": "vStructDivisionParents",
+      "dbObjectName": "vStructDivisionParents",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "2ee88bac-86e3-42f1-8878-0e4ae4a75b0c",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "fcd8b527-bf14-4ca2-bd0c-970ee4ee446b",
+          "name": "ParentId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ]
+    },
+    {
+      "id": "bb1f410d-e6e6-438f-bd05-b5097870a89b",
+      "name": "vStructDivisionParentsAndThis",
+      "dbObjectName": "vStructDivisionParentsAndThis",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "cedbda8c-782d-42be-ae09-bcec7accaf78",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "1f5a52a3-3d7b-47ba-929e-deb811656347",
+          "name": "ParentId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ]
+    },
+    {
+      "id": "622907d5-66f2-4dda-ab1b-5797e3f99b4c",
+      "name": "WorkflowProcessTransitionHistory",
+      "dbObjectName": "WORKFLOWPROCESSTRANSITIONH",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "6d11ad51-2462-4f9c-82d8-41fe8239db2f",
+          "name": "ActorIdentityId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "8f2ce4df-f95b-499a-8f5f-911c5b6b0b8f",
+          "name": "ExecutorIdentityId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "2e5680df-fe2a-48c5-b36e-a2f4c030175d",
+          "name": "FromActivityName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "6ad9c036-563c-4fd8-a013-bcecb3f86c91",
+          "name": "FromStateName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b9720dd4-6908-4692-aa6d-baccb87a93ab",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b0928a2e-ace6-4d84-85d9-13df4bd76114",
+          "name": "IsFinalised",
+          "type": "Boolean",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "0d10f631-cc5e-4ac2-ab84-f518cd47f0f2",
+          "name": "ProcessId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "72648bb2-8ce2-4981-b96c-b73ad83297c6",
+          "name": "ToActivityName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "9538f24d-f0f5-4c04-b673-5474ffc5aa26",
+          "name": "ToStateName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "abb251ec-8d1f-40cf-ac15-2eacb955187b",
+          "name": "TransitionClassifier",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "bebbba3d-1b83-4d4f-8a1e-a9158d609b58",
+          "name": "TransitionTime",
+          "type": "DateTime",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "2a4939cc-056d-4851-8d24-4a07cd3c0460",
+          "name": "TriggerName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    },
+    {
+      "id": "e92fb32a-cab6-433c-8d32-8b1a94045c6d",
+      "name": "vStructDivisionUsers",
+      "dbObjectName": "vStructDivisionUsers",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "917dbd0a-80ea-4383-abf5-53f5c692620f",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "4d65e227-0994-4819-90a4-24cec8312f55",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "ee9388be-5b54-4ec3-a24f-5bbbb25cf49f",
+          "name": "ParentId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "86152541-8973-4f51-94e6-f671006716cd",
+          "name": "Roles",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ]
+    },
+    {
+      "id": "76909c18-3bbf-4a10-bedc-e7b373570dfb",
+      "name": "vUsers",
+      "dbObjectName": "vUsers",
+      "schemaName": "",
+      "triggers": [],
+      "attributes": [
+        {
+          "id": "d829fb7d-299f-47b2-975b-de88efceb3ba",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "1d3c4354-d051-42c9-8e53-2ab374c1b670",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "db3f576a-ff69-4d52-9cfd-e1024524d444",
+          "name": "Roles",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "de8122ea-e1c3-4c71-845b-a9077228d5f8",
+          "name": "StructDivisionId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "f98583ad-b822-455b-a922-db8755a8cac1",
+          "name": "Title",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id"
+    }
+  ],
+  "codeActions": [
+    {
+      "id": "9914f1b6-de45-4692-be97-d835f9e70d94",
+      "name": "StructDivisionFilter",
+      "comment": "The filter for struct division",
+      "definedOnServer": false,
+      "type": 0,
+      "source": "return Filter.Empty;",
+      "usings": "",
+      "isAsync": true
+    },
+    {
+      "id": "6a5f16cc-75be-3e9d-d669-476394ff0668",
+      "name": "inboxfromadmin",
+      "definedOnServer": false,
+      "type": 0,
+      "source": "var user = DWKitRuntime.Security.CurrentUser;\r\n/*break*/\r\nvar inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync(\"WorkflowInbox\");\r\nvar currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(user.Id, \"IdentityId\"))).Select(e => (Guid) e[\"ProcessId\"]).ToList();\r\nthrow (new Exception());\r\nreturn Filter.And.In(currentUserInbox, \"Id\");",
+      "usings": "",
+      "isAsync": true
+    }
+  ],
+  "businessFlow": [],
+  "modules": []
+}

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +10,8 @@ using React.AspNet;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using OptimaJet.DWKit.Core;
 
 namespace OptimaJet.DWKit.StarterApplication
 {
@@ -39,19 +38,26 @@ namespace OptimaJet.DWKit.StarterApplication
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie(options => {
-                options.LoginPath = "/Account/Login/";
-            });
+                .AddCookie(options =>
+                {
+                    options.ExpireTimeSpan = TimeSpan.FromDays(365);
+                    options.LoginPath = "/Account/Login/";
+                });
 
-            services.AddMvc(options => {
+            services.AddMvc(options =>
+            {
                 options.Filters.Add(typeof(Security.AuthorizationFilter));
                 options.Filters.Add(
-                         new ResponseCacheFilter(
-                            new CacheProfile()
-                            {
-                                NoStore = true
-                            }));
+                    new ResponseCacheFilter(
+                        new CacheProfile()
+                        {
+                            NoStore = true
+                        }));
             });
+
+            services.AddSignalR(o => { o.EnableDetailedErrors = true; });
+
+            services.AddSingleton<IUserIdProvider, SignalRIdProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,9 +93,17 @@ namespace OptimaJet.DWKit.StarterApplication
                     template: "{controller=StarterApplication}/{action=Index}/");
             });
 
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ClientNotificationHub>("/hubs/notifications");
+            });
+
+    
+           
             //DWKIT Init
             Configurator.Configure(
                 (IHttpContextAccessor)app.ApplicationServices.GetService(typeof(IHttpContextAccessor)),
+                (IHubContext<ClientNotificationHub>)app.ApplicationServices.GetService(typeof(IHubContext<ClientNotificationHub>)),
                 Configuration);
         }
     }

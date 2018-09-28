@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OptimaJet.DWKit.Core;
+using OptimaJet.DWKit.Core.Metadata;
 using OptimaJet.DWKit.Core.View;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,36 +22,10 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             try
             {
                 var form = DWKitRuntime.Metadata.GetForm(name);
-                if(form == null)
+                if (form == null)
                     throw new Exception("This form is not found!");
 
-                if (!await DWKitRuntime.Security.CheckFormPermission(form, "View"))
-                {
-                    throw new Exception("Access denied!");
-                }
-                
-                if (wrapResult)
-                {
-                    if (enableSecurity)
-                    {
-                        var userId = DWKitRuntime.Security.CurrentUser.GetOperationUserId();
-                        await form.FillPermissions(userId);
-                    }
-                    await form.FillMapping();
-
-                    var localization = DWKitRuntime.Security.CurrentUser.Localization;
-                    if (!string.IsNullOrWhiteSpace(localization))
-                    {
-                        await form.Localizate(localization);
-                    }
-
-                    return Json(new ItemSuccessResponse<object>(form));
-                }
-
-                string json = form.Source;
-                if(string.IsNullOrEmpty(json))
-                    throw new Exception("This form is not found!");
-                return Json(Newtonsoft.Json.JsonConvert.DeserializeObject(json));
+                return await getForm(form, wrapResult, enableSecurity);
             }
             catch (Exception e)
             {
@@ -60,11 +35,30 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
+        [Route("ui/flow/{name}")]
+        public async Task<ActionResult> GetFlow(string name, string urlFilter)
+        {
+            Guid? id = null;
+            if (!string.IsNullOrEmpty(urlFilter))
+            {
+                if (Guid.TryParse(urlFilter, out Guid entityId))
+                    id = entityId;
+            }
+
+            var form = await BusinessFlow.GetForm(name, id);
+            if (form != null)
+            {
+                return await getForm(form, true, true);
+            }
+
+            return Json(new FailResponse("The form is not found for this BusinessFlow!"));
+        }
+
         [Route("ui/localization.js")]
         public ActionResult GetLocalization()
         {
             var cu = DWKitRuntime.Security.CurrentUser;
-            if(cu == null)
+            if (cu == null)
             {
                 return Content("");
             }
@@ -73,17 +67,55 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("ui/form/businessobjects.js")]
-        public  ActionResult GetFormsBusinesscode()
+        public ActionResult GetFormsBusinesscode()
         {
             return Content(DWKitRuntime.Metadata.GetFormsBusinessCode());
         }
-        
+
         [AllowAnonymous]
         [Route("ui/login")]
         public async Task<ActionResult> Login()
         {
             return await GetForm("login");
         }
+
+        private async Task<ActionResult> getForm(Form form, bool wrapResult, bool enableSecurity)
+        {
+            if (!await DWKitRuntime.Security.CheckFormPermissionAsync(form, "View"))
+            {
+                throw new Exception("Access denied!");
+            }
+
+            var localization = DWKitRuntime.Security.CurrentUser?.Localization;
+            if (!string.IsNullOrWhiteSpace(localization))
+            {
+                await form.FillCustomBlockFormsAndLocalizateAsync(localization);
+            }
+            else
+            {
+                await form.FillCustomBlockFormsAsync();
+            }
+
+            if (wrapResult)
+            {
+                if (enableSecurity)
+                {
+                    var userId = DWKitRuntime.Security.CurrentUser.GetOperationUserId();
+                    await form.FillPermissionsAsync(userId);
+                }
+                await form.FillMappingAsync();
+                return Json(new ItemSuccessResponse<object>(form));
+            }
+
+            string json = form.Source;
+            if (string.IsNullOrEmpty(json))
+                throw new Exception("This form is not found!");
+            return Json(Newtonsoft.Json.JsonConvert.DeserializeObject(json));
+        }
+
+        private static bool NotNullOrEmpty(string urlFilter)
+        {
+            return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }
-    

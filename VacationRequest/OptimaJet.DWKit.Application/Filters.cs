@@ -109,7 +109,7 @@ namespace OptimaJet.DWKit.Application
             var userId = DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.HasValue ? DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.Value :
                 DWKitRuntime.Security.CurrentUser.Id;
             var inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowInbox");
-            var currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(userId, "IdentityId"))).Select(e => (Guid) (e as dynamic).ProcessId).ToList();
+            var currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(userId.ToString(), "IdentityId"))).Select(e => (Guid) (e as dynamic).ProcessId).ToList();
             return Filter.And.In(currentUserInbox, "Id");
         }
 

@@ -1,7 +1,8 @@
 ﻿var webpack = require('webpack');
+var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 var login = {
-    entry: "./wwwroot/js/app/login.jsx",
+    entry: ["babel-polyfill", "./wwwroot/js/app/login.jsx"],
     output: {
         filename: "./wwwroot/js/login.js"
     },
@@ -17,7 +18,8 @@ var login = {
             }
         ]
     },
-    plugins:[
+    plugins: [
+        new HardSourceWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
@@ -33,7 +35,8 @@ var login = {
 };
 
 var app = {
-    entry: "./wwwroot/js/app/app.jsx",
+    entry: ["babel-polyfill", "./wwwroot/js/app/app.jsx"],
+    devtool: 'source-map',
     output: {
         filename: "./wwwroot/js/app.js"
     },
@@ -49,7 +52,8 @@ var app = {
             }
         ]
     },
-    plugins:[
+    plugins: [
+        new HardSourceWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
@@ -65,7 +69,7 @@ var app = {
 };
 
 var admin = {
-    entry: "./wwwroot/js/app/admin.jsx",
+    entry: ["babel-polyfill", "./wwwroot/js/app/admin.jsx"],
     output: {
         filename: "./wwwroot/js/admin.js"
     },
@@ -81,7 +85,8 @@ var admin = {
             }
         ]
     },
-    plugins:[
+    plugins: [
+        new HardSourceWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
@@ -96,4 +101,4 @@ var admin = {
     ]
 };
 
-module.exports = [app,  admin, login];
+module.exports = [app, admin, login];

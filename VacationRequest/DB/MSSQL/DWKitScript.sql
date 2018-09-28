@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2
+Version: 2.2
 File: DWKitScript.sql
 */
 
@@ -39,6 +39,12 @@ BEGIN
 	PRINT '[dwAppSettings] - Add param [ApplicationName]'
 END
 
+IF NOT EXISTS (SELECT 1 FROM [dwAppSettings] WHERE Name = N'IntegrationApiKey')
+BEGIN
+	INSERT INTO [dwAppSettings] ([Name],[GroupName],[ParamName],[Value],[Order],[EditorType],[IsHidden]) VALUES (N'IntegrationApiKey',N'Application settings',N'Api key','',2,0,0 )
+	PRINT '[dwAppSettings] - Add param [IntegrationApiKey]'
+END
+
 --UploadedFiles---------------------------------------------------------------
 
 IF NOT EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = N'dwUploadedFiles')
@@ -47,20 +53,23 @@ BEGIN
 	CREATE TABLE [dbo].[dwUploadedFiles](
 		[Id] [uniqueidentifier] NOT NULL,
 		[Data] [varbinary](max) NOT NULL,
+		[AttachmentLength] [bigint] NOT NULL,
 		[Used] [bit] NOT NULL  DEFAULT ((0)),
-		[ObjectId] [uniqueidentifier] NOT NULL,
 		[Name] [nvarchar](max) NOT NULL,
-		[TableName] [nvarchar](255) NOT NULL,
+		[ContentType] [nvarchar](255) NULL,
 		[CreatedBy] [nchar](1024) NULL,
 		[CreatedDate] [datetime] NULL,
-		[AttachmentLength] [bigint] NOT NULL,
-	 CONSTRAINT [PK_dwUploadedFiles] PRIMARY KEY CLUSTERED 
+		[UpdatedBy] [nchar](1024) NULL,
+		[UpdatedDate] [datetime] NULL,
+		[Properties] [nvarchar](max) NULL,
+		CONSTRAINT [PK_dwUploadedFiles] PRIMARY KEY CLUSTERED 
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 	PRINT '[dwUploadedFiles] - Add table'
+
 END
 
 

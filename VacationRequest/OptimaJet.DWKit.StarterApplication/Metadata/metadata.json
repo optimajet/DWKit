@@ -14,7 +14,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "b92689f8-8e7f-4478-8bbd-8bdb5930a9e7",
@@ -23,7 +24,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "04584ffe-ca47-4fa8-a93a-193c8f696baf",
@@ -32,7 +34,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "06baf863-39df-4ef0-a018-7979c4a4409c",
@@ -41,7 +44,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "ea00696d-7514-43cc-90a9-3809996855ec",
@@ -50,7 +54,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": true
+          "isCalculated": true,
+          "isExtension": false
         },
         {
           "id": "c93c08d0-3f00-4d3b-9815-5b29d9f80151",
@@ -59,7 +64,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "337bd239-eb2c-4c53-8900-133a6639c142",
@@ -68,7 +74,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "9210bca0-890d-4feb-830e-74ff39f67daa",
@@ -77,7 +84,8 @@
           "typeId": 1,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "d6db8185-5762-4372-adb6-568169f09812",
@@ -86,7 +94,8 @@
           "typeId": 1,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -104,7 +113,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "6f3b3111-8dbd-4b41-a441-ef7e18271b68",
@@ -113,7 +123,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "b25a4d34-6adb-4f98-b9e4-9ccde76bae86",
@@ -122,7 +133,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "09fd1ca6-bb53-4d29-8548-dd1146e1343e",
@@ -131,7 +143,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "78299986-246a-4bec-a5a4-dfa4b8dacf1d",
@@ -140,7 +153,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "0e896b55-a269-435e-88af-0d73eb6f337c",
@@ -149,7 +163,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "9243de5d-cbdc-436b-8f40-16bbefaf0b81",
@@ -158,7 +173,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "6b19c771-889d-42c8-9ca9-0364a42140ed",
@@ -167,7 +183,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
@@ -176,7 +193,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "4f8276c8-eced-45de-9753-df5555f86b79",
@@ -185,7 +203,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "46d7ba68-f43c-40a9-9e6f-19567ab77834",
@@ -194,7 +213,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "74ef7760-4db5-4ef5-98d0-ab283efeec8d",
@@ -203,7 +223,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "91752447-aa10-4ff7-aa30-4b443fab78b0",
@@ -212,7 +233,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -231,7 +253,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "c67fd220-e0d8-40ba-9c30-615c1418ae8c",
@@ -240,7 +263,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "886a791d-fdc7-4f4f-b93e-617b331ab8cf",
@@ -249,7 +273,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "59f4d3da-4ae8-4d01-9ef2-0b89ec2dcde5",
@@ -258,7 +283,8 @@
           "typeId": 1,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "7cd1a346-59b5-452d-9769-3d1451499fab",
@@ -267,7 +293,8 @@
           "typeId": 1,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "b37062ee-9ac8-4147-9210-926e9d5a90d0",
@@ -276,7 +303,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "8e61d12a-cf5e-41c8-82d0-bc06a983e7d3",
@@ -285,7 +313,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "9b873c49-a1af-4489-9c3d-29a23698f60c",
@@ -294,7 +323,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": true
+          "isCalculated": true,
+          "isExtension": false
         },
         {
           "id": "3a89f7c2-6856-44cb-ae57-9b7d6c17ce1f",
@@ -303,7 +333,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -321,7 +352,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "ea2f6e04-bc63-49a6-96c4-5b82420cf5a0",
@@ -330,7 +362,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "e2f0469b-086d-4084-be71-2068e006a906",
@@ -339,7 +372,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -358,16 +392,18 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "bdb077c7-518f-42ab-8662-b692336b49f7",
           "name": "IdentityId",
-          "type": "Guid",
+          "type": "String",
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "a164b309-fdaf-4e5b-9364-903b33bf00e1",
@@ -376,7 +412,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -394,7 +431,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "e938b500-90f1-46f5-8b12-5b5d6ab4d552",
@@ -403,7 +441,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "0892938f-3b6d-4e9d-8b20-1c9a843e60b8",
@@ -412,7 +451,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "814fdbfa-723e-43e9-bc10-2ebbc46a005a",
@@ -421,7 +461,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "fe8419e4-1144-4ccc-9027-5019be1e903e",
@@ -430,7 +471,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -448,7 +490,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "d0881999-a245-4676-afd3-5752904a4f23",
@@ -457,7 +500,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ]
     },
@@ -474,7 +518,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "1e44a74d-1461-4ac2-9fa1-25958b31f95b",
@@ -483,7 +528,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "c5e3f530-4415-45fe-834d-fa1382938ccb",
@@ -492,7 +538,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "58c4c673-85f4-4f50-8292-4f16ee2024b9",
@@ -501,7 +548,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ]
     },
@@ -518,7 +566,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "fcd8b527-bf14-4ca2-bd0c-970ee4ee446b",
@@ -527,7 +576,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ]
     },
@@ -544,7 +594,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "1f5a52a3-3d7b-47ba-929e-deb811656347",
@@ -553,7 +604,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ]
     },
@@ -570,7 +622,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "8f2ce4df-f95b-499a-8f5f-911c5b6b0b8f",
@@ -579,7 +632,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "2e5680df-fe2a-48c5-b36e-a2f4c030175d",
@@ -588,7 +642,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "6ad9c036-563c-4fd8-a013-bcecb3f86c91",
@@ -597,7 +652,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "b9720dd4-6908-4692-aa6d-baccb87a93ab",
@@ -606,7 +662,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "b0928a2e-ace6-4d84-85d9-13df4bd76114",
@@ -615,7 +672,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "0d10f631-cc5e-4ac2-ab84-f518cd47f0f2",
@@ -624,7 +682,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "72648bb2-8ce2-4981-b96c-b73ad83297c6",
@@ -633,7 +692,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "9538f24d-f0f5-4c04-b673-5474ffc5aa26",
@@ -642,7 +702,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "abb251ec-8d1f-40cf-ac15-2eacb955187b",
@@ -651,7 +712,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "bebbba3d-1b83-4d4f-8a1e-a9158d609b58",
@@ -660,7 +722,8 @@
           "typeId": 0,
           "isNullable": false,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "2a4939cc-056d-4851-8d24-4a07cd3c0460",
@@ -669,7 +732,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -687,7 +751,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "4d65e227-0994-4819-90a4-24cec8312f55",
@@ -696,7 +761,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "ee9388be-5b54-4ec3-a24f-5bbbb25cf49f",
@@ -705,7 +771,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "86152541-8973-4f51-94e6-f671006716cd",
@@ -714,7 +781,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ]
     },
@@ -732,7 +800,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "1d3c4354-d051-42c9-8e53-2ab374c1b670",
@@ -741,7 +810,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "db3f576a-ff69-4d52-9cfd-e1024524d444",
@@ -750,7 +820,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "de8122ea-e1c3-4c71-845b-a9077228d5f8",
@@ -759,7 +830,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         },
         {
           "id": "f98583ad-b822-455b-a922-db8755a8cac1",
@@ -768,7 +840,8 @@
           "typeId": 0,
           "isNullable": true,
           "isVirtual": false,
-          "isCalculated": false
+          "isCalculated": false,
+          "isExtension": false
         }
       ],
       "primaryKeyAttribute": "Id"
@@ -790,32 +863,11 @@
       "name": "inboxfromadmin",
       "definedOnServer": false,
       "type": 0,
-      "source": "var user = DWKitRuntime.Security.CurrentUser;\r\n/*break*/\r\nvar inboxModel = await MetadataToModelConverter.GetEntityModelFromModelAsync(\"WorkflowInbox\");\r\nvar currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(user.Id, \"IdentityId\"))).Select(e => (Guid) e[\"ProcessId\"]).ToList();\r\nthrow (new Exception());\r\nreturn Filter.And.In(currentUserInbox, \"Id\");",
+      "source": "var user = DWKitRuntime.Security.CurrentUser;\r\n/*break*/\r\nvar inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync(\"WorkflowInbox\");\r\nvar currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(user.Id, \"IdentityId\"))).Select(e => (Guid) e[\"ProcessId\"]).ToList();\r\nthrow (new Exception());\r\nreturn Filter.And.In(currentUserInbox, \"Id\");",
       "usings": "",
       "isAsync": true
     }
   ],
-  "businessFlow": [
-    {
-      "id": "4414f1b6-de45-4692-be97-d835f9e70d05",
-      "name": "Project mapping",
-      "scheme": "invoicing",
-      "defaultForm": "projectform",
-      "map": [
-        {
-          "activity": "draft",
-          "form": "simpleproject"
-        },
-        {
-          "activity": "step1",
-          "form": "projectform"
-        },
-        {
-          "activity": "final",
-          "form": "simpleproject"
-        }
-      ]
-    }
-  ],
+  "businessFlow": [],
   "modules": []
 }

@@ -18,12 +18,12 @@
               },
               {
                 "name": "2",
-                "title": "Inbox",
+                "title": "Inbox <div class=\"ui gray label\">{inbox}</div>",
                 "target": "/form/documents/inbox"
               },
               {
                 "name": "3",
-                "title": "Outbox",
+                "title": "Outbox <div class=\"ui gray label\">{outbox}</div>",
                 "target": "/form/documents/outbox"
               }
             ],
@@ -38,7 +38,8 @@
                 "parameters": []
               }
             },
-            "style-width": ""
+            "style-width": "",
+            "link": true
           }
         ],
         "style-width": "300px",

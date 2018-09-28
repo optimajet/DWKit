@@ -1,13 +1,14 @@
 {
   "name": "DocumentEdit",
-  "lastUpdate": "2018-01-18T03:18:57.3223348+03:00",
+  "lastUpdate": "2018-06-14T21:05:42.5712532+03:00",
   "entityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
+  "isTemplate": false,
   "triggers": [
     {
       "triggers": [
         "AfterSelect"
       ],
-      "codeActionId": "7e8b0051-3d86-cf9a-d562-94190cdc200f"
+      "codeAction": "initDocument"
     }
   ],
   "schemes": [

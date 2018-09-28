@@ -122,7 +122,7 @@ namespace OptimaJet.DWKit.Application
                     entity.stateName = initialState.VisibleName;
                 }
             }
-           return (null,false);
+            return (null,false);
         }
 
     }

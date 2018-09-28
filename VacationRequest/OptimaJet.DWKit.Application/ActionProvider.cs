@@ -98,7 +98,7 @@ namespace OptimaJet.DWKit.Application
 
             dm.Command =  !isTimer ? command : string.Format("Timer: {0}",processInstance.ExecutedTimer);
             dm.TransitionTime = DateTime.Now;
-            dm.EmployeeId = Guid.Parse(processInstance.IdentityId);
+            dm.EmployeeId = !isTimer && !string.IsNullOrEmpty(processInstance.IdentityId) ? Guid.Parse(processInstance.IdentityId) : (Guid?) null;
 
             await historyModel.UpdateSingleAsync(existingModel);
         }

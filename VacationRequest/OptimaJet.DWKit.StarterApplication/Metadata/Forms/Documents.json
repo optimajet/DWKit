@@ -1,64 +1,113 @@
 [
   {
-    "key": "btnCreate",
-    "data-buildertype": "button",
-    "content": "Create",
-    "style-customcss": "",
-    "primary": true,
-    "events-onClick": true,
-    "events-onClick-actions": [
-      "gridAdd"
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "btnCreate",
+        "data-buildertype": "button",
+        "content": "Create",
+        "style-customcss": "",
+        "primary": true,
+        "events-onClick": true,
+        "events-onClick-actions": [
+          "gridAdd"
+        ],
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "grid"
+            ],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "btnDelete",
+        "data-buildertype": "button",
+        "content": "Delete",
+        "style-customcss": "",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "actions": [
+              "gridDelete"
+            ],
+            "active": true,
+            "targets": [
+              "grid"
+            ],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "btnRefresh",
+        "data-buildertype": "button",
+        "content": "Refresh",
+        "style-customcss": "",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "actions": [
+              "gridRefresh"
+            ],
+            "active": true,
+            "targets": [
+              "grid"
+            ],
+            "parameters": []
+          }
+        }
+      }
     ],
-    "events": {
-      "onClick": {
-        "active": true,
-        "actions": [
-          "gridCreate"
-        ],
-        "targets": [
-          "grid"
-        ],
-        "parameters": []
-      }
-    }
+    "style-marginRight": "20px"
   },
   {
-    "key": "btnDelete",
-    "data-buildertype": "button",
-    "content": "Delete",
-    "style-customcss": "",
-    "secondary": true,
-    "events": {
-      "onClick": {
-        "actions": [
-          "gridDelete"
-        ],
-        "active": true,
-        "targets": [
-          "grid"
-        ],
-        "parameters": []
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "inputSearch",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "setFilter",
+              "applyFilter"
+            ],
+            "targets": [
+              "grid"
+            ],
+            "parameters": [
+              {
+                "name": "column",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        "placeholder": "Search..."
       }
-    }
+    ],
+    "style-float": "left",
+    "style-width": "300px"
   },
   {
-    "key": "btnRefresh",
-    "data-buildertype": "button",
-    "content": "Refresh",
-    "style-customcss": "",
-    "secondary": true,
-    "events": {
-      "onClick": {
-        "actions": [
-          "gridRefresh"
-        ],
-        "active": true,
-        "targets": [
-          "grid"
-        ],
-        "parameters": []
-      }
-    }
+    "key": "container_3",
+    "data-buildertype": "container",
+    "style-marginTop": "",
+    "style-source": "clear:both;",
+    "style-height": ""
   },
   {
     "key": "grid",
@@ -68,49 +117,49 @@
         "key": "number",
         "name": "#",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "stateName",
         "name": "State",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "name",
         "name": "Name",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "comment",
         "name": "Comment",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "author",
         "name": "Author",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "manager",
         "name": "Manager",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       },
       {
         "key": "amount",
         "name": "Amount",
         "sortable": true,
-        "filterable": true,
+        "filterable": false,
         "resizable": false
       }
     ],
@@ -149,6 +198,6 @@
     "style-width": "",
     "style-height": "",
     "minHeight": "",
-    "offSet": "295px"
+    "offSet": "285px"
   }
 ]

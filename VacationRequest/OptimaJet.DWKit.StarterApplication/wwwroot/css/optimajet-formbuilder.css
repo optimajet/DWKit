@@ -44,19 +44,19 @@
 .dwkit-formbuilder-zone-active{
     opacity: 0.5;
     background: #E1E9F6;
-    border: 1px dashed #1362E2;
+    border: 1px dashed #1262E2;
 }
 
 .dwkit-formbuilder-zone-select{
     opacity: 1;
     background: #E1E9F6;
-    border: 1px solid #1362E2;
+    border: 1px solid #1262E2;
 }
 
 .dwkit-formbuilder-toolbox{
     width: 180px;
     float: left;
-    background-color: #1362E2;
+    background-color: #1262E2;
     color: white;
     min-height: 400px;
     /* height: 300px;
@@ -70,7 +70,8 @@
 }
 
 .dwkit-formbuilder-toolbox > ul{
-    -webkit-padding-start: 0px
+    -webkit-padding-start: 0px;
+    padding-left: 0px;
 }
 
 .dwkit-formbuilder-toolbox > ul > li
@@ -349,6 +350,7 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
 a.dwkit-btn{
     color: #F24D00;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .dwkit-form-mappging-left{

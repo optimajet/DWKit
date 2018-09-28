@@ -6,7 +6,7 @@
 }
 
 .dwkit-formadmin-header{
-    height: 100px;
+    height: 90px;
 }
 
 .dwkit-formadmin-header-left{
@@ -120,13 +120,18 @@
     background: transparent;
 }
 
+.dwkit-formadmin {
+    display: flex; 
+    align-items: stretch;
+    min-height: calc(100% - 50px);
+}
 
 /* Content */
 .dwkit-formadmin-basecontent{
     width: calc(100% - 250px);
     float: right;
     /* background-color: #F9F9F9; */
-    height: 300px;
+    /* height: 300px; */
     min-height: calc(100vh - 100px);
 }
 
@@ -158,6 +163,15 @@
 
 .dwkit-formadmin-content .ui.message{
     background: transparent;
+}
+
+.dwkit-formadmin-dataedit-attributeheader{
+    float: left;
+}
+
+.dwkit-formadmin-dataedit-attributeslider{
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 /* Form builder */
@@ -272,6 +286,7 @@
 /* Controls */
 .dwkit-buttonimage{
     height: 13px;
+    cursor: pointer;
 }
 
 .dwkit-formadmin-content a{
@@ -570,3 +585,12 @@ div.field > label {
 .fullScreen {
     overflow: hidden
 } */
+
+.dwkit-admin-formheader-breadcrumb{
+    float: left;
+    margin-right: 20px;
+}
+
+.dwkit-admin-formheader-parameters{
+padding-top: 2px;
+}

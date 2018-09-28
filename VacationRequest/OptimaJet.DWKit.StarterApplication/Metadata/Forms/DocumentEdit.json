@@ -85,7 +85,8 @@
             "selection": true,
             "dataModel": "dwSecurityUser",
             "columns": "Name ASC",
-            "other-required": true
+            "other-required": true,
+            "search": true
           },
           {
             "key": "number",
@@ -184,6 +185,15 @@
         "filterable": false,
         "resizable": false,
         "width": null
+      },
+      {
+        "key": "TransitionTime",
+        "name": "Date",
+        "type": "datetime",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": 130
       },
       {
         "name": "Availiable for",

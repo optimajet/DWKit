@@ -1,7 +1,7 @@
 ﻿/*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2
+Version: 2.1
 File: DWKitDropScript.sql
 */
 

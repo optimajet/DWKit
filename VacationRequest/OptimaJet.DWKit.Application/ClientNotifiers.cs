@@ -67,7 +67,7 @@ namespace OptimaJet.DWKit.Application
             var historyModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowProcessTransitionHistory");
             var histories = await historyModel.GetAsync(Filter.And.In(processIds, "ProcessId"));
             usersToNotify.AddRange(histories.Select(h=>(string)((h as dynamic).ExecutorIdentityId)));
-            usersToNotify = usersToNotify.Distinct().ToList();
+            usersToNotify = usersToNotify.Distinct().Where(s => s != null).ToList(); //ExecutorIdentityId can be null for timer transitions
             foreach (var processId in processIds)
             {
                 if (await WorkflowInit.Runtime.IsProcessExistsAsync(processId))

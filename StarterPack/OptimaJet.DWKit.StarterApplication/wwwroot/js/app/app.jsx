@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { DWKitForm } from "./../../scripts/optimajet-form.js"
 import {ApplicationRouter, NotificationComponent, FormContent, 
-    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm} from './../../scripts/optimajet-app.js'
+    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API} from './../../scripts/optimajet-app.js'
 
 class App extends React.Component {
     constructor(props) {
@@ -17,8 +17,9 @@ class App extends React.Component {
         Store.dispatch(Thunks.userinfo.fetch(function (){
             me.forceUpdate();
         }));
-        
+
         window.DWKitApp = this;
+        window.DWKitApp.API =  API;
         this.onFetchStarted();
     }
     

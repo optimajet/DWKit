@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +22,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 if (form == null)
                     throw new Exception("This form is not found!");
 
-                return await getForm(form, wrapResult, enableSecurity);
+                return await GetForm(form, wrapResult, enableSecurity);
             }
             catch (Exception e)
             {
@@ -38,20 +35,27 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         [Route("ui/flow/{name}")]
         public async Task<ActionResult> GetFlow(string name, string urlFilter)
         {
-            Guid? id = null;
-            if (!string.IsNullOrEmpty(urlFilter))
+            try
             {
-                if (Guid.TryParse(urlFilter, out Guid entityId))
-                    id = entityId;
-            }
+                Guid? id = null;
+                if (!string.IsNullOrEmpty(urlFilter))
+                {
+                    if (Guid.TryParse(urlFilter, out Guid entityId))
+                        id = entityId;
+                }
 
-            var form = await BusinessFlow.GetForm(name, id);
-            if (form != null)
+                var form = await BusinessFlow.GetForm(name, id);
+                if (form != null)
+                {
+                    return await GetForm(form, true, true);
+                }
+                
+                return Json(new FailResponse("The form is not found for this BusinessFlow!"));
+            }
+            catch (Exception e)
             {
-                return await getForm(form, true, true);
+                return Json(new FailResponse(e));
             }
-
-            return Json(new FailResponse("The form is not found for this BusinessFlow!"));
         }
 
         [Route("ui/localization.js")]
@@ -79,7 +83,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return await GetForm("login");
         }
 
-        private async Task<ActionResult> getForm(Form form, bool wrapResult, bool enableSecurity)
+        private async Task<ActionResult> GetForm(Form form, bool wrapResult, bool enableSecurity)
         {
             if (!await DWKitRuntime.Security.CheckFormPermissionAsync(form, "View"))
             {

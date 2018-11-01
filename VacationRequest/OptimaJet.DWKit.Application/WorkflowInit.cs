@@ -121,6 +121,9 @@ namespace OptimaJet.DWKit.Application
             task.FireAndForgetWithDefaultExceptionLogger();
         }
 
-
+        public static void ForceInit()
+        {
+            var r = Runtime;
+        }
     }
 }

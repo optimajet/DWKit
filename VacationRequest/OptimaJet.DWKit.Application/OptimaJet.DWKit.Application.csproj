@@ -14,11 +14,11 @@
     <FileVersion>2.3.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="2.3.1" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.3.1" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="2.3.1" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.3.1" />
-    <PackageReference Include="DWKit-Security" Version="2.3.1" />
+    <PackageReference Include="DWKit-Core" Version="2.3.3" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.3.3" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="2.3.3" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.3.3" />
+    <PackageReference Include="DWKit-Security" Version="2.3.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />

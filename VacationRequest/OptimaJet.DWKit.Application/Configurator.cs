@@ -3,6 +3,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
@@ -11,6 +12,7 @@ using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.CodeActions;
 using OptimaJet.DWKit.Core.DataProvider;
 using OptimaJet.DWKit.Core.Metadata;
+using OptimaJet.DWKit.Core.Utils;
 using OptimaJet.DWKit.MSSQL;
 using OptimaJet.DWKit.Oracle;
 using OptimaJet.DWKit.PostgreSQL;
@@ -90,6 +92,25 @@ namespace OptimaJet.DWKit.Application
                 Func<Task> task = async () => { await ClientNotifiers.DeleteWokflowAndNotifyClients(e, c); };
                 task.FireAndForgetWithDefaultExceptionLogger();
             });
+            
+            //Forcing the creation of a WF runtime to initialize timers and the Flow.
+            try
+            {
+                WorkflowInit.ForceInit();
+            }
+            catch (Exception e)
+            { 
+                if (Debugger.IsAttached)
+                {
+                    var info = ExceptionUtils.GetExceptionInfo(e);
+                    var errorBuilder = new StringBuilder();
+                    errorBuilder.AppendLine("Workflow engine start failed.");
+                    errorBuilder.AppendLine($"Message: {info.Message}");
+                    errorBuilder.AppendLine($"Exceptions: {info.Exeptions}");
+                    errorBuilder.Append($"StackTrace: {info.StackTrace}");
+                    Debug.WriteLine(errorBuilder);
+                }
+            }
         }
 
         public static IDbProvider AutoDetectProvider()

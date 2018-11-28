@@ -117,10 +117,23 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                var res = await DataSource.ChangeData(new ChangeDataRequest(name, data));
-                if (res.Succeess)
-                    return Json(new SuccessResponse(res.id?.ToString()));
-                return Json(new FailResponse(res.Message));
+                var postRequest = new ChangeDataRequest(name, data)
+                {
+                    BaseUrl = string.Format("{0}://{1}", Request.Scheme, Request.Host.Value),
+                    GetHeadersForLocalRequest = () =>
+                    {
+                        var dataUrlParameters = new Dictionary<string, string>();
+                        dataUrlParameters.Add("Cookie",
+                            string.Join(";",
+                                Request.Cookies.Select(c => $"{c.Key}={c.Value}")));
+                        return dataUrlParameters;
+                    }
+                };
+
+                var res = await DataSource.ChangeData(postRequest);
+                if (res.success != null)
+                    return Json(res.success);
+                return Json(res.fail);
             }
             catch (Exception e)
             {
@@ -139,7 +152,20 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                var res = await DataSource.DeleteData(new ChangeDataRequest(name, data, requestingControl));
+                var deleteRequest = new ChangeDataRequest(name, data, requestingControl)
+                {
+                    BaseUrl = string.Format("{0}://{1}", Request.Scheme, Request.Host.Value),
+                    GetHeadersForLocalRequest = () =>
+                    {
+                        var dataUrlParameters = new Dictionary<string, string>();
+                        dataUrlParameters.Add("Cookie",
+                            string.Join(";",
+                                Request.Cookies.Select(c => $"{c.Key}={c.Value}")));
+                        return dataUrlParameters;
+                    }
+                };
+
+                var res = await DataSource.DeleteData(deleteRequest);
                 if (res.Succeess)
                     return Json(new SuccessResponse("Data was deleted successfully"));
                 return Json(new FailResponse(res.Message));
@@ -202,15 +228,22 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         [Route("data/upload")]
         public async Task<ActionResult> UploadFile()
         {
-            if (Request.Form.Files.Count > 0)
+            try
             {
-                var file = Request.Form.Files[0];
-                Dictionary<string, string> properties = new Dictionary<string, string>();
-                properties.Add("Name", file.FileName);
-                properties.Add("ContentType", file.ContentType);
-                var stream = file.OpenReadStream();
-                var token = await DWKitRuntime.ContentProvider.AddAsync(stream, properties);
-                return Json(new SuccessResponse(token));
+                if (Request.Form.Files.Count > 0)
+                {
+                    var file = Request.Form.Files[0];
+                    Dictionary<string, string> properties = new Dictionary<string, string>();
+                    properties.Add("Name", file.FileName);
+                    properties.Add("ContentType", file.ContentType);
+                    var stream = file.OpenReadStream();
+                    var token = await DWKitRuntime.ContentProvider.AddAsync(stream, properties);
+                    return Json(new SuccessResponse(token));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new FailResponse(ex));
             }
 
             return Json(new FailResponse("No any files in the request!"));

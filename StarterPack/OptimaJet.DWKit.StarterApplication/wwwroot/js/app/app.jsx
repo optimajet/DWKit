@@ -17,9 +17,9 @@ class App extends React.Component {
         Store.dispatch(Thunks.userinfo.fetch(function (){
             me.forceUpdate();
         }));
-
+        
         window.DWKitApp = this;
-        window.DWKitApp.API =  API;
+        window.DWKitApp.API = API;
         this.onFetchStarted();
     }
     

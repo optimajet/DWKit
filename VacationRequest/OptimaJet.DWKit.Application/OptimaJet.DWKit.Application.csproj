@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Version>2.3.0</Version>
+    <Version>2.4.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
@@ -10,15 +10,15 @@
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
     <Description>The sample for DWKit</Description>
     <Copyright>OptimaJet DWKit 2018</Copyright>
-    <AssemblyVersion>2.3.0.0</AssemblyVersion>
-    <FileVersion>2.3.0.0</FileVersion>
+    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <FileVersion>2.4.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="2.3.3" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.3.3" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="2.3.3" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.3.3" />
-    <PackageReference Include="DWKit-Security" Version="2.3.3" />
+    <PackageReference Include="DWKit-Core" Version="2.4.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.4.0" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="2.4.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.4.0" />
+    <PackageReference Include="DWKit-Security" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />

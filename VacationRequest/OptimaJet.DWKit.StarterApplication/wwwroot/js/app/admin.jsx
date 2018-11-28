@@ -4,10 +4,12 @@ import DWKitAdmin from './../../scripts/optimajet-admin.js'
 
 let globalActions = [
     'validate',
-    'save', 
-    'cancel',
+    'save',
+    'apply',
     'exit',
     'redirect',
+    'setFilter',
+    'applyFilter',
     'gridCreate',
     'gridEdit',
     'gridCopy',
@@ -15,13 +17,16 @@ let globalActions = [
     'gridRefresh',
     'workflowExecuteCommand',
     'workflowSetState',
-    'refresh'];
+    'refresh',
+    'confirm',
+    'createElement'];
 
 render(
     <DWKitAdmin
         apiUrl="/configapi"
         workflowApi="/workflow/designerapi"
         imageFolder="/images/"
+        localizationFolder="/localization/"
         deltaWidth={0}
         deltaHeight={0}
         controlActions={globalActions}

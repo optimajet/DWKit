@@ -1,14 +1,19 @@
+.dwkit-formbuilder{
+    display: flex;
+    align-items: stretch;
+    min-height: 400px;
+    min-width: 500px;
+}
+
 .dwkit-formbuilder-preview{
     margin: 15px;
 }
 
 .dwkit-formbuilder-content{
-    width: calc(100% - 180px);
-    float: right;
-    background-color: #F9F9F9;
+    width: calc(100% - 200px);
+    float: left;
+    /*background-color: #F9F9F9;*/
     min-height: 400px;
-    /* height: 300px;
-    min-height: calc(100vh - 90px); */
     overflow-y: auto;
 }
 
@@ -31,12 +36,13 @@
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: small;
+    font-style: bold;
+    font-size: 8px;
+    line-height: 10px;
     text-align: center;
     width: 100%;
-    background: #EEF4FD;
-    opacity: 0.5;
-    color: #9B9B9B;
+    background: rgba(0, 0, 0, 0.02);
+    color: rgba(46, 46, 46, 0.4);
     border: 1px dashed #E1E9F6;
     clear: both;
 }
@@ -54,14 +60,10 @@
 }
 
 .dwkit-formbuilder-toolbox{
-    width: 180px;
-    float: left;
+    float: right;
     background-color: #1262E2;
     color: white;
-    min-height: 400px;
-    /* height: 300px;
-    min-height: calc(100vh - 90px); */
-    overflow-y: auto;
+    width: 200px;
 }
 
 .dwkit-formbuilder-toolbox > h4{
@@ -74,17 +76,24 @@
     padding-left: 0px;
 }
 
-.dwkit-formbuilder-toolbox > ul > li
+.dwkit-formbuilder-toolbox-control
 {
-    cursor: pointer;
-    text-align: center;
+    cursor: move;
     list-style: none;
     margin: 15px;
-    padding: 10px;
+    padding: 6px;
     border: 1px dashed #FFFFFF;
     border-radius: 2px;
     font-family: 'Lato', 'sans-serif';
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dwkit-formbuilder-toolbox-control-icon {
+    height: 14px;
+    margin-right: 6px;
+    float: left;
+    margin-top: 3px;
 }
 
 .dwkit-formbuilder-toolbox > ul > li:hover
@@ -92,12 +101,22 @@
     background: #1B62D4;
 }
 
+.dwkit-formbuilder-toolbox > ul > li span{
+    float: right;
+    padding-right: 20px;
+}
+
 .dwkit-formbuilder-toolbox > ul > li.dwkit-formbuilder-toolbox-subheader {
+    list-style: none;
+    padding: 6px;
     font-weight:bold;
-    cursor: default;
+    cursor: pointer;
     border: none;
     font-size: 16px;
     text-align: left;
+    font-family: 'Lato', 'sans-serif';
+    margin: 10px;
+    color: rgba(255, 255, 255, 1);
 }
 
 /* .dwkit-formbuilder-item {
@@ -116,25 +135,56 @@
     opacity: 1;
 }
 
+.dwkit-formbuilder-dropzoneactive .dwkit-formbuilder-item-container{
+    border-style: ridge;
+    border-width: 2px;
+    border-color: rgba(249, 204, 157, 0.5);
+    padding: 5px;
+}
+
+.dwkit-formbuilder-dropzoneactive .ui.form .fields.dwkit-formbuilder-item-container[data-buildertype='formgroup']{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 /*ITEM-HEADER*/
+
 .dwkit-formbuilder-item-toolbar-header {
     opacity: 0.2;
     z-index: 100;
-    position: relative;
-    float: right;
-    width: 76px
+    white-space: nowrap;
+    height: 0px;
+    padding-bottom: 5px;
+    padding-top: 3px;
 }
 
- .dwkit-formbuilder-item-toolbar-header-buttons {
-    position: absolute;
+.dwkit-formbuilder-item-toolbar-header.dwkit-formbuilder-item-toolbar-controlbargroup{
+    height: 25px;
+}
+
+
+.dwkit-formbuilder-item-toolbar-header.dwkit-formbuilder-item-toolbar-right{
+    width: 0;
+}
+
+.dwkit-formbuilder-item-toolbar-header-buttons {
     float: right;
  }
 
+.dwkit-formbuilder-item-toolbar-header-title{
+    display: inline;
+}
+
 .dwkit-formbuilder-item-toolbar-header:hover {
-    box-shadow: inset 0 0 5px #ddd;
-    background: #fff;
     opacity: 1;
 }
+
+.dwkit-formbuilder-item-selected{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(242, 77, 0, 0.5)
+}
+
 select .dwkit-formbuilder-item-toolbar-header:hover, 
 input .dwkit-formbuilder-item-toolbar-header:hover {
     cursor: move;
@@ -318,7 +368,7 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
 
 .dwkit-formbuilder-item-toolbar-header-buttons > img {
     cursor: pointer;
-    margin-left: 3px;
+    margin-left: 8px;
 }
 
 .dwkit-formbuilder-item-toolbar-header-buttons > img.move {
@@ -375,11 +425,48 @@ a.dwkit-btn{
     margin: 0;
 }
 
-.equal.width.fields:not(.grouped) .dwkit-formbuilder-zone{
-    width: 50px;
-}
+.dwkit-formbuilder-dropzoneactive .dwkit-formbuilder-item-container {
+    background-color: rgba(0,0,0,0.02);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(18, 98, 226,0.5);
+    padding: 16px; 
+    margin-top: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-.equal.width.fields:not(.grouped) .dwkit-formbuilder-item-toolbar-header{
-    position: inherit;
-    width: 0px;
-}
+  .dwkit-formbuilder-dropzoneactive .dwkit-formbuilder-zone {
+    padding: 8px;
+    border-style: dashed ;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.1) ;
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .dwkit-formbuilder-dropzoneactive .dwkit-formbuilder-zone:first-child {
+    margin-top: 0;
+  }
+  .dwkit-formbuilder-dropzoneactive .field {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > * {
+    margin: 0;
+  }
+  .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > .field {
+    margin: 0 16px;
+  }
+
+  .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > .dwkit-formbuilder-zone {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .dwkit-formbuilder-dropzoneactive:not(.grouped) .header {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }

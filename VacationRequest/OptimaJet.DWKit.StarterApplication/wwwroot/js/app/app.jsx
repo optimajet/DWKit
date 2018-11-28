@@ -19,7 +19,7 @@ class App extends React.Component {
         }));
 
         window.DWKitApp = this;
-        window.DWKitApp.API =  API;
+        window.DWKitApp.API = API;
         this.onFetchStarted();
     }
 

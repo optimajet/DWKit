@@ -52,7 +52,7 @@
           "name": "Number",
           "type": "Int64",
           "typeId": 0,
-          "isNullable": true,
+          "isNullable": false,
           "isVirtual": false,
           "isCalculated": true,
           "isExtension": false

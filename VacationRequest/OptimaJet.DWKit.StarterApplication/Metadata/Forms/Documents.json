@@ -125,7 +125,8 @@
         "name": "State",
         "sortable": true,
         "filterable": false,
-        "resizable": false
+        "resizable": false,
+        "type": "custom"
       },
       {
         "key": "name",

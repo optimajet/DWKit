@@ -107,12 +107,15 @@ namespace OptimaJet.DWKit.Application
 
             using (var shared = new SharedTransaction())
             {
+                await shared.BeginTransactionAsync();
+                
                 var inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowInbox");
                 var existingInboxes = (await inboxModel.GetAsync(Filter.And.Equal(args.ProcessId, "ProcessId")));
                 userIdsForNotification.AddRange(existingInboxes.Select(a => (string) (a as dynamic).IdentityId));
                 var existingInboxesIds = existingInboxes.Select(i => i.GetId()).ToList();
                 await inboxModel.DeleteAsync(existingInboxesIds);
                 await inboxModel.InsertAsync(newInboxes);
+                
                 await shared.CommitAsync();
             }
 

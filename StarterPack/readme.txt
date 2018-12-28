@@ -16,5 +16,9 @@ The sample supports MS SQL and PosgreSQL as storage.
 2. Open StarterPack.sln file via Visual Studio 2017 or JetBrains Rider
 3. Check a connection string in OptimaJet.DWKit.StarterApplication\appsettings.json (You might use MS SQL or PosgreSQL connection string's format)
 4. Run OptimaJet.DWKit.StarterApplication (Press F5 for Visial Studio).
+5. The credential for admin user:
+- Login: admin
+- Password: 1
+6. The Admin Panel URL is http://<url>/admin
 
 More information about how to use DWKit look at the https://dwkit.com/documentation/.

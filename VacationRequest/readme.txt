@@ -7,7 +7,7 @@ DWKit is a .NET BPM system made with simplicity and flexibility in mind. DWKit a
 A ready-made BPM solution is often not enough to satisfy your business requirements. Be it the need to ensure regulatory compliance or to build custom logic that goes beyond what the system has to offer, we believe that making the source code open is the way to go.
 Hence, we made DWKit's source code available to our customers so that they can alter whatever it is that will make their business more efficient.
  
-Demo on-line: https://demo.dwkit.com
+Demo on-line: http://demo.dwkit.com
 Please note. The sample was assembled with .NET Core. We recommend using Visual Studio 2017 or JetBrains Rider as IDE.
 
 The sample supports MS SQL and PosgreSQL as storage.

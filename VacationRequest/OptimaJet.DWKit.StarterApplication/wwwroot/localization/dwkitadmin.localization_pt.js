@@ -26,7 +26,8 @@ window.DWKitAdminLang = {
     support: "Apoio, suporte",
     documentation: "Documentação",
     faq: "FAQs",
-    emailsupport: "Suporte por email"
+    emailsupport: "Suporte por email",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "Modelo",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Linhas foram deletadas",
     extensionscontainerfieldrequired: "O campo de contêiner de extensões é obrigatório!",
     needtoselectoneitem: "Você precisa selecionar apenas um item",
-    totalcount: "Contagem total:"
+    totalcount: "Contagem total:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Não conectado.\n Verificar rede.",
@@ -148,7 +152,7 @@ window.DWKitAdminLang = {
     dbobjectfield: "Objeto DB",
     schemenamefield: "Nome do esquema",
     primarykeyfield: "Chave primária",
-    isdeletedfield: "Logical delete attrubute",
+    isdeletedfield: "Logical delete attribute",
     lockversionfield: "Atributo de bloqueio otimista",
     refentityfield: "Entidade de referência",
     datatypefield: "Tipo de dados",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "para criar gatilhos.",
     addtrigger: "Adicione um gatilho",
     extensionscontainerfield: "Recipiente de extensões",
-    showextensioncolumnsonly: "Mostrar apenas colunas de extensão"
+    showextensioncolumnsonly: "Mostrar apenas colunas de extensão",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Sincronizar com banco de dados",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Entidade de cobrança",
     collectionfilterfield: "Filtro de coleta",
     dataSourceType: "Tipo de fonte de dados",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Manipuladores de ação",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "Descrição da API de integração do OpenAPI 2.0 (Swagger):"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

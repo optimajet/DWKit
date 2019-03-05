@@ -310,12 +310,11 @@
     background: rgba(148,149,154,0.20);
 }
 
-.dwkit-formadmin-item{
-    margin-top: 30px;
+ .dwkit-formadmin-item:not(:last-child){
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: rgba(148,149,154,0.20);
-}
+} 
 
 .dwkit-formadmin-item .ui.form div.field.operationflag{
     margin-top: 15px;
@@ -456,12 +455,19 @@
     font-size: 14px;
     color: #465662;
     line-height: 28px;
-
     cursor: pointer;
 }
 
+.dwkit-formmapping-collection-row{
+    border-style: solid;
+    border-width: 0.5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .dwkit-formmapping-collection-row .mapdatacontrol{
-    margin-top: 22px;
+    margin-top: 23px;
+    height: 32px;
     margin-bottom: 17px;
     margin-right: 10px;
 }
@@ -602,4 +608,39 @@ padding-top: 2px;
 .dwkit-formbuilder-content, .dwkit-formbuilder-toolbox {
     overflow: auto;
     height: calc(100vh - 175px);
+}
+
+.dwkit-admin-resourcelist i.icon{
+    float: left;
+}
+
+.dwkit-admin-resourcelist{
+    float: left; 
+    width: 230px;
+    overflow: auto;
+    margin-right: 5px;
+    border-right-style: inset;
+}
+
+.dwkit-admin-resourcelist .list .item .content{
+    margin-left: 10px;
+}
+
+.dwkit-admin-resourceupload{
+    width: calc(100% - 300px);
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    min-height: 200px;
+    float: left;
+}
+
+.dwkit-admin-resourceupload .filepicker.dropzone.dz-clickable .dz-default.dz-message{
+    min-height: 200px;
+}
+
+.dwkit-admin-resourceimg{
+    max-width: 500px;
+    float: left;
 }

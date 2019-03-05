@@ -73,6 +73,7 @@ class App extends React.Component {
     }
 
     onFetchStarted(){
+        Pace.start();
         $('body').loadingModal({
             text: 'Loading...',
             animation: 'foldingCube',
@@ -80,6 +81,7 @@ class App extends React.Component {
     }
 
     onFetchFinished(){
+        Pace.stop();
         $('body').loadingModal('destroy');
     }
 

@@ -1,0 +1,1 @@
+powershell -noexit "& "".\container-build.ps1"""

@@ -26,7 +26,8 @@ window.DWKitAdminLang = {
     support: "Soutien",
     documentation: "Documentation",
     faq: "FAQ",
-    emailsupport: "Support par email"
+    emailsupport: "Support par email",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "Modèle",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Les lignes ont été supprimées",
     extensionscontainerfieldrequired: "Le champ de conteneur d'extensions est requis!",
     needtoselectoneitem: "Vous devez sélectionner un seul élément",
-    totalcount: "Le compte total:"
+    totalcount: "Le compte total:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Pas connecté.\n Vérifier le réseau.",
@@ -148,8 +152,8 @@ window.DWKitAdminLang = {
     dbobjectfield: "Objet DB",
     schemenamefield: "Nom du schéma",
     primarykeyfield: "Clé primaire",
-    isdeletedfield: "Supprimer logique attrubute",
-    lockversionfield: "Attrubute serrure optimiste",
+    isdeletedfield: "Supprimer logique attribute",
+    lockversionfield: "Attribute serrure optimiste",
     refentityfield: "Entité de référence",
     datatypefield: "Type de données",
     optionsfield: "Les options",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "pour créer des déclencheurs.",
     addtrigger: "Ajouter un déclencheur",
     extensionscontainerfield: "Conteneur d'extensions",
-    showextensioncolumnsonly: "Afficher uniquement les colonnes d'extension"
+    showextensioncolumnsonly: "Afficher uniquement les colonnes d'extension",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Synchroniser avec la base de données",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Entité de collection",
     collectionfilterfield: "Filtre de collection",
     dataSourceType: "Type de source de données",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Gestionnaires d'action",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "Description de l'API d'intégration OpenAPI 2.0 (Swagger):"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

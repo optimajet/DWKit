@@ -20,7 +20,7 @@ ALTER TABLE "dwSecurityUser" ADD COLUMN "IsHead" boolean NOT NULL DEFAULT 0::boo
 CREATE TABLE IF NOT EXISTS "Document"
 (
   "Id" uuid NOT NULL,
-  "Number" SERIAL NOT NULL,
+  "Number" bigserial NOT NULL,
   "Name" character varying(256) NOT NULL,
   "Comment" character varying(1024) NULL,
   "AuthorId" uuid NOT NULL REFERENCES "dwSecurityUser",
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS "DocumentTransitionHistory"
   "DocumentId" uuid NOT NULL REFERENCES "Document" ON DELETE CASCADE,
   "EmployeeId" uuid NULL REFERENCES "dwSecurityUser",
   "AllowedToEmployeeNames" character varying(1024) NULL,
-  "TransitionTime" date NULL,
-  "Order" SERIAL NOT NULL,
+  "TransitionTime" timestamp NULL,
+  "Order" bigserial NOT NULL,
   "InitialState" character varying(256) NOT NULL,
   "DestinationState" character varying(256) NOT NULL,
   "Command" character varying(1024) NOT NULL,

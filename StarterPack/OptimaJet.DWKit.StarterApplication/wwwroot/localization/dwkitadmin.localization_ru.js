@@ -23,10 +23,11 @@ window.DWKitAdminLang = {
     groups: "Управление группами",
     roles: "Управление ролями",
     permissions: "Управление разрешениями",
-    support: "Поддержки",
+    support: "Поддержка",
     documentation: "Документация",
     faq: "Вопросы и ответы",
-    emailsupport: "Поддержка по email"
+    emailsupport: "Поддержка по email",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "Модель",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Строки удалены",
     extensionscontainerfieldrequired: "Поле контейнера расширений обязательно!",
     needtoselectoneitem: "Вам нужно выбрать только один элемент",
-    totalcount: "Общее количество:"
+    totalcount: "Общее количество:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Нет соединения.\n Проверить сеть.",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "для создания триггеров.",
     addtrigger: "Добавить триггер",
     extensionscontainerfield: "Контейнер для расширений",
-    showextensioncolumnsonly: "Показывать только столбцы расширения"
+    showextensioncolumnsonly: "Показывать только столбцы расширения",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Синхронизация с базой данных",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Объект коллекции",
     collectionfilterfield: "Фильтр коллекции",
     dataSourceType: "Тип источника данных",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Обработчики действий",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "Описание API интеграции OpenAPI 2.0 (Swagger):"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

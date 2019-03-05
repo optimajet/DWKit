@@ -31,6 +31,7 @@ div.field > label {
     width: 100%;
     table-layout: fixed;
 }
+
 .dwkit-collectioneditor-header{
     font-weight: 600;
 }
@@ -48,7 +49,7 @@ div.field > label {
     vertical-align: middle;
 }
 
-
+.dwkit-collectioneditor .field,
 .dwkit-collectioneditor .field .ui.input input,
 .dwkit-collectioneditor .ui.form .fields .field .ui.input input,
 .ui.form .dwkit-collectioneditor .field .ui.input input{
@@ -192,6 +193,12 @@ div.field > label {
 
 .dwkit-gridview-rowloading{
     background: #F9F9F9;
+}
+
+.dwkit-gridview-rowerror{
+    background: #FFF6F6;
+    border-color: #E0B4B4;
+    color: #9F3A38;
 }
 
 .ui.primary.button,
@@ -1691,3 +1698,131 @@ div.filepicker {
   border-left-color: #e6e6e6;
   cursor: default;
 }
+
+/* TreePicker */
+
+.ui.tree-picker.modal .header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.ui.tree-picker.modal .header .menu {
+    float: right;
+    margin-top: -3px;
+}
+
+.ui.tree-picker.modal .header .menu .item.highlighted {
+    color: #2b9289;
+}
+
+.ui.tree-picker.modal .search {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 7px 30px;
+}
+
+.ui.tree-picker.modal .search .icon {
+    background: none;
+}
+
+.ui.tree-picker.modal .search input {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.ui.tree-picker.modal .tree .node, .ui.tree-picker.modal .list .node {
+    padding: 0 0 5px;
+}
+
+.ui.tree-picker.modal .tree .node > .head, .ui.tree-picker.modal .list .node > .head {
+    font-size: 16px;
+}
+
+.ui.tree-picker.modal .tree .node > .head .icon, .ui.tree-picker.modal .tree .node > .head .name, .ui.tree-picker.modal .list .node > .head .icon, .ui.tree-picker.modal .list .node > .head .name {
+    cursor: pointer;
+}
+
+.ui.tree-picker.modal .tree .node > .head a.name, .ui.tree-picker.modal .list .node > .head a.name {
+    color: #333;
+}
+
+.ui.tree-picker.modal .tree .node > .head .add.icon, .ui.tree-picker.modal .tree .node > .head .minus.icon, .ui.tree-picker.modal .list .node > .head .add.icon, .ui.tree-picker.modal .list .node > .head .minus.icon {
+    color: #aaa;
+}
+
+.ui.tree-picker.modal .tree .node > .head .add.icon:hover, .ui.tree-picker.modal .tree .node > .head .minus.icon:hover, .ui.tree-picker.modal .list .node > .head .add.icon:hover, .ui.tree-picker.modal .list .node > .head .minus.icon:hover {
+    color: #888;
+}
+
+.ui.tree-picker.modal .tree .node > .head .radio.icon, .ui.tree-picker.modal .list .node > .head .radio.icon {
+    color: #ddd;
+    display: none;
+}
+
+.ui.tree-picker.modal .tree .node > .head .minus.icon, .ui.tree-picker.modal .list .node > .head .minus.icon {
+    display: none;
+}
+
+.ui.tree-picker.modal .tree .node > .head .checkmark.icon, .ui.tree-picker.modal .list .node > .head .checkmark.icon {
+    display: none;
+}
+
+.ui.tree-picker.modal .tree .node .content, .ui.tree-picker.modal .list .node .content {
+    display: none;
+    border-left: 1px dotted #ccc;
+    margin-left: 9px;
+    padding-left: 10px;
+}
+
+.ui.tree-picker.modal .tree .node .content.opened, .ui.tree-picker.modal .list .node .content.opened {
+    display: block;
+}
+
+.ui.tree-picker.modal .tree .node.childless > .head .add.circle.icon, .ui.tree-picker.modal .list .node.childless > .head .add.circle.icon {
+    display: none;
+}
+
+.ui.tree-picker.modal .tree .node.childless > .head .radio.icon, .ui.tree-picker.modal .list .node.childless > .head .radio.icon {
+    display: inline-block;
+}
+
+.ui.tree-picker.modal .tree .node.picked > .head .name, .ui.tree-picker.modal .list .node.picked > .head .name {
+    color: #2b9289;
+}
+
+.ui.tree-picker.modal .tree .node.picked > .head .checkmark.icon, .ui.tree-picker.modal .list .node.picked > .head .checkmark.icon {
+    color: #2b9289;
+    display: inline-block;
+}
+
+.ui.tree-picker.modal .tree .node.opened > .head .add.circle.icon, .ui.tree-picker.modal .list .node.opened > .head .add.circle.icon {
+    display: none;
+}
+
+.ui.tree-picker.modal .tree .node.opened > .head .minus.icon, .ui.tree-picker.modal .list .node.opened > .head .minus.icon {
+    display: inline-block;
+}
+
+.ui.tree-picker.modal .tree .node.disabled, .ui.tree-picker.modal .list .node.disabled {
+    opacity: 0.3;
+}
+
+.ui.tree-picker.modal .tree .node strong.search-query, .ui.tree-picker.modal .list .node strong.search-query {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.ui.tree-picker.modal .actions .pick-search, .ui.tree-picker.modal .actions .unpick-search, .ui.tree-picker.modal .actions .unpick-picked {
+    color: #2b9289;
+    float: left;
+    display: none;
+}
+
+.ui.tree-picker.modal .actions .unpick-search, .ui.tree-picker.modal .actions .unpick-picked {
+    color: #932b53;
+}
+
+.ui.tree-picker.modal[data-mode="search"] .actions .pick-search, .ui.tree-picker.modal[data-mode="search"] .actions .unpick-search {
+    display: inline-block;
+}
+
+.ui.tree-picker.modal[data-mode="picked"] .actions .unpick-picked {
+    display: inline-block;
+}
+

@@ -1,0 +1,1 @@
+powershell -noexit "& "".\container-up.ps1"""

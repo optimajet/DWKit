@@ -26,7 +26,8 @@ window.DWKitAdminLang = {
     support: "Destek",
     documentation: "belgeleme",
     faq: "SSS",
-    emailsupport: "E-posta desteği"
+    emailsupport: "E-posta desteği",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "model",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Satırlar silindi",
     extensionscontainerfieldrequired: "Uzantılar konteyner alanı gerekli!",
     needtoselectoneitem: "Sadece bir öğe seçmeniz gerekiyor",
-    totalcount: "Toplam sayım:"
+    totalcount: "Toplam sayım:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Bağlı değil.\n Ağı doğrula.",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "tetikleyiciler oluşturmak için.",
     addtrigger: "Tetikleyici ekle",
     extensionscontainerfield: "Uzantı kapsayıcısı",
-    showextensioncolumnsonly: "Yalnızca uzantı sütunlarını göster"
+    showextensioncolumnsonly: "Yalnızca uzantı sütunlarını göster",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Veritabanıyla senkronize et",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Toplama varlığı",
     collectionfilterfield: "Toplama filtresi",
     dataSourceType: "Veri kaynağı tipi",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Eylem İşleyicileri",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "OpenAPI 2.0 (Swagger) entegrasyonu API açıklaması:"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

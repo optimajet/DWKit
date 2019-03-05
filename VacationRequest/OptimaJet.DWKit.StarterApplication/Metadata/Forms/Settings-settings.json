@@ -1,6 +1,7 @@
 {
   "name": "Settings",
-  "lastUpdate": "2017-12-16T12:58:50.177795+03:00",
+  "lastUpdate": "2019-03-05T12:22:46.1190138+03:00",
+  "isTemplate": false,
   "triggers": [],
   "dataMap": [],
   "dataColl": [
@@ -36,7 +37,8 @@
           "isLoadable": true
         }
       ],
-      "readOnly": true
+      "readOnly": true,
+      "triggers": []
     },
     {
       "id": "320baa91-7b3f-7d74-5043-516665b8efc8",
@@ -68,12 +70,6 @@
           "isLoadable": true
         },
         {
-          "id": "f0f312c5-e2ee-c390-7e68-55a95381c325",
-          "attributeId": "233d51e9-c546-438f-ac6e-1f33afb3cc2b",
-          "isEditable": true,
-          "isLoadable": true
-        },
-        {
           "id": "b05f921d-a783-f93e-667c-df1d79373fb0",
           "attributeId": "fe8419e4-1144-4ccc-9027-5019be1e903e",
           "control": "name",
@@ -81,7 +77,8 @@
           "isLoadable": true
         }
       ],
-      "readOnly": true
+      "readOnly": true,
+      "triggers": []
     }
   ]
 }

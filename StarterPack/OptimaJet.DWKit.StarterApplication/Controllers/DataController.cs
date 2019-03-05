@@ -65,7 +65,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     FilterActionName = filterActionName,
                     IdValue = idValue,
                     Filter = filterItems,
-                    BaseUrl = string.Format("{0}://{1}", Request.Scheme, Request.Host.Value),
+                    BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
                     {
                         var dataUrlParameters = new Dictionary<string, string>();
@@ -119,7 +119,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var postRequest = new ChangeDataRequest(name, data)
                 {
-                    BaseUrl = string.Format("{0}://{1}", Request.Scheme, Request.Host.Value),
+                    BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
                     {
                         var dataUrlParameters = new Dictionary<string, string>();
@@ -154,7 +154,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var deleteRequest = new ChangeDataRequest(name, data, requestingControl)
                 {
-                    BaseUrl = string.Format("{0}://{1}", Request.Scheme, Request.Host.Value),
+                    BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
                     {
                         var dataUrlParameters = new Dictionary<string, string>();
@@ -166,9 +166,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 };
 
                 var res = await DataSource.DeleteData(deleteRequest);
-                if (res.Succeess)
-                    return Json(new SuccessResponse("Data was deleted successfully"));
-                return Json(new FailResponse(res.Message));
+                if (res.success != null)
+                    return Json(res.success);
+                return Json(res.fail);
             }
             catch (Exception e)
             {
@@ -177,7 +177,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("data/dictionary")]
-        public async Task<ActionResult> GetDictionary(string name, string sort, string columns, string paging, string filter)
+        public async Task<ActionResult> GetDictionary(string name, string sort, string columns, string paging, string filter, string parent)
         {
             try
             {
@@ -186,37 +186,21 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                var filterItems = new List<ClientFilterItem>();
+                var data = await DataSource.GetDictionaryAsync(name, sort, columns, paging, filter, parent).ConfigureAwait(false);
 
-                if (NotNullOrEmpty(filter))
+                ItemSuccessResponse<IEnumerable<object>> result = null;
+
+                if(NotNullOrEmpty(parent))
                 {
-                    filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(filter));                   
+                    result = new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Id = x.Item1, Name = x.Item2, Parent = x.Item3, HasChild = x.Item4 }));
+                }else
+                {
+                    result = new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Key = x.Item1, Value = x.Item2 }));
                 }
 
-                var getRequest = new GetDictionaryRequest(name)
-                {
-                    Filter = filterItems
-                };
-
-                if (NotNullOrEmpty(sort))
-                {
-                    getRequest.Sort = JsonConvert.DeserializeObject<List<ClienSortItem>>(sort);
-                }
-
-                if (NotNullOrEmpty(columns))
-                {
-                    getRequest.Columns = JsonConvert.DeserializeObject<List<string>>(columns);
-                }
-
-                if (NotNullOrEmpty(paging))
-                {
-                    getRequest.Paging = JsonConvert.DeserializeObject<ClientPaging>(paging);
-                }
+                result.Count = data.Item2;
                 
-                var data = await DataSource.GetDictionaryAsync(getRequest).ConfigureAwait(false);
-                var res = new ItemSuccessResponse<List<KeyValuePair<object, string>>>(data.Item1.ToList());
-                res.Count = data.Item2;
-                return Json(res);
+                return Json(result);
             }
             catch (Exception e)
             {

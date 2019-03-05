@@ -26,7 +26,8 @@ window.DWKitAdminLang = {
     support: "Unterstützung",
     documentation: "Dokumentation",
     faq: "FAQs",
-    emailsupport: "Email Unterstützung"
+    emailsupport: "Email Unterstützung",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "Modell",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Zeilen wurden gelöscht",
     extensionscontainerfieldrequired: "Erweiterungscontainerfeld ist erforderlich!",
     needtoselectoneitem: "Sie müssen nur ein Element auswählen",
-    totalcount: "Komplette Anzahl:"
+    totalcount: "Komplette Anzahl:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Nicht verbunden.\n Netzwerk überprüfen",
@@ -148,7 +152,7 @@ window.DWKitAdminLang = {
     dbobjectfield: "DB-Objekt",
     schemenamefield: "Name des Schemas",
     primarykeyfield: "Primärschlüssel",
-    isdeletedfield: "Logisches Löschen attrubute",
+    isdeletedfield: "Logisches Löschen attribute",
     lockversionfield: "Optimistische Lockattribute",
     refentityfield: "Referenzeinheit",
     datatypefield: "Datentyp",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "zum Erstellen von Triggern.",
     addtrigger: "Fügen Sie einen Trigger hinzu",
     extensionscontainerfield: "Erweiterungen Container",
-    showextensioncolumnsonly: "Nur Erweiterungsspalten anzeigen"
+    showextensioncolumnsonly: "Nur Erweiterungsspalten anzeigen",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Mit der Datenbank synchronisieren",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Sammlungseinheit",
     collectionfilterfield: "Sammlungsfilter",
     dataSourceType: "Datenquellentyp",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Aktionshandler",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "OpenAPI 2.0 (Swagger) Integration API Beschreibung:"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

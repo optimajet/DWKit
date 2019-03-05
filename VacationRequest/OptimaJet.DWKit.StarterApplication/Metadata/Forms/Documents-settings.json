@@ -1,6 +1,6 @@
 {
   "name": "Documents",
-  "lastUpdate": "2018-11-13T12:43:46.9060866+03:00",
+  "lastUpdate": "2019-03-05T14:02:47.991318+03:00",
   "isTemplate": false,
   "triggers": [],
   "dataMap": [],
@@ -38,6 +38,13 @@
           "isLoadable": true
         },
         {
+          "id": "af06b7f4-58ea-8769-7f66-a9512f7f2ecd",
+          "attributeId": "ea00696d-7514-43cc-90a9-3809996855ec",
+          "control": "number",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
           "id": "8d589b47-587a-aead-f4b7-a7e20f9ecc06",
           "attributeId": "c93c08d0-3f00-4d3b-9815-5b29d9f80151",
           "isEditable": true,
@@ -65,13 +72,6 @@
           "isLoadable": true
         },
         {
-          "id": "af06b7f4-58ea-8769-7f66-a9512f7f2ecd",
-          "attributeId": "ea00696d-7514-43cc-90a9-3809996855ec",
-          "control": "number",
-          "isEditable": true,
-          "isLoadable": true
-        },
-        {
           "id": "052e4fa6-94cc-bf41-2120-94152aca5665",
           "attributeId": "d6db8185-5762-4372-adb6-568169f09812",
           "isEditable": true,
@@ -86,7 +86,8 @@
           "isLoadable": true
         }
       ],
-      "readOnly": true
+      "readOnly": true,
+      "triggers": []
     }
   ]
 }

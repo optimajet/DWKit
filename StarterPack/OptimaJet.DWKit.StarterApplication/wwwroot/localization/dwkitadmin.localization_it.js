@@ -26,7 +26,8 @@ window.DWKitAdminLang = {
     support: "Supporto",
     documentation: "Documentazione",
     faq: "FAQs",
-    emailsupport: "Supporto via email"
+    emailsupport: "Supporto via email",
+    resourceEditor: "Resource Editor"
   },
   searchbox: {
     model: "Modello",
@@ -66,7 +67,10 @@ window.DWKitAdminLang = {
     rowsdeleted: "Le righe sono state cancellate",
     extensionscontainerfieldrequired: "È richiesto il campo Contenitore estensioni!",
     needtoselectoneitem: "Devi selezionare solo un elemento",
-    totalcount: "Conteggio totale:"
+    totalcount: "Conteggio totale:",
+    serverglobalerror: "There was a global error in the server's operation, requiring your immediate attention",
+    globalcodeactionshaveerrors: "Some of the Global Code Actions have compilation errors. You need to fix them and restart the server",
+    formmappingerror: "The following forms have mismatch in data mapping:"
   },
   requesterror: {
     status0: "Non collegato.\n Verifica rete.",
@@ -166,7 +170,10 @@ window.DWKitAdminLang = {
     forcreatetingtriggersmsg: "per la creazione di trigger.",
     addtrigger: "Aggiungi un innesco",
     extensionscontainerfield: "Contenitore di estensioni",
-    showextensioncolumnsonly: "Mostra solo colonne di estensione"
+    showextensioncolumnsonly: "Mostra solo colonne di estensione",
+    notsetprimarykeymsg: "There is not set the Primary Key field. Some of features for this data model will not work.",
+    notfoundprimarykeymsg: "The Primary Key attribute is not found!",
+    notfoundprimaryextcontmsg: "The Extensions container attribute is not found!"
   },
   datasync: {
     title: "Sincronizza con il database",
@@ -214,7 +221,8 @@ window.DWKitAdminLang = {
     collectionentityfield: "Entità raccolta",
     collectionfilterfield: "Filtro di raccolta",
     dataSourceType: "Tipo di origine dati",
-    dataurlfield: "URL"
+    dataurlfield: "URL",
+    mismatchmodelmsg: "This form has mismatching in the data model. Check data mapping and click on Save button!"
   },
   actionhandler: {
     title: "Operatori di azioni",
@@ -724,5 +732,15 @@ window.DWKitAdminLang = {
   },
   dashboard: {
     integrationapiswagger: "Descrizione API di integrazione OpenAPI 2.0 (Swagger):"
+  },
+  resourceeditor:{
+    title: "Resource Editor",
+    createfolder: "Create folder",
+    createfile: "Create file",
+    confirmdelete: 'Are you sure you want to delete this folder or file?',
+    foldercreated: "The folder has been created",
+    folderdeleted: "The folder has been deleted",
+    filecreated: "The file has been created",
+    filedeleted: "The file has been deleted"
   }
 };

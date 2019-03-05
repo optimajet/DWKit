@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  vacationrequest:
+    image: vacationrequest
+    restart: always
+    ports:
+       - "80:80"
+    volumes:
+       - ../aspnet-keys:/root/.aspnet/DataProtection-Keys
+    build:
+      dockerfile: Docker/Dockerfile
+      context: ..

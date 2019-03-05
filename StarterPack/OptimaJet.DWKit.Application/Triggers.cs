@@ -12,11 +12,11 @@ namespace OptimaJet.DWKit.Application
     {
         #region IServerActionsProvider implementation
 
-        private Dictionary<string, Func<EntityModel, List<dynamic>, dynamic, (string Message, bool IsCancelled)>> _triggers
-            = new Dictionary<string, Func<EntityModel, List<dynamic>, dynamic, (string Message, bool IsCancelled)>>();
+        private Dictionary<string, Func<EntityModel, List<dynamic>,TriggerExecutionContext, dynamic, TriggerResult>> _triggers
+            = new Dictionary<string, Func<EntityModel, List<dynamic>,TriggerExecutionContext, dynamic, TriggerResult>>();
 
-        private Dictionary<string, Func<EntityModel, List<dynamic>, dynamic, Task<(string Message, bool IsCancelled)>>> _triggersAsync
-            = new Dictionary<string, Func<EntityModel, List<dynamic>, dynamic, Task<(string Message, bool IsCancelled)>>>();
+        private Dictionary<string, Func<EntityModel, List<dynamic>, dynamic,TriggerExecutionContext, Task<TriggerResult>>> _triggersAsync
+            = new Dictionary<string, Func<EntityModel, List<dynamic>, dynamic,TriggerExecutionContext, Task<TriggerResult>>>();
 
         public List<string> GetFilterNames()
         {
@@ -58,17 +58,17 @@ namespace OptimaJet.DWKit.Application
             return _triggersAsync.ContainsKey(name) || _triggers.ContainsKey(name);
         }
 
-        public (string Message, bool IsCancelled) ExecuteTrigger(string name, EntityModel model, List<dynamic> entities, dynamic options)
+        public TriggerResult ExecuteTrigger(string name, EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
         {
             if (_triggers.ContainsKey(name))
-                return _triggers[name](model, entities, options);
+                return _triggers[name](model, entities, context, options);
             throw new System.NotImplementedException();
         }
 
-        public Task<(string Message, bool IsCancelled)> ExecuteTriggerAsync(string name, EntityModel model, List<dynamic> entities, dynamic options)
+        public Task<TriggerResult> ExecuteTriggerAsync(string name, EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
         {
             if (_triggersAsync.ContainsKey(name))
-                return _triggersAsync[name](model, entities, options);
+                return _triggersAsync[name](model, entities, context, options);
             throw new System.NotImplementedException();
         }
 

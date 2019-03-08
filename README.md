@@ -14,7 +14,7 @@ Hence, we made DWKit’s source code available to our customers so that they can
 <li>User Interface on React (JSX)</li>
 <li>Role-based access control</l>
 <li>Admin panel</l>
-<li>Support MSSQL & PosgreSQL databases</li>
+<li>Support MSSQL/PosgreSQL/Oracle databases</li>
 <li>Works fine on Windows/Linux/MacOSX</li>
 </ul>
 

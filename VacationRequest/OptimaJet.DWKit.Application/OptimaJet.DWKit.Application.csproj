@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="2.5.0" />
+    <PackageReference Include="DWKit-Core" Version="2.5.2" />
     <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.5.0" />
     <PackageReference Include="DWKit-ProviderForOracle" Version="2.5.0" />
     <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.5.0" />

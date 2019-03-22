@@ -19,7 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
   <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
-  <PackageReference Include="DWKit-Core" Version="2.5.2" />
+  <PackageReference Include="DWKit-Core" Version="2.5.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.1" />

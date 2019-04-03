@@ -12,17 +12,17 @@
     <Copyright>OptimaJet DWKit 2018</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="2.5.3" />
+    <PackageReference Include="DWKit-Core" Version="2.5.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="3.3.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="3.3.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="3.3.1" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.5.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.5.0" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="2.5.0" />
-    <PackageReference Include="DWKit-Security" Version="2.5.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="3.5.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="3.5.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="3.5.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.5.4" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.5.4" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="2.5.4" />
+    <PackageReference Include="DWKit-Security" Version="2.5.4" />
   </ItemGroup>
 </Project>

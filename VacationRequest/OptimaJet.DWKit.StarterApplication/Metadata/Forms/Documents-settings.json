@@ -86,7 +86,7 @@
           "isLoadable": true
         }
       ],
-      "readOnly": true,
+      "readOnly": false,
       "triggers": []
     }
   ]

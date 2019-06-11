@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.Model;
-using OptimaJet.DWKit.MSSQL;
-using OptimaJet.Workflow.Core.Builder;
-using OptimaJet.Workflow.Core.Bus;
-using OptimaJet.Workflow.Core.Generator;
-using OptimaJet.Workflow.Core.Persistence;
+using OptimaJet.DWKit.Core.Utils;
+using OptimaJet.Workflow.Core.Model;
 using OptimaJet.Workflow.Core.Runtime;
-using OptimaJet.Workflow.DbPersistence;
-using OptimaJet.Workflow.PostgreSQL;
 
 namespace OptimaJet.DWKit.Application
 {
@@ -35,8 +32,46 @@ namespace OptimaJet.DWKit.Application
             //runtime.ProcessActivityChanged +=  (sender, args) => {  ActivityChanged(args, runtime).Wait(); };
             runtime.ProcessStatusChanged += (sender, args) => { };
             
+            runtime.OnWorkflowError += (sender, args) =>
+            {
+                var isTimerTriggeredTransitionChain =
+                    !string.IsNullOrEmpty(args.ProcessInstance.ExecutedTimer) //for timers executed from main branch
+                    || (args.ProcessInstance.MergedSubprocessParameters != null //for timers executed from subprocess
+                        && !string.IsNullOrEmpty(args.ProcessInstance.MergedSubprocessParameters.GetParameter(DefaultDefinitions.ParameterExecutedTimer.Name)?.Value?.ToString()));
+
+                if (isTimerTriggeredTransitionChain)
+                {
+                    args.SuppressThrow = true; //prevent unhandled exception in a thread
+                }
+
+                var info = ExceptionUtils.GetExceptionInfo(args.Exception);
+                var errorBuilder = new StringBuilder();
+                errorBuilder.AppendLine("Workflow engine. An exception occurred while the process was running.");
+                errorBuilder.AppendLine($"ProcessId: {args.ProcessInstance.ProcessId}");
+                errorBuilder.AppendLine($"ExecutedTransition: {args.ExecutedTransition?.Name}");
+                errorBuilder.AppendLine($"Message: {info.Message}");
+                errorBuilder.AppendLine($"Exceptions: {info.Exeptions}");
+                errorBuilder.Append($"StackTrace: {info.StackTrace}");
+                
+                
+                if (Debugger.IsAttached)
+                {
+                    Debug.WriteLine(errorBuilder);
+                }
+                else
+                {
+                    //TODO Add exceptions logging here
+                    Console.WriteLine(errorBuilder);
+                }
+            };
+
+             //It is necessery to have this assembly for compile code with dynamic
+            runtime.RegisterAssemblyForCodeActions(typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly,true); 
+
             //TODO If you have planned to use Code Actions functionality that required references to external assemblies you have to register them here
             //runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(SomeTypeFromMyAssembly)));
+            runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(DynamicEntity)));
+
             //starts the WorkflowRuntime
             //TODO If you have planned use Timers the best way to start WorkflowRuntime is somwhere outside of this function in Global.asax for example
             runtime.Start();

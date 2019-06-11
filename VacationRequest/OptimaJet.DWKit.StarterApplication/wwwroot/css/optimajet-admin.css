@@ -644,3 +644,10 @@ padding-top: 2px;
     max-width: 500px;
     float: left;
 }
+
+@media all and (-ms-high-contrast:none)
+{
+    .ui.modal:not(.legacy){
+        position: static;
+    }
+}

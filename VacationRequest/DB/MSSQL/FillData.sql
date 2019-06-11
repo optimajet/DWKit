@@ -46,7 +46,7 @@ INSERT dbo.dwSecurityUserToSecurityRole(Id, SecurityUserId, SecurityRoleId) VALU
 INSERT dbo.dwSecurityUserToSecurityRole(Id, SecurityUserId, SecurityRoleId) VALUES ('857B945E-CED5-44CE-8CF7-7999A15387B8', '91f2b471-4a96-4ab7-a41a-ea4293703d16', '71fffb5b-b707-4b3c-951c-c37fdfcc8dfb')
 
 EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
-<Process Name="VacationRequest">
+<Process Name="VacationRequest" CanBeInlined="false">
   <Designer X="-110" Y="-60" />
   <Actors>
     <Actor Name="Author" Rule="IsDocumentAuthor" Value="" />
@@ -55,7 +55,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
     <Actor Name="Accountant" Rule="CheckRole" Value="Accountant" />
   </Actors>
   <Parameters>
-    <Parameter Name="Comment" Type="System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e" Purpose="Temporary" />
+    <Parameter Name="Comment" Type="String" Purpose="Temporary" />
   </Parameters>
   <Commands>
     <Command Name="StartSigning">
@@ -95,11 +95,12 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
     <Activity Name="ManagerSigning" State="ManagerSigning" IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True">
       <Implementation>
         <ActionRef Order="1" NameRef="UpdateTransitionHistory" />
+        <ActionRef Order="2" NameRef="SendEmail" />
       </Implementation>
       <PreExecutionImplementation>
         <ActionRef Order="1" NameRef="WriteTransitionHistory" />
       </PreExecutionImplementation>
-      <Designer X="320" Y="170" />
+      <Designer X="360" Y="170" />
     </Activity>
     <Activity Name="BigBossSigning" State="BigBossSigning" IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True">
       <Implementation>
@@ -108,7 +109,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <PreExecutionImplementation>
         <ActionRef Order="1" NameRef="WriteTransitionHistory" />
       </PreExecutionImplementation>
-      <Designer X="620" Y="170" />
+      <Designer X="710" Y="170" />
     </Activity>
     <Activity Name="AccountingReview " State="AccountingReview " IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True">
       <Implementation>
@@ -117,7 +118,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <PreExecutionImplementation>
         <ActionRef Order="1" NameRef="WriteTransitionHistory" />
       </PreExecutionImplementation>
-      <Designer X="620" Y="340" />
+      <Designer X="650" Y="340" />
     </Activity>
     <Activity Name="RequestApproved" State="RequestApproved" IsInitial="False" IsFinal="True" IsForSetState="True" IsAutoSchemeUpdate="True">
       <Implementation>
@@ -126,7 +127,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <PreExecutionImplementation>
         <ActionRef Order="1" NameRef="WriteTransitionHistory" />
       </PreExecutionImplementation>
-      <Designer X="930" Y="340" />
+      <Designer X="960" Y="340" />
     </Activity>
   </Activities>
   <Transitions>
@@ -140,7 +141,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="258" Y="177" />
+      <Designer X="285" Y="184" />
     </Transition>
     <Transition Name="BigBossSigning_Activity_1_1" To="AccountingReview " From="BigBossSigning" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -164,7 +165,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Otherwise" />
       </Conditions>
-      <Designer X="492" Y="346" />
+      <Designer X="486" Y="386" />
     </Transition>
     <Transition Name="ManagerSigning_BigBossSigning_1" To="BigBossSigning" From="ManagerSigning" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -176,7 +177,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Action" NameRef="CheckBigBossMustSign" ConditionInversion="false" />
       </Conditions>
-      <Designer X="565" Y="226" />
+      <Designer X="632" Y="183" />
     </Transition>
     <Transition Name="Draft_ManagerSigning_1" To="ManagerSigning" From="VacationRequestCreated" Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -188,7 +189,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="257" Y="220" />
+      <Designer X="284" Y="218" />
     </Transition>
     <Transition Name="BigBossSigning_ManagerSigning_1" To="ManagerSigning" From="BigBossSigning" Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -200,7 +201,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="565" Y="179" />
+      <Designer X="631" Y="213" />
     </Transition>
     <Transition Name="ManagerSigning_BigBossSigning_2" To="BigBossSigning" From="ManagerSigning" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Triggers>
@@ -209,7 +210,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="565" Y="131" />
+      <Designer X="636" Y="125" />
     </Transition>
     <Transition Name="Accountant_Activity_1_1" To="RequestApproved" From="AccountingReview " Classifier="Direct" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -221,7 +222,7 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="865" Y="370" />
+      <Designer X="900" Y="370" />
     </Transition>
     <Transition Name="Accountant_ManagerSigning_1" To="ManagerSigning" From="AccountingReview " Classifier="Reverse" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" IsFork="false" MergeViaSetState="false" DisableParentStateControl="false">
       <Restrictions>
@@ -233,9 +234,19 @@ EXEC(N'INSERT dbo.WorkflowScheme(Code, Scheme) VALUES (N''VacationRequest'', N''
       <Conditions>
         <Condition Type="Always" />
       </Conditions>
-      <Designer X="414" Y="391" />
+      <Designer X="532" Y="348" />
     </Transition>
   </Transitions>
+  <CodeActions>
+    <CodeAction Name="SendEmail" Type="Action" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[///Write mailing code here]]></ActionCode>
+      <Usings><![CDATA[System;System.Threading;System.Linq;OptimaJet.Workflow;System.Collections;OptimaJet.Workflow.Core.Model;System.Collections.Generic;System.Threading.Tasks;]]></Usings>
+    </CodeAction>
+    <CodeAction Name="Throw" Type="Action" IsGlobal="False" IsAsync="False">
+      <ActionCode><![CDATA[throw new Exception("DDDD");]]></ActionCode>
+      <Usings><![CDATA[System.Threading.Tasks;System.Collections.Generic;FxResources.Microsoft.CSharp;Microsoft.CSharp.RuntimeBinder.Syntax;Microsoft.CodeAnalysis;OptimaJet.Workflow;System.Threading;System.Collections;Microsoft.CSharp.RuntimeBinder.Semantics;System.Linq;OptimaJet.Workflow.Core.Model;Microsoft.CSharp.RuntimeBinder;System.Runtime.CompilerServices;Microsoft.CSharp.RuntimeBinder.Errors;System;]]></Usings>
+    </CodeAction>
+  </CodeActions>
   <Localization>
     <Localize Type="State" IsDefault="True" Culture="en-US" ObjectName="ManagerSigning" Value="Manager signing" />
     <Localize Type="State" IsDefault="True" Culture="en-US" ObjectName="BigBossSigning" Value="BigBoss signing" />

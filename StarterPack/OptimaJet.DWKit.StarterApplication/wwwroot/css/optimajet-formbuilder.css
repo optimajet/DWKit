@@ -1,3 +1,8 @@
+/* OptimaJet FormBuilder 
+*  https://formbuilder.dev
+*  https://optimajet.com
+*/
+
 .dwkit-formbuilder{
     display: flex;
     align-items: stretch;
@@ -287,7 +292,7 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
     margin-right: 20px;
 }
 .dwkit-formbuilder-header-logo{
-    height: 46px;
+    margin-top:10px;
 }
 
 .button.ui.buttontype1{
@@ -384,8 +389,6 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
     margin-right: 15px;
 }
 
-
-
 .ui.modal>.actions{
     background-color: white;
     border: none;
@@ -404,21 +407,21 @@ a.dwkit-btn{
     white-space: nowrap;
 }
 
-.dwkit-form-mappging-left{
+.dwkit-formviewer-left{
     width: 50%;
     float: left;
 }
 
-.dwkit-form-mappging-right{
-    width: 50%;
+.dwkit-formviewer-right{
+    width: calc(50% - 15px);
     float: right;
 }
 
-.dwkit-form-mappging textarea{
+.dwkit-formviewer textarea{
     width: 100%;
 }
 
-.dwkit-form-mappging{
+.dwkit-formviewer{
     margin: 10px 10px 0px 10px;
 }
 
@@ -471,3 +474,77 @@ a.dwkit-btn{
     margin-top: 16px;
     margin-bottom: 0;
   }
+
+.dwkit-formviewer-form{
+    border-width: 1px;
+    border-style: dashed;
+    padding: 5px;
+}
+
+/* CollectionEditor */
+.dwkit-collectioneditor {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.dwkit-collectioneditor-header{
+    font-weight: 600;
+}
+
+.dwkit-collectioneditor tr td:first-child{
+    display: flex;
+}
+
+.dwkit-collectioneditor tr > td{
+    vertical-align: -webkit-baseline-middle;
+    padding-right: 10px;
+}
+
+.dwkit-collectioneditor tr > td.dwkit-collectionedit-cellbtn{
+    vertical-align: middle;
+}
+
+.dwkit-collectioneditor .field,
+.dwkit-collectioneditor .field .ui.input input,
+.dwkit-collectioneditor .ui.form .fields .field .ui.input input,
+.ui.form .dwkit-collectioneditor .field .ui.input input{
+    width: 100%;
+}
+
+.dwkit-collectioneditor .ui.input{
+    width: 100%;
+}
+
+.dwkit-collectioneditor .ui.input input{
+    width: 100%;
+    /*flex: none;*/
+}
+
+.dwkit-collectioneditor-imgbutton{
+    height: 15px;
+    margin-right: 5px;
+}
+
+.dwkit-collectioneditor tr > td.dwkit-collectionedit-button{
+    padding-right: 5px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+.dwkit-collectioneditor tr > td.dwkit-collectionedit-button > img{
+    height: 15px;
+}
+
+.dwkit-collectioneditor-action{
+    margin-top: 10px;
+    width: 20px;
+}
+
+.dwkit-collectioneditor-buttoncol{
+    width: 70px;
+}
+
+.dwkit-collectioneditor tr > td.dwkit-collectioneditor-cellbtn{
+    white-space:nowrap;
+    vertical-align: inherit;
+}

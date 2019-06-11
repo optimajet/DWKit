@@ -241,10 +241,6 @@ INSERT INTO "WorkflowScheme"("Code", "Scheme") VALUES ('VacationRequest', '
       <ActionCode><![CDATA[///Write mailing code here]]></ActionCode>
       <Usings><![CDATA[System;System.Threading;System.Linq;OptimaJet.Workflow;System.Collections;OptimaJet.Workflow.Core.Model;System.Collections.Generic;System.Threading.Tasks;]]></Usings>
     </CodeAction>
-    <CodeAction Name="Throw" Type="Action" IsGlobal="False" IsAsync="False">
-      <ActionCode><![CDATA[throw new Exception("DDDD");]]></ActionCode>
-      <Usings><![CDATA[System.Threading.Tasks;System.Collections.Generic;FxResources.Microsoft.CSharp;Microsoft.CSharp.RuntimeBinder.Syntax;Microsoft.CodeAnalysis;OptimaJet.Workflow;System.Threading;System.Collections;Microsoft.CSharp.RuntimeBinder.Semantics;System.Linq;OptimaJet.Workflow.Core.Model;Microsoft.CSharp.RuntimeBinder;System.Runtime.CompilerServices;Microsoft.CSharp.RuntimeBinder.Errors;System;]]></Usings>
-    </CodeAction>
   </CodeActions>
   <Localization>
     <Localize Type="State" IsDefault="True" Culture="en-US" ObjectName="ManagerSigning" Value="Manager signing" />

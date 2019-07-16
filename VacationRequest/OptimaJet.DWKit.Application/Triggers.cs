@@ -113,7 +113,7 @@ namespace OptimaJet.DWKit.Application
             {
                 if (entity.Id == null)
                 {
-                    var initialState = schemes.Count == 0 ? 
+                    var initialState = schemes == null || schemes.Count == 0 ? 
                         new WorkflowState(){ Name = "", SchemeCode = "", VisibleName = ""} :
                         await WorkflowInit.Runtime.GetInitialStateAsync(schemes[0]);
                     entity.AuthorId = user.GetOperationUserId();

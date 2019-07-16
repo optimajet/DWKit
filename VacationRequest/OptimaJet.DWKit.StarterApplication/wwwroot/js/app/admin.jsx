@@ -1,10 +1,11 @@
-﻿import React from 'react'
-import { render } from 'react-dom'
-import DWKitAdmin from './../../scripts/optimajet-admin.js'
+﻿import React from 'react';
+import { render } from 'react-dom';
+import DWKitAdmin from './../../scripts/optimajet-admin';
 
 let globalActions = [
     'validate',
     'save',
+    'delete',
     'apply',
     'exit',
     'redirect',
@@ -19,7 +20,9 @@ let globalActions = [
     'workflowSetState',
     'refresh',
     'confirm',
-    'createElement'];
+    'createElement',
+    'openModal',
+    'selectWorkflowScheme'];
 
 render(
     <DWKitAdmin

@@ -457,7 +457,7 @@ a.dwkit-btn{
     margin-top: 16px;
     margin-bottom: 0;
   }
-  .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > * {
+  .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > div {
     margin: 0;
   }
   .dwkit-formbuilder-dropzoneactive .fields:not(.grouped) > .field {
@@ -547,4 +547,143 @@ a.dwkit-btn{
 .dwkit-collectioneditor tr > td.dwkit-collectioneditor-cellbtn{
     white-space:nowrap;
     vertical-align: inherit;
+}
+
+.dwkit-tooltiperror.popup{
+    background-color: #9F3A38
+  }
+  
+  .dwkit-tooltiperror.ui.bottom.popup:before, 
+  .dwkit-tooltiperror.ui.left.center.popup:before, 
+  .dwkit-tooltiperror.ui.right.center.popup:before, 
+  .dwkit-tooltiperror.ui.top.popup:before{
+    background: #9F3A38
+  }
+  
+  .dwkit-tooltiperror.popup > .content{
+    color: white;
+  }
+
+  /*
+  React grid layout
+  */
+
+  .react-grid-layout {
+    position: relative;
+    transition: height 200ms ease;
+  }
+  
+  .react-grid-item {
+    transition: all 200ms ease;
+    transition-property: left, top;
+  }
+  .react-grid-item.cssTransforms {
+    transition-property: transform;
+  }
+  .react-grid-item.resizing {
+    z-index: 1;
+    will-change: width, height;
+  }
+  
+  .react-grid-item.react-draggable-dragging {
+    transition: none;
+    z-index: 3;
+    will-change: transform;
+  }
+  
+  .react-grid-item.react-grid-placeholder {
+    background: red;
+    opacity: 0.2;
+    transition-duration: 100ms;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .react-grid-item > .react-resizable-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+  }
+  
+  .react-grid-item > .react-resizable-handle::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    width: 5px;
+    height: 5px;
+    border-right: 2px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .react-grid-item > .react-grid-item-title{
+    font-size: large;
+    margin-bottom: 10px;
+  }
+
+  .dwkit-formbuilder-dropzoneactive .react-grid-item{
+    border-style: dashed;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    padding: 5px;
+    overflow-y: auto;
+  }
+
+  .react-grid-scroll .react-grid-item{
+    overflow-y: auto;
+  }
+
+  .react-grid-item{
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    padding: 5px;
+  }
+
+.dwkit-required-field > .ui.label::after,
+.dwkit-required-field > label::after{
+    color: red;
+    content:' *';
+}
+
+.ui.input.error textarea {
+    background-color: #FFF6F6;
+    border-color: #E0B4B4;
+    color: #9F3A38;
+    box-shadow: none;
+}
+
+.ui.checkbox.error label,
+.ui.checkbox.error label:hover,
+.ui.checkbox.error label:focus{
+    color: #9F3A38;
+}
+
+.ui.checkbox.error input:checked~.box:before, 
+.ui.checkbox.error input:checked~label:before,
+.ui.checkbox.error input~.box:before, 
+.ui.checkbox.error input~label:before{
+    background-color: #FFF6F6;
+    border-color: #E0B4B4;
+}
+
+.dwkit-workflowbar .setstate {
+    margin-right: 5px;
+    display: inline-block;
+    width: 200px;
+}
+
+.dwkit-action-dropdown .ui.selection.dropdown .menu > .item {
+    white-space: nowrap;
+}
+
+.dwkit-action-dropdown .ui.selection.dropdown .menu {
+    min-width: max-content;
 }

@@ -1,10 +1,12 @@
-﻿import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { DWKitForm } from "./../../scripts/optimajet-form.js"
-import {ApplicationRouter, NotificationComponent, FormContent,
-    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API} from './../../scripts/optimajet-app.js'
+﻿import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { DWKitForm } from "./../../scripts/optimajet-form";
+import {
+    ApplicationRouter, NotificationComponent, FormContent,
+    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API
+} from './../../scripts/optimajet-app';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,9 +16,12 @@ class App extends React.Component {
         };
 
         let me = this;
-        Store.dispatch(Thunks.userinfo.fetch(function (){
+
+        Store.dispatch(Thunks.userinfo.fetch(function () {
             me.forceUpdate();
         }));
+
+        Store.dispatch(Actions.app.impersonateduseridfromurl());
 
         window.DWKitApp = this;
         window.DWKitApp.API = API;

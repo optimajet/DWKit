@@ -17,6 +17,8 @@ class App extends React.Component {
         Store.dispatch(Thunks.userinfo.fetch(function (){
             me.forceUpdate();
         }));
+
+        Store.dispatch(Actions.app.impersonateduseridfromurl());
         
         window.DWKitApp = this;
         window.DWKitApp.API = API;

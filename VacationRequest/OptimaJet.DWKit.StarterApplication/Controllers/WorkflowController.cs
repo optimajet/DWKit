@@ -87,11 +87,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("workflow/get")]
-        public async Task<ActionResult> GetData(string name, string urlFilter)
+        public async Task<ActionResult> GetData(string name, string urlFilter, bool forCopy = false)
         {
             try
             {
-                object entityId;
+                object entityId = null;
                 string filterActionName = null;
                 string idValue = null;
                 var filterItems = new List<ClientFilterItem>();
@@ -115,39 +115,49 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     }
                 }
 
-                if (!string.IsNullOrEmpty(idValue))
+                if (!forCopy)
                 {
-                    if (Guid.TryParse(idValue, out Guid parsedGuid))
+                    if (!string.IsNullOrEmpty(idValue))
                     {
-                        entityId = parsedGuid;
+                        if (Guid.TryParse(idValue, out Guid parsedGuid))
+                        {
+                            entityId = parsedGuid;
+                        }
+                        else
+                        {
+                            entityId = idValue;
+                        }
                     }
-                    else
+                    else if (filterItems.Any() || !string.IsNullOrEmpty(filterActionName))
                     {
-                        entityId = idValue;
+                        var data = await DataSource.GetDataForFormAsync(new GetDataRequest(name)
+                        {
+                            Filter = filterItems,
+                            FilterActionName = filterActionName
+                        }).ConfigureAwait(false);
+                        ;
+
+                        entityId = data.Entity?.GetPrimaryKey();
                     }
-                }
-                else
-                {
-                    var data = await DataSource.GetDataForFormAsync(new GetDataRequest(name) { Filter = filterItems, FilterActionName = filterActionName });
-                    entityId = data.Entity?.GetPrimaryKey();
                 }
 
                 var userId = GetUserId();
                 var processId = GetProcessId(entityId, name);
 
-                if (processId.HasValue && (await WorkflowInit.Runtime.IsProcessExistsAsync(processId.Value)))
+                if (processId.HasValue && (await WorkflowInit.Runtime.IsProcessExistsAsync(processId.Value).ConfigureAwait(false)))
                 {
-                    var commands = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId.Value, userId.ToString())).Select(c =>
-                        new ClientWorkflowCommand() { Text = c.LocalizedName, Type = (byte)c.Classifier, Value = c.CommandName }).ToList();
-                    var states = (await WorkflowInit.Runtime.GetAvailableStateToSetAsync(processId.Value)).Select(s =>
-                        new ClientWorkflowState() { Value = s.Name, Text = s.VisibleName }).ToList();
+                    var commands = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId.Value, userId.ToString()).ConfigureAwait(false))
+                        .Select(c =>new ClientWorkflowCommand {Text = c.LocalizedName, Type = (byte) c.Classifier, Value = c.CommandName}).ToList();
+                    var states = (await WorkflowInit.Runtime.GetAvailableStateToSetAsync(processId.Value).ConfigureAwait(false))
+                        .Select(s =>new ClientWorkflowState {Value = s.Name, Text = s.VisibleName}).ToList();
 
-                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() { Commands = commands, States = states }));
+                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() {Commands = commands, States = states, ProcessExists = true}));
                 }
                 else
                 {
-                    var commands = await GetInitialCommands(name, userId);
-                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse() { Commands = commands, States = new List<ClientWorkflowState>() }));
+                    var commands = await GetInitialCommands(name, userId).ConfigureAwait(false);
+                    return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse()
+                        {Commands = commands, States = new List<ClientWorkflowState>(), ProcessExists = false}));
                 }
             }
             catch (Exception e)
@@ -156,7 +166,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
-      
+
 
         [Route("workflow/execute")]
         [HttpPost]

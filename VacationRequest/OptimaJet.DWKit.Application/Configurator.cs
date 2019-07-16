@@ -54,7 +54,6 @@ namespace OptimaJet.DWKit.Application
 
 #if (DEBUG)
             DWKitRuntime.UseMetadataCache = false;
-            //CodeActionsCompiler.DebugMode = true;
 #elif (RELEASE)
             DWKitRuntime.UseMetadataCache = true;
 #endif
@@ -76,7 +75,12 @@ namespace OptimaJet.DWKit.Application
             {
                 DWKitRuntime.Metadata.BlockMetadataChanges = true;
             }
-            
+
+            if (!string.IsNullOrWhiteSpace(configuration["DWKit:CodeActionsDebugMode"]))
+            {
+                DWKitRuntime.CodeActionsDebugMode = bool.Parse(configuration["DWKit:CodeActionsDebugMode"]);
+            }
+
             CodeActionsCompiler.RegisterAssembly(typeof(WorkflowRuntime).Assembly);
             //It is necessary to have this assembly for compile code with dynamic
             CodeActionsCompiler.RegisterAssembly(typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly);

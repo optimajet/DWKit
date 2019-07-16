@@ -26,7 +26,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "deepmerge": "^1.5.2",
     "es6-promise": "^4.2.4",
-    "hard-source-webpack-plugin": "^0.6.7",
+    "hard-source-webpack-plugin": "^0.13.1",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "json5": "^0.5.1",
@@ -45,12 +45,16 @@
     "reflux": "^6.4.1",
     "semantic-ui-react": "^0.87.1",
     "url": "^0.11.0",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.2",
+    "webpack": "4.34.0",
+    "webpack-dev-server": "3.7.1",
+    "webpack-cli": "3.3.5",
     "babel-polyfill": "^6.26.0",
     "react-datepicker": "1.6.0",
     "react-dropzone-component": "^3.2.0",
     "moment": "^2.22.2",
-    "@aspnet/signalr": "^1.0.3"
+    "@aspnet/signalr": "^1.0.3",
+    "react-fast-compare": "^2.0.4",
+    "react-modal": "3.8.1",
+    "uglifyjs-webpack-plugin": "2.1.3"
   }
 }

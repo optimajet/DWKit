@@ -33,21 +33,21 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("ui/flow/{name}")]
-        public async Task<ActionResult> GetFlow(string name, string urlFilter)
+        public async Task<ActionResult> GetFlow(string name, string urlFilter, bool forCopy = false)
         {
             try
             {
                 Guid? id = null;
-                if (!string.IsNullOrEmpty(urlFilter))
+                if (!forCopy && !string.IsNullOrEmpty(urlFilter))
                 {
                     if (Guid.TryParse(urlFilter, out Guid entityId))
                         id = entityId;
                 }
 
-                var form = await BusinessFlow.GetForm(name, id);
+                var form = await BusinessFlow.GetForm(name, id).ConfigureAwait(false);
                 if (form != null)
                 {
-                    return await GetForm(form, true, true);
+                    return await GetForm(form, true, true).ConfigureAwait(false);
                 }
                 
                 return Json(new FailResponse("The form is not found for this BusinessFlow!"));

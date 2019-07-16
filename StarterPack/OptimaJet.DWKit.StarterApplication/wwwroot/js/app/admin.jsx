@@ -5,6 +5,7 @@ import DWKitAdmin from './../../scripts/optimajet-admin.js'
 let globalActions = [
     'validate',
     'save',
+    'delete',
     'apply',
     'exit',
     'redirect',

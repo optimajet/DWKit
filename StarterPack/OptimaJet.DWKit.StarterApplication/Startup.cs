@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using OptimaJet.DWKit.Application;
-using React.AspNet;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +33,10 @@ namespace OptimaJet.DWKit.StarterApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             // Add framework services.
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddReact();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
@@ -65,6 +65,8 @@ namespace OptimaJet.DWKit.StarterApplication
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseCors(Configuration, "CorsSettings");
 
             if (env.IsDevelopment())
             {

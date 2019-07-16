@@ -18,7 +18,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     {
         [Route("data/get")]
         public async Task<ActionResult> GetData(string name, string control, string urlFilter, string options,
-            string filter, string paging, string sort)
+            string filter, string paging, string sort, bool forCopy = false)
         {
             try
             {
@@ -41,9 +41,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     {
                         var filterActions = DWKitRuntime.ServerActions.GetFilterNames().Where(n => n.Equals(urlFilter, StringComparison.OrdinalIgnoreCase)).ToList();
                         string filterAction = null;
-                        filterAction = filterActions.Count == 1 ? filterActions.First() 
+                        filterAction = filterActions.Count == 1 ? filterActions.First()
                             : filterActions.FirstOrDefault(n => n.Equals(urlFilter, StringComparison.Ordinal));
-                        
+
                         if (!string.IsNullOrEmpty(filterAction))
                             filterActionName = filterAction;
                         else
@@ -55,7 +55,10 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 if (NotNullOrEmpty(filter))
                 {
-                    filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(filter));
+                    filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(filter, new JsonSerializerSettings
+                    {
+                        DateParseHandling = DateParseHandling.None
+                    }));
                 }
 
 
@@ -66,12 +69,17 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     IdValue = idValue,
                     Filter = filterItems,
                     BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
+                    ForCopy = forCopy,
                     GetHeadersForLocalRequest = () =>
                     {
-                        var dataUrlParameters = new Dictionary<string, string>();
-                        dataUrlParameters.Add("Cookie",
-                            string.Join(";",
-                                Request.Cookies.Select(c => $"{c.Key}={c.Value}")));
+                        var dataUrlParameters = new Dictionary<string, string>
+                        {
+                            {
+                                "Cookie",
+                                string.Join(";",
+                                Request.Cookies.Select(c => $"{c.Key}={c.Value}"))
+                            }
+                        };
                         return dataUrlParameters;
                     }
                 };
@@ -92,13 +100,14 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
 
                 var data = await DataSource.GetDataForFormAsync(getRequest).ConfigureAwait(false);
-                
+
                 if (data.IsFromUrl && FailResponse.IsFailResponse(data.Entity, out FailResponse fail))
                 {
                     return Json(fail);
                 }
-                
-                return Json(new ItemSuccessResponse<object>(data.Entity.ToDictionary(true)));
+
+                var result = data.Entity != null ? data.Entity.ToDictionary(true) : new object();
+                return Json(new ItemSuccessResponse<object>(result));
             }
             catch (Exception e)
             {
@@ -199,7 +208,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
 
                 result.Count = data.Item2;
-                
+
                 return Json(result);
             }
             catch (Exception e)

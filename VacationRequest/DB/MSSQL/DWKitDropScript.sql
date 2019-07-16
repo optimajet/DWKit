@@ -1,7 +1,7 @@
 ﻿/*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2.6
+Version: 2.7
 File: DWKitDropScript.sql
 */
 
@@ -10,7 +10,7 @@ BEGIN TRANSACTION
 --Common tables---------------------------------------------------------------------
 IF EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = N'dwAppSettings')
 BEGIN
-	DROP TABLE [dwAppSettings]		
+	DROP TABLE [dwAppSettings]
 	PRINT '[dwAppSettings] - DROP table'
 END
 

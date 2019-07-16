@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2.6
+Version: 2.7
 File: DWKitScript.sql
 */
 
@@ -18,12 +18,12 @@ BEGIN
 		[Order] [int] NULL,
 		[EditorType] [nvarchar](50) NULL,
 		[IsHidden] [bit] NOT NULL DEFAULT (0),
-	 CONSTRAINT [PK_dwAppSettings] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwAppSettings] PRIMARY KEY CLUSTERED
 	(
 		[Name] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 	) ON [PRIMARY]
-		
+
 	PRINT '[dwAppSettings] - Add table'
 END
 
@@ -57,12 +57,12 @@ BEGIN
 		[Used] [bit] NOT NULL  DEFAULT ((0)),
 		[Name] [nvarchar](max) NOT NULL,
 		[ContentType] [nvarchar](255) NULL,
-		[CreatedBy] [nchar](1024) NULL,
+		[CreatedBy] [nvarchar](1024) NULL,
 		[CreatedDate] [datetime] NULL,
-		[UpdatedBy] [nchar](1024) NULL,
+		[UpdatedBy] [nvarchar](1024) NULL,
 		[UpdatedDate] [datetime] NULL,
 		[Properties] [nvarchar](max) NULL,
-		CONSTRAINT [PK_dwUploadedFiles] PRIMARY KEY CLUSTERED 
+		CONSTRAINT [PK_dwUploadedFiles] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -83,7 +83,7 @@ BEGIN
 		[Name] [nvarchar](128) NOT NULL,
 		[Comment] [nvarchar](max) NULL,
 		[IsSyncWithDomainGroup] [bit] NOT NULL DEFAULT (0),
-	 CONSTRAINT [PK_dwSecurityGroup] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityGroup] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -99,7 +99,7 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[Name] [nvarchar](128) NOT NULL,
 		[Code] [nvarchar](128) NOT NULL,
-	 CONSTRAINT [PK_dwSecurityPermissionGroup] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityPermissionGroup] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -116,12 +116,12 @@ BEGIN
 		[Code] [nvarchar](128) NOT NULL,
 		[Name] [nvarchar](max) NULL,
 		[GroupId] [uniqueidentifier] NOT NULL,
-	 CONSTRAINT [PK_dwSecurityPermission_1] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityPermission_1] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 	) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-	
+
 	ALTER TABLE [dwSecurityPermission]  WITH NOCHECK ADD  CONSTRAINT [FK_dwSecurityPermission_dwSecurityPermissionGroup] FOREIGN KEY([GroupId])
 	REFERENCES [dwSecurityPermissionGroup] ([Id])
 	ON UPDATE CASCADE
@@ -141,7 +141,7 @@ BEGIN
 		[Comment] [nvarchar](max) NULL,
 		[Id] [uniqueidentifier] NOT NULL,
 		[DomainGroup] [nvarchar](512) NULL,
-	 CONSTRAINT [PK_dwSecurityRole] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityRole] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -158,12 +158,12 @@ BEGIN
 		[SecurityRoleId] [uniqueidentifier] NOT NULL,
 		[SecurityPermissionId] [uniqueidentifier] NOT NULL,
 		[AccessType] [tinyint] NOT NULL DEFAULT (0),
-	 CONSTRAINT [PK_SecurityRoleToSecurityPermission] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_SecurityRoleToSecurityPermission] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 	) ON [PRIMARY]
-	
+
 	ALTER TABLE [dwSecurityRoleToSecurityPermission]  WITH NOCHECK ADD  CONSTRAINT [FK_dwSecurityRoleToSecurityPermission_dwSecurityPermission] FOREIGN KEY([SecurityPermissionId])
 	REFERENCES [dwSecurityPermission] ([Id])
 	ON UPDATE CASCADE
@@ -197,7 +197,7 @@ BEGIN
 		[PageSize] [int] NULL,
 		[StartPage] [nvarchar](256) NULL,
 		[IsRTL] [bit] NULL,
-	 CONSTRAINT [PK_dwSecurityUser] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityUser] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -214,7 +214,7 @@ BEGIN
 		[SecurityUserId] [uniqueidentifier] NOT NULL,
 		[Key] [nvarchar](max) NOT NULL,
 		[Value] [nvarchar](max) NOT NULL,
-	 CONSTRAINT [PK_SecurityUserState] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_SecurityUserState] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -225,7 +225,7 @@ BEGIN
 	ON DELETE CASCADE
 
 	ALTER TABLE [dbo].[dwSecurityUserState] CHECK CONSTRAINT [FK_dwSecurityUserState_dwSecurityUser]
-	
+
 	PRINT '[dwSecurityUserState] - Add table'
 
 END
@@ -241,7 +241,7 @@ BEGIN
 		[SecurityUserId] [uniqueidentifier] NOT NULL,
 		[Login] [nvarchar](256) NOT NULL,
 		[AuthenticationType] [tinyint] NOT NULL,
-	 CONSTRAINT [PK_dwSecurityCredential] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityCredential] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -274,7 +274,7 @@ BEGIN
 		[ImpSecurityUserId] [uniqueidentifier] NOT NULL,
 		[DateFrom] [datetime] NOT NULL,
 		[DateTo] [datetime] NOT NULL,
-	 CONSTRAINT [PK_dwSecurityUserImpersonation] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityUserImpersonation] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -303,7 +303,7 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[SecurityRoleId] [uniqueidentifier] NOT NULL,
 		[SecurityUserId] [uniqueidentifier] NOT NULL,
-	 CONSTRAINT [PK_SecurityUserToSecurityRole] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_SecurityUserToSecurityRole] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -322,7 +322,7 @@ BEGIN
 	ON DELETE CASCADE
 
 	ALTER TABLE [dwSecurityUserToSecurityRole] CHECK CONSTRAINT [FK_dwSecurityUserToSecurityRole_dwSecurityUser]
-	
+
 	PRINT '[dwSecurityUserToSecurityRole] - Add table'
 
 END
@@ -334,7 +334,7 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[SecurityGroupId] [uniqueidentifier] NOT NULL,
 		[SecurityRoleId] [uniqueidentifier] NOT NULL,
-	 CONSTRAINT [PK_dwSecurityGroupToSecurityRole] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityGroupToSecurityRole] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -353,7 +353,7 @@ BEGIN
 	ON DELETE CASCADE
 
 	ALTER TABLE [dwSecurityGroupToSecurityRole] CHECK CONSTRAINT [FK_dwSecurityGroupToSecurityRole_dwSecurityRole]
-	
+
 	PRINT '[dwSecurityGroupToSecurityRole] - Add table'
 
 END
@@ -365,7 +365,7 @@ BEGIN
 		[Id] [uniqueidentifier] NOT NULL,
 		[SecurityGroupId] [uniqueidentifier] NOT NULL,
 		[SecurityUserId] [uniqueidentifier] NOT NULL,
-	 CONSTRAINT [PK_dwSecurityGroupToSecurityUser] PRIMARY KEY CLUSTERED 
+	 CONSTRAINT [PK_dwSecurityGroupToSecurityUser] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
 	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -384,7 +384,7 @@ BEGIN
 	ON DELETE CASCADE
 
 	ALTER TABLE [dwSecurityGroupToSecurityUser] CHECK CONSTRAINT [FK_dwSecurityGroupToSecurityUser_dwSecurityUser]
-	
+
 	PRINT '[dwSecurityGroupToSecurityUser] - Add table'
 
 	INSERT INTO [dbo].[dwSecurityRole] ([Id], [Code],[Name],[Comment],[DomainGroup]) VALUES( '1B7F60C8-D860-4510-8E71-5469FC1814D3', 'Admins', 'Admins', '', '')
@@ -396,16 +396,16 @@ IF NOT EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = 
 BEGIN
 	EXEC ('CREATE VIEW [dwV_Security_UserRole]
 	AS
-	SELECT 
-		dwSecurityUserToSecurityRole.SecurityUserId as UserId, 
-		dwSecurityUserToSecurityRole.SecurityRoleId as RoleId 
-	FROM dwSecurityUserToSecurityRole WITH(NOLOCK) 
-	
+	SELECT
+		dwSecurityUserToSecurityRole.SecurityUserId as UserId,
+		dwSecurityUserToSecurityRole.SecurityRoleId as RoleId
+	FROM dwSecurityUserToSecurityRole WITH(NOLOCK)
+
 	UNION
 
 	SELECT DISTINCT
-		dwSecurityGroupToSecurityUser.SecurityUserId as UserId, 
-		dwSecurityGroupToSecurityRole.SecurityRoleId as RoleId 
+		dwSecurityGroupToSecurityUser.SecurityUserId as UserId,
+		dwSecurityGroupToSecurityRole.SecurityRoleId as RoleId
 	FROM dwSecurityGroupToSecurityRole WITH(NOLOCK)
 	INNER JOIN dwSecurityGroupToSecurityUser WITH(NOLOCK) ON dwSecurityGroupToSecurityUser.SecurityGroupId = dwSecurityGroupToSecurityRole.SecurityGroupId')
 	PRINT '[dwV_Security_UserRole] - Add view'
@@ -416,7 +416,7 @@ IF NOT EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = 
 BEGIN
 	EXEC ('CREATE VIEW [dwV_Security_CheckPermissionUser]
 	AS
-	SELECT 
+	SELECT
 	dwV_Security_UserRole.UserId,
 	sp.Id as "PermissionId",
 	spg.Code as PermissionGroupCode,
@@ -439,7 +439,7 @@ IF NOT EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = 
 BEGIN
 	EXEC ('CREATE VIEW [dbo].[dwV_Security_CheckPermissionGroup]
 	AS
-	SELECT 
+	SELECT
 	sgtosr.SecurityGroupId as SecurityGroupId,
 	sp.Id as PermissionId,
 	spg.Code as PermissionGroupCode,

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +14,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     public class UserInterfaceController : Controller
     {
         [Route("ui/form/{name}")]
+       // [Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
         public async Task<ActionResult> GetForm(string name, bool wrapResult = false, bool enableSecurity = false)
         {
             try
@@ -33,6 +34,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("ui/flow/{name}")]
+     //   [Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
         public async Task<ActionResult> GetFlow(string name, string urlFilter, bool forCopy = false)
         {
             try
@@ -49,7 +51,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 {
                     return await GetForm(form, true, true).ConfigureAwait(false);
                 }
-                
+
                 return Json(new FailResponse("The form is not found for this BusinessFlow!"));
             }
             catch (Exception e)
@@ -71,7 +73,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("ui/form/businessobjects.js")]
-        public ActionResult GetFormsBusinesscode()
+        public ActionResult GetFormsBusinessCode()
         {
             return Content(DWKitRuntime.Metadata.GetFormsBusinessCode());
         }

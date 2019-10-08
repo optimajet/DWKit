@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import { render } from 'react-dom'
 import DWKitAdmin from './../../scripts/optimajet-admin.js'
 
@@ -16,11 +16,18 @@ let globalActions = [
     'gridCopy',
     'gridDelete',
     'gridRefresh',
+    'gridExport',
     'workflowExecuteCommand',
     'workflowSetState',
+    'workflowShowCommandForm',
+    'workflowContinueExecution',
+    'workflowCancelExecution',
     'refresh',
     'confirm',
-    'createElement'];
+    'createElement',
+    'changeModel',
+    'reload',
+    'copy'];
 
 render(
     <DWKitAdmin
@@ -28,6 +35,7 @@ render(
         workflowApi="/workflow/designerapi"
         imageFolder="/images/"
         localizationFolder="/localization/"
+        themesFolder="/themes/"
         deltaWidth={0}
         deltaHeight={0}
         controlActions={globalActions}

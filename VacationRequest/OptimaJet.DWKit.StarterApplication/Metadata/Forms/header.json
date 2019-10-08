@@ -1,13 +1,13 @@
 [
   {
-    "key": "dwkit-application-header",
+    "key": "dwkit-header",
     "data-buildertype": "container",
-    "style-customcss": "dwkit-application-header",
+    "style-customcss": "dwkit-header",
     "children": [
       {
-        "key": "dwkit-application-header-left",
+        "key": "dwkit-logo",
         "data-buildertype": "container",
-        "style-float": "left",
+        "style-float": "",
         "children": [
           {
             "key": "logo",
@@ -16,14 +16,21 @@
             "style-height": "",
             "style-width": "",
             "href": "/",
-            "style-customcss": "dwkit-application-header-logo"
+            "style-customcss": "dwkit-header-logo",
+            "style-source": ""
           }
         ],
         "style-marginLeft": "",
-        "style-customcss": "dwkit-application-header-left"
+        "style-customcss": "",
+        "style-height": ""
       },
       {
-        "key": "dwkit-application-header-right",
+        "key": "header-center",
+        "data-buildertype": "container",
+        "style-source": "marginLeft: auto;"
+      },
+      {
+        "key": "container_1",
         "data-buildertype": "container",
         "children": [
           {
@@ -45,62 +52,42 @@
                   }
                 ]
               }
-            }
-          },
-          {
-            "key": "button_1",
-            "data-buildertype": "button",
-            "content": "Settings",
-            "secondary": true,
-            "events": {
-              "onClick": {
-                "active": true,
-                "actions": [
-                  "redirect"
-                ],
-                "targets": [],
-                "parameters": [
-                  {
-                    "name": "target",
-                    "value": "/form/settings"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "key": "currentUser",
-            "data-buildertype": "dropdowntrigger",
-            "defaultValue": "User",
-            "items": [
-              {
-                "target": "/admin",
-                "title": "Admin panel"
-              },
-              {
-                "target": "/form/settings",
-                "title": "Settings"
-              },
-              {
-                "target": "/account/logoff",
-                "title": "Logout"
-              }
-            ],
-            "events": {
-              "onItemClick": {
-                "active": true,
-                "actions": [
-                  "redirect"
-                ],
-                "targets": [],
-                "parameters": []
-              }
             },
-            "imageUrl": "/images/unknown.png"
+            "style-customcss": ""
           }
         ],
-        "style-float": "right",
-        "style-customcss": "dwkit-application-header-right"
+        "style-customcss": "dwkit-notmobile"
+      },
+      {
+        "key": "currentUser",
+        "data-buildertype": "dropdowntrigger",
+        "defaultValue": "User",
+        "items": [
+          {
+            "target": "/admin",
+            "title": "Admin panel"
+          },
+          {
+            "__id": "CLIENT_552a72c0-d3d9-11e9-8908-73da4750a1b4",
+            "target": "/form/profile",
+            "title": "Profile"
+          },
+          {
+            "target": "/account/logoff",
+            "title": "Logout"
+          }
+        ],
+        "events": {
+          "onItemClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "imageUrl": "/images/user.svg"
       }
     ]
   }

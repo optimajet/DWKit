@@ -1,0 +1,148 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Profile",
+    "size": "huge"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "name",
+        "data-buildertype": "input",
+        "label": "Name",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "readOnly": true
+      },
+      {
+        "key": "email",
+        "data-buildertype": "input",
+        "label": "Email",
+        "fluid": true,
+        "onChangeTimeout": 200
+      },
+      {
+        "key": "localization",
+        "data-buildertype": "dropdown",
+        "label": "Language",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "",
+            "text": "Default"
+          },
+          {
+            "key": 2,
+            "value": "en",
+            "text": "English"
+          },
+          {
+            "key": 3,
+            "value": "ru",
+            "text": "Russian"
+          }
+        ]
+      },
+      {
+        "key": "theme",
+        "data-buildertype": "dropdown",
+        "label": "Theme",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "",
+            "text": "Default"
+          },
+          {
+            "key": 2,
+            "value": "yellow",
+            "text": "Yellow"
+          },
+          {
+            "key": 3,
+            "value": "green",
+            "text": "Green"
+          },
+          {
+            "__id": "CLIENT_f049c1c0-e446-11e9-ba92-41d083dbd6e2",
+            "value": "ocean",
+            "text": "Ocean"
+          },
+          {
+            "__id": "CLIENT_f0a91fd0-e446-11e9-ba92-41d083dbd6e2",
+            "value": "sky",
+            "text": "Sky"
+          },
+          {
+            "__id": "CLIENT_f0edf100-e446-11e9-ba92-41d083dbd6e2",
+            "value": "rose",
+            "text": "Rose"
+          },
+          {
+            "__id": "CLIENT_f137a430-e446-11e9-ba92-41d083dbd6e2",
+            "value": "lilac",
+            "text": "Lilac"
+          },
+          {
+            "__id": "CLIENT_f17fd0c0-e446-11e9-ba92-41d083dbd6e2",
+            "value": "dark",
+            "text": "Dark"
+          }
+        ]
+      },
+      {
+        "key": "isRTL",
+        "data-buildertype": "checkbox",
+        "label": "Right-To-Left"
+      },
+      {
+        "key": "formgroup_1",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "roles",
+            "data-buildertype": "input",
+            "label": "Roles",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "groups",
+            "data-buildertype": "input",
+            "label": "Groups",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          }
+        ]
+      },
+      {
+        "key": "save",
+        "data-buildertype": "button",
+        "content": "Save",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "validate",
+              "save",
+              "fullreload"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ]
+  }
+]

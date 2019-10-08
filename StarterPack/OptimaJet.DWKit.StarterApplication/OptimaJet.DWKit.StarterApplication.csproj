@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>2.7.0</Version>
+    <Version>2.8.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <Description>The sample for DWKit</Description>
@@ -13,27 +13,27 @@
     <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
-    <Copyright>OptimaJet DWKit 2018</Copyright>
-    <FileVersion>2.7.0.0</FileVersion>
-    <AssemblyVersion>2.7.0.0</AssemblyVersion>
+    <Copyright>OptimaJet DWKit 2019</Copyright>
+    <FileVersion>2.8.0.0</FileVersion>
+    <AssemblyVersion>2.8.0.0</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
   <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
-  <PackageReference Include="DWKit-Core" Version="2.7.0" />
+  <PackageReference Include="DWKit-Core" Version="2.8.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
     <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.0.9" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.7.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.7.0" />
-    <PackageReference Include="DWKit-Security" Version="2.7.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.8.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.8.0" />
+    <PackageReference Include="DWKit-Security" Version="2.8.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />

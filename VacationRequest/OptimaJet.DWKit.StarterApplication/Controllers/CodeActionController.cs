@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OptimaJet.DWKit.Core;
@@ -14,6 +14,7 @@ using OptimaJet.DWKit.Core.CodeActions;
 
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
+    //[Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
     [Authorize]
     public class CodeActionController : Controller
     {
@@ -35,6 +36,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                         .ConfigureAwait(false);
 
                     dictionary.TryGetValue("parameters", out var parameters);
+                    dictionary.TryGetValue("modalId", out var modalId);
 
                     if (parameters is JObject parametersJObject)
                     {
@@ -46,7 +48,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     {
                         Data = new DynamicEntityDeserializer(model).DeserializeSingle(dictionary["data"].ToString()),
                         FormName = formName,
-                        Parameters = parameters
+                        Parameters = parameters,
+                        ModalId = modalId?.ToString()
                     };
 
                 }

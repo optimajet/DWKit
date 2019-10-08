@@ -1,13 +1,13 @@
 [
   {
-    "key": "dwkit-application-header",
+    "key": "dwkit-header",
     "data-buildertype": "container",
-    "style-customcss": "dwkit-application-header",
+    "style-customcss": "dwkit-header",
     "children": [
       {
-        "key": "dwkit-application-header-left",
+        "key": "dwkit-logo",
         "data-buildertype": "container",
-        "style-float": "left",
+        "style-float": "",
         "children": [
           {
             "key": "logo",
@@ -16,45 +16,49 @@
             "style-height": "",
             "style-width": "",
             "href": "/",
-            "style-customcss": "dwkit-application-header-logo"
+            "style-customcss": "",
+            "style-source": "maxWidth:150px"
           }
         ],
         "style-marginLeft": "",
-        "style-customcss": "dwkit-application-header-left"
+        "style-customcss": "",
+        "style-height": ""
       },
       {
-        "key": "dwkit-application-header-right",
+        "key": "header-center",
         "data-buildertype": "container",
-        "children": [
+        "style-source": "marginLeft: auto;"
+      },
+      {
+        "key": "currentUser",
+        "data-buildertype": "dropdowntrigger",
+        "defaultValue": "User",
+        "items": [
           {
-            "key": "currentUser",
-            "data-buildertype": "dropdowntrigger",
-            "defaultValue": "User",
-            "items": [
-              {
-                "target": "/admin",
-                "title": "Admin panel"
-              },
-              {
-                "target": "/account/logoff",
-                "title": "Logout"
-              }
-            ],
-            "events": {
-              "onItemClick": {
-                "active": true,
-                "actions": [
-                  "redirect"
-                ],
-                "targets": [],
-                "parameters": []
-              }
-            },
-            "imageUrl": "/images/unknown.png"
+            "target": "/admin",
+            "title": "Admin panel"
+          },
+          {
+            "__id": "CLIENT_552a72c0-d3d9-11e9-8908-73da4750a1b4",
+            "target": "/form/profile",
+            "title": "Profile"
+          },
+          {
+            "target": "/account/logoff",
+            "title": "Logout"
           }
         ],
-        "style-float": "right",
-        "style-customcss": "dwkit-application-header-right"
+        "events": {
+          "onItemClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "imageUrl": "/images/user.svg"
       }
     ]
   }

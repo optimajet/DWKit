@@ -1,4 +1,4 @@
-﻿var webpack = require('webpack');
+var webpack = require('webpack');
 var glob = require("glob");
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
@@ -44,6 +44,11 @@ module.exports = (env) => {
             "react-datepicker", 
             "react-fast-compare",
             "react-modal",
+            "uuid",
+            "react-grid-layout",
+            "react-slick",
+            "numeral",
+            "oidc-client",
             "@aspnet/signalr"].concat(glob.sync('./node_modules/semantic-ui-react/dist/es/lib/**.js')), //fix of incorrect sematic-ui import
         output: {
             path: path.join(__dirname, outputDir),

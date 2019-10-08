@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2.7
+Version: 2.8
 File: DWKitScript.sql
 */
 
@@ -196,7 +196,8 @@ BEGIN
 		[DecimalSeparator] [nchar](1) NULL,
 		[PageSize] [int] NULL,
 		[StartPage] [nvarchar](256) NULL,
-		[IsRTL] [bit] NULL,
+		[IsRTL] [bit] NOT NULL DEFAULT(0),
+		[Theme] [nvarchar](256) NULL,
 	 CONSTRAINT [PK_dwSecurityUser] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC
@@ -241,6 +242,7 @@ BEGIN
 		[SecurityUserId] [uniqueidentifier] NOT NULL,
 		[Login] [nvarchar](256) NOT NULL,
 		[AuthenticationType] [tinyint] NOT NULL,
+        [ExternalProviderName] [nvarchar](128) NULL,
 	 CONSTRAINT [PK_dwSecurityCredential] PRIMARY KEY CLUSTERED
 	(
 		[Id] ASC

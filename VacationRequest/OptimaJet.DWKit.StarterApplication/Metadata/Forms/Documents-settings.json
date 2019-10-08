@@ -1,6 +1,6 @@
 {
   "name": "Documents",
-  "lastUpdate": "2019-03-05T14:02:47.991318+03:00",
+  "lastUpdate": "2019-09-30T23:53:59.297969+03:00",
   "isTemplate": false,
   "triggers": [],
   "dataMap": [],
@@ -13,14 +13,14 @@
         {
           "id": "fba19208-9bdb-7b3f-6729-8d241295400e",
           "attributeId": "960d9be8-ba70-464a-9258-4c26612e1dd2",
-          "control": "amount",
+          "control": "",
           "isEditable": true,
           "isLoadable": true
         },
         {
           "id": "bb9214b2-5b99-0645-a83b-f651571d06dc",
           "attributeId": "b92689f8-8e7f-4478-8bbd-8bdb5930a9e7",
-          "control": "comment",
+          "control": "",
           "isEditable": true,
           "isLoadable": true
         },
@@ -33,14 +33,14 @@
         {
           "id": "efaacf81-2d82-175a-8b91-e69086a1dc49",
           "attributeId": "06baf863-39df-4ef0-a018-7979c4a4409c",
-          "control": "name",
+          "control": "",
           "isEditable": true,
           "isLoadable": true
         },
         {
           "id": "af06b7f4-58ea-8769-7f66-a9512f7f2ecd",
           "attributeId": "ea00696d-7514-43cc-90a9-3809996855ec",
-          "control": "number",
+          "control": "",
           "isEditable": true,
           "isLoadable": true
         },
@@ -53,7 +53,7 @@
         {
           "id": "bfd216df-7f9c-e96d-e7b7-b54282e9b269",
           "attributeId": "337bd239-eb2c-4c53-8900-133a6639c142",
-          "control": "stateName",
+          "control": "",
           "isEditable": true,
           "isLoadable": true
         },
@@ -66,7 +66,7 @@
         {
           "id": "4f0b9df7-6de6-09a2-fa5f-339fc6030014",
           "attributeId": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
-          "control": "author",
+          "control": "",
           "parentId": "1d835cfb-49c1-5f60-5b50-a64af93fb9b7",
           "isEditable": false,
           "isLoadable": true
@@ -80,7 +80,7 @@
         {
           "id": "1b20042a-9c09-0642-0c2d-3f15587e0682",
           "attributeId": "29d3c632-82d1-4f51-96d2-82dfba411f3b",
-          "control": "manager",
+          "control": "",
           "parentId": "052e4fa6-94cc-bf41-2120-94152aca5665",
           "isEditable": false,
           "isLoadable": true
@@ -89,5 +89,6 @@
       "readOnly": false,
       "triggers": []
     }
-  ]
+  ],
+  "actionHandlers": []
 }

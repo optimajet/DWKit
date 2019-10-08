@@ -10,6 +10,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
     public class IntegrationApiController : Controller
     {
+        //[Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
         [Authorize]
         [Route("swagger/{mode?}/{name?}")]
         [HttpGet]

@@ -1,36 +1,57 @@
-﻿import React from 'react'
-import { render } from 'react-dom'
-import { DWKitForm } from "./../../scripts/optimajet-form.js"
+import React from 'react';
+import { render } from 'react-dom';
+import { DWKitForm } from "./../../scripts/optimajet-form";
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: {
-                remember: true
+                remember: true,
+                externals: []
             }
-        }
-    }
-
-    render(){
-        let sectorprops = {
-            eventFunc: this.eventHandler.bind(this)
         };
 
-        return <DWKitForm {...sectorprops}  
-              formName="login"
-              modelurl="/ui/login" 
-              data={this.state.data} 
-              errors={this.state.errors}
-              className="dwkit-application-login" />;
+        this.getExternalProviders();
+    }
+
+    getExternalProviders() {
+
+        $.getJSON(
+            "/account/external", (response) => {
+
+                const data = { ...this.state.data };
+                data.externals = response;
+
+                this.setState({
+                    data
+                });
+
+            }).fail(() => {
+                const msg = "Error on the server! Please, check server's configuration and the connection to DB. More information in the application log or Event Viewer.";
+                alert(msg);
+            });
     }
 
     eventHandler(args){
-        var me = this;
-        if (Array.isArray(args.actions)){
-            args.actions.forEach(function (a) {
-                if (a === "login"){
-                    me.onLogin();
+        if (Array.isArray(args.actions)) {
+            args.actions.forEach((a) => {
+                if (a === "login") {
+                    this.onLogin();
+                } else if (a === "external") {
+
+                    let newLocation = `/external/challenge?name=${args.parameters.row.name}`;
+
+                    const urlParams = new URLSearchParams(location.search);
+
+                    for (let key of urlParams.keys()) {
+                        if (key.toLowerCase() === 'returnurl') {
+                            newLocation = newLocation + `&returnUrl=${encodeURIComponent(urlParams.get(key))}`;
+                            break;
+                        }
+                    }
+
+                    location.href = newLocation;
                 }
             });
         }
@@ -50,8 +71,8 @@ class Login extends React.Component {
         return res;
     }
     
-    onLogin(){
-        if (this.validate() == false) {
+    onLogin() {
+        if (!this.validate()) {
             alertify.error("Check errors on this form!");
         }
         else {
@@ -86,14 +107,20 @@ class Login extends React.Component {
         this.forceUpdate();
     }
 
-    redirectToApp(){
-        let returnUrl = this.getParameterByName("ReturnUrl");
-        if (returnUrl != undefined){
-            window.location = returnUrl;
+    redirectToApp() {
+
+        let newLocation = '/';
+
+        const urlParams = new URLSearchParams(location.search);
+
+        for (let key of urlParams.keys()) {
+            if (key.toLowerCase() === 'returnurl') {
+                newLocation = urlParams.get(key);
+                break;
+            }
         }
-        else {
-            window.location = '/';
-        }
+
+        window.location = newLocation;
     }
 
      getParameterByName(name, url) {
@@ -104,6 +131,19 @@ class Login extends React.Component {
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
+     }
+
+    render() {
+        let sectorprops = {
+            eventFunc: this.eventHandler.bind(this)
+        };
+
+        return <DWKitForm {...sectorprops}
+            formName="login"
+            modelurl="/ui/login"
+            data={this.state.data}
+            errors={this.state.errors}
+            className="dwkit-application-login" />;
     }
 }
 

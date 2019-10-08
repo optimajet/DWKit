@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +23,10 @@ namespace OptimaJet.DWKit.Application
                 outboxCount = outboxProcessIds.Count();
             }
 
-            await SendInboxOutboxCountNotification(userId, inboxCount, outboxCount);
+            var docModel = await MetadataToModelConverter.GetEntityModelByModelAsync("Document");
+            var docCount = await docModel.GetCountAsync(Filter.Empty);
+
+            await SendInboxOutboxCountNotification(userId, docCount, inboxCount, outboxCount);
         }
 
         public static async Task NotifyClientsAboutInboxStatus (List<Guid> userIds)
@@ -39,20 +42,24 @@ namespace OptimaJet.DWKit.Application
             var inboxes = await inboxModel.GetAsync(Filter.And.In(userIds, "IdentityId"));
             var outboxes = await historyModel.GetAsync(Filter.And.In(userIds, "ExecutorIdentityId"));
 
+            var docModel = await MetadataToModelConverter.GetEntityModelByModelAsync("Document");
+            var docCount = await docModel.GetCountAsync(Filter.Empty);
+
             foreach (var id in userIds)
             {
                 var inboxCount = inboxes.Count(i => (i as dynamic).IdentityId == id);
                 var outboxCount = outboxes.Where(i => (i as dynamic).ExecutorIdentityId == id).Select(i => (Guid) (i as dynamic).ProcessId).Distinct().Count();
-                await SendInboxOutboxCountNotification(id, inboxCount, outboxCount);
+                await SendInboxOutboxCountNotification(id, docCount, inboxCount, outboxCount);
             }
         }
 
-        private static async Task SendInboxOutboxCountNotification(string userId, long inboxCount, long outboxCount)
+        private static async Task SendInboxOutboxCountNotification(string userId, long docCount, long inboxCount, long outboxCount)
         {
             await DWKitRuntime.SendStateChangeToUserAsync(userId, "app.extra", new Dictionary<string, object>
             {
                 {"inbox", inboxCount},
-                {"outbox", outboxCount}
+                {"outbox", outboxCount},
+                {"doccount", docCount }
             });
         }
 

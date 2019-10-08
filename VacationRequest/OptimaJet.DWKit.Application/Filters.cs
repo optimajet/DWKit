@@ -66,7 +66,9 @@ namespace OptimaJet.DWKit.Application
             throw new System.NotImplementedException();
         }
 
-        public async Task<TriggerResult> ExecuteTriggerAsync(string name, EntityModel model, List<dynamic> entities,  TriggerExecutionContext context, dynamic options)
+#pragma warning disable 1998
+        public async Task<TriggerResult> ExecuteTriggerAsync(string name, EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
+#pragma warning restore 1998
         {
             throw new System.NotImplementedException();
         }
@@ -91,7 +93,9 @@ namespace OptimaJet.DWKit.Application
             throw new System.NotImplementedException();
         }
 
+#pragma warning disable 1998
         public async Task<dynamic> ExecuteActionAsync(string name, dynamic request)
+#pragma warning restore 1998
         {
             throw new System.NotImplementedException();
         }
@@ -106,7 +110,8 @@ namespace OptimaJet.DWKit.Application
 
         public async Task<Filter> Inbox(EntityModel model, List<dynamic> entities, dynamic options)
         {
-            var userId = DWKitRuntime.Security.CurrentUser.ImpersonatedUserId ?? DWKitRuntime.Security.CurrentUser.Id;
+            var userId = DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.HasValue ? DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.Value :
+                DWKitRuntime.Security.CurrentUser.Id;
             var inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowInbox");
             var currentUserInbox = (await inboxModel.GetAsync(Filter.And.Equal(userId.ToString(), "IdentityId"))).Select(e => (Guid) (e as dynamic).ProcessId).ToList();
             return Filter.And.In(currentUserInbox, "Id");
@@ -114,7 +119,8 @@ namespace OptimaJet.DWKit.Application
 
         public async Task<Filter> Outbox(EntityModel model, List<dynamic> entities, dynamic options)
         {
-            var userId = DWKitRuntime.Security.CurrentUser.ImpersonatedUserId ?? DWKitRuntime.Security.CurrentUser.Id;
+            var userId = DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.HasValue ? DWKitRuntime.Security.CurrentUser.ImpersonatedUserId.Value :
+                DWKitRuntime.Security.CurrentUser.Id;
             var historyModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowProcessTransitionHistory");
             var currentUserOutbox = (await historyModel.GetAsync(Filter.And.Equal(userId.ToString(), "ExecutorIdentityId"))).Select(e => (Guid) (e as dynamic).ProcessId).ToList();
             return Filter.And.In(currentUserOutbox, "Id");

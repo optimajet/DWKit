@@ -1,0 +1,123 @@
+/*
+dwkit.com
+Yellow theme
+
+Main color: #FFCD00
+SideBar color: #808080
+*/
+
+.dwkit-header {
+    -webkit-box-shadow: 0px 6px 10px #80808012, 0px 1px 18px #80808012, 0px 3px 5px #80808012;
+    box-shadow: 0px 6px 10px #80808012, 0px 1px 18px r#80808012, 0px 3px 5px #80808012;
+}
+
+.dwkit-sidebar-container{
+    background: #808080;
+}
+
+.ui.primary.button, .ui.primary.button:focus {
+    background: #FFCD00;
+    border: 1px solid #FFCD00;
+    color: #808080;
+}
+.ui.primary.button:hover,
+.ui.primary.button:active{
+    background: #FFCD00;
+}
+
+.ui.secondary.button, .ui.secondary.button:focus {
+    background: #FFFFFF;
+    border: 1px solid #FFCD00;
+    color: #808080;
+}
+
+.ui.secondary.button:hover,
+.ui.secondary.button:active{
+    background: #FFCD00;
+}
+
+.alertify-log-success {
+    background: #808080!important;
+}
+
+.dwkit-sidebar-btn.ui.button, .dwkit-sidebar-btn.ui.button:hover{
+    background-color: #CCCCCC!important;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-header{
+    background: #808080;
+}
+
+.dwkit-cards .dwkit-card{
+    border-color: #808080;
+}
+
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.primary,
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.primary:hover {
+    border-color: #808080;
+    background: #808080;
+}
+
+.dwkit-blocks .dwkit-block {
+    -webkit-box-shadow: 0px 6px 10px #80808012, 0px 1px 18px #80808012, 0px 3px 5px #80808012;
+    box-shadow: 0px 6px 10px #80808012, 0px 1px 18px #80808012, 0px 3px 5px #80808012;
+}
+
+/* Admin panel */
+.dwkit-formadmin-menu,
+.dwkit-formbuilder-toolbox{
+    background-color: #808080!important;
+}
+
+.ui.buttontype1.button, .ui.buttontype1.button:focus {
+    background: #FFCD00;
+    border: 1px solid #FFCD00;
+    color: #808080;
+}
+
+.ui.buttontype1.button:hover,
+.ui.buttontype1.button:active{
+    background: #FFCD00;
+    color: #fff;
+}
+
+.ui.buttontype2.button, .ui.buttontype2.button:focus {
+    background: #FFFFFF;
+    border: 1px solid #FFCD00;
+    color: #808080;
+}
+
+.ui.buttontype2.button:hover,
+.ui.buttontype2.button:active{
+    background: #FFCD00;
+}
+
+.dwkit-formadmin-content h1{
+    color: #000000!important;
+}
+
+.dwkit-formadmin-content .dwkit-admin-resourcelist a{
+    color: black!important;
+}
+
+
+.dwkit-formadmin-menu .ui.vertical.menu .item > .menu > .active.item{
+    color:#FFCD00!important;
+}
+
+.dwkit-formadmin-header-center .ui.fluid.search > .ui.icon.input > input {
+    border-bottom-color: #FFCD00!important;
+}
+
+.ui.secondary.pointing.menu .active.item, .ui.secondary.pointing.menu .active.item:hover{
+    border-color: #FFCD00!important;
+}
+
+.dwkit-formadmin-menu .ui.menu > .item:hover {
+    border-bottom-color: #FFCD00!important;
+}
+
+.dwkit-formbuilder-toolbox > ul > li:hover
+{
+    background: #808080!important;
+}

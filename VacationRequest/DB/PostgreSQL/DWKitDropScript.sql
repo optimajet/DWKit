@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for PostgreSQL
-Version: 2.7
+Version: 2.8
 File: DWKitDropScript.sql
 */
 

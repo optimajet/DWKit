@@ -1,5 +1,26 @@
 [
   {
+    "key": "header_4",
+    "data-buildertype": "header",
+    "content": "Settings",
+    "size": "huge",
+    "subheader": ""
+  },
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<hr/>",
+        "isHtml": true,
+        "style-marginBottom": ""
+      }
+    ],
+    "style-marginBottom": "40px"
+  },
+  {
     "key": "container_1",
     "data-buildertype": "container",
     "style-float": "left",

@@ -1,3 +1,3 @@
-﻿var globalUserActions = {
-
+var globalUserActions = {
+   
 }

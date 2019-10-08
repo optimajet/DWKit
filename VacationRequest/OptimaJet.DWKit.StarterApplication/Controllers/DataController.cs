@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.Model;
@@ -13,11 +11,12 @@ using OptimaJet.DWKit.Core.View;
 
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
+    //[Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
     [Authorize]
     public class DataController : Controller
     {
         [Route("data/get")]
-        public async Task<ActionResult> GetData(string name, string control, string urlFilter, string options,
+        public async Task<ActionResult> GetData(string name, string propertyName, string urlFilter, string options,
             string filter, string paging, string sort, bool forCopy = false)
         {
             try
@@ -27,78 +26,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                string filterActionName = null;
-                string idValue = null;
-                var filterItems = new List<ClientFilterItem>();
-
-                if (NotNullOrEmpty(urlFilter))
-                {
-                    try
-                    {
-                        filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(urlFilter));
-                    }
-                    catch
-                    {
-                        var filterActions = DWKitRuntime.ServerActions.GetFilterNames().Where(n => n.Equals(urlFilter, StringComparison.OrdinalIgnoreCase)).ToList();
-                        string filterAction = null;
-                        filterAction = filterActions.Count == 1 ? filterActions.First()
-                            : filterActions.FirstOrDefault(n => n.Equals(urlFilter, StringComparison.Ordinal));
-
-                        if (!string.IsNullOrEmpty(filterAction))
-                            filterActionName = filterAction;
-                        else
-                        {
-                            idValue = urlFilter;
-                        }
-                    }
-                }
-
-                if (NotNullOrEmpty(filter))
-                {
-                    filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(filter, new JsonSerializerSettings
-                    {
-                        DateParseHandling = DateParseHandling.None
-                    }));
-                }
-
-
-                var getRequest = new GetDataRequest(name)
-                {
-                    RequestingControlName = control,
-                    FilterActionName = filterActionName,
-                    IdValue = idValue,
-                    Filter = filterItems,
-                    BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
-                    ForCopy = forCopy,
-                    GetHeadersForLocalRequest = () =>
-                    {
-                        var dataUrlParameters = new Dictionary<string, string>
-                        {
-                            {
-                                "Cookie",
-                                string.Join(";",
-                                Request.Cookies.Select(c => $"{c.Key}={c.Value}"))
-                            }
-                        };
-                        return dataUrlParameters;
-                    }
-                };
-
-                if (NotNullOrEmpty(options))
-                {
-                    getRequest.OptionsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(options);
-                }
-
-                if (NotNullOrEmpty(paging))
-                {
-                    getRequest.Paging = JsonConvert.DeserializeObject<ClientPaging>(paging);
-                }
-
-                if (NotNullOrEmpty(sort))
-                {
-                    getRequest.Sort = JsonConvert.DeserializeObject<List<ClienSortItem>>(sort);
-                }
-
+                var getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy);
                 var data = await DataSource.GetDataForFormAsync(getRequest).ConfigureAwait(false);
 
                 if (data.IsFromUrl && FailResponse.IsFailResponse(data.Entity, out FailResponse fail))
@@ -152,7 +80,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("data/delete")]
         [HttpPost]
-        public async Task<ActionResult> DeleteData(string name, string requestingControl, string data)
+        public async Task<ActionResult> DeleteData(string name, string propertyName, string data)
         {
             try
             {
@@ -161,7 +89,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                var deleteRequest = new ChangeDataRequest(name, data, requestingControl)
+                var deleteRequest = new ChangeDataRequest(name, data, propertyName)
                 {
                     BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
@@ -270,6 +198,142 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         private static bool NotNullOrEmpty(string urlFilter)
         {
             return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
+        }
+
+        [Route("data/export")]
+        public async Task<IActionResult> ExportData(string name, string propertyName, string urlFilter, string options,
+            string filter, string paging, string sort, string cols, string fileName, string pagerType, bool forCopy = false)
+        {
+            if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
+            {
+                throw new Exception("Access denied!");
+            }
+
+            bool isServerPager = pagerType == "server";
+
+            GetDataRequest getRequest;
+            if (isServerPager)
+            {
+                getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy);
+            }
+            else
+            {
+                getRequest = CreateGetRequest(name, null, urlFilter, options, filter, paging, null, forCopy);
+            }
+
+            var data = await DataSource.GetDataForFormAsync(getRequest).ConfigureAwait(false);
+                
+
+            if (data.IsFromUrl && FailResponse.IsFailResponse(data.Entity, out FailResponse fail))
+            {
+                return Json(fail);
+            }
+
+            var resultFileName = string.Format("{0}.xlsx", propertyName);
+            if (NotNullOrEmpty(fileName))
+            {
+                resultFileName = fileName;
+            }
+
+            List<ClienSortItem> extraSort = null;
+            if (!isServerPager && NotNullOrEmpty(sort))
+            {
+                extraSort = JsonConvert.DeserializeObject<List<ClienSortItem>>(sort);
+            }
+
+            var stream = DataSource.ExportToExcel(CreateColsFilter(cols), propertyName, data.Entity, extraSort);
+            var mimeType = "application/vnd.ms-excel";
+            return File(stream, mimeType, resultFileName);
+        }
+
+        private GetDataRequest CreateGetRequest(string name, string propertyName, string urlFilter, string options,
+            string filter, string paging, string sort, bool forCopy = false)
+        {
+            string filterActionName = null;
+            string idValue = null;
+            var filterItems = new List<ClientFilterItem>();
+
+            if (NotNullOrEmpty(urlFilter))
+            {
+                try
+                {
+                    filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(urlFilter));
+                }
+                catch
+                {
+                    var filterActions = DWKitRuntime.ServerActions.GetFilterNames().Where(n => n.Equals(urlFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+                    string filterAction = null;
+                    filterAction = filterActions.Count == 1 ? filterActions.First()
+                        : filterActions.FirstOrDefault(n => n.Equals(urlFilter, StringComparison.Ordinal));
+
+                    if (!string.IsNullOrEmpty(filterAction))
+                        filterActionName = filterAction;
+                    else
+                    {
+                        idValue = urlFilter;
+                    }
+                }
+            }
+              
+            if (NotNullOrEmpty(filter))
+            {
+                filterItems.AddRange(JsonConvert.DeserializeObject<List<ClientFilterItem>>(filter, new JsonSerializerSettings
+                {
+                    DateParseHandling = DateParseHandling.None
+                }));
+            }
+
+
+            var getRequest = new GetDataRequest(name)
+            {
+                PropertyName = propertyName,
+                FilterActionName = filterActionName,
+                IdValue = idValue,
+                Filter = filterItems,
+                BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
+                ForCopy = forCopy,
+                GetHeadersForLocalRequest = () =>
+                {
+                    var dataUrlParameters = new Dictionary<string, string>
+                        {
+                            {
+                                "Cookie",
+                                string.Join(";",
+                                Request.Cookies.Select(c => $"{c.Key}={c.Value}"))
+                            }
+                        };
+                    return dataUrlParameters;
+                }
+            };
+
+            if (NotNullOrEmpty(options))
+            {
+                getRequest.OptionsDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(options);
+            }
+
+            if (NotNullOrEmpty(paging))
+            {
+                getRequest.Paging = JsonConvert.DeserializeObject<ClientPaging>(paging);
+            }
+
+            if (NotNullOrEmpty(sort))
+            {
+                getRequest.Sort = JsonConvert.DeserializeObject<List<ClienSortItem>>(sort);
+            }
+
+            return getRequest;
+        }
+
+        private Dictionary<string, string> CreateColsFilter(string cols)
+        {
+            var colPairs = (NotNullOrEmpty(cols) ? cols : string.Empty).Split(',').Select((s) =>
+            {
+                var kvPair = s.Split(':');
+
+                return new KeyValuePair<string, string>(kvPair[0], kvPair[1]);
+            });
+
+            return new Dictionary<string, string>(colPairs);
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { DWKitForm } from "./../../scripts/optimajet-form";
-import {
-    ApplicationRouter, NotificationComponent, FormContent,
-    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API
-} from './../../scripts/optimajet-app';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { DWKitForm } from "./../../scripts/optimajet-form.js"
+import {ApplicationRouter, NotificationComponent, FormContent,
+    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API} from './../../scripts/optimajet-app.js'
+
+Store.dispatch(Actions.app.impersonateduseridfromurl());
 
 class App extends React.Component {
     constructor(props) {
@@ -15,13 +15,12 @@ class App extends React.Component {
             pagekey: 0
         };
 
-        let me = this;
+        //API.setAuth("cookie");
 
-        Store.dispatch(Thunks.userinfo.fetch(function () {
+        let me = this;
+        Store.dispatch(Thunks.userinfo.fetch(function (){
             me.forceUpdate();
         }));
-
-        Store.dispatch(Actions.app.impersonateduseridfromurl());
 
         window.DWKitApp = this;
         window.DWKitApp.API = API;
@@ -36,23 +35,24 @@ class App extends React.Component {
 
         let state = Store.getState();
         let user = state.app.user;
-        if (user == undefined){
-            user = {};
-        }
+
+        if (!user) return null;
 
         let currentEmployee = state.app.impersonatedUserId ? state.app.impersonatedUserId : user.id;
 
-        return <div className="dwkit-application" key={this.state.pagekey}>
-            <DWKitForm {...sectorprops} formName="header" data={{currentUser: user.name}} modelurl="/ui/form/header" />
-            <div className="dwkit-application-basecontent">
+        return <div className="dwkit-wrapper" key={this.state.pagekey}>
+            <Provider store={Store}>
+                <StateBindedForm {...sectorprops} formName="header" stateDataPath="app.extra" data={{ currentUser: user.name, currentEmployee: currentEmployee }} modelurl="/ui/form/header" />
+            </Provider>
+            <div className="dwkit-container">
                 <Provider store={Store}>
-                    <StateBindedForm {...sectorprops} formName="top" stateDataPath="app.extra" data={{currentEmployee: currentEmployee}} modelurl="/ui/form/top" />
+                    <StateBindedForm className="dwkit-sidebar-container" {...sectorprops} formName="sidebar" stateDataPath="app.extra" data={{currentEmployee: currentEmployee}} modelurl="/ui/form/sidebar" />
                 </Provider>
-                <div className="dwkit-application-content">
+                <div className="dwkit-content">
                     <Provider store={Store}>
                         <BrowserRouter>
-                            <div className="dwkit-application-content-form">
-                                <ApplicationRouter onRefresh={this.onRefresh.bind(this)}/>
+                            <div className="dwkit-content-form">
+                                <ApplicationRouter onReload={this.onRefresh.bind(this, true)} onRefresh={this.onRefresh.bind(this, false)} />
                                 <NotificationComponent
                                     onFetchStarted={this.onFetchStarted.bind(this)}
                                     onFetchFinished={this.onFetchFinished.bind(this)}/>
@@ -60,7 +60,7 @@ class App extends React.Component {
                                     <Route path='/form' component={FormContent}  />
                                     <Route path='/flow' component={FlowContent}  />
                                     <Route exact path='/'>
-                                        <FormContent formName="Documents" />
+                                        <FormContent formName={this.props.defaultForm ? this.props.defaultForm : "dashboard"} />
                                     </Route>
                                     <Route nomatch render={() => {
                                         //Hack for back button
@@ -74,11 +74,11 @@ class App extends React.Component {
                     </Provider>
                 </div>
             </div>
-            <DWKitForm {...sectorprops} formName="footer" modelurl="/ui/form/footer" />
+            <DWKitForm {...sectorprops} className="dwkit-footer" formName="footer" modelurl="/ui/form/footer" />
         </div>;
     }
 
-    onFetchStarted(){
+    onFetchStarted() {
         Pace.start();
         $('body').loadingModal({
             text: 'Loading...',
@@ -86,18 +86,19 @@ class App extends React.Component {
             backgroundColor: '#1262E2'});
     }
 
-    onFetchFinished(){
+    onFetchFinished() {
         Pace.stop();
         $('body').loadingModal('destroy');
     }
 
-    onRefresh(){
-        this.onFetchStarted();
-        Store.resetForm();
+    onRefresh(reload) {
+        Store.resetForm(reload);
         this.setState({
             pagekey: this.state.pagekey + 1
         });
-        SignalRConnector.Connect(Store);
+        if (reload) {
+            SignalRConnector.Connect(Store);
+        }
     }
 
     actionsFetch(args){
@@ -115,5 +116,6 @@ class App extends React.Component {
 
 SignalRConnector.Connect(Store);
 
-render(<App/>,document.getElementById('content'));
+var contentDiv = document.getElementById('content');
+render(<App defaultForm={contentDiv.getAttribute("data-defaultform")} />, contentDiv);
 

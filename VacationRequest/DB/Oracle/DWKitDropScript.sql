@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for Oracle
-Version: 2.7
+Version: 2.8
 File: DWKitDropScript.sql
 */
 

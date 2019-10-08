@@ -26,10 +26,10 @@ namespace OptimaJet.DWKit.Application
         private static WorkflowRuntime InitWorkflowRuntime()
         {
             var runtime = DWKitRuntime.CreateWorkflowRuntime()
-               .WithActionProvider(ActionProvider ?? new ActionProvider())
-               .WithRuleProvider(RuleProvider ?? new RuleProvider())
-               .WithTimerManager(TimerManager ?? new TimerManager());
-
+                .WithActionProvider(ActionProvider  ?? new ActionProvider())
+                .WithRuleProvider(RuleProvider ?? new RuleProvider())
+                .WithTimerManager(TimerManager ?? new TimerManager());
+            
             //events subscription
             runtime.ProcessActivityChanged +=  (sender, args) => {  ActivityChanged(args, runtime).Wait(); };
             runtime.ProcessStatusChanged += (sender, args) => { };
@@ -73,9 +73,8 @@ namespace OptimaJet.DWKit.Application
             //TODO If you have planned to use Code Actions functionality that required references to external assemblies you have to register them here
             //runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(SomeTypeFromMyAssembly)));
             runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(DynamicEntity)));
-
             //starts the WorkflowRuntime
-            //TODO If you have planned use Timers the best way to start WorkflowRuntime is somwhere outside of this function in Global.asax for example
+            //TODO If you have planned use Timers the best way to start WorkflowRuntime is somewhere outside of this function in Global.asax for example
             runtime.Start();
 
             return runtime;
@@ -119,15 +118,15 @@ namespace OptimaJet.DWKit.Application
 
             userIdsForNotification.AddRange(newInboxes.Select(a => (string) (a as dynamic).IdentityId));
 
+            var inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowInbox");
             using (var shared = new SharedTransaction())
             {
                 await shared.BeginTransactionAsync();
                 
-                var inboxModel = await MetadataToModelConverter.GetEntityModelByModelAsync("WorkflowInbox");
-                var existingInboxes = (await inboxModel.GetAsync(Filter.And.Equal(args.ProcessId, "ProcessId")));
-                userIdsForNotification.AddRange(existingInboxes.Select(a => (string) (a as dynamic).IdentityId));
-                var existingInboxesIds = existingInboxes.Select(i => i.GetId()).ToList();
-                await inboxModel.DeleteAsync(existingInboxesIds);
+                var existingInbox = (await inboxModel.GetAsync(Filter.And.Equal(args.ProcessId, "ProcessId")));
+                userIdsForNotification.AddRange(existingInbox.Select(a => (string) (a as dynamic).IdentityId));
+                var existingInboxIds = existingInbox.Select(i => i.GetId()).ToList();
+                await inboxModel.DeleteAsync(existingInboxIds);
                 await inboxModel.InsertAsync(newInboxes);
                 
                 await shared.CommitAsync();
@@ -142,5 +141,6 @@ namespace OptimaJet.DWKit.Application
         {
             var r = Runtime;
         }
+
     }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "Profile",
+  "lastUpdate": "2019-10-01T15:29:21.284885+03:00",
+  "dataUrl": "/account/profile",
+  "dataSourceType": "url",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [],
+  "dataColl": [],
+  "actionHandlers": []
+}

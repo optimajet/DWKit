@@ -1,0 +1,54 @@
+[
+  {
+    "key": "sidebar_menu",
+    "data-buildertype": "menu",
+    "items": [
+      {
+        "title": "Dashboard",
+        "children": [],
+        "target": "/"
+      },
+      {
+        "__id": "CLIENT_0b6f5f70-d419-11e9-85f8-558ec4aa654b",
+        "target": "/form/profile",
+        "title": "Profile"
+      },
+      {
+        "title": "Admin Panel",
+        "target": "/admin"
+      }
+    ],
+    "style-customcss": "dwkit-sidebar huge",
+    "vertical": true,
+    "link": true,
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "sidebar-btn",
+    "data-buildertype": "button",
+    "content": "",
+    "style-customcss": "dwkit-sidebar-btn",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "sidebarclick"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "icon": "",
+    "style-adaptive": true,
+    "style-renderwhen": "mobile"
+  }
+]

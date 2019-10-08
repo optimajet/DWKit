@@ -17,10 +17,6 @@ div.field > label {
     color: #1362E2;
 }
 
-.dwkit-workflowbar{
-    padding-bottom: 10px;
-}
-
 .dwkit-workflowbar .setstate{
     margin-right: 5px;
     display: inline-block;
@@ -170,124 +166,6 @@ div.field > label {
     color: #FFFFFF;
 }
 
-/**
-* Application
-**/
-
-.ui.image.dwkit-application-header-logo img{
-    height: 51px;
-    margin-left: 39px;
-}
-
-.dwkit-application-header{
-    height: 90px;
-}
-
-.dwkit-application-header-left{
-    width: 200px;
-    float: left;
-    margin-top: 20px;
-}
-
-.dwkit-application-header-center {
-    float: left;
-    margin-top: 27px;
-    margin-left: 70px;
-    width: calc(100% - 500px);
-}
-
-.dwkit-application-header-center .ui.fluid.search > .ui.icon.input {
-    width: 100%;
-}
-
-.dwkit-application-header-center .ui.fluid.search > .ui.icon.input > input {
-    border: none;
-    border-bottom-style: solid;
-    border-bottom-color: #F24D00;
-    border-bottom-width: 1px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-left-radius: 0px;
-}
-
-.dwkit-application-header-right{
-    float:right;
-    margin-right: 30px;
-    margin-top: 25px;
-}
-
-.dwkit-application-header .ui.menu{
-    border: none;
-    box-shadow: none;
-    font-size: 12px;
-}
-
-.dwkit-application-header .ui.menu{
-    padding-right: 5px;
-}
-
-.dwkit-application-header .ui.menu:not(.vertical) .item{
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-.dwkit-application-header .ui.menu .item:before{
-    background: none;
-}
-
-.dwkit-application-content{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-.dwkit-application-footer{
-    clear:both;
-    box-shadow: 0 -2px 2px -2px rgba(0,0,0,0.50);
-    color: #6D6D6D;
-    text-align:center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    clear: both;
-}
-
-.dwkit-application-basecontent{
-    min-height: 300px;
-}
-
-.dwkit-application-top{
-    background-image: linear-gradient(-180deg, #F2F2F2 0%, rgba(254,254,254,0.00) 100%);
-    height: 15px;
-    width: 100%;
-}
-
-.dwkit-application-topmenu {
-    background: #F4F4F4;
-    height: 61px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.dwkit-application-topmenu .ui.menu{
-    border: none;
-    box-shadow: none;
-    font-size: 14px;
-    margin-bottom: 10px;
-    background: transparent;
-    padding-top: 10px;
-}
-
-.dwkit-application-topmenu .ui.menu .item {
-    color: #1262E2;
-}
-
-.dwkit-application-topmenu .ui.menu .item:before{
-    background: none;
-}
-
-.dwkit-application-topmenu .ui.selection.dropdown{
-    background: transparent;
-}
-
 .ui.form .disabled.field, .ui.form .disabled.fields .field, .ui.form .field :disabled {
     opacity: 1;
 }
@@ -303,7 +181,7 @@ div.field > label {
 /**
  * alertifyjs 1.11.1 http://alertifyjs.com
  * AlertifyJS is a javascript framework for developing pretty browser dialogs and notifications.
- * Copyright 2018 Mohammad Younes <Mohammad@alertifyjs.com> (http://alertifyjs.com) 
+ * Copyright 2018 Mohammad Younes <Mohammad@alertifyjs.com> (http://alertifyjs.com)
  * Licensed under GPL 3 <https://opensource.org/licenses/gpl-3.0>*/
 .alertify,
 .alertify-show,
@@ -763,7 +641,7 @@ div.filepicker {
       transform: scale(1); } }
   .dropzone, .dropzone * {
     box-sizing: border-box; }
-  
+
     .dropzone.dz-clickable {
       cursor: pointer; }
       .dropzone.dz-clickable * {
@@ -961,7 +839,7 @@ div.filepicker {
         background: #be2626;
         background: linear-gradient(to bottom, #be2626, #a92222);
         padding: 0.5em 1.2em;
-        color: white; 
+        color: white;
         margin-top: 1em;
     }
         .dropzone .dz-preview .dz-error-message:after {
@@ -973,7 +851,7 @@ div.filepicker {
           height: 0;
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
-          border-bottom: 6px solid #be2626; 
+          border-bottom: 6px solid #be2626;
         }
 
 
@@ -1870,6 +1748,20 @@ div.filepicker {
     padding: 0;
 }
 
+.slide-pane_from_left .slide-pane__header {
+    margin-left: unset!important;
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    left: calc(100% + 25px)
+}
+
+.slide-pane_from_left .slide-pane__close {
+    margin-left: unset!important;
+}
+
 
 .slide-pane__content {
     position: relative;
@@ -1881,3 +1773,632 @@ div.filepicker {
 .last-pane-overlay {
     z-index: 1500
 }
+
+
+/* Login page */
+.dwkit-login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .dwkit-login-wrapper .dwkit-login {
+        padding: 55px 90px 150px;
+        background: #FFFFFF;
+        -webkit-box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+        box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+        border-radius: 5px;
+        width: 600px;
+        max-width: 95%;
+    }
+
+@media only screen and (max-width: 620px) {
+    .dwkit-login-wrapper .dwkit-login {
+        width: 90%;
+        height: auto;
+        padding: 30px 40px 40px;
+    }
+}
+
+/* Mobile on not*/
+@media only screen and (min-width: 998px) {
+    .dwkit-mobile {
+        display: none!important;
+    }
+}
+
+@media only screen and (max-width: 997px) {
+    .dwkit-notmobile {
+        display: none!important;
+    }
+}
+
+/* Main page */
+.dwkit-container {
+    position: relative;
+    min-height: calc(100vh - 90px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Main page Header */
+
+.dwkit-header {
+    background: #fff;
+    height: 90px;
+    padding: 12px 39px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+}
+
+.dwkit-header-logo.ui.image img {
+    height: 51px;
+}
+
+.dwkit-header .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.dwkit-header .user .user-image {
+    margin-right: 22px;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.dwkit-header .user .ui.dropdown .menu {
+    padding: 15px 0;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    border-radius: 5px;
+    border: none;
+    min-width: 150px;
+}
+
+.dwkit-header .user .ui.dropdown .menu > .item {
+    font-size: 16px;
+    padding: 12px 20px;
+}
+
+.dwkit-header .user .user-text {
+    font-size: 16px;
+    color: #000;
+}
+
+.dwkit-header .user .user-text i.icon {
+    color: #1253CC;
+    font-size: 30px;
+    top: 5px;
+    margin-left: 18px;
+}
+
+.dwkit-header .search {
+    width: 1133px;
+    position: relative;
+    padding-top: 2px;
+    margin-right: 37px;
+}
+
+.dwkit-header .search input {
+    width: 100%;
+    border: none;
+    height: 30px;
+    border-bottom: 1px solid #f24d00;
+}
+
+.dwkit-header .search button {
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+
+/* Main page Sidebar */
+.dwkit-sidebar-btn.ui.button,
+.dwkit-sidebar-btn.ui.button:hover {
+    display: initial;
+    -webkit-transition: .3s;
+    transition: .3s;
+    z-index: 2;
+    width: 41px;
+    height: 41px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    padding: 0;
+    background-color: #1235cc;
+    background-image: url('/images/mobile-sidebar.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 997px) {
+    .dwkit-sidebar-btn.ui.button,
+    .dwkit-sidebar-btn.ui.button:hover {
+        position: fixed;
+        left: 0;
+        top: 40px;
+    }
+
+    .dwkit-sidebar-btn.ui.button.active {
+        left: 250px;
+    }
+}
+
+.dwkit-sidebar-container {
+    width: 250px;
+    background: #1262E2;
+    margin-right: 15px;
+    -webkit-box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    position: relative;
+    min-height: calc(100vh - 90px);
+}
+
+@media only screen and (max-width: 997px)
+{
+    .dwkit-sidebar-container {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        -webkit-transition: .3s;
+        transition: .3s;
+        height: 100vh;
+        left: 0;
+    }
+
+    .dwkit-sidebar-container:not(.active) {
+        left: -250px;
+    }
+}
+
+.dwkit-sidebar.ui.vertical.menu {
+    border: none;
+    background: transparent;
+    font-family: 'Lato', 'sans-serif';
+    box-shadow: none;
+    background: transparent;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 190px;
+    margin-top: 15px;
+}
+
+.dwkit-sidebar.ui.vertical.menu > .item {
+    color: white;
+    font-weight: 400;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255,255,255,0.40);
+}
+
+.dwkit-sidebar.ui.vertical.menu .item > .menu > .item {
+    color: rgba(255,255,255,0.80);
+}
+
+.dwkit-sidebar.ui.vertical.menu .item > .menu > .item:hover,
+.dwkit-sidebar.ui.vertical.menu .item > .menu > .active.item:hover {
+    color: white;
+}
+
+.dwkit-sidebar.ui.vertical.menu .item > .menu > .active.item {
+    color: white;
+}
+
+.dwkit-sidebar.ui.vertical.menu > .item:last-child {
+    border-bottom-style: none;
+}
+
+.dwkit-sidebar.ui.vertical.menu .item > .header:not(.ui) {
+    font-weight: 400;
+}
+
+.dwkit-sidebar.ui.vertical.menu > .item:hover {
+    background: transparent !important;
+    color: white;
+    border-bottom-color: white;
+}
+
+.dwkit-sidebar.ui.vertical.menu > .active.item:hover {
+    background: transparent !important;
+    color: white;
+}
+
+.dwkit-sidebar.ui.vertical.menu > .active.item {
+    font-weight: bold;
+    background: transparent;
+}
+
+.dwkit-sidebar-employee {
+    margin: 15px;
+    border-top: 1px solid white;
+    padding-top: 15px;
+}
+
+.dwkit-sidebar-employee > span {
+    color: lightgoldenrodyellow;
+}
+
+/* Main page Content */
+.dwkit-container .dwkit-content {
+    padding-top: 20px;
+}
+
+@media only screen and (min-width: 998px) {
+    .dwkit-container .dwkit-content {
+        width: calc(100% - 280px);
+    }
+}
+
+@media only screen and (max-width: 997px){
+    .dwkit-container .dwkit-content {
+        width: 100%;
+        padding: 20px 10px;
+    }
+}
+
+/* Forms */
+
+.dwkit-blocks {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.dwkit-blocks .dwkit-block {
+    -webkit-box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: 1106px;
+    padding: 25px 40px;
+}
+
+@media only screen and (max-width: 997px) {
+    .dwkit-blocks .dwkit-block {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 0 20px;
+    }
+
+    .dwkit-block .dwkit-block-name{
+        width:100%;
+    }
+}
+
+.dwkit-block .dwkit-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dwkit-block .dwkit-block-title {
+    text-align: center;
+    font-size: 14px;
+    line-height: 19px;
+    color: #828282;
+    margin-bottom: 16px;
+}
+
+.dwkit-block .dwkit-block-title p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.dwkit-block .dwkit-block-image {
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: #C4C4C4;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.dwkit-block .dwkit-block-name {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: #333;
+    width: 153px;
+    margin: 0 auto 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.dwkit-block .dwkit-block-info {
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.dwkit-block .dwkit-block-info p {
+    margin-bottom: 2px;
+}
+
+.dwkit-block .dwkit-block-info span {
+    font-weight: 700;
+}
+
+
+.dwkit-cards .btn {
+    padding: 11px 22px;
+    border-color: #4286F4;
+    color: #4286F4;
+}
+
+.container .content .dwkit-cards .btn.filled-btn {
+    color: #fff;
+    border-color: #4286F4;
+    background: #4286F4;
+}
+
+.dwkit-cards .dwkit-card {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #4286F4;
+}
+
+.dwkit-cards .slick-list {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-header {
+    height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #4286F4;
+    padding: 0 10px 0 22px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-header .controls a {
+    margin-left: 15px;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 0 9px 15px 0;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-buttons .btn {
+    margin: 0 0 0 20px;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-body {
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-body .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-body .key {
+    font-size: 14px;
+    font-weight: 700;
+    color: #4f4f4f;
+    padding-left: 10px;
+    width: 55%;
+}
+
+.dwkit-cards .dwkit-card .dwkit-card-body .value {
+    width: 45%;
+    font-size: 14px;
+    color: #333333;
+}
+
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.primary,
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.primary:active {
+    color: #fff;
+    border-color: #4286F4;
+    background: #4286F4;
+}
+
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.primary:hover {
+    background: #4277f4;
+}
+
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.secondary,
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.secondary:active {
+    padding: 11px 22px;
+    border-color: #4286F4;
+    color: #4286F4;
+}
+
+.dwkit-card > :not(.dwkit-workflowbar-items) > .ui.button.secondary:hover {
+    background: #4286F4;
+    color: #FFFFFF;
+}
+
+.dwkit-card-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 0 9px 31px 0;
+}
+
+/**
+* Application DEPRICATED!!!
+**/
+
+/*.ui.image.dwkit-application-header-logo img {
+    height: 51px;
+    margin-left: 39px;
+}
+
+.dwkit-application-header-left {
+    width: 200px;
+    float: left;
+    margin-top: 20px;
+}
+
+.dwkit-application-header-center {
+    float: left;
+    margin-top: 27px;
+    margin-left: 70px;
+    width: calc(100% - 500px);
+}
+
+    .dwkit-application-header-center .ui.fluid.search > .ui.icon.input {
+        width: 100%;
+    }
+
+        .dwkit-application-header-center .ui.fluid.search > .ui.icon.input > input {
+            border: none;
+            border-bottom-style: solid;
+            border-bottom-color: #F24D00;
+            border-bottom-width: 1px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+
+.dwkit-application-header-right {
+    float: right;
+    margin-right: 30px;
+    margin-top: 25px;
+}
+
+.dwkit-application-header .ui.menu {
+    border: none;
+    box-shadow: none;
+    font-size: 12px;
+}
+
+.dwkit-application-header .ui.menu {
+    padding-right: 5px;
+}
+
+    .dwkit-application-header .ui.menu:not(.vertical) .item {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .dwkit-application-header .ui.menu .item:before {
+        background: none;
+    }
+
+.dwkit-application-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.dwkit-application-footer {
+    clear: both;
+    box-shadow: 0 -2px 2px -2px rgba(0,0,0,0.50);
+    color: #6D6D6D;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    clear: both;
+}
+
+.dwkit-application-basecontent {
+    min-height: 300px;
+}
+
+.dwkit-application-top {
+    background-image: linear-gradient(-180deg, #F2F2F2 0%, rgba(254,254,254,0.00) 100%);
+    height: 15px;
+    width: 100%;
+}
+
+.dwkit-application-topmenu {
+    background: #F4F4F4;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+    .dwkit-application-topmenu .ui.menu {
+        border: none;
+        box-shadow: none;
+        font-size: 14px;
+        margin-bottom: 10px;
+        background: transparent;
+        padding-top: 10px;
+    }
+
+        .dwkit-application-topmenu .ui.menu .item {
+            color: #1262E2;
+        }
+
+            .dwkit-application-topmenu .ui.menu .item:before {
+                background: none;
+            }
+
+    .dwkit-application-topmenu .ui.selection.dropdown {
+        background: transparent;
+    }*/

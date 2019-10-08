@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for PostgreSQL
-Version: 2.7
+Version: 2.8
 File: DWKitScript.sql
 */
 
@@ -96,7 +96,8 @@ CREATE TABLE IF NOT EXISTS "dwSecurityUser"(
 	"DecimalSeparator" char(1) NULL,
 	"PageSize" integer NULL,
 	"StartPage" varchar(256) NULL,
-	"IsRTL" boolean NULL DEFAULT 0::boolean
+	"IsRTL" boolean NOT NULL DEFAULT 0::boolean,
+	"Theme" varchar(256) NULL
 );
 
 CREATE TABLE IF NOT EXISTS "dwSecurityUserState"(
@@ -112,7 +113,8 @@ CREATE TABLE IF NOT EXISTS "dwSecurityCredential"(
 	"PasswordSalt" varchar(128) NULL,
 	"SecurityUserId" uuid NOT NULL REFERENCES "dwSecurityUser" ON DELETE CASCADE,
 	"Login" varchar(256) NOT NULL,
-	"AuthenticationType" smallint NOT NULL
+	"AuthenticationType" smallint NOT NULL,
+    "ExternalProviderName" varchar(128) NULL
 );
 
 CREATE TABLE IF NOT EXISTS "dwSecurityUserImpersonation"(
@@ -125,20 +127,20 @@ CREATE TABLE IF NOT EXISTS "dwSecurityUserImpersonation"(
 
 CREATE TABLE IF NOT EXISTS "dwSecurityUserToSecurityRole"(
 	"Id" uuid NOT NULL PRIMARY KEY,
-	"SecurityRoleId" uuid NOT NULL REFERENCES "dwSecurityRole",
-	"SecurityUserId" uuid NOT NULL REFERENCES "dwSecurityUser"
+	"SecurityRoleId" uuid NOT NULL REFERENCES "dwSecurityRole" ON DELETE CASCADE,
+	"SecurityUserId" uuid NOT NULL REFERENCES "dwSecurityUser" ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "dwSecurityGroupToSecurityRole"(
 	"Id" uuid NOT NULL PRIMARY KEY,
-	"SecurityRoleId" uuid NOT NULL REFERENCES "dwSecurityRole",
-	"SecurityGroupId" uuid NOT NULL REFERENCES "dwSecurityGroup"
+	"SecurityRoleId" uuid NOT NULL REFERENCES "dwSecurityRole" ON DELETE CASCADE,
+	"SecurityGroupId" uuid NOT NULL REFERENCES "dwSecurityGroup" ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "dwSecurityGroupToSecurityUser"(
 	"Id" uuid NOT NULL PRIMARY KEY,
-	"SecurityUserId" uuid NOT NULL REFERENCES "dwSecurityUser",
-	"SecurityGroupId" uuid NOT NULL REFERENCES "dwSecurityGroup"
+	"SecurityUserId" uuid NOT NULL REFERENCES "dwSecurityUser" ON DELETE CASCADE,
+	"SecurityGroupId" uuid NOT NULL REFERENCES "dwSecurityGroup" ON DELETE CASCADE
 );
 
 

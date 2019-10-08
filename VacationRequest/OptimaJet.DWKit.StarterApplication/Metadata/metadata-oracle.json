@@ -52,7 +52,7 @@
           "name": "Number",
           "type": "Int64",
           "typeId": 0,
-          "isNullable": false,
+          "isNullable": true,
           "isVirtual": false,
           "isCalculated": true,
           "isExtension": false
@@ -869,5 +869,12 @@
     }
   ],
   "businessFlow": [],
-  "modules": []
+  "modules": [],
+  "settings": [
+    {
+      "name": "DefaultForm",
+      "value": "Documents"
+    }
+  ],
+  "commandForms": []
 }

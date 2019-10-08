@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Specialized;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,7 +15,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     public class ConfigAPIController : Controller
     {   
         private IHostingEnvironment _env;
-        private IConfigurationRoot _configuration;
+        private readonly IConfigurationRoot _configuration;
+
         public ConfigAPIController(IHostingEnvironment env)
         {
             _env = env;
@@ -38,8 +39,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
             return View("Admin");
         }
-        
+
         [Route("ConfigAPI")]
+       // [Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
         public async Task<ActionResult> API()
         {
             if (!CheckAccess())

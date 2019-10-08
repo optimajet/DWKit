@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,10 +13,10 @@ namespace OptimaJet.DWKit.Application
     {
         #region IServerActionsProvider implementation
 
-        private Dictionary<string, Func<EntityModel, List<dynamic>, TriggerExecutionContext, dynamic, TriggerResult>> _triggers
-            = new Dictionary<string, Func<EntityModel, List<dynamic>, TriggerExecutionContext, dynamic, TriggerResult>>();
+        private Dictionary<string, Func<EntityModel, List<dynamic>, TriggerExecutionContext, dynamic,  TriggerResult>> _triggers
+            = new Dictionary<string, Func<EntityModel, List<dynamic>,TriggerExecutionContext, dynamic,TriggerResult>>();
 
-        private Dictionary<string, Func<EntityModel, List<dynamic>, TriggerExecutionContext, dynamic, Task<TriggerResult>>> _triggersAsync
+        private Dictionary<string, Func<EntityModel, List<dynamic>,TriggerExecutionContext, dynamic, Task<TriggerResult>>> _triggersAsync
             = new Dictionary<string, Func<EntityModel, List<dynamic>,TriggerExecutionContext, dynamic, Task<TriggerResult>>>();
 
         public List<string> GetFilterNames()
@@ -59,7 +59,7 @@ namespace OptimaJet.DWKit.Application
             return _triggersAsync.ContainsKey(name) || _triggers.ContainsKey(name);
         }
 
-        public TriggerResult ExecuteTrigger(string name, EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
+        public TriggerResult ExecuteTrigger(string name, EntityModel model, List<dynamic> entities,TriggerExecutionContext context, dynamic options)
         {
             if (_triggers.ContainsKey(name))
                 return _triggers[name](model, entities,context, options);
@@ -69,7 +69,7 @@ namespace OptimaJet.DWKit.Application
         public Task<TriggerResult> ExecuteTriggerAsync(string name, EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
         {
             if (_triggersAsync.ContainsKey(name))
-                return _triggersAsync[name](model, entities,context, options);
+                return _triggersAsync[name](model, entities, context, options);
             throw new System.NotImplementedException();
         }
 
@@ -93,7 +93,9 @@ namespace OptimaJet.DWKit.Application
             throw new System.NotImplementedException();
         }
 
+#pragma warning disable 1998
         public async Task<dynamic> ExecuteActionAsync(string name, dynamic request)
+#pragma warning restore 1998
         {
             throw new System.NotImplementedException();
         }
@@ -105,7 +107,7 @@ namespace OptimaJet.DWKit.Application
             _triggersAsync.Add("initDocument", InitDocument);
         }
 
-        public async Task<TriggerResult> InitDocument(EntityModel model, List<dynamic> entities,TriggerExecutionContext context, dynamic options)
+        public async Task<TriggerResult> InitDocument(EntityModel model, List<dynamic> entities, TriggerExecutionContext context, dynamic options)
         {
             var user = DWKitRuntime.Security.CurrentUser;
             var schemes = DWKitRuntime.Metadata.GetWorkflowByForm(model.Name);
@@ -113,13 +115,13 @@ namespace OptimaJet.DWKit.Application
             {
                 if (entity.Id == null)
                 {
-                    var initialState = schemes == null || schemes.Count == 0 ? 
+                    var initialState = schemes.Count == 0 ? 
                         new WorkflowState(){ Name = "", SchemeCode = "", VisibleName = ""} :
                         await WorkflowInit.Runtime.GetInitialStateAsync(schemes[0]);
                     entity.AuthorId = user.GetOperationUserId();
-                    entity.author = user.GetOperationUserName();
+                    entity.AuthorId_Name = user.GetOperationUserName();
                     entity.State = initialState.Name;
-                    entity.stateName = initialState.VisibleName;
+                    entity.StateName = initialState.VisibleName;
                 }
             }
             return TriggerResult.Success();

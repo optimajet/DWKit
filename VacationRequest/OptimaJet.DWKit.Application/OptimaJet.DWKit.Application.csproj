@@ -21,7 +21,7 @@
     <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.8.0" />
     <PackageReference Include="DWKit-ProviderForOracle" Version="2.8.0" />
     <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.8.0" />
-    <PackageReference Include="DWKit-Security" Version="2.8.0" />
+    <PackageReference Include="DWKit-Security" Version="2.8.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />

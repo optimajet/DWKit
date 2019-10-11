@@ -33,7 +33,7 @@
     <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.0.9" />
     <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.8.0" />
     <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.8.0" />
-    <PackageReference Include="DWKit-Security" Version="2.8.0" />
+    <PackageReference Include="DWKit-Security" Version="2.8.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />

@@ -62,6 +62,10 @@ class App extends React.Component {
                                     <Route exact path='/'>
                                         <FormContent formName={this.props.defaultForm ? this.props.defaultForm : "dashboard"} />
                                     </Route>
+                                    <Route path='/account/logoff' render={() => {
+                                        Store.logoff();
+                                        return null;
+                                    }} />
                                     <Route nomatch render={() => {
                                         //Hack for back button
                                         let url = window.location.href;

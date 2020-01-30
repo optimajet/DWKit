@@ -1,0 +1,51 @@
+{
+    "defaultLocale": "en",
+    "langs": [
+        {
+            "name": "English",
+            "locale": "en",
+            "flag":"us",
+            "scripts": ["workflowdesigner.localization_en.js", "dwkitadmin.localization_en.js"]
+        },
+        {
+            "name": "French",
+            "locale": "fr",
+            "scripts": ["workflowdesigner.localization_fr.js", "dwkitadmin.localization_fr.js"]
+        },
+        {
+            "name": "Germany",
+            "locale": "de",
+            "scripts": ["workflowdesigner.localization_de.js", "dwkitadmin.localization_de.js"]
+        },
+        {
+            "name": "Italian",
+            "locale": "it",
+            "scripts": ["workflowdesigner.localization_it.js", "dwkitadmin.localization_it.js"]
+        },
+        {
+            "name": "Portuguese",
+            "locale": "pt",
+            "scripts": ["workflowdesigner.localization_pt.js", "dwkitadmin.localization_pt.js"]
+        },
+        {
+            "name": "Russian",
+            "locale": "ru",
+            "scripts": ["workflowdesigner.localization_ru.js", "dwkitadmin.localization_ru.js"]
+        },
+        {
+            "name": "Spanish",
+            "locale": "es",
+            "scripts": ["workflowdesigner.localization_es.js", "dwkitadmin.localization_es.js"]
+        },
+        {
+            "name": "Turkish",
+            "locale": "tr",
+            "scripts": ["workflowdesigner.localization_tr.js", "dwkitadmin.localization_tr.js"]
+        },
+        {
+            "name": "Persian",
+            "locale": "ir",
+            "scripts": ["dwkitadmin.localization_fa.js"]
+        }
+    ]
+}

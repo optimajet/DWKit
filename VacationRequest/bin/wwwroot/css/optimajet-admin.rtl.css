@@ -1,0 +1,112 @@
+html{
+    direction: rtl;
+}
+
+.dwkit-formadmin-header-logo {
+    margin-right: 39px;
+    margin-left: unset!important;
+}
+
+.dwkit-formadmin-header-left {
+    float: right!important;
+}
+
+.dwkit-formadmin-header-center {
+    float: right!important;
+    margin-right: 70px;
+    margin-left: unset!important;
+}
+
+.dwkit-formadmin-header-right {
+    float: left!important;
+    margin-left: 10px;
+    margin-right: unset!important;
+}
+
+.dwkit-formadmin-dataedit-attributeslider {
+    margin-right: 20px;
+    margin-left: unset;
+}
+
+.dwkit-formadmin-dataedit-attributeheader {
+    float: right!important;
+}
+
+.ui.form .dwkit-formadmin-mapattributes {
+    margin-right: 25px;
+    margin-left: unset!important;
+}
+
+.dwkit-formadmin-mapattributes .dwkit-formadmin-imgbuttondiv {
+    margin-right: -15px;
+    margin-left: unset!important;
+}
+
+.dwkit-formmapping-collection-row .dwkit-formadmin-imgbuttondiv {
+    margin-right: -15px;
+    margin-left: unset!important;
+}
+
+.dwkit-formadmin-imgbuttondiv {
+    margin-right: 7px!important;
+}
+
+.dwkit-admin-form-buttons .dwkit-formbuilder-selector {
+    margin-left: 20px;
+    float: right!important;
+    top: 8px;
+    position: relative;
+}
+
+.dwkit-admin-form-buttons div {
+    float: left!important;
+}
+
+.dwkit-formbuilder-selector > div.checkbox {
+    margin-top: unset;
+}
+
+.dwkit-admin-formheader-breadcrumb {
+    float: right!important;
+    margin-left: 20px;
+    margin-right: unset;
+}
+
+.dwkit-formbuilder-toolbox > ul > li span {
+    float: left;
+}
+
+.dwkit-formbuilder-toolbox > ul > li.dwkit-formbuilder-toolbox-subheader {
+    text-align: right;
+}
+
+.dwkit-admin-resourcelist .list .item .content {
+    margin-right: 10px;
+}
+
+.dwkit-admin-resourcelist i.icon {
+    float: right!important;
+}
+
+.dwkit-admin-resourcelist {
+    float: right!important;
+    margin-left: 5px;
+    margin-right: unset!important;
+    border-left-style: inset;
+    border-right-style: none!important;
+}
+
+.dwkit-admin-resourceupload {
+    float: right!important;
+}
+
+.dwkitadmin-formmapping-left {
+    float: right!important;
+}
+
+.dwkit-formbuilder-editform-controltype{
+    left: 20px;
+    right: unset;
+}
+
+

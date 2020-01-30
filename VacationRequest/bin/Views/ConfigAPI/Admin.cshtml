@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<script src="@Url.Content("~/scripts/konva.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/ace.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/semantic.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/workflowdesigner.min.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("~/css/optimajet-admin.css")" rel="stylesheet" type="text/css" />
+@if (OptimaJet.DWKit.Core.DWKitRuntime.Security?.CurrentUser?.IsRTL == true)
+{
+    <link href="@Url.Content("~/css/optimajet-admin.rtl.css")" rel="stylesheet" type="text/css" />
+}
+
+<link href="@Url.Content("~/css/workflowdesigner.css")" rel="stylesheet" type="text/css" />
+
+<div id="content" class="container"></div>
+<script src="@Url.Content("~/js/vendor.js")"></script>
+<script src="@Url.Content("~/js/admin.js")" type="text/javascript"></script>

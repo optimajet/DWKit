@@ -1,0 +1,117 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Master-Detail View",
+    "size": "medium"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "docs",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "Number",
+            "name": "№",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false,
+            "type": "number",
+            "width": 50
+          },
+          {
+            "__id": "CLIENT_8c7d5210-f1a2-11e9-947b-fb8ef1ae09fe",
+            "key": "Name",
+            "name": "Name",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          }
+        ],
+        "style-width": "300px",
+        "events": {
+          "onRowClick": {
+            "active": true,
+            "actions": [
+              "loadRecord"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "pagerType": "server",
+        "defaultSort": "Number DESC"
+      }
+    ],
+    "style-float": "left",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "DetailHeader",
+                "data-buildertype": "staticcontent",
+                "content": "<h2>Document <a target=\"_blank\" href=\"/form/document/{Id}\">#{Number}</a></h2>",
+                "isHtml": true,
+                "style-marginBottom": ""
+              }
+            ],
+            "style-marginBottom": "10px"
+          },
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "Amount",
+            "data-buildertype": "numberformat",
+            "label": "Amount",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "thousandSeparator": true,
+            "events": {}
+          }
+        ],
+        "style-width": "100%"
+      },
+      {
+        "key": "save",
+        "data-buildertype": "button",
+        "content": "Save",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "validate",
+              "save"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-marginTop": "10px",
+        "primary": true
+      }
+    ],
+    "style-width": "400px",
+    "events": {},
+    "other-visibleConition": "data && data.__id && data.__id.indexOf('CLIENT__') < 0"
+  }
+]

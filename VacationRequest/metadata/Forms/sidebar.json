@@ -1,0 +1,112 @@
+[
+  {
+    "key": "sidebar_menu",
+    "data-buildertype": "menu",
+    "items": [
+      {
+        "title": "Requests",
+        "children": [
+          {
+            "__id": "CLIENT_20e54880-cd91-11e9-8140-f57c7ebdaf84",
+            "title": "All requests <div class=\"ui gray label\">{doccount}</div>",
+            "children": [],
+            "target": "/"
+          },
+          {
+            "__id": "CLIENT_2b6b38f0-cd91-11e9-8140-f57c7ebdaf84",
+            "title": "Inbox <div class=\"ui gray label\">{inbox}</div>",
+            "target": "/form/documents/inbox"
+          },
+          {
+            "__id": "CLIENT_2c27f940-cd91-11e9-8140-f57c7ebdaf84",
+            "title": "Outbox <div class=\"ui gray label\">{outbox}</div>",
+            "target": "/form/documents/outbox"
+          },
+          {
+            "__id": "CLIENT_5dfc9570-f1e5-11e9-b7cf-7d1dd8e2817e",
+            "target": "/form/masterdetail",
+            "title": "Master Detail View"
+          }
+        ],
+        "target": ""
+      },
+      {
+        "__id": "CLIENT_0bd03ec0-e51d-11e9-81f4-b94f3f6e61ff",
+        "target": "/form/profile",
+        "title": "Profile"
+      },
+      {
+        "title": "Admin Panel",
+        "target": "/admin"
+      }
+    ],
+    "style-customcss": "dwkit-sidebar huge",
+    "vertical": true,
+    "link": true,
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "currentEmployeeDiv",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "currentEmployeeLabel",
+        "data-buildertype": "staticcontent",
+        "content": "This sample supports deputy feature. You can change current employee and view documents and execute workflow commands assigned to him.",
+        "isHtml": true,
+        "style-customcss": "dwkit-sidebar-employee-label",
+        "style-marginBottom": "",
+        "style-source": ""
+      },
+      {
+        "key": "currentEmployee",
+        "data-buildertype": "dictionary",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "UserWithRoles",
+        "columns": "Title ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "setCurrentEmployee"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-marginTop": "10px"
+      }
+    ],
+    "style-customcss": "dwkit-sidebar-employee"
+  },
+  {
+    "key": "sidebar-btn",
+    "data-buildertype": "button",
+    "content": "",
+    "style-customcss": "dwkit-sidebar-btn",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "sidebarclick"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "icon": "",
+    "style-adaptive": true,
+    "style-renderwhen": "mobile"
+  }
+]

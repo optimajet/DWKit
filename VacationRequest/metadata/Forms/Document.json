@@ -1,0 +1,440 @@
+[
+  {
+    "key": "breadcrumb_1",
+    "data-buildertype": "breadcrumb",
+    "items": [
+      {
+        "text": "Requests",
+        "url": "/"
+      },
+      {
+        "divider": "right angle",
+        "text": "{Number}",
+        "url": "/form/document/{Id}",
+        "active": true
+      }
+    ],
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ]
+      }
+    },
+    "style-marginBottom": "15px"
+  },
+  {
+    "key": "blocks",
+    "data-buildertype": "container",
+    "style-customcss": "dwkit-blocks",
+    "children": [
+      {
+        "key": "infoblock",
+        "data-buildertype": "container",
+        "style-customcss": "dwkit-block",
+        "children": [
+          {
+            "key": "staticcontent_1",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"dwkit-block-title\">{State}</div>\n<div class=\"dwkit-block-image\"><img src=\"/images/user.png\" alt title></div>\n<div class=\"dwkit-block-name\">{Name}</div>\n<div class=\"dwkit-block-info\">\n\t<p><span>Author:</span> {AuthorId_Name}</p>\n\t<p><span>Amount:</span> {Amount:0,000.00}</p>\n</div>",
+            "isHtml": true
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "workflowbar",
+                "data-buildertype": "workflowbar",
+                "events": {
+                  "onCommandClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "workflowShowCommandForm",
+                      "save",
+                      "workflowExecuteCommand",
+                      "refresh"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  },
+                  "onSetStateClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "save",
+                      "workflowSetState",
+                      "refresh"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  },
+                  "onSelectWorkflowScheme": {
+                    "active": true,
+                    "actions": [
+                      "selectWorkflowScheme"
+                    ]
+                  },
+                  "onSchemeSelected": {
+                    "active": true,
+                    "actions": [
+                      "workflowSelectScheme"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "blockSetState": true,
+                "style-marginTop": "10px",
+                "style-marginBottom": "10px",
+                "style-customcss": "",
+                "blockSelectScheme": false,
+                "blockLoadParameters": false
+              }
+            ],
+            "style-display": "flex",
+            "style-display-horizontalalign": "center"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnOpenWorkflow",
+                "data-buildertype": "button",
+                "content": "Open Workflow Designer",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "openworkflowdesginer"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-marginBottom": "",
+                "other-visibleConition": "data.Id ? true : false"
+              }
+            ],
+            "style-customcss": "dwkit-buttons",
+            "style-marginBottom": "",
+            "style-marginTop": "20px",
+            "style-adaptive": true,
+            "style-renderwhen": "desktop"
+          }
+        ],
+        "style-width": "300px"
+      },
+      {
+        "key": "mainblock",
+        "data-buildertype": "container",
+        "style-customcss": "dwkit-block",
+        "children": [
+          {
+            "key": "header_3",
+            "data-buildertype": "header",
+            "content": "",
+            "size": "small",
+            "subheader": "GENERAL"
+          },
+          {
+            "key": "form",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "Name",
+                "data-buildertype": "input",
+                "label": "Name",
+                "fluid": true,
+                "other-required": true,
+                "other-customValidation": "",
+                "defaultValue": "",
+                "other-visibleConition": "",
+                "other-readOnlyConition": "",
+                "events": {}
+              },
+              {
+                "key": "Date",
+                "data-buildertype": "input",
+                "label": "Date",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime"
+              },
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "ManagerId",
+                    "data-buildertype": "dictionary",
+                    "label": "Manager",
+                    "fluid": true,
+                    "selection": true,
+                    "dataModel": "dwSecurityUser",
+                    "columns": "Name ASC, Email",
+                    "other-required": true,
+                    "search": true,
+                    "text": "data.Name "
+                  },
+                  {
+                    "key": "ManagerId_Email",
+                    "data-buildertype": "input",
+                    "label": "Manager's Email",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-readOnlyConition": "true"
+                  }
+                ]
+              },
+              {
+                "key": "Amount",
+                "data-buildertype": "input",
+                "label": "Money amount (Must be more 0!)",
+                "fluid": true,
+                "type": "number",
+                "other-required": true,
+                "other-customValidation": "value > 0 ? true : \"Must be more 0\"",
+                "defaultValue": "",
+                "events": {}
+              },
+              {
+                "key": "Comment",
+                "data-buildertype": "textarea",
+                "label": "Comment",
+                "fluid": true,
+                "rows": "4"
+              },
+              {
+                "key": "container_1",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "save",
+                    "data-buildertype": "button",
+                    "content": "Save",
+                    "primary": true,
+                    "events-onClick": true,
+                    "events-onClick-actions": [
+                      "save"
+                    ],
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validate",
+                          "save",
+                          "refresh"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "saveexit",
+                    "data-buildertype": "button",
+                    "content": "Save & Exit",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validate",
+                          "save",
+                          "exit"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ],
+                "style-customcss": "",
+                "style-display": "flex",
+                "style-display-horizontalalign": "center"
+              }
+            ],
+            "other-readOnlyConition": ""
+          }
+        ],
+        "style-width": "500px"
+      },
+      {
+        "key": "history",
+        "data-buildertype": "container",
+        "style-customcss": "dwkit-block",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "",
+            "size": "small",
+            "subheader": "APPROVAL HISTORY"
+          },
+          {
+            "key": "workflowbar_setState",
+            "data-buildertype": "workflowbar",
+            "blockSetState": false,
+            "events": {
+              "onCommandClick": {
+                "active": false,
+                "actions": [
+                  "workflowExecuteCommand"
+                ],
+                "targets": [],
+                "parameters": []
+              },
+              "onSetStateClick": {
+                "active": true,
+                "actions": [
+                  "validate",
+                  "save",
+                  "workflowSetState",
+                  "refresh"
+                ],
+                "targets": [],
+                "parameters": []
+              },
+              "onSelectWorkflowScheme": {
+                "active": true,
+                "actions": [
+                  "selectWorkflowScheme"
+                ]
+              }
+            },
+            "blockCommands": true,
+            "blockLoadParameters": false,
+            "style-marginBottom": "10px",
+            "blockSelectScheme": true
+          },
+          {
+            "key": "gridHistory",
+            "data-buildertype": "gridview",
+            "columns": [
+              {
+                "key": "InitialState",
+                "name": "From",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": ""
+              },
+              {
+                "key": "ToDestinationState",
+                "name": "To",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": null
+              },
+              {
+                "key": "Command",
+                "name": "Command",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": null
+              },
+              {
+                "key": "ApproverName",
+                "name": "Executor",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": null
+              },
+              {
+                "__id": "CLIENT_621b11f0-3e92-11ea-95fa-1f378ce6811f",
+                "key": "Comment",
+                "name": "Comment",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false
+              },
+              {
+                "key": "TransitionTime",
+                "name": "Date",
+                "type": "datetime",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": 130
+              },
+              {
+                "name": "Availiable for",
+                "key": "AllowedToIdentityNames",
+                "sortable": false,
+                "filterable": false,
+                "resizable": false,
+                "width": null
+              }
+            ],
+            "rowKey": "Id",
+            "disableSort": true,
+            "autoHeight": true,
+            "resizecolumns": true,
+            "events": {},
+            "minHeight": "150px",
+            "offSet": "620px",
+            "defaultSort": "Order ASC",
+            "style-adaptive": true,
+            "style-renderwhen": "desktop",
+            "propertyName": "EntityTransitionHistory"
+          },
+          {
+            "key": "gridHistoryMobile",
+            "data-buildertype": "repeater",
+            "style-adaptive": true,
+            "style-renderwhen": "mobile",
+            "propertyName": "EntityTransitionHistory",
+            "placeholders": {
+              "template": [
+                {
+                  "key": "card",
+                  "data-buildertype": "container",
+                  "style-customcss": "dwkit-card",
+                  "children": [
+                    {
+                      "key": "header",
+                      "data-buildertype": "container",
+                      "style-customcss": "dwkit-card-header",
+                      "children": [
+                        {
+                          "key": "header-text",
+                          "data-buildertype": "staticcontent",
+                          "content": "{row.InitialState} -> {row.DestinationState}"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "body",
+                      "data-buildertype": "container",
+                      "style-customcss": "dwkit-card-body",
+                      "children": [
+                        {
+                          "key": "body-text",
+                          "data-buildertype": "staticcontent",
+                          "content": "<div class=\"row\">\n\t<div class=\"key\">Command</div>\n\t<div class=\"value\">{row.Command}</div>\n</div>\n<div class=\"row\">\n\t<div class=\"key\">Executor</div>\n\t<div class=\"value\">{row.ApproverName} {row.Comment}</div>\n</div>\n<div class=\"row\">\n\t<div class=\"key\">Date</div>\n\t<div class=\"value\">{row.TransitionTime:DD.MM.YYYY HH:mm:ss}</div>\n</div>\n<div class=\"row\">\n\t<div class=\"key\">Avaliable for</div>\n\t<div class=\"value\">{row.AllowedToIdentityNames}</div>\n</div>",
+                          "isHtml": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "slider": true,
+            "style-customcss": "dwkit-cards",
+            "defaultSort": "Order ASC"
+          }
+        ],
+        "style-width": "100%"
+      }
+    ]
+  }
+]

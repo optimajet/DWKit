@@ -1,0 +1,923 @@
+.dwkit-formadmin-container{
+    min-width: 800px;
+}
+/* Header */
+.dwkit-formadmin-header-logo{
+    height: 51px;
+    margin-left: 39px;
+    cursor: pointer;
+}
+
+.dwkit-formadmin-header{
+    height: 90px;
+}
+
+.dwkit-formadmin-header-left{
+    width: 200px;
+    float: left;
+    margin-top: 18px;
+}
+
+.dwkit-formadmin-header-center{
+    float: left;
+    margin-top: 27px;
+    margin-left: 70px;
+    width: calc(100% - 600px);
+    min-width: 100px;
+}
+
+.dwkit-formadmin-header-center .ui.fluid.search > .ui.icon.input{
+    width: 100%;
+}
+
+.dwkit-formadmin-header-center .ui.fluid.search > .ui.icon.input > input{
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-color: #F24D00;
+    border-bottom-width: 1px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+.dwkit-formadmin-header-right{
+    float:right;
+    margin-top: 27px;
+    margin-right: 10px;
+}
+
+.dwkit-formadmin-header-right .localization{
+    display: inline-block;
+}
+.dwkit-formadmin-header-right .localization .ui.selection.dropdown{
+    min-width: 150px;
+}
+
+.dwkit-formadmin-header-right .username{
+    color: #475662;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Menu */
+.dwkit-formadmin-menu{
+    /* width: 250px; */
+    float: left;
+    background-color: #1262E2;
+    /* height: 300px;
+    min-height: calc(100vh - 90px);
+    overflow-y: auto;  */
+}
+
+.ui.menu{
+    border: none;
+}
+
+.dwkit-formadmin-menu > .ui.vertical.menu > .item{
+    color: white;
+}
+
+.dwkit-formadmin-menu .ui.vertical.menu .item > .menu > .item{
+    color: rgba(255,255,255,0.80);
+}
+
+.dwkit-formadmin-menu .ui.vertical.menu .item > .menu > .item:hover, 
+    .dwkit-formadmin-menu .ui.vertical.menu .item > .menu > .active.item:hover{
+    color: white;
+}
+
+.dwkit-formadmin-menu .ui.vertical.menu .item > .menu > .active.item{
+    color: white;
+}
+
+.dwkit-formadmin-menu > .ui.vertical.menu{
+    background: transparent;
+}
+
+.dwkit-formadmin-menu .ui.menu { 
+    font-family: 'Lato', 'sans-serif';
+    box-shadow: none;
+    background: transparent;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.dwkit-formadmin-menu .ui.vertical.menu {
+    width: 190px;
+    margin-top: 15px;
+}
+
+.dwkit-formadmin-menu .ui.menu > .item:last-child { 
+    border-bottom-style: none;
+}
+
+.dwkit-formadmin-menu .ui.menu > .item { 
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255,255,255,0.40);
+}
+
+.dwkit-formadmin-menu .ui.menu > .item:hover { 
+    background: transparent!important;
+    color: white;
+    border-bottom-color: white;
+}
+
+.dwkit-formadmin-menu .ui.menu > .active.item:hover { 
+    background: transparent!important;
+    color: white;
+}
+
+.dwkit-formadmin-menu .ui.menu > .active.item { 
+    font-weight: bold;
+    background: transparent;
+}
+
+.dwkit-formadmin {
+    display: flex; 
+    align-items: stretch;
+    min-height: calc(100% - 50px);
+}
+
+/* Content */
+.dwkit-formadmin-basecontent{
+    width: calc(100% - 250px);
+    float: right;
+    /* background-color: #F9F9F9; */
+    /* height: 300px; */
+    min-height: calc(100vh - 100px);
+}
+
+.dwkit-formadmin-top{
+    background-image: linear-gradient(-180deg, #F2F2F2 0%, rgba(254,254,254,0.00) 100%);
+    height: 15px;
+    width: 100%;
+}
+
+.dwkit-formadmin-content{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.dwkit-formadmin-content h1{
+    color: #1362E2;
+    font-weight: normal;
+}
+
+.dwkit-formadmin-content h2{
+    color: #1362E2;
+    font-weight: normal;
+}
+
+.dwkit-formadmin-content h3{
+    color: #1362E2;
+    font-weight: normal;
+}
+
+.dwkit-formadmin-content .ui.message{
+    background: transparent;
+}
+
+.dwkit-formadmin-dataedit-attributeheader{
+    float: left;
+}
+
+.dwkit-formadmin-dataedit-attributeslider{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* Form builder */
+.segment.dwkit-formadmind-sementtop{
+    color : white;
+    background-color: #1443df;
+}
+
+.dwkitadmin-toolbar{
+    margin-bottom: 10px;
+}
+
+.dwkit-admin-wfdesigner-buttons{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dwkit-admin-form-buttons{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dwkit-admin-formbuilder-container{
+    
+}
+
+.dwkit-admin-formbuilder-container-fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*min-height: 950px; 100vh*/
+    z-index: 1;
+    background: white;
+}
+
+.dwkit-admin-formbuilder-container-fullscreen > div{
+    margin: 5px 5px 5px 5px;
+}
+
+.ui.vertical.menu .item .menu .active.item{
+    color: #1443df;
+}
+
+.ui.vertical.menu .item .menu .active.item:hover{
+    color: #1443df;
+}
+
+.dwkit-formbuilder-toolbox{
+    float: right !important;
+}
+
+.dwkit-formadmin-rolepersmissionsgroup > label{
+    margin-left: 15px;
+    width: 70px;
+}
+
+.dwkit-formadmin-dashboard-buttons{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.btnJSON {
+    background: url('data:image/png;base64,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') round;
+    text-indent: -9999px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.dwkit-formmapping-zone{
+    min-height: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: small;
+    text-align: center;
+    /* width: 100%; */
+    background: #EEF4FD;
+    opacity: 0.5;
+    color: #9B9B9B;
+    border: 1px dashed #E1E9F6;
+}
+
+.dwkit-formmapping-zone-active{
+    opacity: 0.5;
+    background: #E1E9F6;
+    border: 1px dashed #1362E2;
+}
+
+.dwkit-formmapping-zone-select{
+    opacity: 1;
+    background: #E1E9F6;
+    border: 1px solid #1362E2;
+}
+
+.dwkit-formmapping-ref{
+    margin-left: 15px;
+    width: 400px;
+    background: #F8F8F9;
+}
+
+.dwkit-formmapping-collection{
+    padding-left: 0px;
+}
+
+.dwkit-formmapping-collection-row{
+    margin-left: 7px;
+}
+
+.dwkit-formmapping-collection .dwkit-formmapping-collection-row:first{
+    margin-top: 1px;
+}
+
+.dwkit-formmapping-collection-row > .ui.form > .fields > .field > .ui.checkbox{
+    margin-top: 30px;
+}
+
+/* Controls */
+.dwkit-buttonimage{
+    height: 13px;
+    cursor: pointer;
+}
+
+.dwkit-formadmin-content a{
+    color: #F24D00;
+    cursor: pointer;
+}
+
+.dwkit-formadmin-content hr{
+    background: rgba(148,149,154,0.20);
+}
+
+ .dwkit-formadmin-item:not(:last-child){
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(148,149,154,0.20);
+    margin-bottom: 10px;
+} 
+
+.dwkit-formadmin-item .ui.form div.field.operationflag{
+    margin-top: 15px;
+}
+
+.dwkit-formadmin-segment{
+    margin-top: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(148,149,154,0.20);
+}
+
+.dwkit-formadmin-info{
+    color: rgba(104,104,104,0.80);
+    text-align: center;
+}
+
+.dwkit-formadmin-formedit{
+    max-width: 800px;
+}
+
+.dwkitadmin-toolbar-editform{
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(148,149,154,0.20);
+}
+
+.dwkitadmin-formmapping{
+    min-width: 900px;
+}
+.dwkitadmin-formmapping-left{
+    width: 500px;
+    float: left;
+}
+.dwkitadmin-formmapping-right{
+    width: 300px;
+    float: left;
+    margin-left: 15px;
+}
+
+.dwkit-formadmin-imgbutton{
+    height: 15px;
+    width: 15px;
+}
+
+.dwkit-formadmin-imgbuttondiv{
+    margin-left: 7px;
+}
+
+.dwkitadmin-formmapping-left .ui.form .fields{
+    margin-bottom: 0px;
+    padding-right: 15px;
+}
+
+.dwkit-formmapping-ref .fields.dwkit-formadmin-mapping-attribute{
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.dwkit-formadmin-mapping-attribute > div.field.attributename{
+    width: 250px;
+}
+
+.dwkit-formadmin-mapattributes .dwkit-formadmin-imgbuttondiv{
+    margin-left: -15px;
+    margin-top: 11px;
+}
+
+.gridcheckbox .ui.checkbox{
+    margin-top: 10px;
+}
+
+.dwkit-formadmin-mapattributes .dwkit-formmapping-zone{
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.dwkit-formmapping-collection-row .dwkit-formadmin-imgbuttondiv{
+    margin-left: -15px;
+    margin-top: 10px;
+}
+
+
+.dwkit-formmapping-collection-row .dwkit-formadmin-imgbuttondiv2{
+    margin-left: 0px;
+    margin-top: 31px;
+}
+
+.dwkit-formmapping-collection-row .dwkit-formmapping-zone{
+    width: 100px;
+}
+
+.dwkit-formmapping-collection-row .field{
+    min-width: 150px;
+}
+
+.dwkit-formmapping-collection-row .children.field{
+    margin-left: 30px
+}
+
+.dwkit-formadmin-imgbutton {
+    cursor: pointer;
+    
+}
+
+.ui.form .dwkit-formadmin-mapattributes{
+    margin-left: 25px;
+}
+
+.dwkit-formmapping-collection-toolbar{
+    margin-bottom: 10px;
+}
+
+.dwkit-admin-codeactions-definefunctionname{
+	color: #1262E2;
+	font-weight: 600;
+}
+
+.dwkit-admin-codeactions-define{
+       font-size: 16px;
+}
+
+.dwkit-admin-codeactions-result{
+    width: 100%;
+    min-height: 150px;
+    margin-top: 10px;
+    border: 1px solid;
+}
+
+.mapdatacontrol{
+    margin-top: 2px;
+    margin-bottom: 18px;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: #F9F9F9;
+    border: 1px solid rgba(148,149,154,0.20);
+    border-radius: 4px;
+    font-size: 14px;
+    color: #465662;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.dwkit-formmapping-collection-row{
+    border-style: solid;
+    border-width: 0.5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.dwkit-formmapping-collection-row .mapdatacontrol{
+    margin-top: 23px;
+    height: 32px;
+    margin-bottom: 17px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.dwkit-formmapping-collection-row .dwkit-formmapping-zone{
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 17px;
+    margin-left: 10px;
+}
+
+/*//////
+Loading 
+//////*/
+
+.dwkit-formadmin-loadingscreen{
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    margin-top: -120px;
+    margin-left: -225px;
+}
+
+.dwkit-formadmin-loadingscreen-logo{
+    width:150px;
+}
+
+/*
+ Others
+*/
+
+div.field > label {
+    font-size: 12px!important;
+    color: #97A3B4!important;
+    line-height: 16px!important;
+    font-weight: inherit!important;
+}
+
+.ui.dropdown .menu {
+	width: 100%!important;
+}
+
+.ui.dropdown > .text {
+	width: calc(100% - 20px)!important;
+}
+
+
+.ui.secondary.pointing.menu .active.item, .ui.secondary.pointing.menu .active.item:hover{
+    border-color: #1362E2;
+}
+
+.ui.secondary.pointing.menu .active.item > span{
+    color: #1362E2;
+}
+
+
+.react-grid-Grid{
+    border:none;
+}
+.react-grid-Main{
+    outline: none;
+}
+
+.react-grid-Header{
+    background: transparent;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgba(148,149,154,0.20);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(148,149,154,0.20);
+}
+
+.react-grid-HeaderRow {
+    background: #F4F4F4;
+    border-radius: 0 0 2px 2px;
+}
+
+.react-grid-HeaderCell{
+    border:none;
+    background: transparent;
+}
+
+.react-grid-Row{
+    cursor: pointer;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(148,149,154,0.20);
+}
+
+.react-grid-Cell--locked:last-of-type{
+    border:none;
+}
+
+.react-grid-Cell{
+    border:none;
+    background: transparent;
+}
+
+.ui.form .fields .field {
+    margin: 0 0 1em;
+}
+
+.dwkitadmin-formmapping-triggers{
+    clear: both;
+}
+
+/* .ace_editor.fullScreen {
+    height: auto;
+    width: auto;
+    border: 0;
+    margin: 0;
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.fullScreen {
+    overflow: hidden
+} */
+
+.dwkit-admin-formheader-breadcrumb{
+    float: left;
+    margin-right: 20px;
+}
+
+.dwkit-admin-formheader-parameters{
+padding-top: 2px;
+}
+
+.dwkit-admin-formbuilder-container-fullscreen .dwkit-formbuilder-content,
+.dwkit-admin-formbuilder-container-fullscreen .dwkit-formbuilder-toolbox {
+    overflow: auto;
+    height: calc(100vh - 60px);
+}
+
+.dwkit-formbuilder-content, .dwkit-formbuilder-toolbox {
+    overflow: auto;
+    height: calc(100vh - 175px);
+}
+
+.dwkit-admin-resourcelist i.icon{
+    float: left;
+}
+
+.dwkit-admin-resourcelist{
+    float: left; 
+    width: 230px;
+    overflow: auto;
+    margin-right: 5px;
+    border-right-style: inset;
+}
+
+.dwkit-admin-resourcelist .list .item .content{
+    margin-left: 10px;
+}
+
+.dwkit-admin-resourceupload{
+    width: calc(100% - 300px);
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    min-height: 200px;
+    float: left;
+}
+
+.dwkit-admin-resourceupload .filepicker.dropzone.dz-clickable .dz-default.dz-message{
+    min-height: 200px;
+}
+
+.dwkit-admin-resourceimg{
+    max-width: 500px;
+    float: left;
+}
+
+.dwkit-dashboard-settings .ui.bottom.segment.tab.top {
+    padding: 0px;
+    border: none;
+}
+
+@media all and (-ms-high-contrast:none)
+{
+    .ui.modal:not(.legacy){
+        position: static;
+    }
+}
+
+.gutter-horizontal{
+    cursor: ew-resize;
+}
+
+.dwkit-admin-formbuilder-container{
+    min-width: 950px;
+}
+
+.dwkit-formadmin-item .syncselected{
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.dwkit-formadmin-item .syncnotselected{
+    background: white;
+}
+
+.dwkit-formadmin-sync .dwkit-formadmin-item .ui.form .fields .field > .fields {
+    margin-bottom: 0;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+}
+
+/**
+ * alertifyjs 1.11.1 http://alertifyjs.com
+ * AlertifyJS is a javascript framework for developing pretty browser dialogs and notifications.
+ * Copyright 2018 Mohammad Younes <Mohammad@alertifyjs.com> (http://alertifyjs.com) 
+ * Licensed under GPL 3 <https://opensource.org/licenses/gpl-3.0>*/
+ .alertify,
+ .alertify-show,
+ .alertify-log {
+     -webkit-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+     -moz-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+     -ms-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+     -o-transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+     transition: all 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275); /* easeOutBack */
+ }
+ .alertify-hide {
+     -webkit-transition: all 250ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -moz-transition: all 250ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -ms-transition: all 250ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -o-transition: all 250ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     transition: all 250ms cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
+ }
+ .alertify-log-hide {
+     -webkit-transition: all 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -moz-transition: all 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -ms-transition: all 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -o-transition: all 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     transition: all 500ms cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
+ }
+ .alertify-cover {
+     position: fixed; z-index: 99999;
+     top: 0; right: 0; bottom: 0; left: 0;
+     background-color:white;
+     filter:alpha(opacity=0);
+     opacity:0;
+ }
+ .alertify-cover-hidden {
+     display: none;
+ }
+ .alertify {
+     position: fixed; z-index: 99999;
+     top: 50px; left: 50%;
+     width: 550px;
+     margin-left: -275px;
+     opacity: 1;
+ }
+ .alertify-hidden {
+     -webkit-transform: translate(0,-150px);
+     -moz-transform: translate(0,-150px);
+     -ms-transform: translate(0,-150px);
+     -o-transform: translate(0,-150px);
+     transform: translate(0,-150px);
+     opacity: 0;
+     display: none;
+ }
+ /* overwrite display: none; for everything except IE6-8 */
+ :root *> .alertify-hidden {
+     display: block;
+     visibility: hidden;
+ }
+ .alertify-logs {
+     position: fixed;
+     z-index: 5000;
+     bottom: 10px;
+     right: 10px;
+     width: 300px;
+ }
+ .alertify-logs-hidden {
+     display: none;
+ }
+ .alertify-log {
+     display: block;
+     margin-top: 10px;
+     position: relative;
+     right: -300px;
+     opacity: 0;
+ }
+ .alertify-log-show {
+     right: 0;
+     opacity: 1;
+ }
+ .alertify-log-hide {
+     -webkit-transform: translate(300px, 0);
+     -moz-transform: translate(300px, 0);
+     -ms-transform: translate(300px, 0);
+     -o-transform: translate(300px, 0);
+     transform: translate(300px, 0);
+     opacity: 0;
+ }
+ .alertify-dialog {
+     padding: 25px;
+ }
+ .alertify-resetFocus {
+     border: 0;
+     clip: rect(0 0 0 0);
+     height: 1px;
+     margin: -1px;
+     overflow: hidden;
+     padding: 0;
+     position: absolute;
+     width: 1px;
+ }
+ .alertify-inner {
+     text-align: center;
+ }
+ .alertify-text {
+     margin-bottom: 15px;
+     width: 100%;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     font-size: 100%;
+ }
+ .alertify-buttons {
+ }
+ .alertify-button,
+ .alertify-button:hover,
+ .alertify-button:active,
+ .alertify-button:visited {
+     background: none;
+     text-decoration: none;
+     border: none;
+     /* line-height and font-size for input button */
+     line-height: 1.5;
+     font-size: 100%;
+     display: inline-block;
+     cursor: pointer;
+     margin-left: 5px;
+ }
+ 
+ @media only screen and (max-width: 680px) {
+     .alertify,
+     .alertify-logs {
+         width: 90%;
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+     }
+     .alertify {
+         left: 5%;
+         margin: 0;
+     }
+ }
+ 
+ 
+ .alertify,
+ .alertify-log {
+     font-family: sans-serif;
+ }
+ .alertify {
+     background: #FFF;
+     border: 10px solid #333; /* browsers that don't support rgba */
+     border: 10px solid rgba(0,0,0,.7);
+     border-radius: 8px;
+     box-shadow: 0 3px 3px rgba(0,0,0,.3);
+     -webkit-background-clip: padding;     /* Safari 4? Chrome 6? */
+     -moz-background-clip: padding;     /* Firefox 3.6 */
+     background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+ }
+ .alertify-text {
+     border: 1px solid #CCC;
+     padding: 10px;
+     border-radius: 4px;
+ }
+ .alertify-button {
+     border-radius: 4px;
+     color: #FFF;
+     font-weight: bold;
+     padding: 6px 15px;
+     text-decoration: none;
+     text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+     box-shadow: inset 0 1px 0 0 rgba(255,255,255,.5);
+     background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+     background-image:    -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+     background-image:     -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+     background-image:      -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+     background-image:         linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+ }
+ .alertify-button:hover,
+ .alertify-button:focus {
+     outline: none;
+     background-image: -webkit-linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,0));
+     background-image:    -moz-linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,0));
+     background-image:     -ms-linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,0));
+     background-image:      -o-linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,0));
+     background-image:         linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,0));
+ }
+ .alertify-button:focus {
+     box-shadow: 0 0 15px #2B72D5;
+ }
+ .alertify-button:active {
+     position: relative;
+     box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+ }
+ .alertify-button-cancel,
+ .alertify-button-cancel:hover,
+ .alertify-button-cancel:focus {
+     background-color: #FE1A00;
+     border: 1px solid #D83526;
+ }
+ .alertify-button-ok,
+ .alertify-button-ok:hover,
+ .alertify-button-ok:focus {
+     background-color: #5CB811;
+     border: 1px solid #3B7808;
+ }
+ 
+ .alertify-log {
+     background: #1F1F1F;
+     background: rgba(0,0,0,.9);
+     padding: 15px;
+     border-radius: 4px;
+     color: #FFF;
+     text-shadow: -1px -1px 0 rgba(0,0,0,.5);
+ }
+ .alertify-log-error {
+     background: #F24D00;/*#FE1A00;*/
+     background: #F24D00;/*rgba(254,26,0,.9);*/
+ }
+ .alertify-log-success {
+     background: #1362E2;/*#5CB811;*/
+     background: #1362E2;/*rgba(92,184,17,.9);*/

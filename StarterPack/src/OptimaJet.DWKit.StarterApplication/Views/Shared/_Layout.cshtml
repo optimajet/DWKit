@@ -1,0 +1,43 @@
+@using System.IO
+@using OptimaJet.DWKit.Core
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>OptimaJet DWKIT Sample</title>
+    <link rel="Shortcut Icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+    <script src="@Url.Content("~/scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.auto-complete.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/alertify.js")" type="text/javascript"></script>
+    <script>window.paceOptions = { restartOnPushState: false };</script>
+    <script src="@Url.Content("~/scripts/pace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.loadingModal.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/Chart.min.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/css/base/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/pace-theme-minimal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/semantic.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/vendor.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/optimajet-formbuilder.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/dwkit-style.css")" rel="stylesheet" type="text/css" />
+    @if (OptimaJet.DWKit.Core.DWKitRuntime.Security?.CurrentUser?.IsRTL == true)
+    {
+        <link href="@Url.Content("~/css/dwkit-style.rtl.css")" rel="stylesheet" type="text/css" />
+    }
+    <link href="@Url.Content("~/css/jquery.loadingModal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+
+    @foreach (var file in DWKitRuntime.GetCurrentThemeFiles())
+    {
+        <link href="@Url.Content($"~/themes/{file}")" rel="stylesheet" type="text/css" />
+    }
+
+    <script>
+        $(document).ajaxStart(function () { Pace.restart(); });
+    </script>
+
+    @RenderBody()
+</body>
+</html>

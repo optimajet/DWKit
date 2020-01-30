@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <Version>2.9.0</Version>
+    <Authors>OptimaJet, LLC</Authors>
+    <Company>OptimaJet, LLC</Company>
+    <Description>The sample for DWKit</Description>
+    <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
+    <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
+    <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
+    <Copyright>OptimaJet DWKit 2019</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.1.2" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="4.1.2" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="4.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptimaJet.DWKit.Application\OptimaJet.DWKit.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\js\login.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\ConfigAPI\Admin.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\StarterApplication\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\js\app\admin.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\js\app\app.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\js\app\login.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

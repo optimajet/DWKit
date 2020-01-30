@@ -1,0 +1,526 @@
+{
+  "dataModel": [
+    {
+      "id": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
+      "name": "Document",
+      "dbObjectName": "dwEntities",
+      "schemaName": "",
+      "triggers": [],
+      "attributes": [
+        {
+          "id": "fbb55c58-a2ce-ea7f-7332-29fd3fa89383",
+          "referenceEntityId": "90f55b59-05a8-4ac6-b7fc-392793787ea7",
+          "name": "AuthorId",
+          "type": "String",
+          "typeId": 1,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "14039bcb-0541-2982-7b56-c2f3d69afa7e",
+          "name": "Date",
+          "type": "DateTime",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "960d9be8-ba70-464a-9258-4c26612e1dd2",
+          "name": "Amount",
+          "type": "Decimal",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "b92689f8-8e7f-4478-8bbd-8bdb5930a9e7",
+          "name": "Comment",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "ea00696d-7514-43cc-90a9-3809996855ec",
+          "name": "Number",
+          "type": "Int64",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "d6db8185-5762-4372-adb6-568169f09812",
+          "referenceEntityId": "90f55b59-05a8-4ac6-b7fc-392793787ea7",
+          "name": "ManagerId",
+          "typeId": 1,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        }
+      ],
+      "primaryKeyAttribute": "Id",
+      "extensionsContainerAttribute": "Extensions",
+      "workflowSchemeAttribute": "SchemeName",
+      "mode": 1
+    },
+    {
+      "id": "90f55b59-05a8-4ac6-b7fc-392793787ea7",
+      "name": "dwSecurityUser",
+      "dbObjectName": "dwSecurityUser",
+      "schemaName": "",
+      "attributes": [
+        {
+          "id": "c8ec144a-ab9d-45c8-952a-4acdfe44e0be",
+          "name": "DecimalSeparator",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "e510c649-ce53-45a2-810e-4aa059a915ef",
+          "name": "Email",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "1673dd4b-b63f-4c3d-8e71-e3692b265b89",
+          "name": "ExternalId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "e560dc4f-6e19-4c74-99f7-042e5b9d7c7a",
+          "name": "Id",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "70d2a4de-834a-45f5-b1c2-01d7a9cb06dc",
+          "name": "IsLocked",
+          "type": "Boolean",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "48af3a48-0db0-47d0-856b-edbfba28a3f6",
+          "name": "IsRTL",
+          "type": "Boolean",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "72beabb5-3e68-493e-8571-4c1d983a48be",
+          "name": "Localization",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "b8bf02bf-899f-466b-bee5-3dd4bfefe178",
+          "name": "Name",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": false,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "f20fd824-e415-4ebe-97bd-8d088dc6e84f",
+          "name": "PageSize",
+          "type": "Int32",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "d73bfb25-38f7-46af-816a-2735c24b4d7d",
+          "name": "StartPage",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "c9622157-a6b6-41e1-bb5c-38fe1eca3d73",
+          "name": "Theme",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        },
+        {
+          "id": "df8f3c6a-6998-4e81-99f5-aac1471bf6fc",
+          "name": "Timezone",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": false
+        }
+      ],
+      "primaryKeyAttribute": "Id",
+      "mode": 0
+    },
+    {
+      "id": "3f445114-1730-4540-9307-4405bae74bd1",
+      "name": "EntityTransitionHistory",
+      "dbObjectName": "dwEntities",
+      "attributes": [
+        {
+          "id": "a1f588c9-0b78-4efb-8390-fecf993be5fc",
+          "name": "ObjectId",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "de7c2b27-7a3e-4866-83e3-0a41e376283c",
+          "name": "ProcessId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "f4d5ac9d-62d5-439e-9bbc-3d8de1fdc61c",
+          "name": "InitialState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "9bbaf9ab-fd1e-44fe-82af-a0bf87b51c30",
+          "name": "DestinationState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "9c334ef1-5ead-4281-a90f-cb88c932c39d",
+          "name": "Command",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "d9f83566-05cc-4371-a0d3-a427ed1cd01b",
+          "name": "TransitionTime",
+          "type": "DateTime",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "bdbfba07-b0c4-4c37-b9d5-de3bef75ab8d",
+          "name": "IdentityId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "3e2f73be-a2de-4b52-ac50-7e5bc1f6fcc6",
+          "name": "IdentityName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "6267aaca-66fb-4a88-8a68-9c94ce5b5010",
+          "name": "AllowedToIdentityNames",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "2cff098a-45c8-45dc-89b2-cf82b4cf2173",
+          "name": "Order",
+          "type": "Int64",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "96a797e1-d33e-48fc-ba71-631088dfb6a0",
+          "name": "Comment",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "03771cf5-bcae-4332-aa31-4a7426b53665",
+          "name": "ImpersonatedIdentityId",
+          "type": "Guid",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "09a59a43-4e99-4a3f-8dcb-1c25674b0779",
+          "name": "ImpersonatedIdentityName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "6f728238-d10d-4db4-9938-3f4432cfc4c8",
+          "name": "ApproverName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        }
+      ],
+      "primaryKeyAttribute": "Id",
+      "extensionsContainerAttribute": "Extensions",
+      "mode": 1
+    },
+    {
+      "id": "933e2fb9-523f-4114-9b12-29915ec961bc",
+      "name": "gridHistory",
+      "dbObjectName": "dwEntities",
+      "attributes": [
+        {
+          "id": "31f2f36f-6676-4f15-ad7f-4a9a2912f695",
+          "name": "InitialState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "02a2598b-d108-4d52-ae9b-1c8d230d17b2",
+          "name": "ToDestinationState",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "a42148a4-8cac-431c-ae48-bb8a825bd9b5",
+          "name": "Command",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "87d63ff7-d064-4afa-8a63-106eef35fba0",
+          "name": "IdentityName",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "f7cddc98-7477-4f26-9c04-04edf0a4c7d0",
+          "name": "TransitionTime",
+          "type": "DateTime",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "68e8e087-71ab-4532-b18e-50c6183983d5",
+          "name": "AllowedToIdentityNames",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        }
+      ],
+      "primaryKeyAttribute": "Id",
+      "extensionsContainerAttribute": "Extensions",
+      "workflowSchemeAttribute": "SchemeName",
+      "mode": 1
+    },
+    {
+      "id": "7aa3bd49-5beb-4efa-b3d9-3256d8106233",
+      "name": "gridHistoryMobile",
+      "dbObjectName": "dwEntities",
+      "attributes": [],
+      "primaryKeyAttribute": "Id",
+      "extensionsContainerAttribute": "Extensions",
+      "workflowSchemeAttribute": "SchemeName",
+      "mode": 1
+    }
+  ],
+  "codeActions": [
+    {
+      "id": "3adb5f3c-c9f6-cb6d-e5af-210f805aa7fc",
+      "name": "UserWithRoles",
+      "comment": "Returns users with the Title field - Name (Role1, Role2, ...)",
+      "definedOnServer": false,
+      "type": 1,
+      "source": "var users = await OptimaJet.DWKit.Core.Metadata.DbObjects.SecurityUser.SelectAsync(Filter.Empty, Order.StartAsc(\"Name\"));\n\nvar res = new List<DynamicEntity>(users.Count);\nforeach(var user in users)\n{\n    var item = user.AsDynamicEntity;\n    item.Title = string.Format(\"{0} ({1})\", user.Name, string.Join(\", \", (await user.Roles.AsyncValue)));\n    res.Add(item);\n}\nreturn res;",
+      "usings": "System;\nSystem.Collections;\nSystem.Collections.Generic;\nSystem.Linq;\nSystem.Threading;\nSystem.Threading.Tasks;\nOptimaJet.Workflow;\nOptimaJet.Workflow.Core.Runtime;\nOptimaJet.Workflow.Core.Model;\nOptimaJet.DWKit.Core;\nOptimaJet.DWKit.Core.Model;",
+      "isAsync": true
+    }
+  ],
+  "businessFlow": [],
+  "modules": [],
+  "settings": [
+    {
+      "name": "DefaultForm",
+      "value": "Documents"
+    },
+    {
+      "name": "RTL",
+      "value": "False"
+    },
+    {
+      "name": "DefaultTheme",
+      "value": ""
+    }
+  ],
+  "commandForms": [
+    {
+      "id": "ebc63db3-093f-7d68-1782-44e22351edc8",
+      "name": "Reject",
+      "schemes": [
+        "VacationRequest"
+      ],
+      "map": [
+        {
+          "commands": [
+            {
+              "scheme": "VacationRequest",
+              "name": "Reject"
+            }
+          ],
+          "form": "WorkflowComment"
+        }
+      ]
+    }
+  ],
+  "plugins": [
+    {
+      "name": "BasicPlugin",
+      "enabled": true,
+      "pluginSettings": {
+        "MailServerPort": 25,
+        "MailServerSsl": true
+      }
+    },
+    {
+      "name": "WorkflowPlugin",
+      "enabled": true,
+      "pluginSettings": {
+        "EnableDeleteWorkflow": true,
+        "EnableTransitionHistory": true,
+        "DeleteWorkflowDataModels": [
+          "Document"
+        ],
+        "TransitionHistoryModel": "EntityTransitionHistory",
+        "EnableInboxOutbox": true,
+        "EntityStateColumn": "State",
+        "EntityLocalizedStateColumn": "StateName"
+      }
+    },
+    {
+      "name": "NotificationPlugin",
+      "enabled": true,
+      "pluginSettings": {
+        "ObjectCountList": [
+          {
+            "Name": "doccount",
+            "DataModel": "Document",
+            "Filter": "",
+            "Parameter": ""
+          }
+        ]
+      }
+    }
+  ]
+}

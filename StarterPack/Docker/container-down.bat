@@ -1,1 +1,0 @@
-powershell -noexit "& "".\container-down.ps1"""

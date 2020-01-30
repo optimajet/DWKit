@@ -1,0 +1,61 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "Comment",
+        "data-buildertype": "textarea",
+        "label": "Comment",
+        "fluid": true,
+        "other-required": true
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "confirm",
+            "data-buildertype": "button",
+            "content": "Confirm",
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "validate",
+                  "workflowContinueExecution"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "floated": ""
+          },
+          {
+            "key": "Cancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "workflowCancelExecution"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "floated": ""
+          }
+        ],
+        "style-customcss": "",
+        "style-float": "",
+        "style-display": "flex",
+        "style-source": "",
+        "style-display-horizontalalign": "flex-end"
+      }
+    ]
+  }
+]

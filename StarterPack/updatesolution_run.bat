@@ -1,0 +1,1 @@
+powershell -noexit "& "".\updatesolution.ps1"""

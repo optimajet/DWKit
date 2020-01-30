@@ -1,0 +1,39 @@
+{
+    "themes": [
+        {
+            "name": "yellow",
+            "title": "Yellow",
+            "files": ["dwkit-theme-yellow.css"]
+        },
+        {
+            "name": "green",
+            "title": "Green",
+            "files": ["dwkit-theme-green.css"]
+        },
+        {
+            "name": "ocean",
+            "title": "Ocean",
+            "files": ["dwkit-theme-ocean.css"]
+        },
+        {
+            "name": "sky",
+            "title": "Sky",
+            "files": ["dwkit-theme-sky.css"]
+        },
+        {
+            "name": "rose",
+            "title": "Rose",
+            "files": ["dwkit-theme-rose.css"]
+        },
+        {
+            "name": "lilac",
+            "title": "Lilac",
+            "files": ["dwkit-theme-lilac.css"]
+        },
+        {
+            "name": "dark",
+            "title": "Dark",
+            "files": ["dwkit-theme-dark.css"]
+        }
+    ]
+}

@@ -6,7 +6,7 @@ if ! type dotnet > /dev/null; then
   exit 127
 fi
 
-export ConnectionStrings__default=`grep "ConnectionString" ./config | cut -d '=' -f 2-`
+export ConnectionStrings__default=`grep "ConnectionString" ./config.cfg | cut -d '=' -f 2-`
 export Metadata__path=../metadata/metadata.json
 export ASPNETCORE_URLS=http://localhost:48800
 export ASPNETCORE_ENVIRONMENT=Development

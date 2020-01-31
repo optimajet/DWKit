@@ -1,6 +1,6 @@
 @echo OFF
 
-for /f "delims== tokens=1,*" %%G in (config) do set %%G=%%H
+for /f "delims== tokens=1,*" %%G in (config.cfg) do set %%G=%%H
 
 SET Metadata__path=../metadata/metadata.json
 SET ConnectionStrings__default=%ConnectionString%

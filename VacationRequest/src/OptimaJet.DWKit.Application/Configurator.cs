@@ -117,7 +117,7 @@ namespace OptimaJet.DWKit.Application
 
             DWKitRuntime.Metadata = new DefaultMetadataProvider(path, $"{metadataPath}/Forms", $"{metadataPath}/Localization", workflowFolder: $"{metadataPath}/Workflow" );
 
-            if (configuration["DWKit:BlockMetadataChanges"] == "True")
+            if ("true".Equals(configuration["DWKit:BlockMetadataChanges"], StringComparison.InvariantCultureIgnoreCase))
             {
                 DWKitRuntime.Metadata.BlockMetadataChanges = true;
             }
@@ -172,7 +172,7 @@ namespace OptimaJet.DWKit.Application
         public static IDbProvider AutoDetectProvider(IConfigurationRoot configuration, ILogger logger)
         {
             IDbProvider provider = null;
-            bool createDb = configuration["DWKit:CreateDatabaseObjects"] == "True";
+            bool createDb = "true".Equals(configuration["DWKit:CreateDatabaseObjects"], StringComparison.InvariantCultureIgnoreCase);
 
             try
             {

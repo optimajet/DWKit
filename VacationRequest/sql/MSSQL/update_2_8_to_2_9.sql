@@ -45,6 +45,7 @@
         [ParentId] ASC
     ) ON [PRIMARY]
 
+GO
 
 CREATE PROCEDURE [dbo].[dwGet_Sequence]
 	@Code NVARCHAR(256),

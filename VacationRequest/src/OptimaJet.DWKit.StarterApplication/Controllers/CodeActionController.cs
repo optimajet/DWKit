@@ -19,20 +19,39 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     {
         [HttpPost]
         [Route("actions/execute")]
-        public async Task<ActionResult> Execute(string name, string request)
+        public async Task<ActionResult> Execute(string name, string request, bool useServerCodeActionRequest = false)
         {
             try
             {
+                if (!await DWKitRuntime.Security.CheckCodeActionPermissionAsync(name, true))
+                {
+                    throw new Exception("Access denied!");
+                }
+
                 var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(request);
 
                 object objectRequest;
 
-                if (dictionary.ContainsKey("data") && dictionary.ContainsKey("formName"))
+                if (useServerCodeActionRequest)
                 {
-                    var formName = dictionary["formName"].ToString();
+                    var formName = dictionary["formName"]?.ToString();
+                    DynamicEntity data = null;
+                    if (!string.IsNullOrEmpty(formName))
+                    {
+                        var model = await MetadataToModelConverter.GetEntityModelByFormAsync(formName, new BuildModelOptions(ignoreNameCase: true, strategy: BuildModelStartegy.ForGet))
+                            .ConfigureAwait(false);
 
-                    var model = await MetadataToModelConverter.GetEntityModelByFormAsync(formName, new BuildModelOptions(ignoreNameCase: true, strategy: BuildModelStartegy.ForGet))
-                        .ConfigureAwait(false);
+                        if (model.Attributes.Any())
+                        {
+                            data = new DynamicEntityDeserializer(model).DeserializeSingle(dictionary["data"]
+                                .ToString());
+                        }
+                    }
+
+                    if (data == null)
+                    {
+                        data = DynamicEntity.ParseJSON(dictionary["data"]?.ToString());
+                    }
 
                     dictionary.TryGetValue("parameters", out var parameters);
                     dictionary.TryGetValue("modalId", out var modalId);
@@ -45,7 +64,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                     objectRequest = new ServerCodeActionRequest
                     {
-                        Data = new DynamicEntityDeserializer(model).DeserializeSingle(dictionary["data"].ToString()),
+                        Data = data,
                         FormName = formName,
                         Parameters = parameters,
                         ModalId = modalId?.ToString()

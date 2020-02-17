@@ -138,6 +138,7 @@ namespace OptimaJet.DWKit.Application
             DWKitRuntime.CompileAllCodeActionsAsync().Wait();
             DWKitRuntime.ServerActions.RegisterUsersProvider("filters", new Filters());
             DWKitRuntime.ServerActions.RegisterUsersProvider("triggers", new Triggers());
+            DWKitRuntime.ServerActions.RegisterUsersProvider("actions", new ServerActions());
 
             //Forcing the creation of a WF runtime to initialize timers and the Flow.
             try

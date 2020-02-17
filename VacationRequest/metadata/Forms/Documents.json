@@ -237,7 +237,7 @@
     "editFormShowType": "sidebar",
     "style-adaptive": true,
     "style-renderwhen": "desktop",
-    "propertyName": "Document"
+    "propertyName": ""
   },
   {
     "key": "gridMobile",
@@ -347,7 +347,7 @@
     },
     "style-adaptive": true,
     "style-renderwhen": "mobile",
-    "propertyName": "Document",
+    "propertyName": "grid",
     "events": {},
     "style-customcss": "dwkit-cards",
     "defaultSort": "Number DESC"

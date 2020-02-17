@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OptimaJet.DWKit.Application
 {
-    public class ServerActions
+    public class ServerActions : IServerActionsProvider
     {
         public ServerActions()
         {

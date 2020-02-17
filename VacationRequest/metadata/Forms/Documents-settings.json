@@ -1,6 +1,6 @@
 {
   "name": "Documents",
-  "lastUpdate": "2020-01-24T14:54:16.2687449+03:00",
+  "lastUpdate": "2020-02-16T19:34:47.0957124+03:00",
   "isTemplate": false,
   "triggers": [],
   "dataMap": [],
@@ -10,6 +10,7 @@
       "entityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
       "filter": "",
       "parameter": "",
+      "control": "grid",
       "dataMap": [
         {
           "id": "feee98ba-eb39-bd7a-e5a3-bfca4b63973b",
@@ -65,6 +66,14 @@
         {
           "id": "0d999d97-e7fa-6555-0952-c9d03dd2edce",
           "attributeId": "fbb55c58-a2ce-ea7f-7332-29fd3fa89383",
+          "isEditable": false,
+          "isLoadable": true,
+          "attributeSource": 0
+        },
+        {
+          "id": "1085c9e8-2791-ff13-2d70-3efd3592886d",
+          "attributeId": "b8bf02bf-899f-466b-bee5-3dd4bfefe178",
+          "parentId": "0d999d97-e7fa-6555-0952-c9d03dd2edce",
           "isEditable": false,
           "isLoadable": true,
           "attributeSource": 0
@@ -155,14 +164,6 @@
           "isEditable": false,
           "isLoadable": true,
           "attributeSource": 1
-        },
-        {
-          "id": "1085c9e8-2791-ff13-2d70-3efd3592886d",
-          "attributeId": "b8bf02bf-899f-466b-bee5-3dd4bfefe178",
-          "parentId": "0d999d97-e7fa-6555-0952-c9d03dd2edce",
-          "isEditable": false,
-          "isLoadable": true,
-          "attributeSource": 0
         }
       ],
       "readOnly": false,

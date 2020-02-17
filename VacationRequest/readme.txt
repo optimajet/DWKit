@@ -28,15 +28,16 @@ Password: 1
 
 How to launch it with a custom database
 -----------------
-1) Set up a database for DWKit. It supports MS SQL, Oracle, PostgreSQL. You need to run scripts from sql folder. You can find names of the scripts in sql/<type of DB>/readme.txt file.
-2) Check the connection string to the database in the config.cfg file
+1) Set up a database for DWKit. It supports MS SQL, Oracle, PostgreSQL.
+2) Run scripts on the database from sql folder. You can find names of the scripts in sql/<type of DB>/readme.txt file. 
+3) Check the connection string to the database in the config.cfg file
 MS SQL Server example:
 ConnectionString=Data Source=(local);Initial Catalog=dwkit;Integrated Security=False;User ID=sa;Password=1
 
 PostgreSQL example:
 ConnectionString=User ID=postgres;Password=1;Host=localhost;Port=5432;Database=dwkit;
 
-3) Run the starter script
+4) Run the starter script
     For Windows:
         start.bat
 
@@ -44,7 +45,7 @@ ConnectionString=User ID=postgres;Password=1;Host=localhost;Port=5432;Database=d
         chmod +x start.sh
         ./start.sh
 
-4) Open the folloing url in your browser: http://localhost:48800
+5) Open the following url in your browser: http://localhost:48800
 
 To access the application, use the following default access parameters:
 Login: admin

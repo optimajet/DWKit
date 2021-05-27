@@ -2,7 +2,8 @@
 
 for /f "delims== tokens=1,*" %%G in (config.cfg) do set %%G=%%H
 
-SET Metadata__path=../metadata/metadata.json
+SET DWKit__MetadataPath=../metadata/
+SET DWKit__LicensePath=../license/
 SET ConnectionStrings__default=%ConnectionString%
 SET ASPNETCORE_URLS=http://localhost:48800
 SET ASPNETCORE_ENVIRONMENT=Development

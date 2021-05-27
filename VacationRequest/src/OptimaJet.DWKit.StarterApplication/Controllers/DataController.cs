@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NUglify.Helpers;
+using OptimaJet.DWKit.Application;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.Model;
 using OptimaJet.DWKit.Core.View;
+using OptimaJet.Workflow.Core.Runtime;
 
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
@@ -18,7 +22,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     {
         [Route("data/get")]
         public async Task<ActionResult> GetData(string name, string propertyName, string urlFilter, string options,
-            string filter, string paging, string sort, bool forCopy = false)
+            string filter, string paging, string sort, bool forCopy = false, bool mobile = false, string schemeName = null)
         {
             try
             {
@@ -27,9 +31,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     throw new Exception("Access denied!");
                 }
 
-                var getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy);
+                var getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy,
+                    mobile, schemeName);
                 var data = await DataSource.GetDataForFormAsync(getRequest).ConfigureAwait(false);
-
                 if (data.IsFromUrl && FailResponse.IsFailResponse(data.Entity, out FailResponse fail))
                 {
                     return Json(fail);
@@ -46,7 +50,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("data/change")]
         [HttpPost]
-        public async Task<ActionResult> ChangeData(string name, string data)
+        public async Task<ActionResult> ChangeData(string name, string data, bool mobile = false, string schemeName = null)
         {
             try
             {
@@ -57,6 +61,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var postRequest = new ChangeDataRequest(name, data)
                 {
+                    Mobile = mobile,
+                    SchemeName = schemeName,
                     BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
                     {
@@ -73,7 +79,10 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var res = await DataSource.ChangeData(postRequest);
                 if (res.success != null)
+                {
                     return Json(res.success);
+                }
+
                 return Json(res.fail);
             }
             catch (Exception e)
@@ -84,7 +93,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("data/delete")]
         [HttpPost]
-        public async Task<ActionResult> DeleteData(string name, string propertyName, string data)
+        public async Task<ActionResult> DeleteData(string name, string propertyName, string data, bool mobile = false, string schemeName = null)
         {
             try
             {
@@ -95,6 +104,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var deleteRequest = new ChangeDataRequest(name, data, propertyName)
                 {
+                    Mobile = mobile,
+                    SchemeName = schemeName,
                     BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                     GetHeadersForLocalRequest = () =>
                     {
@@ -124,11 +135,6 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             try
             {
-                if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
-                {
-                    throw new Exception("Access denied!");
-                }
-
                 var data = await DataSource.GetDictionaryAsync(name, sort, columns, paging, filter, parent).ConfigureAwait(false);
 
                 ItemSuccessResponse<IEnumerable<object>> result = null;
@@ -199,7 +205,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     filename = properties["Name"];
                 }
 
-                if (properties.ContainsKey("ContentType") && properties["ContentType"] == null)
+                if (properties.ContainsKey("ContentType") && properties["ContentType"] != null)
                 {
                     contentType = properties["ContentType"];
                 }
@@ -214,7 +220,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("data/export")]
         public async Task<IActionResult> ExportData(string name, string propertyName, string urlFilter, string options,
-            string filter, string paging, string sort, string cols, string fileName, string pagerType, bool forCopy = false)
+            string filter, string paging, string sort, string cols, string fileName, string pagerType, bool forCopy = false, bool mobile = false)
         {
             if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
             {
@@ -226,11 +232,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             GetDataRequest getRequest;
             if (isServerPager)
             {
-                getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy);
+                getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy, mobile);
             }
             else
             {
-                getRequest = CreateGetRequest(name, null, urlFilter, options, filter, paging, null, forCopy);
+                getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, null, forCopy, mobile);
             }
 
             var data = await DataSource.GetDataForFormAsync(getRequest).ConfigureAwait(false);
@@ -259,7 +265,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         private GetDataRequest CreateGetRequest(string name, string propertyName, string urlFilter, string options,
-            string filter, string paging, string sort, bool forCopy = false)
+            string filter, string paging, string sort, bool forCopy, bool mobile, string schemeName = null)
         {
             string filterActionName = null;
             string idValue = null;
@@ -298,12 +304,14 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
             var getRequest = new GetDataRequest(name)
             {
+                SchemeName = schemeName,
                 PropertyName = propertyName,
                 FilterActionName = filterActionName,
                 IdValue = idValue,
                 Filter = filterItems,
                 BaseUrl = $"{Request.Scheme}://{Request.Host.Value}",
                 ForCopy = forCopy,
+                Mobile = mobile,
                 GetHeadersForLocalRequest = () =>
                 {
                     var dataUrlParameters = new Dictionary<string, string>();

@@ -2,7 +2,7 @@
   {
     "key": "pageHeader",
     "data-buildertype": "header",
-    "content": "Requests",
+    "content": "{header}",
     "size": "huge"
   },
   {
@@ -39,7 +39,8 @@
                   }
                 ]
               }
-            }
+            },
+            "link": false
           },
           {
             "key": "btnDelete",
@@ -106,7 +107,7 @@
           }
         ],
         "style-marginRight": "20px",
-        "style-display": ""
+        "style-display": "flex"
       },
       {
         "key": "inputSearch",
@@ -150,44 +151,50 @@
         "name": "#",
         "sortable": true,
         "filterable": false,
-        "resizable": false
+        "resizable": true,
+        "width": 70
       },
       {
         "key": "StateName",
         "name": "State",
         "sortable": true,
         "filterable": false,
-        "resizable": false,
-        "type": "custom"
+        "resizable": true,
+        "type": "custom",
+        "width": 200
       },
       {
         "key": "Name",
         "name": "Name",
         "sortable": true,
         "filterable": false,
-        "resizable": false
+        "resizable": true,
+        "width": 200
       },
       {
         "key": "AuthorId_Name",
         "name": "Author",
         "sortable": true,
         "filterable": false,
-        "resizable": false
+        "resizable": true,
+        "width": 200
       },
       {
         "key": "ManagerId_Name",
         "name": "Manager",
         "sortable": true,
         "filterable": false,
-        "resizable": false
+        "resizable": true,
+        "width": 200
       },
       {
         "key": "Amount",
         "name": "Amount",
         "sortable": true,
         "filterable": false,
-        "resizable": false,
-        "type": "number"
+        "resizable": true,
+        "type": "number",
+        "width": 150
       }
     ],
     "style-marginTop": "",
@@ -237,7 +244,17 @@
     "editFormShowType": "sidebar",
     "style-adaptive": true,
     "style-renderwhen": "desktop",
-    "propertyName": ""
+    "propertyName": "",
+    "placeholders": {
+      "StateName": [
+        {
+          "key": "staticcontent_2",
+          "data-buildertype": "staticcontent",
+          "content": "<a href=\"/form/Document/{row.Id}{impersonatedQuery}\">{row.StateName}</a>",
+          "isHtml": true
+        }
+      ]
+    }
   },
   {
     "key": "gridMobile",

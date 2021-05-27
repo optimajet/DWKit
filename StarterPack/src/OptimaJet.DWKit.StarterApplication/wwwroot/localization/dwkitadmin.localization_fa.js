@@ -307,7 +307,7 @@
     downloadbutton: "دانلود",
     toolbar:{
       sepContainers: "کانتینرها",
-      container: "DIV",
+      container: "حاوية",
       form: "فرم",
       formgroup: "گروه فرم",
       menu: "منو",

@@ -8,6 +8,26 @@
       "triggers": [],
       "attributes": [
         {
+          "id": "9e57d8d6-51de-3e82-0c8f-9b7f9f723df5",
+          "name": "Signature",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
+          "id": "a70764a7-63ed-64d5-3216-292d5d4301ec",
+          "name": "Scan",
+          "type": "String",
+          "typeId": 0,
+          "isNullable": true,
+          "isVirtual": false,
+          "isCalculated": false,
+          "isExtension": true
+        },
+        {
           "id": "fbb55c58-a2ce-ea7f-7332-29fd3fa89383",
           "referenceEntityId": "90f55b59-05a8-4ac6-b7fc-392793787ea7",
           "name": "AuthorId",
@@ -353,89 +373,9 @@
       "primaryKeyAttribute": "Id",
       "extensionsContainerAttribute": "Extensions",
       "mode": 1
-    },
-    {
-      "id": "933e2fb9-523f-4114-9b12-29915ec961bc",
-      "name": "gridHistory",
-      "dbObjectName": "dwEntities",
-      "attributes": [
-        {
-          "id": "31f2f36f-6676-4f15-ad7f-4a9a2912f695",
-          "name": "InitialState",
-          "type": "String",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        },
-        {
-          "id": "02a2598b-d108-4d52-ae9b-1c8d230d17b2",
-          "name": "ToDestinationState",
-          "type": "String",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        },
-        {
-          "id": "a42148a4-8cac-431c-ae48-bb8a825bd9b5",
-          "name": "Command",
-          "type": "String",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        },
-        {
-          "id": "87d63ff7-d064-4afa-8a63-106eef35fba0",
-          "name": "IdentityName",
-          "type": "String",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        },
-        {
-          "id": "f7cddc98-7477-4f26-9c04-04edf0a4c7d0",
-          "name": "TransitionTime",
-          "type": "DateTime",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        },
-        {
-          "id": "68e8e087-71ab-4532-b18e-50c6183983d5",
-          "name": "AllowedToIdentityNames",
-          "type": "String",
-          "typeId": 0,
-          "isNullable": true,
-          "isVirtual": false,
-          "isCalculated": false,
-          "isExtension": true
-        }
-      ],
-      "primaryKeyAttribute": "Id",
-      "extensionsContainerAttribute": "Extensions",
-      "workflowSchemeAttribute": "SchemeName",
-      "mode": 1
-    },
-    {
-      "id": "7aa3bd49-5beb-4efa-b3d9-3256d8106233",
-      "name": "gridHistoryMobile",
-      "dbObjectName": "dwEntities",
-      "attributes": [],
-      "primaryKeyAttribute": "Id",
-      "extensionsContainerAttribute": "Extensions",
-      "workflowSchemeAttribute": "SchemeName",
-      "mode": 1
     }
   ],
+  "dataSources": [],
   "codeActions": [
     {
       "id": "3adb5f3c-c9f6-cb6d-e5af-210f805aa7fc",
@@ -462,6 +402,18 @@
     {
       "name": "DefaultTheme",
       "value": ""
+    },
+    {
+      "name": "DefaultMobileForm",
+      "value": "dashboard"
+    },
+    {
+      "name": "MobileNavigationType",
+      "value": "tabs"
+    },
+    {
+      "name": "MobileMenuElements",
+      "value": "[{__id:'CLIENT_db21b220-0895-11eb-b8d0-a98cd5a9bf12',name:'inbox',title:'Inbox',icon:'inbox',target:'/form/documents/inbox'},{__id:'CLIENT_ee3b11d0-0895-11eb-b8d0-a98cd5a9bf12',name:'outbox',title:'Outbox',icon:'inbox-multiple',target:'/form/documents/outbox'},{__id:'CLIENT_c8a091b0-032d-11eb-963e-776998b5539c',icon:'view-dashboard',name:'dashboard',title:'Dashboard',target:''},{__id:'CLIENT_fb650630-0260-11eb-8ac5-4b46cfb1daa4',name:'documents',title:'Documents',icon:'folder',target:'documents'},{__id:'CLIENT_5ce3a3e0-026f-11eb-8ac5-4b46cfb1daa4',name:'profile',title:'Profile',icon:'account',target:'profile'}]"
     }
   ],
   "commandForms": [
@@ -490,7 +442,8 @@
       "enabled": true,
       "pluginSettings": {
         "MailServerPort": 25,
-        "MailServerSsl": true
+        "MailServerSsl": true,
+        "DeleteCascadeList": []
       }
     },
     {
@@ -498,14 +451,14 @@
       "enabled": true,
       "pluginSettings": {
         "EnableDeleteWorkflow": true,
-        "EnableTransitionHistory": true,
         "DeleteWorkflowDataModels": [
           "Document"
         ],
         "TransitionHistoryModel": "EntityTransitionHistory",
         "EnableInboxOutbox": true,
         "EntityStateColumn": "State",
-        "EntityLocalizedStateColumn": "StateName"
+        "EntityLocalizedStateColumn": "StateName",
+        "EnableTransitionHistory": true
       }
     },
     {

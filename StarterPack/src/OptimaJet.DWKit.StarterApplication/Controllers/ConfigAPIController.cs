@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using OptimaJet.DWKit.Core.View;
 using OptimaJet.DWKit.Core;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
+using OptimaJet.DWKit.Core.Configurations;
 
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
@@ -70,6 +74,13 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             try
             {
                 var res = await DWKitRuntime.Metadata.ConfigAPI(pars, filestream);
+
+                if (res is StreamItem zipArchive)
+                {
+                    Response.Headers.Add("Access-Control-Expose-Headers", "Content-Disposition");
+                    return File(zipArchive.Content, "application/octet-stream;", zipArchive.Name);
+                }
+
                 return Json(res);
             }
             catch (Exception ex)

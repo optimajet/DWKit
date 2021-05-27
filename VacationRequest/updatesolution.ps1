@@ -1,7 +1,7 @@
 $DistrPath = ".\src\"
 $SolutionFolder = $args[0]
 
-Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $SubFolder, $CheckSubfolders)
+Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $SubFolder, $CheckSubfolders, $SkipIfExists)
 {
     $files = Get-ChildItem -File -Path $($SourceFolder + "\" + $SubFolder) -Filter $Filter
     foreach ($file in $files)
@@ -10,6 +10,12 @@ Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $S
         $isnew = $true
         $fileforbackup = $TargetFolder + "\" + $SubFolder + "\" + $file.Name
         if(Test-Path $fileforbackup){ 
+            
+            if ($SkipIfExists | Where-Object {$file.Name -like $_}) {
+                "Ignore: " + $file.Name | Write-Host
+                continue;
+            }
+            
             $isnew = $false      
             $hashA = $(Get-FileHash $file.FullName).hash
             $hashB = $(Get-FileHash $fileforbackup).hash
@@ -112,7 +118,7 @@ CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFold
 #View
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\Views" -CheckSubfolders $true
 #wwwroot\css
-CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\css" -CheckSubfolders $true
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\css" -CheckSubfolders $true -SkipIfExists "site.css","site.min.css"
 #wwwroot\js
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\js" -CheckSubfolders $true
 #wwwroot\images
@@ -125,6 +131,12 @@ CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFold
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\themes"
 #silentRenew.html
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter silentRenew.html -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot" 
+#wwwroot\templates
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\templates" -CheckSubfolders $true
+#wwwroot\mobileframe
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\mobileframe" -CheckSubfolders $true
+
+
 
 "OptimaJet.DWKit.StarterApplication has been updated" | Write-Host
 

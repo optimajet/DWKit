@@ -1,0 +1,90 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "image_1",
+        "data-buildertype": "image",
+        "src": "/images/mobile/logo.png",
+        "style-width": 210,
+        "style-height": 75
+      }
+    ],
+    "style-marginBottom": 30,
+    "style-marginTop": 20
+  },
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Vacation Request",
+    "size": "medium",
+    "textAlign": "center",
+    "style-marginTop": ""
+  },
+  {
+    "key": "staticcontent_1",
+    "data-buildertype": "staticcontent",
+    "content": "<h2><a href=\"https://dwkit.com\">https://dwkit.com</a></h2>\n\n<p>DWKit is a low-code platform made with simplicity and flexibility in mind. \nDWKit allows you to model, automate and execute mission-critical business processes, \nwhatever industry you're operating in.</p>\n\n<b>Developed by OptimaJet LLC</b>",
+    "isHtml": true
+  },
+  {
+    "key": "btnNavigate",
+    "data-buildertype": "button",
+    "content": "Open Documents",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "navigate"
+        ],
+        "targets": [],
+        "parameters": [
+          {
+            "__id": "CLIENT_b5604f70-0335-11eb-86a8-9518d16903c2",
+            "name": "target",
+            "value": "documents"
+          }
+        ]
+      }
+    },
+    "active": true,
+    "actions": [
+      "navigate"
+    ],
+    "style-marginBottom": "",
+    "style-marginTop": 20,
+    "basic": false,
+    "primary": true,
+    "fluid": true
+  },
+  {
+    "key": "btnCreate",
+    "data-buildertype": "button",
+    "content": "Create a document",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": [
+          {
+            "__id": "CLIENT_b5604f70-0335-11eb-86a8-9518d16903c2",
+            "name": "target",
+            "value": "/form/document"
+          }
+        ]
+      }
+    },
+    "active": true,
+    "actions": [
+      "redirect"
+    ],
+    "style-marginBottom": "",
+    "style-marginTop": 20,
+    "secondary": true,
+    "fluid": true
+  }
+]

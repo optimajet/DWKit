@@ -304,7 +304,7 @@ window.DWKitAdminLang = {
     downloadbutton: "İndir",
     toolbar: {
       sepContainers: "kaplar",
-      container: "DIV",
+      container: "Container",
       form: "Form",
       formgroup: "Gruptan",
       menu: "Menü",

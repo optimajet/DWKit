@@ -1,14 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { DWKitForm } from "./../../scripts/optimajet-form";
-import {CustomControls, CustomControlsRender} from './controls/CustomControlsInit.jsx';
+import { DWKitAppForm } from './../../scripts/optimajet-app';
+import { CustomControls, CustomControlsRender } from './controls/CustomControlsInit.jsx';
+import 'url-search-params-polyfill';
 
 window.DWKitFormSettings = {
     externalControlList: CustomControls,
     externalControlRender: CustomControlsRender
 };
-
-import 'url-search-params-polyfill';
 
 
 class Login extends React.Component {
@@ -147,7 +146,7 @@ class Login extends React.Component {
             eventFunc: this.eventHandler.bind(this)
         };
 
-        return <DWKitForm {...sectorprops}
+        return <DWKitAppForm {...sectorprops}
             formName="login"
             modelurl="/ui/login"
             data={this.state.data}

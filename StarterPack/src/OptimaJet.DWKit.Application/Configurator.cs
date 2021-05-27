@@ -68,27 +68,12 @@ namespace OptimaJet.DWKit.Application
         private static void Configure(ISecurityProvider security, IConfigurationRoot configuration,
             string connectionstringName = "default", ILogger logger = null)
         {
-            #region License
-
-            var licensefile = "license.key";
-            if (File.Exists(licensefile))
-            {
-                try
-                {
-                    var licenseText = File.ReadAllText(licensefile);
-                    DWKitRuntime.RegisterLicense(licenseText);
-                }
-                catch
-                {
-                    //TODO add write to log
-                }
-            }
-
-            #endregion
+            DWKitRuntime.LicensePath = configuration["DWKit:LicensePath"] ?? string.Empty;
+            DWKitRuntime.CheckLicense();
 
             #if (DEBUG)
             DWKitRuntime.UseMetadataCache = false;
-            //CodeActionsCompiler.DebugMode = true;
+            CodeActionsCompiler.DebugMode = true;
             #elif (RELEASE)
             DWKitRuntime.UseMetadataCache = true;
             #endif
@@ -100,22 +85,36 @@ namespace OptimaJet.DWKit.Application
 
             DWKitRuntime.ConnectionStringData = configuration[$"ConnectionStrings:{connectionstringName}"];
             DWKitRuntime.DbProvider = AutoDetectProvider(configuration, logger);
+
+            DWKitRuntime.AddExtraProvider("mssql", new SQLServerProvider());
+            DWKitRuntime.AddExtraProvider("postgresql", new PostgreSqlProvider());
+            DWKitRuntime.AddExtraProvider("oracle", new OracleProvider());
+
             DWKitRuntime.Security = security;
             DWKitRuntime.QueryInterceptor = GetQueryInterceptor();
 
-            var path = configuration["Metadata:path"];
+            var path = configuration["DWKit:MetadataPath"];
             string metadataPath = null;
 
             if (string.IsNullOrEmpty(path))
             {
-                path = "Metadata/metadata.json";
+                path = Path.Combine("Metadata", "metadata.json");
                 metadataPath = "Metadata";
             }else
             {
                 metadataPath = Path.GetDirectoryName(path);
             }
 
-            DWKitRuntime.Metadata = new DefaultMetadataProvider(path, $"{metadataPath}/Forms", $"{metadataPath}/Localization", workflowFolder: $"{metadataPath}/Workflow" );
+            DWKitRuntime.Metadata = new DefaultMetadataProvider(path,
+                Path.Combine(metadataPath, "Forms"),
+                Path.Combine(metadataPath, "Localization"),
+                workflowFolder: Path.Combine(metadataPath, "Workflow"),
+                mobileFormFolder: Path.Combine(metadataPath, "MobileForms"));
+
+            if ("true".Equals(configuration["DWKit:DeveloperMode"], StringComparison.InvariantCultureIgnoreCase))
+            {
+                DWKitRuntime.Metadata.DeveloperMode = true;
+            }
 
             if ("true".Equals(configuration["DWKit:BlockMetadataChanges"], StringComparison.InvariantCultureIgnoreCase))
             {
@@ -138,7 +137,7 @@ namespace OptimaJet.DWKit.Application
             DWKitRuntime.CompileAllCodeActionsAsync().Wait();
             DWKitRuntime.ServerActions.RegisterUsersProvider("filters", new Filters());
             DWKitRuntime.ServerActions.RegisterUsersProvider("triggers", new Triggers());
-            DWKitRuntime.ServerActions.RegisterUsersProvider("actions", new ServerActions());
+            DWKitRuntime.ServerActions.RegisterUsersProvider("actions", new FormActions());
 
             //Forcing the creation of a WF runtime to initialize timers and the Flow.
             try

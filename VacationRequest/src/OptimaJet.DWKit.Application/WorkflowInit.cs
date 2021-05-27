@@ -7,10 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.Model;
+using OptimaJet.DWKit.Core.Plugins;
 using OptimaJet.DWKit.Core.Utils;
 using OptimaJet.Workflow.Core.Model;
+using OptimaJet.Workflow.Core.Plugins;
 using OptimaJet.Workflow.Core.Runtime;
 using OptimaJet.Workflow.Core.Runtime.CodeAutocomplete;
+using OptimaJet.Workflow.Plugins;
 
 namespace OptimaJet.DWKit.Application
 {
@@ -24,13 +27,18 @@ namespace OptimaJet.DWKit.Application
         public static IWorkflowActionProvider ActionProvider { get; set; }
         public static ITimerManager TimerManager { get; set; }
         public static ICodeAutocompleteProvider CodeAutocompleteProvider { get; set; }
+        public static IWorkflowExternalParametersProvider ExternalParametersProvider { get; set; }
 
         private static WorkflowRuntime InitWorkflowRuntime()
         {
             var runtime = DWKitRuntime.CreateWorkflowRuntime()
-                .WithActionProvider(ActionProvider  ?? new ActionProvider())
+                .WithActionProvider(ActionProvider ?? new WorkflowActions())
                 .WithRuleProvider(RuleProvider ?? new RuleProvider())
-                .WithTimerManager(TimerManager ?? new TimerManager());
+                .WithExternalParametersProvider(ExternalParametersProvider ?? new WorkflowParameters())
+                .AsSingleServer();
+
+            runtime.WithPlugin(new FilePlugin());
+            runtime.WithPlugin(new LoopPlugin());
 
             if (CodeAutocompleteProvider != null)
             {
@@ -60,8 +68,8 @@ namespace OptimaJet.DWKit.Application
                 errorBuilder.AppendLine($"Message: {info.Message}");
                 errorBuilder.AppendLine($"Exceptions: {info.Exeptions}");
                 errorBuilder.Append($"StackTrace: {info.StackTrace}");
-                
-                
+
+
                 if (Debugger.IsAttached)
                 {
                     Debug.WriteLine(errorBuilder);
@@ -72,10 +80,10 @@ namespace OptimaJet.DWKit.Application
                     Console.WriteLine(errorBuilder);
                 }
             };
-            
+
             //It is necessery to have this assembly for compile code with dynamic
-            runtime.RegisterAssemblyForCodeActions(typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly,true); 
-            
+            runtime.RegisterAssemblyForCodeActions(typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly,true);
+
             //TODO If you have planned to use Code Actions functionality that required references to external assemblies you have to register them here
             //runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(SomeTypeFromMyAssembly)));
             runtime.RegisterAssemblyForCodeActions(Assembly.GetAssembly(typeof(DynamicEntity)));
@@ -85,7 +93,7 @@ namespace OptimaJet.DWKit.Application
 
             return runtime;
         }
-        
+
         public static void ForceInit()
         {
             var r = Runtime;

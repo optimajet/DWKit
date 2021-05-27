@@ -28,12 +28,14 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__default: HOST=db;User ID=dbuser;Password=dbuserpassword;Database=dwkit;Port=5432
-      Metadata__path: /home/metadata/metadata.json
+      DWKit__MetadataPath: /home/metadata/
+      DWKit__LicensePath: /home/license/ 
       DWKit__CreateDatabaseObjects: "true"
       DWKit__DatabaseScriptList: /home/sql/PostgreSQL/create_db.txt
     volumes:
       - ./sql:/home/sql
       - ./metadata:/home/metadata
+      - ./license:/home/license
       - ./aspnet-keys:/root/.aspnet/DataProtection-Keys
 volumes:
     dbdata:

@@ -3,7 +3,7 @@
  * http://dwkit.com
  */
 
-DWKit is a .NET BPM system made with simplicity and flexibility in mind. DWKit allows you to model, automate and execute mission-critical business processes, whatever industry you're operating in. A ready-made BPM solution is often not enough to satisfy your business requirements. Be it the need to ensure regulatory compliance or to build custom logic that goes beyond what the system has to offer, we believe that making the source code open is the way to go. You can use DWKit as a low-code on a no-code platform as well.
+DWKit is a low-code platform made with simplicity and flexibility in mind. DWKit allows you to model, automate and execute mission-critical business processes, whatever industry you're operating in. A ready-made solution is often not enough to satisfy your business requirements. Be it the need to ensure regulatory compliance or to build custom logic that goes beyond what the system has to offer, we believe that making the source code open is the way to go. You can use DWKit as a low-code on a no-code platform as well.
 Hence, we made DWKit's source code available to our customers so that they can alter whatever it is that will make their business more efficient.
 
 How to launch via docker
@@ -73,6 +73,7 @@ For Windows:
 
 For Linux/MacOS:
     chmod +x buildandstart.sh
+    chmod +x start.sh
     ./buildandstart.sh
 
 How to run in Visual Studio

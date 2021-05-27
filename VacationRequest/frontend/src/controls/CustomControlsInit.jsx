@@ -2,7 +2,7 @@
 // Read documentation: https://dwkit.com/documentation/forms/custom-components/
 
 import React from 'react';
-//import {YourControl, YourControlEditControl} from './customcontrol.jsx'
+//import {YourControl, YourControlEditControl} from './custom-control.js'
 
 let CustomControls = [
 //    {key: "sepCustomContainers", title: 'Custom Controls', isseparate: true, defaultopen: true},
@@ -20,4 +20,4 @@ let CustomControlsRender = function(parentComponent, control, args){
     return res;
 };
 
-module.exports = {CustomControls, CustomControlsRender};
+export { CustomControls, CustomControlsRender };

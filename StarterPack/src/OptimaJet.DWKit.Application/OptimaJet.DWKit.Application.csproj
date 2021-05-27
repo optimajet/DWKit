@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>2.9.2</Version>
+    <Version>3.2.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
@@ -9,18 +9,19 @@
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
     <Description>The sample for DWKit</Description>
-    <Copyright>OptimaJet DWKit 2018</Copyright>
+    <Copyright>OptimaJet DWKit 2021</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="2.9.2" />
+    <PackageReference Include="DWKit-Core" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.1.3" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.9.2" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.9.2" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="2.9.2" />
-    <PackageReference Include="DWKit-Security" Version="2.9.2" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.1.3" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.2.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.2.0" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="3.2.0" />
+    <PackageReference Include="DWKit-Security" Version="3.2.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-FilesPlugin" Version="5.1.3" />
   </ItemGroup>
 </Project>

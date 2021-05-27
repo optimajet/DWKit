@@ -8,6 +8,12 @@
     align-items: stretch;
     min-height: 400px;
     min-width: 500px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 .dwkit-formbuilder-preview{
@@ -72,6 +78,11 @@
     width: 200px;
 }
 
+.dwkit-formbuilder-toolbox > .ui.input {
+  margin: 16px 0 0 16px;
+  width: calc(100% - 29px);
+}
+
 .dwkit-formbuilder-toolbox > h4{
     margin: 5px;
     padding: 10px;
@@ -82,17 +93,25 @@
     padding-left: 0px;
 }
 
+.dwkit-formbuilder-toolbox-control:hover{
+  color: rgba(255, 255, 255, 1);
+}
+
 .dwkit-formbuilder-toolbox-control
 {
-    cursor: move;
+    cursor: grab;
     list-style: none;
     margin: 15px;
     padding: 6px;
-    border: 1px dashed #FFFFFF;
+    border: 1px solid #FFFFFF;
     border-radius: 2px;
     font-family: 'Lato', 'sans-serif';
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.dwkit-formbuilder-toolbox-control-text{
+  margin-left: 10px;
 }
 
 .dwkit-formbuilder-toolbox-control-icon {
@@ -106,12 +125,17 @@
 
 .dwkit-formbuilder-toolbox > ul > li:hover
 {
-    background: #1B62D4;
+    background: #144799;
 }
 
-.dwkit-formbuilder-toolbox > ul > li span{
+.dwkit-formbuilder-toolbox > ul > li .icon{
     float: right;
-    padding-right: 20px;
+    margin-right: -5px;
+}
+
+.dwkit-formbuilder-toolbox > ul > li .icon > .right{
+  float: right;
+  margin-right: -5px;
 }
 
 .dwkit-formbuilder-toolbox > ul > li.dwkit-formbuilder-toolbox-subheader {
@@ -125,6 +149,22 @@
     font-family: 'Lato', 'sans-serif';
     margin: 10px;
     color: rgba(255, 255, 255, 1);
+}
+
+.dwkit-formbuilder-toolbox-search-nothing {
+  list-style: none;
+  font-weight: normal;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  font-family: 'Lato', 'sans-serif';
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 1);
+  opacity: .8;
+}
+
+.dwkit-formbuilder-toolbox-search-nothing > .button {
+  margin-top: 10px;
 }
 
 .dwkit-formbuilder-item-active {
@@ -161,6 +201,7 @@
     padding-bottom: 5px;
     padding-top: 3px;
     height: 25px;
+    width: fit-content;
     padding-bottom: 20px;
     padding-left: 10px;
     line-height: 20px;
@@ -290,6 +331,12 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
     height: 80px;
     margin-left: 20px;
     margin-right: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 .dwkit-formbuilder-header-logo{
     margin-top:10px;
@@ -482,10 +529,25 @@ a.dwkit-btn{
 
 .dwkit-collectioneditor-header{
     font-weight: 600;
+    color: grey;
 }
 
-.dwkit-collectioneditor tr td:first-child{
-    display: flex;
+.dwkit-formbuilder-item-toolbar-container {
+  position: absolute;
+  right: auto;
+  will-change: transform;
+  top: 0px;
+  left: 0px;
+}
+
+.dwkit-collectioneditor .dwkit-formbuilder-item-toolbar-container { /* hack for correct position in table (customElement in collectonEditor)  */
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.dwkit-collectioneditor .dwkit-formbuilder-item-toolbar-header { /* hack for correct position in table (customElement in collectonEditor)  */
+  position: absolute;
 }
 
 .dwkit-collectioneditor tr > td{
@@ -657,7 +719,8 @@ a.dwkit-btn{
     content:' *';
 }
 
-.ui.input.error .react-datepicker__input-container > input {
+.ui.input.error .react-datepicker__input-container > input,
+.error .react-datepicker__input-container > input {
   background-color: #fff6f6;
   border-color: #e0b4b4;
   color: #9f3a38;
@@ -718,6 +781,10 @@ a.dwkit-btn{
   margin: 2px;
 }
 
+.dwkit-action-dropdown .ui.label {
+    word-break: break-all;
+}
+
 .dwkit-action-dropdown .ui.selection.dropdown .menu > .item {
     white-space: nowrap;
 }
@@ -725,6 +792,29 @@ a.dwkit-btn{
 .dwkit-action-dropdown .ui.selection.dropdown .menu {
     min-width: max-content;
 }
+
+.dwkit-formbuilder-container-custom,
+.dwkit-formbuilder-container-rows,
+.dwkit-formbuilder-container-columns,
+.dwkit-formbuilder-container-columnswrap
+{
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin-right: 5px;  
+}
+
+.dwkit-formbuilder-container-rows{
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgMzRMMSA0OEg0OVYzNEgxWk00NyAzNlY0NkgzTDMgMzZINDdaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMSAxOEwxIDMySDQ5VjE4TDEgMThaTTQ3IDIwVjMwTDMgMzBMMyAyMEw0NyAyMFoiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xIDJMMSAxNkw0OSAxNlYyTDEgMlpNNDcgNFYxNEwzIDE0TDMgNEw0NyA0WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==")
+}
+
+.dwkit-formbuilder-container-columns{
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2IDFIMlY0OUgxNlYxWk0xNCA0N0g0VjNIMTRWNDdaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMzIgMUgxOFY0OUgzMlYxWk0zMCA0N0gyMFYzSDMwVjQ3WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTQ4IDFIMzRWNDlINDhWMVpNNDYgNDdIMzZWM0g0NlY0N1oiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=")
+}
+.dwkit-formbuilder-container-columnswrap{
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2IDFIMlYyNEgxNlYxWk0xNCAyMkg0VjNIMTRWMjJaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMzIgMUgxOFYyNEgzMlYxWk0zMCAyMkgyMFYzSDMwVjIyWiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTQ4IDFIMzRWMjRINDhWMVpNNDYgMjJIMzZWM0g0NlYyMloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xNiAyNkgyVjUwSDE2VjI2Wk0xNCA0OEg0VjI4SDE0VjQ4WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTMyIDI2SDE4VjUwSDMyVjI2Wk0zMCA0OEgyMFYyOEgzMFY0OFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=")
+}
+
 .react-datepicker__input-container input{
     margin: 0;
     max-width: 100%;
@@ -742,6 +832,35 @@ a.dwkit-btn{
     border-radius: .28571429rem;
     transition: box-shadow .1s ease,border-color .1s ease,-webkit-box-shadow .1s ease;  box-shadow: none;
 }
+
+.dwkit-container-rows > div:not(.dwkit-formbuilder-item-toolbar-header):not(.dwkit-formbuilder-zone){
+  margin: 0px 0px 20px 0px;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.dwkit-container-columns{
+  display: flex;
+}
+
+.dwkit-container-columns > div:not(.dwkit-formbuilder-item-toolbar-header):not(.dwkit-formbuilder-zone){
+  margin: 0px 20px 0px 0px;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.dwkit-container-columnswrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.dwkit-container-columnswrap > div:not(.dwkit-formbuilder-item-toolbar-header):not(.dwkit-formbuilder-zone) {
+  margin: 0px 20px 20px 00px;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
 /* react date picker */
 
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list{
@@ -1398,6 +1517,109 @@ a.dwkit-btn{
   cursor: default;
 }
 
+/* Camera CSS */
+.react-html5-camera-photo {
+  width: 100%;
+  min-width: 236px !important;
+  height: auto;
+}
+
+.react-html5-camera-photo > video {
+  width: 100%;
+  min-width: 236px;
+  height: auto;
+}
+
+#container-circles {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  float: right;
+  margin-right: calc(50% - 19px);
+  margin-top: -50px;
+  z-index: 1;
+}
+
+#outer-circle {
+  border-radius: 50%;
+  left: -37px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(24, 26, 27, 0.4);
+}
+
+#inner-circle {
+  position: relative;
+  background-color: rgb(24, 26, 27);
+  border-radius: 50%;
+  height: 80%;
+  width: 80%;
+  top: 10%;
+  left: 10%;
+  background: #fff;
+  z-index: 2;
+}
+
+.image-uploaded-preview {
+  position: relative;
+  max-width: 223px;
+  height: auto;
+}
+
+.compact-image-preview {
+  position: relative;
+  display: inline-flex;
+  width: 74px;
+  height: 38px;
+}
+
+.compact-image-preview.signature {
+  max-width: 45px;
+}
+
+.image-uploaded-preview > img {
+  object-fit: cover;
+  cursor: pointer;
+  border-color: rgba(34,36,38,.15);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.image-uploaded-preview.compact {
+  display:  inline-flex; 
+  vertical-align: bottom;
+  margin-right: 10px;
+}
+
+.image-uploaded-preview .image-preview {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  border-radius: .28571429rem;
+}
+
+.image-preview {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.react-html5-camera-photo > img {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.react-html5-camera-photo.placeholder {
+  height: 15vh;
+  min-height: 100px;
+  background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Filepicker CSS */
 .filepicker {
     font-family: sans-serif;
@@ -1462,6 +1684,21 @@ div.filepicker {
     border-width: 11px 0 0 11px;
     border-style: solid;
     border-color: white transparent transparent #920035;
+}
+
+/* SignatureCanvas CSS */
+.signature-canvas-container {
+  width: 15vw;
+  height: 10vw;
+  min-width: 236px !important;
+  min-height: 236px !important;
+}
+
+.signature-canvas-container .canvas {
+  width: 100% !important;
+  height: calc(100% - 42px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /*
@@ -2031,7 +2268,8 @@ div.filepicker {
 .slick-arrow {
   width: 38px;
   height: 30px;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAABUFBMVEUAAAD///8AAAD///8AAAB/f38AAABVVVUAAABAQEAAAAAzMzMAAAAqKioAAAAkJCQAAAAgICAAAAAcHBwAAAAZGRkAAAAXFxcAAAAVFRUAAAAUFBRAf+9Af/8sZKYpXJkmTI4vVZdAf/dIh/czbL8vZbJEh/M/he8/fuE4c9VAhvJChO9Af+c6etxDhvdChfQ8feM+fuFChPRChvQ8fedAhfNEh/Nak/Nak/VAgew/gOpWjuxWkOxXlPZtovhXk/RsofZWkvNVkO9pm+5pne9Ujuxon/don/dmm/Flmu+Br/iBrvd/rPR+q/OLtfmJs/aJsvWKs/aSufiTuvmSuPeTuviavvmavvqbvvmZvfiZvvghXs8+c9Y/dNZOftmIqeWXs+igwvmmv+zP4PzQ4fzn8P3n8P7o8P3o8P7w9Pvw9Pzx9fzz9/7z+P70+P7///8fJqpJAAAAW3RSTlMAAAEBAgIDAwQEBQUGBgcHCAgJCQoKCwsMDA0NEBAXGRsbICAoK0BBRUlQUVRYX2BmZ3BwdoCAgICEhYWFj4+QkJGTlJSVn6CjpL/AwcLP0NHR39/g4O/v7/DwJAEuzAAAAeVJREFUOMudlFlz0zAUhY0iK7dCVhxXVkygrC37TtkphS5sLVtpTFlDiEuhUPT/31Dj2FFi2Q+csWck+5tzruwrOY6pmdMLr+JeL36xcN4p1cydOFFDJRs3T9qpG1t/laGdjcs26lGiJpQ8LFJPf6qCdp4UvCyU5ib8riTKquS6SZ16p0q0dcTAbo1F/jLGf26PKNQxqe5XcxaP7C6YlXW//B6r7kxutlhOKfUYZdhaBaVe4yGF4wpKxSS1Q/Ve9ujbpwKleiSlEOTY7ueuBcNpJh2FWrgY0uIIfasquHWaYpguqQpuieLBGgicTcq5/kWaLhXD0Q/mi93v5myTH8xCGw/2yjpk+y6bclOMsGMfy7DNWU7c4edlwXxJW/avNrzsL2BoipUf1shlwWGEsUA+t3Dbz4TPwM06CVMeyJVCbn9ZigbgWt5wQKeFvNYZM9x7Px8J7uFa1m9OzYWGL+TcvU4/d4rvH28NInPKqenyeFNEUfvS6sv9o+bN6rkTMgqnPcCuuQP3OT+QstXW7OG2vluhaDKoo/H9fEAvl/silJGMokORDIXPKWA8eTogF8DjfhgEQojA1xAlGBXPGuRioNTjnDc5YwxI0SorkBCAKaAAdYJsVkNOCyOspQdOtdDg+j/9A2l9OejOLDZ0AAAAAElFTkSuQmCC") no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAABUFBMVEUAAAD///8AAAD///8AAAB/f38AAABVVVUAAABAQEAAAAAzMzMAAAAqKioAAAAkJCQAAAAgICAAAAAcHBwAAAAZGRkAAAAXFxcAAAAVFRUAAAAUFBRAf+9Af/8sZKYpXJkmTI4vVZdAf/dIh/czbL8vZbJEh/M/he8/fuE4c9VAhvJChO9Af+c6etxDhvdChfQ8feM+fuFChPRChvQ8fedAhfNEh/Nak/Nak/VAgew/gOpWjuxWkOxXlPZtovhXk/RsofZWkvNVkO9pm+5pne9Ujuxon/don/dmm/Flmu+Br/iBrvd/rPR+q/OLtfmJs/aJsvWKs/aSufiTuvmSuPeTuviavvmavvqbvvmZvfiZvvghXs8+c9Y/dNZOftmIqeWXs+igwvmmv+zP4PzQ4fzn8P3n8P7o8P3o8P7w9Pvw9Pzx9fzz9/7z+P70+P7///8fJqpJAAAAW3RSTlMAAAEBAgIDAwQEBQUGBgcHCAgJCQoKCwsMDA0NEBAXGRsbICAoK0BBRUlQUVRYX2BmZ3BwdoCAgICEhYWFj4+QkJGTlJSVn6CjpL/AwcLP0NHR39/g4O/v7/DwJAEuzAAAAeVJREFUOMudlFlz0zAUhY0iK7dCVhxXVkygrC37TtkphS5sLVtpTFlDiEuhUPT/31Dj2FFi2Q+csWck+5tzruwrOY6pmdMLr+JeL36xcN4p1cydOFFDJRs3T9qpG1t/laGdjcs26lGiJpQ8LFJPf6qCdp4UvCyU5ib8riTKquS6SZ16p0q0dcTAbo1F/jLGf26PKNQxqe5XcxaP7C6YlXW//B6r7kxutlhOKfUYZdhaBaVe4yGF4wpKxSS1Q/Ve9ujbpwKleiSlEOTY7ueuBcNpJh2FWrgY0uIIfasquHWaYpguqQpuieLBGgicTcq5/kWaLhXD0Q/mi93v5myTH8xCGw/2yjpk+y6bclOMsGMfy7DNWU7c4edlwXxJW/avNrzsL2BoipUf1shlwWGEsUA+t3Dbz4TPwM06CVMeyJVCbn9ZigbgWt5wQKeFvNYZM9x7Px8J7uFa1m9OzYWGL+TcvU4/d4rvH28NInPKqenyeFNEUfvS6sv9o+bN6rkTMgqnPcCuuQP3OT+QstXW7OG2vluhaDKoo/H9fEAvl/silJGMokORDIXPKWA8eTogF8DjfhgEQojA1xAlGBXPGuRioNTjnDc5YwxI0SorkBCAKaAAdYJsVkNOCyOspQdOtdDg+j/9A2l9OejOLDZ0AAAAAElFTkSuQmCC);
+  background-color: transparent;
   position: absolute;
   font-size: 0;
   border: none;
@@ -2064,6 +2302,31 @@ div.filepicker {
 
 .ui.form .fields .field > .fields{
   margin-bottom: 0.4em;
+}
+
+.field > label {
+  display: block;
+  margin: 0 0 .28571429rem 0;
+  color: rgba(0,0,0,.87);
+  font-size: .92857143em;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.field > textarea{
+  width: 100%;
+  padding: .78571429em 1em;
+  border: 1px solid rgba(34,36,38,.15);
+  outline: 0;
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem;
+  -webkit-box-shadow: 0 0 0 0 transparent inset;
+  box-shadow: 0 0 0 0 transparent inset;
+  -webkit-transition: color .1s ease,border-color .1s ease;
+  transition: color .1s ease,border-color .1s ease;
+  font-size: 1em;
+  line-height: 1.2857;
+  resize: vertical;
 }
 
 .dwkit-formbuilder-toolbox{
@@ -2307,4 +2570,68 @@ textarea:read-only,
 .ui.form .fields.grouped > .fields{
   margin-right: 0em;
   margin-left: 0em;
+}
+
+.events-editor {
+  margin-top: -35px !important;
+  margin-bottom: -15px !important;
+}
+
+.events-editor-block {
+  margin-bottom: 30px;
+}
+
+.events-editor-checkbox {
+  font-weight: 900;
+}
+
+.events-editor-checkbox .checkbox > label {
+  font-size: 15px;
+}
+
+.events-editor .dwkit-collectioneditor {
+  border-spacing: 0 35px;
+}
+/* 
+.events-editor .dwkit-collectioneditor-header {
+  font-weight: normal;
+} */
+
+.events-editor .dwkit-collectioneditor-header > td:first-child {
+  padding-left: 22px;
+  width: 20%;
+}
+
+.parameters-editor .dwkit-collectioneditor-header > td:first-child {
+  padding-left: 0;
+}
+
+.events-editor .dwkit-collectioneditor-header > td:nth-child(2) {
+  width: 43%;
+}
+
+.events-editor .dwkit-collectioneditor-header > td:nth-child(3) {
+  width: 25%;
+}
+
+.parameters-editor .dwkit-collectioneditor {
+  border-spacing: 0;
+}
+
+.events-editor .dwkit-collectioneditor-buttoncol {
+  opacity: 0;
+  width: 40px !important;
+}
+
+.parameters-editor .dwkit-collectioneditor-buttoncol {
+  width: 48px !important;
+}
+
+.parameters-editor .dwkit-collectioneditor-buttoncol {
+  opacity: 1;
+}
+
+.events-editor .parameters-editor {
+  margin-top: -26px !important;
+  min-height: 67px;
 }

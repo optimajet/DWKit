@@ -1,0 +1,147 @@
+[
+  {
+    "key": "btnCreate",
+    "data-buildertype": "button",
+    "content": "Create",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": [
+          {
+            "__id": "CLIENT_32508d40-f8cf-11ea-b995-39eec5c18dea",
+            "name": "target",
+            "value": "/form/document"
+          }
+        ]
+      }
+    },
+    "active": true,
+    "actions": [
+      "redirect"
+    ],
+    "other-visibleConition": "",
+    "primary": true
+  },
+  {
+    "key": "search",
+    "data-buildertype": "input",
+    "label": "Search",
+    "onChangeTimeout": 200,
+    "events": {
+      "onChange": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "setFilter",
+              "applyFilter"
+            ],
+            "parameters": [
+              {
+                "__id": "CLIENT_fc88bcf0-0e59-11eb-b10c-4bee6ffe2f11",
+                "name": "column",
+                "value": "Name, State, Number, AuthorId_Name, Amount"
+              }
+            ],
+            "targets": [
+              "grid"
+            ]
+          }
+        ]
+      }
+    },
+    "active": true,
+    "actions": [
+      "setFilter",
+      "applyFilter"
+    ],
+    "targets": [
+      "grid"
+    ]
+  },
+  {
+    "key": "grid",
+    "data-buildertype": "repeater",
+    "placeholders": {
+      "template": [
+        {
+          "key": "item",
+          "data-buildertype": "card",
+          "header": "#{row.Number} - {row.Name}",
+          "subheader": "State: {row.State}",
+          "placeholders": {
+            "extra": [
+              {
+                "key": "btnOpen",
+                "data-buildertype": "button",
+                "content": "Open",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "redirect"
+                    ],
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "__id": "CLIENT_c0c68330-0334-11eb-abc9-930bfed65388",
+                        "name": "target",
+                        "value": "/form/document/{row.Id}"
+                      }
+                    ]
+                  }
+                },
+                "active": true,
+                "actions": [
+                  "redirect"
+                ],
+                "fluid": true
+              },
+              {
+                "key": "workflowbar_1",
+                "data-buildertype": "workflowbar",
+                "blockSetState": true,
+                "blockLoadParameters": true,
+                "events": {
+                  "onCommandClick": {
+                    "active": true,
+                    "actions": [
+                      "workflowExecuteCommand"
+                    ]
+                  },
+                  "onSetStateClick": {
+                    "active": true,
+                    "actions": [
+                      "workflowSetState"
+                    ]
+                  },
+                  "onSchemeSelected": {
+                    "active": true,
+                    "actions": [
+                      "workflowSelectScheme"
+                    ]
+                  }
+                }
+              }
+            ],
+            "description": [
+              {
+                "key": "staticcontent_1",
+                "data-buildertype": "staticcontent",
+                "content": "<b>Author:</b> {row.AuthorId_Name}<br/>\n<b>Amount:</b> {row.Amount:0,000.00}",
+                "isHtml": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "pagerType": "server",
+    "pageSize": "",
+    "defaultSort": "Number DESC"
+  }
+]

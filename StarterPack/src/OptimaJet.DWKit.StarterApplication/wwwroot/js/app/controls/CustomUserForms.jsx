@@ -7,4 +7,4 @@ import React from 'react';
 let CustomUserForms = {};
 //CustomUserForms["<form name>"] = YourForm;
 
-module.exports = {CustomUserForms};
+export {CustomUserForms};

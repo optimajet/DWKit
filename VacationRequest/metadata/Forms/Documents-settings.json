@@ -1,6 +1,6 @@
 {
   "name": "Documents",
-  "lastUpdate": "2020-02-16T19:34:47.0957124+03:00",
+  "lastUpdate": "2020-11-26T13:18:06.7940295+03:00",
   "isTemplate": false,
   "triggers": [],
   "dataMap": [],
@@ -159,11 +159,25 @@
           "attributeSource": 1
         },
         {
+          "id": "eed9f319-c91d-d22d-a01d-900ce0cc553f",
+          "attributeId": "a70764a7-63ed-64d5-3216-292d5d4301ec",
+          "isEditable": false,
+          "isLoadable": true,
+          "attributeSource": 0
+        },
+        {
           "id": "884e29e7-fd67-051c-54dd-d4733bebee88",
           "attributeId": "30f29868-2fdb-4b9c-a8df-000000000009",
           "isEditable": false,
           "isLoadable": true,
           "attributeSource": 1
+        },
+        {
+          "id": "88b0bd85-8c1e-0c80-0a9d-5a066313f8cf",
+          "attributeId": "9e57d8d6-51de-3e82-0c8f-9b7f9f723df5",
+          "isEditable": false,
+          "isLoadable": true,
+          "attributeSource": 0
         }
       ],
       "readOnly": false,

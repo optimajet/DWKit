@@ -1,7 +1,8 @@
 {
   "common": {
     "dateFormat": "DD.MM.YYYY",
-    "timeFormat": "HH:mm"
+    "timeFormat": "HH:mm",
+    "locale": "en"
   },
     "msg":{
         

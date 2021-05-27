@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -84,7 +85,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("workflow/get")]
-        public async Task<ActionResult> GetData(string name, string urlFilter, bool forCopy = false, bool loadParameters = false)
+        public async Task<ActionResult> GetData(string name, string urlFilter, bool forCopy = false, bool loadParameters = false, string schemeName = null)
         {
             try
             {
@@ -101,10 +102,13 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     }
                     catch
                     {
-                        if (DWKitRuntime.ServerActions.ContainsFilter(urlFilter))
-                        {
-                            filterActionName = urlFilter;
-                        }
+                        var filterActions = DWKitRuntime.ServerActions.GetFilterNames().Where(n => n.Equals(urlFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+                        string filterAction = null;
+                        filterAction = filterActions.Count == 1 ? filterActions.First()
+                            : filterActions.FirstOrDefault(n => n.Equals(urlFilter, StringComparison.Ordinal));
+
+                        if (!string.IsNullOrEmpty(filterAction))
+                            filterActionName = filterAction;
                         else
                         {
                             idValue = urlFilter;
@@ -140,15 +144,16 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 var userId = GetUserId();
                 var processId = GetProcessId(entityId, name);
+                var culture = DWKitRuntime.Security.CurrentUser?.GetCulture() ?? CultureInfo.CurrentCulture;
 
                 if (processId.HasValue && (await WorkflowInit.Runtime.IsProcessExistsAsync(processId.Value).ConfigureAwait(false)))
                 {
                     var info = await WorkflowInit.Runtime.GetProcessSchemeAsync(processId.Value);
 
-                    var commands = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId.Value, userId.ToString()).ConfigureAwait(false))
+                    var commands = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId.Value, userId.ToString(), culture).ConfigureAwait(false))
                         .Select(c => new ClientWorkflowCommand { Text = c.LocalizedName, Type = (byte)c.Classifier, Value = c.CommandName, Scheme = info.Name }).ToList();
 
-                    var states = (await WorkflowInit.Runtime.GetAvailableStateToSetAsync(processId.Value).ConfigureAwait(false))
+                    var states = (await WorkflowInit.Runtime.GetAvailableStateToSetAsync(processId.Value, culture).ConfigureAwait(false))
                         .Select(s => new ClientWorkflowState { Value = s.Name, Text = s.VisibleName }).ToList();
 
                     await new FormFillStrategy().FillFormForCommandsAsync(commands).ConfigureAwait(false);
@@ -174,7 +179,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 }
                 else
                 {
-                    var commands = await GetInitialCommands(name, userId).ConfigureAwait(false);
+                    var commands = await GetInitialCommands(name, userId, culture, schemeName).ConfigureAwait(false);
                     await new FormFillStrategy().FillFormForCommandsAsync(commands).ConfigureAwait(false);
                     return Json(new ItemSuccessResponse<ClientWorkflowResponse>(new ClientWorkflowResponse()
                     { Commands = commands, States = new List<ClientWorkflowState>(), ProcessExists = false }));
@@ -190,17 +195,17 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("workflow/execute")]
         [HttpPost]
-        public async Task<ActionResult> ExecuteCommand(string name, string id, string command, string data)
+        public async Task<ActionResult> ExecuteCommand(string name, string id, string command, string data, string schemeName)
         {
             try
             {
-                var processId = GetProcessIdFromString(id, name);
-
+                var processId = GetProcessIdFromString(id, name, schemeName);
                 var userId = GetUserId();
+                var culture = DWKitRuntime.Security.CurrentUser?.GetCulture() ?? CultureInfo.CurrentCulture;
 
                 if (!await WorkflowInit.Runtime.IsProcessExistsAsync(processId))
                 {
-                    var wfCommand = (await GetInitialCommands(name, userId)).FirstOrDefault(c => c.Value.Equals(command));
+                    var wfCommand = (await GetInitialCommands(name, userId, culture, schemeName)).FirstOrDefault(c => c.Value.Equals(command));
                     if (wfCommand == null)
                         return Json(new FailResponse("Command not found."));
                     var createParams = new CreateInstanceParams(wfCommand.Scheme, processId)
@@ -209,19 +214,19 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                         ImpersonatedIdentityId = userId.ToString()
                     };
 
-                    createParams.AddPersistentParameter("ObjectId", id)
+                    createParams.AddPersistentParameter("ObjectId", processId.ToString())
                         .AddPersistentParameter("InitialForm", name);
                     await WorkflowInit.Runtime.CreateInstanceAsync(createParams);
                 }
 
-                var commandObject = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId, userId.ToString())).FirstOrDefault(c => c.CommandName.Equals(command));
+                var commandObject = (await WorkflowInit.Runtime.GetAvailableCommandsAsync(processId, userId.ToString(), culture)).FirstOrDefault(c => c.CommandName.Equals(command));
 
                 if (commandObject == null)
                     return Json(new FailResponse("Command not found."));
 
                 var instance = await WorkflowInit.Runtime.GetProcessInstanceAndFillProcessParametersAsync(processId);
 
-                var scheme = WorkflowInit.Runtime.Builder.GetProcessScheme(instance.SchemeCode);
+                var scheme = await WorkflowInit.Runtime.Builder.GetProcessSchemeAsync(instance.SchemeCode).ConfigureAwait(false);
 
                 if (!string.IsNullOrWhiteSpace(data))
                 {
@@ -244,9 +249,16 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                     }
                 }
 
-                await WorkflowInit.Runtime.ExecuteCommandAsync(commandObject, DWKitRuntime.Security.CurrentUser?.Id.ToString(), userId.ToString());
+                var executionResult = await WorkflowInit.Runtime.ExecuteCommandAsync(commandObject, DWKitRuntime.Security.CurrentUser?.Id.ToString(), userId.ToString());
+                var res = new
+                {
+                    EntityId = executionResult.ProcessInstance.ProcessId,
+                    Entity = executionResult.ProcessInstance.ProcessParameters
+                        .ToDictionary(c => c.Name,
+                            v => v.Value)
+                };
 
-                return Json(new SuccessResponse());
+                return Json(new ItemSuccessResponse<object>(res));
             }
 
             catch (Exception e)
@@ -257,11 +269,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("workflow/set")]
         [HttpPost]
-        public async Task<ActionResult> SetState(string name, string id, string state, string data)
+        public async Task<ActionResult> SetState(string name, string id, string state, string data, string schemeName)
         {
             try
             {
-                var processId = GetProcessIdFromString(id, name);
+                var processId = GetProcessIdFromString(id, name, schemeName);
                 var userId = GetUserId();
 
                 if (!await WorkflowInit.Runtime.IsProcessExistsAsync(processId))
@@ -292,21 +304,34 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
-        private static Guid GetProcessIdFromString(string id, string formName)
+        private static Guid GetProcessIdFromString(string id, string formName, string schemeName)
         {
             if (Guid.TryParse(id, out Guid idGuid))
                 return idGuid;
+
+            if (id == null || id.Contains("CLIENT__"))
+            {
+                if (!string.IsNullOrEmpty(schemeName))
+                    return Guid.NewGuid();
+
+                id = "SPECIALWORKFLOW";
+            }
 
             return HashHelper.FromString($"{formName}_{id}");
         }
 
         private static Guid? GetProcessId(object entityId, string formName)
         {
+            if (entityId is Guid entityIdAsGuid)
+                return entityIdAsGuid;
+
             if (entityId == null)
                 return null;
 
-            if (entityId is Guid entityIdAsGuid)
-                return entityIdAsGuid;
+            if (entityId is string && ((string)entityId).Contains("CLIENT__"))
+            {
+                entityId = "SPECIALWORKFLOW";
+            }
 
             return HashHelper.FromString($"{formName}_{entityId}");
         }
@@ -323,22 +348,23 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
         }
 
-        private async Task<List<ClientWorkflowCommand>> GetInitialCommands(string name, Guid userId)
+        private async Task<List<ClientWorkflowCommand>> GetInitialCommands(string name, Guid userId, CultureInfo culture, string schemeName)
         {
-            List<string> schemeNames = DWKitRuntime.Metadata.GetWorkflowByForm(name);
+            List<string> schemeNames = string.IsNullOrEmpty(schemeName) ? DWKitRuntime.Metadata.GetWorkflowByForm(name) :
+                new List<string>(){schemeName};
             var commands = new List<ClientWorkflowCommand>();
             if (schemeNames != null)
             {
-                foreach (var schemeName in schemeNames)
+                foreach (var scheme in schemeNames)
                 {
-                    var schemeCommands = (await WorkflowInit.Runtime.GetInitialCommandsAsync(schemeName,
-                        userId.ToString())).Select(c =>
+                    var schemeCommands = (await WorkflowInit.Runtime.GetInitialCommandsAsync(scheme,
+                        userId.ToString(), culture)).Select(c =>
                         new ClientWorkflowCommand()
                         {
                             Text = c.LocalizedName,
                             Type = (byte)c.Classifier,
                             Value = c.CommandName,
-                            Scheme = schemeName
+                            Scheme = scheme
                         }).ToList();
 
                     commands.AddRange(schemeCommands.Where(a => commands.All(b => a.Value != b.Value)));

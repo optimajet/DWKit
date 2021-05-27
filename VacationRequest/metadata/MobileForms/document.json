@@ -1,0 +1,305 @@
+[
+  {
+    "key": "header_2",
+    "data-buildertype": "header",
+    "content": "#{Number} - {Name}",
+    "size": "medium",
+    "subheader": "{StateName}"
+  },
+  {
+    "key": "workflowbar",
+    "data-buildertype": "workflowbar",
+    "events": {
+      "onCommandClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "validate",
+              "save",
+              "workflowExecuteCommand",
+              "refresh"
+            ],
+            "parameters": [],
+            "targets": []
+          }
+        ]
+      },
+      "onSetStateClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "validate",
+              "save",
+              "workflowSetState",
+              "refresh"
+            ],
+            "parameters": [],
+            "targets": []
+          }
+        ]
+      },
+      "onSelectWorkflowScheme": {
+        "active": true,
+        "actions": [
+          "selectWorkflowScheme"
+        ]
+      },
+      "onSchemeSelected": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "workflowSelectScheme"
+            ],
+            "parameters": [],
+            "targets": []
+          }
+        ]
+      },
+      "onReceivedCommands": {
+        "active": false,
+        "triggers": [
+          {
+            "actions": [],
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "targets": []
+          }
+        ]
+      }
+    },
+    "blockSetState": true,
+    "style-marginTop": 10,
+    "style-marginBottom": 10,
+    "style-customcss": "",
+    "blockSelectScheme": false,
+    "blockLoadParameters": false,
+    "actions": [
+      "workflowShowCommandForm",
+      "save",
+      "workflowExecuteCommand",
+      "refresh"
+    ]
+  },
+  {
+    "key": "Name",
+    "data-buildertype": "input",
+    "label": "Name",
+    "fluid": true,
+    "other-required": true,
+    "other-customValidation": "",
+    "defaultValue": "",
+    "other-visibleConition": "",
+    "other-readOnlyConition": "",
+    "events": {},
+    "tooltip-enabled": true,
+    "tooltip-header": "qwewrqwer",
+    "tooltip-content": "qwerqwer"
+  },
+  {
+    "key": "Date",
+    "data-buildertype": "input",
+    "label": "Date",
+    "onChangeTimeout": 200,
+    "fluid": true,
+    "type": "date",
+    "other-required": true
+  },
+  {
+    "key": "ManagerId",
+    "data-buildertype": "dictionary",
+    "label": "Manager",
+    "fluid": true,
+    "selection": true,
+    "dataModel": "dwSecurityUser",
+    "columns": "Name ASC, Email",
+    "other-required": true,
+    "search": false,
+    "text": "data.Name ",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "ManagerId_Email",
+    "data-buildertype": "input",
+    "label": "Manager's Email",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "other-readOnlyConition": "true"
+  },
+  {
+    "key": "Amount",
+    "data-buildertype": "input",
+    "label": "Money amount (Must be more than 0!)",
+    "fluid": true,
+    "type": "number",
+    "other-required": true,
+    "other-customValidation": "value > 0 ? true : \"Must be more than 0\"",
+    "defaultValue": "",
+    "events": {}
+  },
+  {
+    "key": "Comment",
+    "data-buildertype": "textarea",
+    "label": "Comment",
+    "fluid": true,
+    "rows": "4"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-marginTop": 5,
+    "children": [
+      {
+        "key": "Scan",
+        "data-buildertype": "camera",
+        "showPreview": false
+      }
+    ],
+    "style-marginBottom": 5
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "style-marginTop": "",
+    "style-marginBottom": 5,
+    "children": [
+      {
+        "key": "Signature",
+        "data-buildertype": "signature",
+        "showPreview": false
+      }
+    ]
+  },
+  {
+    "key": "save",
+    "data-buildertype": "button",
+    "content": "Save",
+    "primary": true,
+    "events-onClick": true,
+    "events-onClick-actions": [
+      "save"
+    ],
+    "events": {
+      "onClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "validate",
+              "save",
+              "refresh"
+            ],
+            "parameters": [],
+            "targets": []
+          }
+        ]
+      }
+    },
+    "style-hiddeninprint": true,
+    "actions": [
+      "validate",
+      "save",
+      "refresh"
+    ],
+    "fluid": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "APPROVAL HISTORY",
+        "size": "small",
+        "subheader": "",
+        "propertyName": "EntityTransitionHistory"
+      },
+      {
+        "key": "gridHistory",
+        "data-buildertype": "repeater",
+        "placeholders": {
+          "template": [
+            {
+              "key": "historyItem",
+              "data-buildertype": "card",
+              "header": "",
+              "subheader": "{row.InitialState} -> {row.DestinationState}",
+              "placeholders": {
+                "description": [
+                  {
+                    "key": "staticcontent_1",
+                    "data-buildertype": "staticcontent",
+                    "content": "<b>Command:</b> {row.Command}<br/>\n<b>Executor:</b> {row.ApproverName}<br/>\n<b>Date:</b> {row.TransitionTime:DD.MM.YYYY HH:mm:ss}<br/>\n<b>Available for:</b> {row.AllowedToIdentityNames}",
+                    "isHtml": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "slider": true,
+        "defaultSort": "Order ASC",
+        "propertyName": "",
+        "pagerType": ""
+      }
+    ],
+    "other-visibleConition": "data.Id",
+    "style-marginTop": 20
+  },
+  {
+    "key": "btnDelete",
+    "data-buildertype": "button",
+    "content": "Delete",
+    "primary": false,
+    "events-onClick": true,
+    "events-onClick-actions": [
+      "save"
+    ],
+    "events": {
+      "onClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "confirm",
+              "delete",
+              "exit"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "__id": "CLIENT_1d2a16d0-19fd-11eb-93ce-9f3e159b71d9",
+                "name": "confirmText",
+                "value": "Are you sure you want to delete this document?"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "style-hiddeninprint": true,
+    "actions": [
+      "delete",
+      "exit"
+    ],
+    "style-source": "",
+    "other-visibleConition": "data.Id ? true : false",
+    "secondary": false,
+    "fluid": true,
+    "basic": true
+  }
+]

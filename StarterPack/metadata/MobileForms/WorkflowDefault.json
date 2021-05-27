@@ -1,0 +1,160 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-display": "flex",
+    "style-display-horizontalalign": "space-between",
+    "children": [
+      {
+        "key": "header",
+        "data-buildertype": "header",
+        "content": "{SchemeCode}",
+        "size": "medium",
+        "subheader": "{StateName}",
+        "other-customValidation": "",
+        "other-visibleConition": ""
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "btnRefresh",
+            "data-buildertype": "button",
+            "content": "Refresh",
+            "events": {
+              "onClick": {
+                "active": true,
+                "triggers": [
+                  {
+                    "actions": [
+                      "refresh"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "",
+                        "value": ""
+                      }
+                    ],
+                    "targets": []
+                  }
+                ]
+              },
+              "updated": true
+            }
+          },
+          {
+            "key": "button_1",
+            "data-buildertype": "button",
+            "content": "Exit",
+            "events": {
+              "onClick": {
+                "active": true,
+                "triggers": [
+                  {
+                    "actions": [
+                      "exit"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "",
+                        "value": ""
+                      }
+                    ],
+                    "targets": []
+                  }
+                ]
+              },
+              "updated": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "info",
+    "data-buildertype": "message",
+    "header": "Information",
+    "content": "This is the default form for workflow. You can tune the form in the Admin panel -> Manage forms -> WorkflowDefault. \n",
+    "info": false,
+    "style-width": "",
+    "compact": true
+  },
+  {
+    "key": "workflowbar",
+    "data-buildertype": "workflowbar",
+    "blockSetState": true,
+    "blockLoadParameters": true,
+    "events": {
+      "onCommandClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "workflowExecuteCommand",
+              "refresh"
+            ],
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "targets": []
+          }
+        ]
+      },
+      "onSetStateClick": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "workflowSetState",
+              "refresh"
+            ],
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "targets": []
+          }
+        ]
+      },
+      "onSchemeSelected": {
+        "active": true,
+        "triggers": [
+          {
+            "actions": [
+              "workflowSelectScheme"
+            ],
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "targets": []
+          }
+        ]
+      },
+      "onReceivedCommands": {
+        "active": false,
+        "triggers": [
+          {
+            "actions": [],
+            "parameters": [
+              {
+                "name": "",
+                "value": ""
+              }
+            ],
+            "targets": []
+          }
+        ]
+      }
+    }
+  }
+]

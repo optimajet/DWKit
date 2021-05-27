@@ -7,7 +7,9 @@ if ! type dotnet > /dev/null; then
 fi
 
 export ConnectionStrings__default=`grep "ConnectionString" ./config.cfg | cut -d '=' -f 2-`
-export Metadata__path=../metadata/metadata.json
+export DWKit__MetadataPath=../metadata/
+export DWKit__LicensePath=../license/
+
 export ASPNETCORE_URLS=http://localhost:48800
 export ASPNETCORE_ENVIRONMENT=Development
 

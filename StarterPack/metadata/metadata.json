@@ -1,6 +1,22 @@
 {
   "dataModel": [],
-  "codeActions": [ ],
+  "codeActions": [],
   "businessFlow": [],
-  "modules": []
+  "modules": [],
+  "settings": [
+    {
+      "name": "MobileNavigationType",
+      "value": "tabs"
+    },
+    {
+      "name": "MobileMenuElements",
+      "value": "[{__id:'CLIENT_49ea5a70-e0b1-11ea-bf55-d5f424601bb9',title:'Dashboard',target:'',name:'dashboard',icon:'view-dashboard'},{__id:'CLIENT_5f82a760-e0b2-11ea-87d9-1ff32d75aaf4',title:'Profile',target:'profile',name:'profile',icon:'account'}]"
+    },
+    {
+      "name": "DefaultMobileForm",
+      "value": "dashboard"
+    }
+  ],
+  "commandForms": [],
+  "plugins": []
 }

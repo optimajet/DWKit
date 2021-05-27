@@ -1,7 +1,8 @@
-﻿End user license agreement
+End user license agreement
+
 DWKit
 
-© 2011-2018 OPTIMAJET LLC
+© 2011-2021 OPTIMAJET LLC
 
 IMPORTANT — READ CAREFULLY: This OPTIMAJET LLC (“OPTIMAJET”) End-User License Agreement (“EULA”) is a legal agreement between you, a developer of software applications, (“Developer End User”) and OPTIMAJET for all OPTIMAJET products, frameworks, components, source code, demos, intermediate files, media, printed materials, and online or electronic documentation (“SOFTWARE DEVELOPMENT PRODUCT(S)”) contained in this distribution.
 
@@ -71,8 +72,6 @@ OPTIMAJET reserves all rights not specifically granted in this EULA.
 
 YOU ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTAND THIS AGREEMENT AND YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT UPON INSTALLATION AND/OR USE of ALL SOFTWARE DEVELOPMENT PRODUCT(S) INCLUDED IN THIS DISTRIBUTION.
 
-© 2011-2018 OPTIMAJET LLC
+© 2011-2021 OPTIMAJET LLC
 
 All trademarks and registered trademarks are property of their respective owners.
-
-Should you have any questions concerning this EULA, contact us directly at +1 (857) 301-8034.

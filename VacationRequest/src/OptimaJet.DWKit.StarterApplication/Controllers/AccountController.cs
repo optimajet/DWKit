@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Core.Security;
@@ -49,6 +50,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             {
                 var user = await DWKitRuntime.Security.GetCurrentUserAsync();
                 user.DefaultForm = DWKitRuntime.DefaultForm;
+                user.DefaultMobileForm = DWKitRuntime.DefaultMobileForm;
+                user.MobileNavigationType = DWKitRuntime.GetSettingValue("MobileNavigationType");
+                user.MobileMenuElements = DWKitRuntime.GetSettingValue("MobileMenuElements");
                 return Json(new ItemSuccessResponse<User>(user));
             }
             catch (Exception e)

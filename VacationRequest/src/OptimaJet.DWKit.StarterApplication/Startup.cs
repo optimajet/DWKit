@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.SignalR;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Security;
 using System.Linq;
+using IdentityServer4.Models;
 using OptimaJet.DWKit.Core.Autocomplete;
 
 namespace OptimaJet.DWKit.StarterApplication
@@ -63,7 +65,16 @@ namespace OptimaJet.DWKit.StarterApplication
                 options.LoginPath = "/Account/Login/";
             });*/
 
-            services.ConfigureIdentityServer(Configuration, Environment, _loggerFactory.CreateLogger<Startup>());
+            var extraClients = new List<Client>()
+            {
+                //TODO: Insert your clients for OpenId Connect
+                //https://identityserver4.readthedocs.io/en/latest/quickstarts/1_client_credentials.html#defining-the-client
+            };
+
+            services.ConfigureIdentityServer(Configuration,
+                Environment,
+                _loggerFactory.CreateLogger<Startup>(),
+                extraClients);
 
             //TODO: Here you can initialize external authentication providers like as Facebook or OpenID Connect.
             //var authBuilder = new AuthenticationBuilder(services);
@@ -95,6 +106,7 @@ namespace OptimaJet.DWKit.StarterApplication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.ConfigureForwardHeaders(Configuration, logger: _loggerFactory.CreateLogger<Startup>());
             app.UseCors(Configuration, "CorsSettings");
 
             if (env.IsDevelopment())
@@ -120,6 +132,8 @@ namespace OptimaJet.DWKit.StarterApplication
                 routes.MapRoute("form", "form/{formName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
                 routes.MapRoute("flow", "flow/{flowName}/{*other}",
+                    defaults: new { controller = "StarterApplication", action = "Index" });
+                routes.MapRoute("workflow", "workflow/{workflowName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
                 routes.MapRoute("account", "account/{action}",
                     defaults: new { controller = "Account", action = "Index" });

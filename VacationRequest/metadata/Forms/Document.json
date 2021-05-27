@@ -1,28 +1,61 @@
 [
   {
-    "key": "breadcrumb_1",
-    "data-buildertype": "breadcrumb",
-    "items": [
+    "key": "container_4",
+    "data-buildertype": "container",
+    "children": [
       {
-        "text": "Requests",
-        "url": "/"
+        "key": "breadcrumb_1",
+        "data-buildertype": "breadcrumb",
+        "items": [
+          {
+            "text": "Requests",
+            "url": "/"
+          },
+          {
+            "divider": "right angle",
+            "text": "{Number}",
+            "url": "/form/document/{Id}",
+            "active": true
+          }
+        ],
+        "events": {
+          "onItemClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ]
+          }
+        },
+        "style-marginBottom": ""
       },
       {
-        "divider": "right angle",
-        "text": "{Number}",
-        "url": "/form/document/{Id}",
-        "active": true
+        "key": "btnPrint",
+        "data-buildertype": "button",
+        "content": "Print",
+        "link": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "print"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "__id": "CLIENT_e038f220-8eb3-11ea-b208-6fb6be5cb093",
+                "name": "title",
+                "value": "Document-{Number}"
+              }
+            ]
+          }
+        },
+        "style-marginLeft": "20px",
+        "style-hiddeninprint": false,
+        "other-customValidation": ""
       }
     ],
-    "events": {
-      "onItemClick": {
-        "active": true,
-        "actions": [
-          "redirect"
-        ]
-      }
-    },
-    "style-marginBottom": "15px"
+    "style-marginBottom": "15px",
+    "style-hiddeninprint": true
   },
   {
     "key": "blocks",
@@ -95,7 +128,8 @@
               }
             ],
             "style-display": "flex",
-            "style-display-horizontalalign": "center"
+            "style-display-horizontalalign": "center",
+            "style-hiddeninprint": true
           },
           {
             "key": "container_2",
@@ -123,7 +157,8 @@
             "style-marginBottom": "",
             "style-marginTop": "20px",
             "style-adaptive": true,
-            "style-renderwhen": "desktop"
+            "style-renderwhen": "desktop",
+            "style-hiddeninprint": true
           }
         ],
         "style-width": "300px"
@@ -179,7 +214,15 @@
                     "columns": "Name ASC, Email",
                     "other-required": true,
                     "search": true,
-                    "text": "data.Name "
+                    "text": "data.Name ",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
                   },
                   {
                     "key": "ManagerId_Email",
@@ -194,11 +237,11 @@
               {
                 "key": "Amount",
                 "data-buildertype": "input",
-                "label": "Money amount (Must be more 0!)",
+                "label": "Money amount (Must be more than 0!)",
                 "fluid": true,
                 "type": "number",
                 "other-required": true,
-                "other-customValidation": "value > 0 ? true : \"Must be more 0\"",
+                "other-customValidation": "value > 0 ? true : \"Must be more than 0\"",
                 "defaultValue": "",
                 "events": {}
               },
@@ -233,7 +276,8 @@
                         "targets": [],
                         "parameters": []
                       }
-                    }
+                    },
+                    "style-hiddeninprint": true
                   },
                   {
                     "key": "saveexit",
@@ -251,7 +295,8 @@
                         "targets": [],
                         "parameters": []
                       }
-                    }
+                    },
+                    "style-hiddeninprint": true
                   }
                 ],
                 "style-customcss": "",
@@ -308,9 +353,10 @@
               }
             },
             "blockCommands": true,
-            "blockLoadParameters": false,
             "style-marginBottom": "10px",
-            "blockSelectScheme": true
+            "blockSelectScheme": true,
+            "blockLoadParameters": false,
+            "style-hiddeninprint": true
           },
           {
             "key": "gridHistory",
@@ -325,7 +371,7 @@
                 "width": ""
               },
               {
-                "key": "ToDestinationState",
+                "key": "DestinationState",
                 "name": "To",
                 "sortable": false,
                 "filterable": false,

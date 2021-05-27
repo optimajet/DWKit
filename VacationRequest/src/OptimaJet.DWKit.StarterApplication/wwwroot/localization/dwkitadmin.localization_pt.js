@@ -304,7 +304,7 @@ window.DWKitAdminLang = {
     downloadbutton: "Baixar",
     toolbar: {
       sepContainers: "Recipientes",
-      container: "DIV",
+      container: "ContainerDIV",
       form: "Formato",
       formgroup: "Grupo de Formulários",
       menu: "Cardápio",

@@ -7,4 +7,5 @@ if ! type docker-compose > /dev/null; then
 fi
 
 docker-compose build
-docker-compose up
+docker-compose run --rm start_db
+docker-compose up dwkit_starterpack

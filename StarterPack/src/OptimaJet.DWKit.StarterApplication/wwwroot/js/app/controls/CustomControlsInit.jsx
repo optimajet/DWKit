@@ -20,4 +20,4 @@ let CustomControlsRender = function(parentComponent, control, args){
     return res;
 };
 
-module.exports = {CustomControls, CustomControlsRender};
+export {CustomControls, CustomControlsRender};

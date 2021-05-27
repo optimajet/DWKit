@@ -14,15 +14,18 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     public class UserInterfaceController : Controller
     {
         [Route("ui/form/{name}")]
-        public async Task<ActionResult> GetForm(string name, bool wrapResult = false, bool enableSecurity = false)
+        public async Task<ActionResult> GetForm(string name, bool wrapResult = false, bool enableSecurity = false, bool mobile = false)
         {
             try
             {
-                var form = DWKitRuntime.Metadata.GetForm(name);
+                Form form = mobile ?
+                    DWKitRuntime.Metadata.GetMobileForm(name) :
+                    DWKitRuntime.Metadata.GetForm(name);
+
                 if (form == null)
                     throw new Exception("This form is not found!");
 
-                return await GetForm(form, wrapResult, enableSecurity);
+                return await GetForm(form, wrapResult, enableSecurity, mobile);
             }
             catch (Exception e)
             {
@@ -47,10 +50,41 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 var form = await BusinessFlow.GetForm(name, id).ConfigureAwait(false);
                 if (form != null)
                 {
-                    return await GetForm(form, true, true).ConfigureAwait(false);
+                    return await GetForm(form, true, true, form.isMobile()).ConfigureAwait(false);
                 }
 
                 return Json(new FailResponse("The form is not found for this BusinessFlow!"));
+            }
+            catch (Exception e)
+            {
+                return Json(new FailResponse(e));
+            }
+        }
+
+        [Route("ui/workflow/{name}")]
+        public async Task<ActionResult> GetWorkflow(string name, string urlFilter, bool forCopy = false)
+        {
+            try
+            {
+                if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
+                {
+                    throw new Exception("Access denied!");
+                }
+
+                Guid? id = null;
+                if (!forCopy && !string.IsNullOrEmpty(urlFilter))
+                {
+                    if (Guid.TryParse(urlFilter, out Guid entityId))
+                        id = entityId;
+                }
+
+                var form = await WorkflowInstance.GetForm(name, id).ConfigureAwait(false);
+                if (form != null)
+                {
+                    return await GetForm(form, true, true, form.isMobile()).ConfigureAwait(false);
+                }
+
+                return Json(new FailResponse("The form is not found for this Workflow!"));
             }
             catch (Exception e)
             {
@@ -71,19 +105,19 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("ui/form/businessobjects.js")]
-        public ActionResult GetFormsBusinessCode()
+        public ActionResult GetFormsBusinessCode(bool mobile = false)
         {
-            return Content(DWKitRuntime.Metadata.GetFormsBusinessCode());
+            return Content(DWKitRuntime.Metadata.GetFormsBusinessCode(null, mobile));
         }
 
         [AllowAnonymous]
         [Route("ui/login")]
-        public async Task<ActionResult> Login()
+        public async Task<ActionResult> Login(bool mobile = false)
         {
-            return await GetForm("login");
+            return await GetForm("login", mobile: mobile);
         }
 
-        private async Task<ActionResult> GetForm(Form form, bool wrapResult, bool enableSecurity)
+        private async Task<ActionResult> GetForm(Form form, bool wrapResult, bool enableSecurity, bool mobile)
         {
             if (!await DWKitRuntime.Security.CheckFormPermissionAsync(form, "View"))
             {
@@ -102,7 +136,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
             if (wrapResult)
             {
-                if (enableSecurity)
+                if (enableSecurity && DWKitRuntime.Security.CurrentUser != null)
                 {
                     var userId = DWKitRuntime.Security.CurrentUser.GetOperationUserId();
                     await form.FillPermissionsAsync(userId);

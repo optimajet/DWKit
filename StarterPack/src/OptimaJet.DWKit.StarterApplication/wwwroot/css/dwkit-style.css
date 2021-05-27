@@ -1026,3 +1026,62 @@ div.field > label {
     justify-content: flex-end;
     padding: 0 9px 31px 0;
 }
+
+.dwkit-auth-error-block {
+    display: block;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0px 6px 10px rgba(18, 83, 204, 0.12), 0px 1px 18px rgba(18, 83, 204, 0.12), 0px 3px 5px rgba(18, 83, 204, 0.15);
+}
+
+.dwkit-auth-error-innerblock {
+    padding: 55px 250px 150px;
+    display: block;
+}
+
+.dwkit-auth-error-innerdescription {
+    text-align: left;
+}
+
+.dwkit-auth-error-block img {
+    margin-top: 50px;
+    height: 100px;
+}
+
+.dwkit-auth-error-block h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+
+.dwkit-auth-error-block p {
+    font-size: 1.25em;
+}
+
+.dwkit-auth-error-container {
+    height: 100vh;
+    display: flex;
+}
+
+.dwkit-auth-error-description {
+    margin-top: 55px;
+}
+
+@media only screen and (max-width: 907px) {
+    .dwkit-auth-error-block h1 {
+        font-size: 2.5em;
+        margin-bottom: 75px;
+    }
+
+    .dwkit-auth-error-block p {
+        font-size: 1em;
+    }
+
+    .dwkit-auth-error-innerblock {
+        padding: 55px 125px 100px;
+        display: block;
+    }
+
+    .dwkit-auth-error img {
+        height: 50px;
+    }
+}

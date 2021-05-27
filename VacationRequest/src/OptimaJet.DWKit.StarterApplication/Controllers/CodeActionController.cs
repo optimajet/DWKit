@@ -19,7 +19,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     {
         [HttpPost]
         [Route("actions/execute")]
-        public async Task<ActionResult> Execute(string name, string request, bool useServerCodeActionRequest = false)
+        public async Task<ActionResult> Execute(string name, string request, bool useServerCodeActionRequest = false, bool mobile = false)
         {
             try
             {
@@ -34,11 +34,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 if (useServerCodeActionRequest)
                 {
-                    var formName = dictionary["formName"]?.ToString();
+                    var formName = dictionary.ContainsKey("formName") ? dictionary["formName"]?.ToString() : null;
                     DynamicEntity data = null;
                     if (!string.IsNullOrEmpty(formName))
                     {
-                        var model = await MetadataToModelConverter.GetEntityModelByFormAsync(formName, new BuildModelOptions(ignoreNameCase: true, strategy: BuildModelStartegy.ForGet))
+                        var model = await MetadataToModelConverter.GetEntityModelByFormAsync(formName, new BuildModelOptions(ignoreNameCase: true, strategy: BuildModelStartegy.ForGet, mobile: mobile))
                             .ConfigureAwait(false);
 
                         if (model.Attributes.Any())
@@ -80,7 +80,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
                 if (actionResult is DynamicEntity de)
                 {
-                    return Json(new SuccessResponse(new {data = de.ToDictionary()}));
+                    return Json(new SuccessResponse(new { data = de.ToDictionary(true) }));
                 }
 
                 return Json(new SuccessResponse(actionResult));

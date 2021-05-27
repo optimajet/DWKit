@@ -39,7 +39,7 @@ namespace OptimaJet.DWKit.Application
         private readonly Dictionary<string, RuleFunction> _rules = new Dictionary<string, RuleFunction>();
         private readonly Dictionary<string, RuleFunctionAsync> _rulesAsync = new Dictionary<string, RuleFunctionAsync>();
 
-        public List<string> GetRules(string schemeCode)
+        public List<string> GetRules(string schemeCode, NamesSearchType namesSearchType)
         {
             return _rules.Keys.ToList();
         }

@@ -1,6 +1,6 @@
 {
   "name": "MasterDetail",
-  "lastUpdate": "2020-01-24T13:39:47.908252+03:00",
+  "lastUpdate": "2020-11-26T13:18:09.5258948+03:00",
   "entityId": "0e01f0a5-499f-4de7-a048-08ba4c062a2d",
   "isTemplate": false,
   "triggers": [],
@@ -128,11 +128,25 @@
       "attributeSource": 1
     },
     {
+      "id": "ffb58fe3-4f26-92e8-80cc-027831ab84b3",
+      "attributeId": "a70764a7-63ed-64d5-3216-292d5d4301ec",
+      "isEditable": false,
+      "isLoadable": true,
+      "attributeSource": 0
+    },
+    {
       "id": "871d5ca9-d377-07cd-9a1c-562b65e39fcc",
       "attributeId": "30f29868-2fdb-4b9c-a8df-000000000009",
       "isEditable": false,
       "isLoadable": true,
       "attributeSource": 1
+    },
+    {
+      "id": "2c330555-e192-63b6-b281-1cff7fe95235",
+      "attributeId": "9e57d8d6-51de-3e82-0c8f-9b7f9f723df5",
+      "isEditable": false,
+      "isLoadable": true,
+      "attributeSource": 0
     }
   ],
   "dataColl": [
@@ -261,11 +275,25 @@
           "attributeSource": 1
         },
         {
+          "id": "b61d7ea6-25ac-1892-ea3f-6804e940de52",
+          "attributeId": "a70764a7-63ed-64d5-3216-292d5d4301ec",
+          "isEditable": false,
+          "isLoadable": true,
+          "attributeSource": 0
+        },
+        {
           "id": "d9eea0e1-761a-e1cb-efab-d9f45c50ebad",
           "attributeId": "30f29868-2fdb-4b9c-a8df-000000000009",
           "isEditable": false,
           "isLoadable": true,
           "attributeSource": 1
+        },
+        {
+          "id": "3310ccd4-a741-e128-7f81-f012b228766e",
+          "attributeId": "9e57d8d6-51de-3e82-0c8f-9b7f9f723df5",
+          "isEditable": false,
+          "isLoadable": true,
+          "attributeSource": 0
         }
       ],
       "readOnly": true,

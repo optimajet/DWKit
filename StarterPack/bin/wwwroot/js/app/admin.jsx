@@ -27,10 +27,15 @@ let globalActions = [
     'refresh',
     'confirm',
     'createElement',
+    'deleteElement',
     'changeModel',
     'reload',
     'copy',
-    'loadRecord'];
+    'loadRecord',
+    'setFields',
+    'print'];
+
+var mobileActions = ['navigate'];
 
 render(
     <DWKitAdmin
@@ -43,6 +48,7 @@ render(
         deltaWidth={0}
         deltaHeight={0}
         controlActions={globalActions}
+        controlMobileActions={mobileActions}
         returnToAppUrl="/"
         externalControlList={CustomControls}
         externalControlRender={CustomControlsRender}

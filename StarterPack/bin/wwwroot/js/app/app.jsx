@@ -2,9 +2,10 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import moment from 'moment'
 import { DWKitForm } from "./../../scripts/optimajet-form.js"
 import {ApplicationRouter, NotificationComponent, FormContent,
-    FlowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API} from './../../scripts/optimajet-app.js'
+    FlowContent, WorkflowContent, Thunks, Store, Actions, SignalRConnector, StateBindedForm, API} from './../../scripts/optimajet-app.js'
 import {CustomControls, CustomControlsRender} from './controls/CustomControlsInit.jsx';
 import {CustomUserForms} from './controls/CustomUserForms.jsx';
 
@@ -34,14 +35,11 @@ class App extends React.Component {
 
         window.DWKitApp = this;
         window.DWKitApp.API = API;
+
+        window.DWKitApp.Store = Store;
     }
 
     render(){
-        let sectorprops = {
-            eventFunc: this.actionsFetch.bind(this),
-            getAdditionalDataForControl: this.additionalFetch.bind(this, undefined)
-        };
-
         let state = Store.getState();
         let user = state.app.user;
 
@@ -50,14 +48,18 @@ class App extends React.Component {
         }
 
         let currentEmployee = state.app.impersonatedUserId ? state.app.impersonatedUserId : user.id;
+        let bindedFormData = {
+            currentUser: user.name,
+            currentEmployee: currentEmployee
+        };
 
         return <div className="dwkit-wrapper" key={this.state.pagekey}>
             <Provider store={Store}>
-                <StateBindedForm {...sectorprops} formName="header" stateDataPath="app.extra" data={{ currentUser: user.name, currentEmployee: currentEmployee }} modelurl="/ui/form/header" />
+                <StateBindedForm formName="header" stateDataPath="app.extra" data={bindedFormData} />
             </Provider>
             <div className="dwkit-container">
                 <Provider store={Store}>
-                    <StateBindedForm className="dwkit-sidebar-container" {...sectorprops} formName="sidebar" stateDataPath="app.extra" data={{currentEmployee: currentEmployee}} modelurl="/ui/form/sidebar" />
+                    <StateBindedForm className="dwkit-sidebar-container" formName="sidebar" stateDataPath="app.extra" data={bindedFormData} />
                 </Provider>
                 <div className="dwkit-content">
                     <Provider store={Store}>
@@ -70,6 +72,7 @@ class App extends React.Component {
                                 <Switch>
                                     <Route path='/form' component={FormContent}  />
                                     <Route path='/flow' component={FlowContent}  />
+                                    <Route path='/workflow' component={WorkflowContent}  />
                                     <Route exact path='/'>
                                         <FormContent formName={this.props.defaultForm ? this.props.defaultForm : this.state.user.defaultForm} />
                                     </Route>
@@ -89,7 +92,7 @@ class App extends React.Component {
                     </Provider>
                 </div>
             </div>
-            <DWKitForm {...sectorprops} className="dwkit-footer" formName="footer" modelurl="/ui/form/footer" />
+            <DWKitForm className="dwkit-footer" formName="footer" stateDataPath="app.extra" data={bindedFormData} />
         </div>;
     }
 
@@ -116,18 +119,6 @@ class App extends React.Component {
         }
     }
 
-    actionsFetch(args){
-        Store.dispatch(Thunks.form.executeActions(args));
-    }
-
-    additionalFetch(formName, controlRef, { startIndex, pageSize, filters, sort, model }, callback) {
-        Store.dispatch(Thunks.additional.fetch({
-                type: controlRef.props["data-buildertype"],
-                formName, controlRef, startIndex, pageSize, filters, sort, callback
-            }
-        ));
-    }
-
     loadResources(){
         this.loadStaticResources();
 
@@ -144,6 +135,11 @@ class App extends React.Component {
                 me.setState({
                     resourcesLoaded: true
                 })
+
+                if (window.DWKitLang && window.DWKitLang.common && window.DWKitLang.common.locale) {
+                    let locale = window.DWKitLang.common.locale;
+                    moment.locale(locale);
+                }
             }
         }
 

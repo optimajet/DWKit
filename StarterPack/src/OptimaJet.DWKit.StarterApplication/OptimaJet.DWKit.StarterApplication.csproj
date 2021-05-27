@@ -1,11 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>2.9.2</Version>
+    <Version>3.2.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <Description>The sample for DWKit</Description>
@@ -13,13 +10,16 @@
     <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
-    <Copyright>OptimaJet DWKit 2019</Copyright>
-    <FileVersion>2.9.0.0</FileVersion>
-    <AssemblyVersion>2.9.0.0</AssemblyVersion>
+    <Copyright>OptimaJet DWKit 2021</Copyright>
+    <FileVersion>3.2.0</FileVersion>
+    <AssemblyVersion>3.2.0</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
-    <PackageReference Include="DWKit-Core" Version="2.9.2" />
+    <PackageReference Include="DWKit-Core" Version="3.2.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0" />
@@ -30,10 +30,10 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.1.3" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="2.9.2" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="2.9.2" />
-    <PackageReference Include="DWKit-Security" Version="2.9.2" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.1.3" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.2.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.2.0" />
+    <PackageReference Include="DWKit-Security" Version="3.2.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />

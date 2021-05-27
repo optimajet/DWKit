@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Process Name="Test" CanBeInlined="false" Tags="">
+  <Designer />
+  <Commands>
+    <Command Name="Approve" />
+    <Command Name="Deny" />
+    <Command Name="Start" />
+  </Commands>
+  <Timers>
+    <Timer Name="Minute" Type="Time" Value="1m" NotOverrideIfExists="false" />
+  </Timers>
+  <Activities>
+    <Activity Name="BeforeTimer" IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="BeforeTimer" OriginalSchemeCode="Timer">
+      <Designer X="1135" Y="510" Hidden="false" />
+    </Activity>
+    <Activity Name="AfterTimer" IsInitial="False" IsFinal="True" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="AfterTimer" OriginalSchemeCode="Timer">
+      <Designer X="1455" Y="510" Hidden="false" />
+    </Activity>
+    <Activity Name="SubprocessStart" State="SubprocessStart" IsInitial="True" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="State1" OriginalSchemeCode="ParallelProcessesWithoutWaitting">
+      <Designer X="164" Y="165" Hidden="false" />
+    </Activity>
+    <Activity Name="SubprocessWork" State="SubprocessWork" IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="SubState1" OriginalSchemeCode="ParallelProcessesWithoutWaitting">
+      <Designer X="464" Y="265" Hidden="false" />
+    </Activity>
+    <Activity Name="SubprocessFinal" State="SubprocessFinal" IsInitial="False" IsFinal="True" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="BeforeMerge" OriginalSchemeCode="ParallelProcessesWithoutWaitting">
+      <Designer X="764" Y="265" Hidden="false" />
+    </Activity>
+    <Activity Name="MainProcessWork" State="MainProcessWork" IsInitial="False" IsFinal="False" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="Final" OriginalSchemeCode="ParallelProcessesWithoutWaitting">
+      <Designer X="464" Y="165" Hidden="false" />
+    </Activity>
+    <Activity Name="RootProcessFinal" State="RootProcessFinal" IsInitial="False" IsFinal="True" IsForSetState="True" IsAutoSchemeUpdate="True" WasInlined="true" OriginalName="RootProcessFinal" OriginalSchemeCode="ParallelProcessesWithoutWaiting">
+      <Designer X="764" Y="165" Hidden="false" />
+    </Activity>
+  </Activities>
+  <Transitions>
+    <Transition Name="Activity_1_Activity_2_1" To="AfterTimer" From="BeforeTimer" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Timer" NameRef="Minute" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="1390" Y="539" Hidden="false" />
+    </Transition>
+    <Transition Name="State1_Activity_1" To="SubprocessWork" From="SubprocessStart" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false" IsFork="true" SubprocessInOutDefinition="Start" SubprocessStartupType="AnotherThread" SubprocessStartupParameterCopyStrategy="CopyAll">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="406" Y="242" Hidden="false" />
+    </Transition>
+    <Transition Name="SubState1_BeforeMerge_1" To="SubprocessFinal" From="SubprocessWork" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer Hidden="false" />
+    </Transition>
+    <Transition Name="SubprocessStart_Final_1" To="MainProcessWork" From="SubprocessStart" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="408" Y="196" Hidden="false" />
+    </Transition>
+    <Transition Name="Final_Activity_1" To="RootProcessFinal" From="MainProcessWork" Classifier="NotSpecified" AllowConcatenationType="And" RestrictConcatenationType="And" ConditionsConcatenationType="And" DisableParentStateControl="false">
+      <Triggers>
+        <Trigger Type="Auto" />
+      </Triggers>
+      <Conditions>
+        <Condition Type="Always" />
+      </Conditions>
+      <Designer X="707" Y="195" Hidden="false" />
+    </Transition>
+  </Transitions>
+</Process>

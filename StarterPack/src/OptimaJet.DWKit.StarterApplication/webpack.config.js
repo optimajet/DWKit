@@ -14,16 +14,8 @@ module.exports = (env) => {
         name: "vendor",
         mode: "production",
         devtool: false,
-        optimization: {
-            minimizer: [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: false
-                })
-            ]
-        },
-        entry: ["history",
+        entry: [
+            "history",
             "isomorphic-fetch",
             "json5",
             "react",
@@ -57,6 +49,20 @@ module.exports = (env) => {
             "react-split",
             "oidc-client",
             "@aspnet/signalr"].concat(glob.sync('./node_modules/semantic-ui-react/dist/es/lib/**.js')), //fix of incorrect sematic-ui import
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                            plugins: ['@babel/plugin-proposal-class-properties'],
+                        }
+                    }
+                }
+            ]
+        },
         output: {
             path: path.join(__dirname, outputDir),
             filename: "vendor.js",
@@ -84,7 +90,8 @@ module.exports = (env) => {
                     test: /.jsx?$/, exclude: /node_modules/, use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env', 'stage-2', 'react']
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                            plugins: ['@babel/plugin-proposal-class-properties'],
                         }
                     }
                 },
@@ -139,7 +146,8 @@ module.exports = (env) => {
                     test: /.jsx?$/, exclude: /node_modules/, use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env', 'stage-2', 'react']
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                            plugins: ['@babel/plugin-proposal-class-properties'],
                         }
                     }
                 },
@@ -194,7 +202,8 @@ module.exports = (env) => {
                     test: /.jsx?$/, exclude: /node_modules/, use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env', 'stage-2', 'react']
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
+                            plugins: ['@babel/plugin-proposal-class-properties'],
                         }
                     }
                 },

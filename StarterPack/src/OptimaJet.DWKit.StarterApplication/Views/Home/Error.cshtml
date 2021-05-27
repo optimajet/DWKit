@@ -1,0 +1,23 @@
+@using OptimaJet.DWKit.StarterApplication.Models
+
+@{
+    ViewData["Title"] = "DWKit Identity Server Error";
+    Layout = "_Layout";
+}
+
+<div class="dwkit-auth-error-container">
+    <div class="dwkit-auth-error-block">
+        <div class="dwkit-auth-error-innerblock">
+            <img src="~/images/logo.svg" alt="DWKit Logo" class="dwkit-formadmin-header-logo">
+
+            <div class="dwkit-auth-error-description">
+                <h1>@ViewData["Title"]</h1>
+
+                <div class="dwkit-auth-error-innerdescription">
+                    <p><strong>Error:</strong> @ViewBag.VM.Error</p>
+                    <p><strong>Description:</strong> @ViewBag.VM.ErrorDescription</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

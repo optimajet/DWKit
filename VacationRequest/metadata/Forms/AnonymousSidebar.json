@@ -1,0 +1,27 @@
+[
+  {
+    "key": "sidebar_menu",
+    "data-buildertype": "menu",
+    "items": [
+      {
+        "__id": "CLIENT_0bd03ec0-e51d-11e9-81f4-b94f3f6e61ff",
+        "target": "/form/AnonymousForm",
+        "title": "AnonymousForm",
+        "children": []
+      }
+    ],
+    "style-customcss": "dwkit-sidebar huge",
+    "vertical": true,
+    "link": true,
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  }
+]

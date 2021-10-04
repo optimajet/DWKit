@@ -24,14 +24,14 @@ class Login extends React.Component {
     }
 
     getExternalProviders() {
-
+        let me = this;
         $.getJSON(
             "/account/external", (response) => {
 
-                const data = { ...this.state.data };
+                const data = { ...me.state.data };
                 data.externals = response;
 
-                this.setState({
+                me.setState({
                     data
                 });
 

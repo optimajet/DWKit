@@ -1,0 +1,64 @@
+[
+  {
+    "key": "dwkit-header",
+    "data-buildertype": "container",
+    "style-customcss": "dwkit-header",
+    "children": [
+      {
+        "key": "logo",
+        "data-buildertype": "image",
+        "src": "/images/logo.svg",
+        "style-height": "",
+        "style-width": "",
+        "href": "/",
+        "style-customcss": "dwkit-header-logo",
+        "style-source": ""
+      },
+      {
+        "key": "header-center",
+        "data-buildertype": "container",
+        "style-source": "marginLeft: auto;"
+      },
+      {
+        "key": "login",
+        "data-buildertype": "button",
+        "content": "Login",
+        "secondary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "triggers": [
+              {
+                "actions": [
+                  "redirect"
+                ],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/account/login/"
+                  }
+                ],
+                "targets": []
+              }
+            ]
+          }
+        },
+        "style-customcss": "",
+        "primary": true,
+        "style-source": ""
+      },
+      {
+        "key": "userAvatar",
+        "data-buildertype": "image",
+        "src": "/images/user.svg",
+        "avatar": true
+      },
+      {
+        "key": "currentUser",
+        "data-buildertype": "staticcontent",
+        "content": "{currentUser}",
+        "events": {}
+      }
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for PostgreSQL
-Version: 2.9
+Version: 3.3
 File: DWKitScript.sql
 */
 
@@ -190,6 +190,12 @@ BEGIN
 	END IF;
 END $SecurityValues$;
 
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT * FROM "dwSecurityRole" WHERE "Code" = 'Anonymous') THEN
+		INSERT INTO "dwSecurityRole"("Id","Code","Name","Comment","DomainGroup") VALUES( 'cb871934-e1e8-c4f5-7845-fa4733d85f69', 'Anonymous', 'Anonymous', '', '');
+	END IF;
+END $$;
 
 CREATE OR REPLACE VIEW "dwV_Security_UserRole" as
 SELECT

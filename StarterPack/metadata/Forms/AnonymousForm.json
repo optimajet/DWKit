@@ -1,0 +1,15 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "This is an anonymous form!",
+    "size": "medium",
+    "textAlign": "left"
+  },
+  {
+    "key": "staticcontent_1",
+    "data-buildertype": "staticcontent",
+    "content": "Everyone can see the form and linked data.",
+    "isHtml": true
+  }
+]

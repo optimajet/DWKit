@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 $loc = Get-Location
 
 npm install

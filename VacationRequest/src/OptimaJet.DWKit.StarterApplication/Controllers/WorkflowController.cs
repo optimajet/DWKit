@@ -26,9 +26,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     [Authorize]
     public class WorkflowController : Controller
     {
-        private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
         private IConfigurationRoot _configuration;
-        public WorkflowController(IHostingEnvironment env)
+        public WorkflowController(IWebHostEnvironment env)
         {
             _env = env;
             DWKitRuntime.Metadata.SetRootPath(_env.ContentRootPath);
@@ -85,6 +85,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [Route("workflow/get")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetData(string name, string urlFilter, bool forCopy = false, bool loadParameters = false, string schemeName = null)
         {
             try
@@ -93,6 +94,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 string filterActionName = null;
                 string idValue = null;
                 var filterItems = new List<ClientFilterItem>();
+
+                if (!DWKitRuntime.Security.CheckAnonymousFormAccess(name))
+                {
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
+                }
 
                 if (NotNullOrEmpty(urlFilter))
                 {
@@ -195,10 +201,16 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
         [Route("workflow/execute")]
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult> ExecuteCommand(string name, string id, string command, string data, string schemeName)
         {
             try
             {
+                if (!DWKitRuntime.Security.CheckAnonymousFormAccess(name))
+                {
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
+                }
+
                 var processId = GetProcessIdFromString(id, name, schemeName);
                 var userId = GetUserId();
                 var culture = DWKitRuntime.Security.CurrentUser?.GetCulture() ?? CultureInfo.CurrentCulture;

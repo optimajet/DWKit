@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 2.9
+Version: 3.3
 File: DWKitScript.sql
 */
 
@@ -392,6 +392,9 @@ BEGIN
 	INSERT INTO [dbo].[dwSecurityRole] ([Id], [Code],[Name],[Comment],[DomainGroup]) VALUES( '1B7F60C8-D860-4510-8E71-5469FC1814D3', 'Admins', 'Admins', '', '')
 	INSERT INTO [dbo].[dwSecurityUserToSecurityRole]([Id], [SecurityRoleId],[SecurityUserId]) VALUES ('88B616A1-62B5-41AB-AA10-58851158C4DD','1B7F60C8-D860-4510-8E71-5469FC1814D3', '540E514C-911F-4A03-AC90-C450C28838C5')
 	PRINT 'Access to admin panel for user admin has been done'
+
+	INSERT INTO [dbo].[dwSecurityRole] ([Id], [Code],[Name],[Comment],[DomainGroup]) VALUES( 'CB871934-E1E8-C4F5-7845-FA4733D85F69', 'Anonymous', 'Anonymous', '', '')
+	PRINT 'Add Anonymous role'
 END
 
 IF NOT EXISTS (SELECT 1 FROM [INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = N'dwV_Security_UserRole')

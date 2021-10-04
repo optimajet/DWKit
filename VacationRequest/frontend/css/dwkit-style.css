@@ -1963,7 +1963,7 @@ div.filepicker {
 @media only screen and (max-width: 997px)
 {
     .dwkit-sidebar-container {
-        position: fixed;
+        position: fixed !important;
         top: 0;
         z-index: 10;
         -webkit-transition: .3s;

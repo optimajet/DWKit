@@ -26,11 +26,14 @@ class App extends React.Component {
         };
 
         //API.setAuth("cookie");
+        Store.dispatch(Thunks.userinfo.fetch(() => {
+            this.state.user = Store.getState().app.user;
 
-        let me = this;
-        Store.dispatch(Thunks.userinfo.fetch(function (){
-            me.state.user = Store.getState().app.user;
-            me.loadResources();
+            if (location.pathname === '/' && this.state.user.isAnonymous && !this.state.user.defaultForm) {
+                Store.signinRedirect();
+            }
+
+            this.loadResources();
         }));
 
         window.DWKitApp = this;
@@ -41,25 +44,29 @@ class App extends React.Component {
 
     render(){
         let state = Store.getState();
-        let user = state.app.user;
+        let [header, sidebar, footer] = ["header", "sidebar", "footer"];
 
         if (!this.state.user || !this.state.resourcesLoaded){
             return null;
         }
 
-        let currentEmployee = state.app.impersonatedUserId ? state.app.impersonatedUserId : user.id;
+        let currentEmployee = state.app.impersonatedUserId ? state.app.impersonatedUserId : this.state.user.id;
         let bindedFormData = {
-            currentUser: user.name,
+            currentUser: this.state.user.name,
             currentEmployee: currentEmployee
         };
 
+        if (this.state.user.isAnonymous) {
+            [header, sidebar, footer] = ["AnonymousHeader", "AnonymousSidebar", "AnonymousFooter"];
+        }
+
         return <div className="dwkit-wrapper" key={this.state.pagekey}>
             <Provider store={Store}>
-                <StateBindedForm formName="header" stateDataPath="app.extra" data={bindedFormData} />
+                <StateBindedForm formName={header} stateDataPath="app.extra" data={bindedFormData} />
             </Provider>
             <div className="dwkit-container">
                 <Provider store={Store}>
-                    <StateBindedForm className="dwkit-sidebar-container" formName="sidebar" stateDataPath="app.extra" data={bindedFormData} />
+                    <StateBindedForm className="dwkit-sidebar-container" formName={sidebar} stateDataPath="app.extra" data={bindedFormData} />
                 </Provider>
                 <div className="dwkit-content">
                     <Provider store={Store}>
@@ -72,7 +79,7 @@ class App extends React.Component {
                                 <Switch>
                                     <Route path='/form' component={FormContent}  />
                                     <Route path='/flow' component={FlowContent}  />
-                                    <Route path='/workflow' component={WorkflowContent}  />
+                                    <Route path='/workflow' component={WorkflowContent} />
                                     <Route exact path='/'>
                                         <FormContent formName={this.props.defaultForm ? this.props.defaultForm : this.state.user.defaultForm} />
                                     </Route>
@@ -92,7 +99,7 @@ class App extends React.Component {
                     </Provider>
                 </div>
             </div>
-            <DWKitForm className="dwkit-footer" formName="footer" stateDataPath="app.extra" data={bindedFormData} />
+            <DWKitForm className="dwkit-footer" formName={footer} stateDataPath="app.extra" data={bindedFormData} />
         </div>;
     }
 

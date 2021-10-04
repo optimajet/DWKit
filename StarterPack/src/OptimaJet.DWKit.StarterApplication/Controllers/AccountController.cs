@@ -43,13 +43,17 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return Json(new FailResponse("Login or password is not correct."));
         }
 
+        [AllowAnonymous]
         [Route("account/get")]
         public async Task<ActionResult> GetUserInfo()
         {
             try
             {
                 var user = await DWKitRuntime.Security.GetCurrentUserAsync();
-                user.DefaultForm = DWKitRuntime.DefaultForm;
+                if (user == null)
+                    return Json(new ItemSuccessResponse<User>(Core.Security.User.Anonymous));
+
+                user.DefaultForm = user.IsAnonymous ? DWKitRuntime.DefaultAnonymousForm : DWKitRuntime.DefaultForm;
                 user.DefaultMobileForm = DWKitRuntime.DefaultMobileForm;
                 user.MobileNavigationType = DWKitRuntime.GetSettingValue("MobileNavigationType");
                 user.MobileMenuElements = DWKitRuntime.GetSettingValue("MobileMenuElements");
@@ -67,6 +71,12 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             try
             {
                 await DWKitRuntime.Security.SignOutAsync();
+
+                if(string.IsNullOrEmpty(DWKitRuntime.DefaultAnonymousForm))
+                {
+                    return RedirectToAction(nameof(Login));
+                }
+
                 return Redirect("/");
             }
             catch (Exception e)

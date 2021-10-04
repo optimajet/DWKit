@@ -10,11 +10,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
         private readonly ILogger<HomeController> _logger;
         private readonly IIdentityServerInteractionService _interaction;
 
-        public HomeController(IHostingEnvironment environment, ILogger<HomeController> logger, IIdentityServerInteractionService interaction)
+        public HomeController(IWebHostEnvironment environment, ILogger<HomeController> logger, IIdentityServerInteractionService interaction)
         {
             _environment = environment;
             _logger = logger;

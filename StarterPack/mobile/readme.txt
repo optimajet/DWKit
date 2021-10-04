@@ -13,10 +13,32 @@ For iOS you need to install XCode
 
 2. Install dependencies
 2.1 Open "mobile" folder and run install-deps.ps1 script
-	For MacOSX/Linux: 
+	For MacOSX/Linux:
 		pwsh ./install-deps.ps1
 		pwsh ./install-ios.ps1
 	For Windows: powershell install-deps.ps1
+
+In "mobile" folder open file ./node_modules/react-native/react.gradle for edit.
+After block doFirst {...} insert block (https://github.com/facebook/react-native/issues/22234#issuecomment-826021670):
+       doLast {
+            def moveFolderFunc = { folderName ->
+                File originalDir = file("$buildDir/generated/res/react/release/${folderName}");
+                if (originalDir.exists()) {
+                    File destDir = file("$buildDir/../src/main/res/${folderName}");
+                    ant.move(file: originalDir, tofile: destDir);
+                }
+            }
+
+            moveFolderFunc.curry("drawable-ldpi").call()
+            moveFolderFunc.curry("drawable-mdpi").call()
+            moveFolderFunc.curry("drawable-hdpi").call()
+            moveFolderFunc.curry("drawable-xhdpi").call()
+            moveFolderFunc.curry("drawable-xxhdpi").call()
+            moveFolderFunc.curry("drawable-xxxhdpi").call()
+            moveFolderFunc.curry("raw").call()
+       }
+Save file.
+
 2.2. Run Android
 2.2.1. Open mobile/android in Android Studio and build it
 2.2.2. Run chmod +x android/gradlew (For Linux/MacOS only)
@@ -32,7 +54,7 @@ cd android && ./gradlew clean
 How to Debug
 -------------------
 1. Install React Native Debugger: https://github.com/jhen0409/react-native-debugger.
-2. Run React Native Debugger and an emulator. 
+2. Run React Native Debugger and an emulator.
 3. You need to switch debug mode on for the emulator.
 - For iOS press Cmd + D
 - For Android in Metro terminal press R.

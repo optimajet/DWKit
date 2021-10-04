@@ -18,10 +18,10 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     [Authorize]
     public class ConfigAPIController : Controller
     {
-        private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
         private readonly IConfigurationRoot _configuration;
 
-        public ConfigAPIController(IHostingEnvironment env)
+        public ConfigAPIController(IWebHostEnvironment env)
         {
             _env = env;
             DWKitRuntime.Metadata.SetRootPath(_env.ContentRootPath);

@@ -11,6 +11,7 @@ using OptimaJet.DWKit.Core.View;
 namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
     [Authorize]
+    [AllowAnonymous]
     public class UserInterfaceController : Controller
     {
         [Route("ui/form/{name}")]
@@ -68,7 +69,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             {
                 if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
                 {
-                    throw new Exception("Access denied!");
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
                 }
 
                 Guid? id = null;
@@ -110,7 +111,6 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return Content(DWKitRuntime.Metadata.GetFormsBusinessCode(null, mobile));
         }
 
-        [AllowAnonymous]
         [Route("ui/login")]
         public async Task<ActionResult> Login(bool mobile = false)
         {
@@ -121,7 +121,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         {
             if (!await DWKitRuntime.Security.CheckFormPermissionAsync(form, "View"))
             {
-                throw new Exception("Access denied!");
+                return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401  };
             }
 
             var localization = DWKitRuntime.Security.CurrentUser?.Localization;
@@ -136,10 +136,9 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 
             if (wrapResult)
             {
-                if (enableSecurity && DWKitRuntime.Security.CurrentUser != null)
+                if (enableSecurity)
                 {
-                    var userId = DWKitRuntime.Security.CurrentUser.GetOperationUserId();
-                    await form.FillPermissionsAsync(userId);
+                    await form.FillPermissionsAsync();
                 }
                 await form.FillMappingAsync();
                 return Json(new ItemSuccessResponse<object>(form));

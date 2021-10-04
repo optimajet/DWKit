@@ -1,3 +1,5 @@
+#!/usr/bin/env pwsh
+
 $DistrPath = ".\src\"
 $SolutionFolder = $args[0]
 
@@ -9,14 +11,14 @@ Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $S
         $needToUpdate = $true
         $isnew = $true
         $fileforbackup = $TargetFolder + "\" + $SubFolder + "\" + $file.Name
-        if(Test-Path $fileforbackup){ 
-            
+        if(Test-Path $fileforbackup){
+
             if ($SkipIfExists | Where-Object {$file.Name -like $_}) {
                 "Ignore: " + $file.Name | Write-Host
                 continue;
             }
-            
-            $isnew = $false      
+
+            $isnew = $false
             $hashA = $(Get-FileHash $file.FullName).hash
             $hashB = $(Get-FileHash $fileforbackup).hash
 
@@ -33,7 +35,7 @@ Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $S
                     New-Item -ItemType Directory -Force -Path $($BackupFolder + "\" + $SubFolder) | Out-Null
                 }
                 Copy-Item -Path $fileforbackup -Destination  $($BackupFolder + "\" + $SubFolder)
-            }    
+            }
         }
 
         if($needToUpdate -eq $true){
@@ -44,7 +46,7 @@ Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $S
             else{
                 "Update: " + $file.Name | Write-Host
             }
-            
+
             $destinationFolder = $($TargetFolder + "\" + $SubFolder)
             $destinationFolder  | Write-Host
             if(!(Test-Path $destinationFolder)){
@@ -72,13 +74,13 @@ Function CopyAndBackup ($SourceFolder, $TargetFolder, $BackupFolder, $Filter, $S
 'https://dwkit.com'
 '----------------------------'
 
-while ($null -eq $SolutionFolder -Or !(Test-Path $SolutionFolder)) { 
+while ($null -eq $SolutionFolder -Or !(Test-Path $SolutionFolder)) {
     $SolutionFolder = Read-Host -Prompt "Enter solution's folder"
 
     if(!(Test-Path $SolutionFolder)){
         Write-Host 'This folder does not exist!' -ForegroundColor Red
     }
-}    
+}
 'Target Folder: ' + $SolutionFolder
 
 $BackupFolder = $SolutionFolder + '\dwkit-backup-' + (get-date).ToString("dd-MM-yyyy")
@@ -110,8 +112,8 @@ CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFold
 
 
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.cs -SubFolder "OptimaJet.DWKit.StarterApplication"
-CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter package.json -SubFolder "OptimaJet.DWKit.StarterApplication" 
-CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter webpack.config.js -SubFolder "OptimaJet.DWKit.StarterApplication" 
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter package.json -SubFolder "OptimaJet.DWKit.StarterApplication"
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter webpack.config.js -SubFolder "OptimaJet.DWKit.StarterApplication"
 
 #Controllers - *.cs
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.cs -SubFolder "OptimaJet.DWKit.StarterApplication\Controllers"
@@ -130,7 +132,7 @@ CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFold
 #wwwroot\themes
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\themes"
 #silentRenew.html
-CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter silentRenew.html -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot" 
+CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter silentRenew.html -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot"
 #wwwroot\templates
 CopyAndBackup -SourceFolder $DistrPath -TargetFolder $SolutionFolder -BackupFolder $BackupFolder -Filter *.* -SubFolder "OptimaJet.DWKit.StarterApplication\wwwroot\templates" -CheckSubfolders $true
 #wwwroot\mobileframe
@@ -188,7 +190,7 @@ foreach ($file in $files)
         if(!(Test-Path $($BackupFolder + "\" + $file.Directory.Name))){
             New-Item -ItemType Directory -Force -Path $($BackupFolder + "\" + $file.Directory.Name) | Out-Null
         }
-        Copy-Item -Path $file.FullName -Destination $($BackupFolder + "\" + $file.Directory.Name)  
+        Copy-Item -Path $file.FullName -Destination $($BackupFolder + "\" + $file.Directory.Name)
         "Backup: " + $file.Name | Write-Host
         "VS Project: " + $file.Name + " Updated" | Write-Host
         $proj.Save($file.FullName);

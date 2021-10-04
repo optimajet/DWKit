@@ -1,0 +1,1 @@
+INSERT INTO [dbo].[dwSecurityRole] ([Id], [Code],[Name],[Comment],[DomainGroup]) VALUES( 'CB871934-E1E8-C4F5-7845-FA4733D85F69', 'Anonymous', 'Anonymous', '', '')

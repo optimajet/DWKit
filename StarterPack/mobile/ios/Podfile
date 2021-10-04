@@ -10,6 +10,8 @@ target 'FMobile' do
   use_react_native!(:path => config["reactNativePath"])
 
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'FMobileTests' do
     inherit! :complete
     # Pods for testing

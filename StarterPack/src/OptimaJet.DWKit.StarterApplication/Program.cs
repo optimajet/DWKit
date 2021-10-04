@@ -14,7 +14,7 @@ namespace OptimaJet.DWKit.StarterApplication
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
+                .UseIIS()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
                 .Build();

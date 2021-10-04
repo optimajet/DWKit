@@ -551,7 +551,7 @@ a.dwkit-btn{
 }
 
 .dwkit-collectioneditor tr > td{
-    vertical-align: -webkit-baseline-middle;
+    vertical-align: top;
     padding-right: 10px;
 }
 
@@ -728,7 +728,22 @@ a.dwkit-btn{
   box-shadow: none;
 }
 
-.ui.input.error textarea {
+.files, .file, .dropzone {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.files .file, .files .dropzone {
+  margin: 0;
+}
+
+.files.error, .file.error , .dropzone.error {
+  border: 1px solid;
+  padding: 5px;
+}
+
+.ui.input.error textarea,
+.files.error, .file.error, .dropzone.error  {
     background-color: #FFF6F6;
     border-color: #E0B4B4;
     color: #9F3A38;
@@ -2096,8 +2111,6 @@ div.filepicker {
   border-style: solid;
   border-width: 1px;
   border-color: rgba(0,0,0,0.2);
-  margin-top: 16px;
-  margin-bottom: 16px;
   background: rgba(0, 0, 0, 0.02);
   color: rgba(46, 46, 46, 0.4);
 }
@@ -2634,4 +2647,8 @@ textarea:read-only,
 .events-editor .parameters-editor {
   margin-top: -26px !important;
   min-height: 67px;
+}
+
+.bottom.attached.segment.tab.top {
+  margin-bottom: 0 !important;
 }

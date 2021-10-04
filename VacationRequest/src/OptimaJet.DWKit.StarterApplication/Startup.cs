@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,14 +8,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using OptimaJet.DWKit.Application;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using OptimaJet.DWKit.Core;
 using OptimaJet.DWKit.Security;
 using System.Linq;
 using IdentityServer4.Models;
+using Microsoft.Extensions.Hosting;
 using OptimaJet.DWKit.Core.Autocomplete;
 
 namespace OptimaJet.DWKit.StarterApplication
@@ -25,10 +23,10 @@ namespace OptimaJet.DWKit.StarterApplication
     {
         private const string _defaultCorsPolicyName = "localhost";
 
-        public IHostingEnvironment Environment { get; }
+        public IWebHostEnvironment Environment { get; }
         private readonly ILoggerFactory _loggerFactory;
 
-        public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public Startup(IWebHostEnvironment env)
         {
             Environment = env;
 
@@ -39,9 +37,12 @@ namespace OptimaJet.DWKit.StarterApplication
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            _loggerFactory = loggerFactory;
+            _loggerFactory = LoggerFactory.Create(loggingBuilder =>
+            {
+                loggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
+                loggingBuilder.AddConsole();
+                loggingBuilder.AddDebug();
+            });
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -50,6 +51,8 @@ namespace OptimaJet.DWKit.StarterApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
+            services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddCors();
 
             // Add framework services.
@@ -87,27 +90,31 @@ namespace OptimaJet.DWKit.StarterApplication
 
             services.AddMvc(options => {
                 options.Filters.Add(typeof(AuthorizationFilter));
-                options.Filters.Add(
-                         new ResponseCacheFilter(
-                            new CacheProfile()
-                            {
-                                NoStore = true
-                            }));
-                options.Conventions.Add(new Security.OpenIdConnect.AuthorizationPolicyConvention(Configuration));
+                options.Filters.Add(new ResponseCacheAttribute
+                    {
+                        NoStore = true,
+                        Location = ResponseCacheLocation.None
+                    });
             });
 
             services.AddSignalR(o =>
             {
                 o.EnableDetailedErrors = true;
-            });
+            }).AddNewtonsoftJsonProtocol();
             services.AddSingleton<IUserIdProvider, SignalRIdProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.ConfigureForwardHeaders(Configuration, logger: _loggerFactory.CreateLogger<Startup>());
+
             app.UseCors(Configuration, "CorsSettings");
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.None,
+                Secure = CookieSecurePolicy.SameAsRequest,
+            });
 
             if (env.IsDevelopment())
             {
@@ -122,30 +129,29 @@ namespace OptimaJet.DWKit.StarterApplication
             // DEPRECATED. You should uncomment this code if you still continue using old SecurityProvider for some reasons.
             //app.UseAuthentication();
 
+            app.UseRouting();
+
             // UseIdentityServer includes a call to UseAuthentication
             app.UseIdentityServer();
-
+            app.UseAuthorization();
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute("form", "form/{formName}/{*other}",
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute("form", "form/{formName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
-                routes.MapRoute("flow", "flow/{flowName}/{*other}",
+                endpoints.MapControllerRoute("flow", "flow/{flowName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
-                routes.MapRoute("workflow", "workflow/{workflowName}/{*other}",
+                endpoints.MapControllerRoute("workflow", "workflow/{workflowName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
-                routes.MapRoute("account", "account/{action}",
+                endpoints.MapControllerRoute("account", "account/{action}",
                     defaults: new { controller = "Account", action = "Index" });
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=StarterApplication}/{action=Index}/");
-            });
+                    "{controller=StarterApplication}/{action=Index}/");
 
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ClientNotificationHub>("/hubs/notifications");
-                routes.MapHub<AutocompleteHub>(AutocompleteHub.SignalRUrl);
+                endpoints.MapHub<ClientNotificationHub>("/hubs/notifications");
+                endpoints.MapHub<AutocompleteHub>(AutocompleteHub.SignalRUrl);
             });
 
             //app.ApplicationServices.GetRequiredService<CustomCookieAuthenticationEvents>()

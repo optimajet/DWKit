@@ -18,9 +18,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
 {
     //[Authorize(IdentityServer4.IdentityServerConstants.LocalApi.PolicyName)]
     [Authorize]
+    [Route("data")]
     public class DataController : Controller
     {
-        [Route("data/get")]
+        [AllowAnonymous]
+        [Route("get")]
         public async Task<ActionResult> GetData(string name, string propertyName, string urlFilter, string options,
             string filter, string paging, string sort, bool forCopy = false, bool mobile = false, string schemeName = null)
         {
@@ -28,7 +30,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             {
                 if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
                 {
-                    throw new Exception("Access denied!");
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
                 }
 
                 var getRequest = CreateGetRequest(name, propertyName, urlFilter, options, filter, paging, sort, forCopy,
@@ -48,7 +50,8 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
-        [Route("data/change")]
+        [AllowAnonymous]
+        [Route("change")]
         [HttpPost]
         public async Task<ActionResult> ChangeData(string name, string data, bool mobile = false, string schemeName = null)
         {
@@ -56,7 +59,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             {
                 if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "Edit"))
                 {
-                    throw new Exception("Access denied!");
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
                 }
 
                 var postRequest = new ChangeDataRequest(name, data)
@@ -91,7 +94,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
-        [Route("data/delete")]
+        [Route("delete")]
         [HttpPost]
         public async Task<ActionResult> DeleteData(string name, string propertyName, string data, bool mobile = false, string schemeName = null)
         {
@@ -99,7 +102,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             {
                 if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "Edit"))
                 {
-                    throw new Exception("Access denied!");
+                    return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
                 }
 
                 var deleteRequest = new ChangeDataRequest(name, data, propertyName)
@@ -130,23 +133,17 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
-        [Route("data/dictionary")]
+        [AllowAnonymous]
+        [Route("dictionary")]
         public async Task<ActionResult> GetDictionary(string name, string sort, string columns, string paging, string filter, string parent)
         {
             try
             {
                 var data = await DataSource.GetDictionaryAsync(name, sort, columns, paging, filter, parent).ConfigureAwait(false);
 
-                ItemSuccessResponse<IEnumerable<object>> result = null;
-
-                if (NotNullOrEmpty(parent))
-                {
-                    result = new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Id = x.Item1, Name = x.Item2, Parent = x.Item3, HasChild = x.Item4, Values = x.Item5 }));
-                }
-                else
-                {
-                    result = new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Key = x.Item1, Value = x.Item2, Values = x.Item5 }));
-                }
+                var result = NotNullOrEmpty(parent)
+                    ? new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Id = x.Item1, Name = x.Item2, Parent = x.Item3, HasChild = x.Item4, Values = x.Item5 }))
+                    : new ItemSuccessResponse<IEnumerable<object>>(data.Item1.Select(x => new { Key = x.Item1, Value = x.Item2, Values = x.Item5 }));
 
                 result.Count = data.Item2;
 
@@ -159,7 +156,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
         }
 
         [HttpPost]
-        [Route("data/upload")]
+        [Route("upload")]
         public async Task<ActionResult> UploadFile()
         {
             try
@@ -188,7 +185,7 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return Json(new FailResponse("No any files in the request!"));
         }
 
-        [Route("data/download/{token}")]
+        [Route("download/{token}")]
         public async Task<ActionResult> DownloadFile(string token)
         {
             var data = await DWKitRuntime.ContentProvider.GetAsync(token);
@@ -213,18 +210,14 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             return File(stream, contentType, filename);
         }
 
-        private static bool NotNullOrEmpty(string urlFilter)
-        {
-            return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
-        }
-
-        [Route("data/export")]
+        [AllowAnonymous]
+        [Route("export")]
         public async Task<IActionResult> ExportData(string name, string propertyName, string urlFilter, string options,
             string filter, string paging, string sort, string cols, string fileName, string pagerType, bool forCopy = false, bool mobile = false)
         {
             if (!await DWKitRuntime.Security.CheckFormPermissionAsync(name, "View"))
             {
-                throw new Exception("Access denied!");
+                return new JsonResult(new FailResponse("Access denied!")) { StatusCode = 401 };
             }
 
             bool isServerPager = pagerType == "server";
@@ -262,6 +255,11 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             var stream = DataSource.ExportToExcel(CreateColsFilter(cols), propertyName, data.Entity, extraSort);
             var mimeType = "application/vnd.ms-excel";
             return File(stream, mimeType, resultFileName);
+        }
+
+        private static bool NotNullOrEmpty(string urlFilter)
+        {
+            return !string.IsNullOrEmpty(urlFilter) && !urlFilter.Equals("null", StringComparison.OrdinalIgnoreCase);
         }
 
         private GetDataRequest CreateGetRequest(string name, string propertyName, string urlFilter, string options,

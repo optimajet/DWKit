@@ -15,14 +15,15 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
     [Authorize]
     public class StarterApplicationController : Controller
     {
-        private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
 
-        public StarterApplicationController(IHostingEnvironment env)
+        public StarterApplicationController(IWebHostEnvironment env)
         {
             _env = env;
             DWKitRuntime.Metadata.SetRootPath(_env.ContentRootPath);
         }
         // GET: /<controller>/
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

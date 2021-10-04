@@ -23,13 +23,14 @@ services:
     depends_on:
        - db
     ports:
-       - "48800:80"
+       - "48800:48800"
     build: .
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:48800/
       ConnectionStrings__default: HOST=db;User ID=dbuser;Password=dbuserpassword;Database=dwkit;Port=5432
       DWKit__MetadataPath: /home/metadata/
-      DWKit__LicensePath: /home/license/ 
+      DWKit__LicensePath: /home/license/
       DWKit__CreateDatabaseObjects: "true"
       DWKit__DatabaseScriptList: /home/sql/PostgreSQL/create_db.txt
     volumes:

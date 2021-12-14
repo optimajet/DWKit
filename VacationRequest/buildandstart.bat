@@ -16,7 +16,7 @@ call npm install
 echo -
 echo Step 2 Build Webpack
 echo ------------------------------
-call webpack -p
+call npm run dist
 cd ..\..
 
 echo -
@@ -25,10 +25,10 @@ echo ------------------------------
 dotnet build
 IF ERRORLEVEL 9009 goto :NO_SDK_ERROR
 
-echo - 
+echo -
 echo Step 4 dotnet publish
 echo ------------------------------
-dotnet publish -o ..\..\bin
+dotnet publish -o .\bin
 
 echo -
 echo Starting...
@@ -38,5 +38,5 @@ start.bat
 exit
 
 :NO_SDK_ERROR
-echo .NET Core not found. Please install .NET Core SDK 2.1 to run this application
-echo For more information visit https://dotnet.microsoft.com/download/dotnet-core/2.1
+echo .NET Core not found. Please install .NET Core SDK 3.1 to run this application
+echo For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/3.1

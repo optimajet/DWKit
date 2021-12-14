@@ -29,26 +29,12 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
             }
         }
 
+        [TypeFilter(typeof(IntegrationApiAuthenticationFilter))]
         [Route("api/{operation?}/model/{name?}/{level?}/{id?}")]
-        [HttpGet]
-        [HttpPost]
-        public async Task<ActionResult> ModelApi()
-        {
-            try
-            {
-                var result = await IntegrationApiHttp.Process(HttpContext.Request);
-                return Json(result);
-            }
-            catch (Exception ex)
-            {
-                return Json(new IntegrationApiFailResponse(ex));
-            }
-        }
-
         [Route("api/{operation?}/form/{name?}/{id?}")]
         [HttpGet]
         [HttpPost]
-        public async Task<ActionResult> FormApi()
+        public async Task<ActionResult> Api()
         {
             try
             {
@@ -60,6 +46,5 @@ namespace OptimaJet.DWKit.StarterApplication.Controllers
                 return Json(new IntegrationApiFailResponse(ex));
             }
         }
-
     }
 }

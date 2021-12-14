@@ -1,7 +1,7 @@
 ﻿/*
 Company: OptimaJet
 Project: DWKIT Provider for MSSQL
-Version: 3.3
+Version: 3.4
 File: DWKitDropScript.sql
 */
 
@@ -144,7 +144,7 @@ END
 
 IF EXISTS (SELECT 1 FROM sys.procedures WHERE name = N'dwGet_Sequence')
 BEGIN
-	DROP PROCEDURE dwGet_Sequence 
+	DROP PROCEDURE dwGet_Sequence
 	PRINT 'dwGet_Sequence DROP PROCEDURE'
 END
 

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <Description>The sample for DWKit</Description>
@@ -25,9 +25,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.1.4" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="5.1.4" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="5.1.4" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.2.1" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="5.2.1" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="5.2.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />

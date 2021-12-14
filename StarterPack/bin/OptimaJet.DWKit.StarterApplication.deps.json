@@ -22,13 +22,13 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "OptimaJet.DWKit.StarterApplication/3.3.0": {
+      "OptimaJet.DWKit.StarterApplication/3.4.0": {
         "dependencies": {
           "BundlerMinifier.Core": "2.6.362",
-          "DWKit-Core": "3.3.0",
-          "DWKit-ProviderForMSSQL": "3.3.0",
-          "DWKit-ProviderForPostgreSQL": "3.3.0",
-          "DWKit-Security": "3.3.0",
+          "DWKit-Core": "3.4.0",
+          "DWKit-ProviderForMSSQL": "3.4.0",
+          "DWKit-ProviderForPostgreSQL": "3.4.0",
+          "DWKit-Security": "3.4.0",
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.15",
           "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": "3.1.15",
@@ -36,8 +36,8 @@
           "Microsoft.Extensions.Logging.Console": "5.0.0",
           "Microsoft.Extensions.Logging.Debug": "5.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.2.0",
-          "OptimaJet.DWKit.Application": "3.3.0",
-          "WorkflowEngine.NETCore-Core": "5.1.4",
+          "OptimaJet.DWKit.Application": "3.4.0",
+          "WorkflowEngine.NETCore-Core": "5.2.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -357,7 +357,7 @@
           "lib/netstandard1.3/DocumentFormat.OpenXml.dll": {}
         }
       },
-      "DWKit-Core/3.3.0": {
+      "DWKit-Core/3.4.0": {
         "dependencies": {
           "ClosedXML": "0.94.2",
           "Escape": "1.1.0",
@@ -380,72 +380,72 @@
           "System.Runtime.Loader": "4.3.0",
           "System.Security.Cryptography.Csp": "4.3.0",
           "System.ValueTuple": "4.4.0",
-          "WorkflowEngine.NETCore-Core": "5.1.4",
+          "WorkflowEngine.NETCore-Core": "5.2.1",
           "YamlDotNet.Signed": "5.0.1",
           "log4net": "2.0.8"
         },
         "runtime": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.Core.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.Core.dll": {}
         }
       },
-      "DWKit-ProviderForMSSQL/3.3.0": {
+      "DWKit-ProviderForMSSQL/3.4.0": {
         "dependencies": {
-          "DWKit-Core": "3.3.0",
+          "DWKit-Core": "3.4.0",
           "System.Data.Common": "4.3.0",
           "System.Data.SqlClient": "4.5.1",
-          "WorkflowEngine.NETCore-ProviderForMSSQL": "5.1.4"
+          "WorkflowEngine.NETCore-ProviderForMSSQL": "5.2.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.MSSQL.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.MSSQL.dll": {}
         }
       },
-      "DWKit-ProviderForOracle/3.3.0": {
+      "DWKit-ProviderForOracle/3.4.0": {
         "dependencies": {
-          "DWKit-Core": "3.3.0",
-          "WorkflowEngine.NETCore-ProviderForOracle": "5.1.4"
+          "DWKit-Core": "3.4.0",
+          "WorkflowEngine.NETCore-ProviderForOracle": "5.2.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.Oracle.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.Oracle.dll": {}
         }
       },
-      "DWKit-ProviderForPostgreSQL/3.3.0": {
+      "DWKit-ProviderForPostgreSQL/3.4.0": {
         "dependencies": {
-          "DWKit-Core": "3.3.0",
+          "DWKit-Core": "3.4.0",
           "Npgsql": "4.1.3.1",
           "System.Data.Common": "4.3.0",
-          "WorkflowEngine.NETCore-ProviderForPostgreSQL": "5.1.4"
+          "WorkflowEngine.NETCore-ProviderForPostgreSQL": "5.2.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.PostgreSQL.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
           }
         },
         "compile": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.PostgreSQL.dll": {}
         }
       },
-      "DWKit-Security/3.3.0": {
+      "DWKit-Security/3.4.0": {
         "dependencies": {
-          "DWKit-Core": "3.3.0",
+          "DWKit-Core": "3.4.0",
           "IdentityServer4": "4.1.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.0.4",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
@@ -459,12 +459,12 @@
           "Novell.Directory.Ldap.NETStandard2_0": "3.1.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Security.Principal.Windows": "4.7.0",
-          "WorkflowEngine.NETCore-Core": "5.1.4"
+          "WorkflowEngine.NETCore-Core": "5.2.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/OptimaJet.DWKit.Security.dll": {
-            "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.0"
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
           }
         },
         "compile": {
@@ -1872,11 +1872,11 @@
           "lib/netstandard1.3/NUglify.dll": {}
         }
       },
-      "Oracle.ManagedDataAccess.Core/2.18.3": {
+      "Oracle.ManagedDataAccess.Core/2.19.120": {
         "runtime": {
           "lib/netstandard2.0/Oracle.ManagedDataAccess.dll": {
-            "assemblyVersion": "2.0.18.3",
-            "fileVersion": "2.0.18.3"
+            "assemblyVersion": "2.0.19.1",
+            "fileVersion": "2.0.19.1"
           }
         },
         "compile": {
@@ -3247,7 +3247,7 @@
           "lib/netstandard2.0/WeakEvent.dll": {}
         }
       },
-      "WorkflowEngine.NETCore-Core/5.1.4": {
+      "WorkflowEngine.NETCore-Core/5.2.1": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp": "3.4.0",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "3.4.0",
@@ -3262,70 +3262,70 @@
         },
         "runtime": {
           "lib/netstandard2.0/OptimaJet.Workflow.Core.dll": {
-            "assemblyVersion": "5.1.0.0",
-            "fileVersion": "5.1.0.0"
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/OptimaJet.Workflow.Core.dll": {}
         }
       },
-      "WorkflowEngine.NETCore-FilesPlugin/5.1.4": {
+      "WorkflowEngine.NETCore-FilesPlugin/5.2.1": {
         "dependencies": {
           "FluentFTP": "32.4.3",
           "SSH.NET": "2016.1.0",
           "SharpZipLib": "1.2.0",
-          "WorkflowEngine.NETCore-Core": "5.1.4"
+          "WorkflowEngine.NETCore-Core": "5.2.1"
         },
         "runtime": {
           "lib/netstandard2.0/OptimaJet.Workflow.FilesPlugin.dll": {
-            "assemblyVersion": "5.1.0.0",
-            "fileVersion": "5.1.0.0"
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/OptimaJet.Workflow.FilesPlugin.dll": {}
         }
       },
-      "WorkflowEngine.NETCore-ProviderForMSSQL/5.1.4": {
+      "WorkflowEngine.NETCore-ProviderForMSSQL/5.2.1": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.0.1",
-          "WorkflowEngine.NETCore-Core": "5.1.4"
+          "WorkflowEngine.NETCore-Core": "5.2.1"
         },
         "runtime": {
           "lib/netstandard2.0/OptimaJet.Workflow.MSSQL.dll": {
-            "assemblyVersion": "5.1.0.0",
-            "fileVersion": "5.1.0.0"
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/OptimaJet.Workflow.MSSQL.dll": {}
         }
       },
-      "WorkflowEngine.NETCore-ProviderForOracle/5.1.4": {
+      "WorkflowEngine.NETCore-ProviderForOracle/5.2.1": {
         "dependencies": {
-          "Oracle.ManagedDataAccess.Core": "2.18.3",
-          "WorkflowEngine.NETCore-Core": "5.1.4"
+          "Oracle.ManagedDataAccess.Core": "2.19.120",
+          "WorkflowEngine.NETCore-Core": "5.2.1"
         },
         "runtime": {
           "lib/netstandard2.0/OptimaJet.Workflow.Oracle.dll": {
-            "assemblyVersion": "5.1.0.0",
-            "fileVersion": "5.1.0.0"
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/OptimaJet.Workflow.Oracle.dll": {}
         }
       },
-      "WorkflowEngine.NETCore-ProviderForPostgreSQL/5.1.4": {
+      "WorkflowEngine.NETCore-ProviderForPostgreSQL/5.2.1": {
         "dependencies": {
           "Npgsql": "4.1.3.1",
-          "WorkflowEngine.NETCore-Core": "5.1.4"
+          "WorkflowEngine.NETCore-Core": "5.2.1"
         },
         "runtime": {
           "lib/netstandard2.0/OptimaJet.Workflow.PostgreSQL.dll": {
-            "assemblyVersion": "5.1.0.0",
-            "fileVersion": "5.1.0.0"
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         },
         "compile": {
@@ -3343,17 +3343,23 @@
           "lib/netstandard1.3/YamlDotNet.dll": {}
         }
       },
-      "OptimaJet.DWKit.Application/3.3.0": {
+      "OptimaJet.DWKit.Application/3.4.0": {
         "dependencies": {
-          "DWKit-Core": "3.3.0",
-          "DWKit-ProviderForMSSQL": "3.3.0",
-          "DWKit-ProviderForOracle": "3.3.0",
-          "DWKit-ProviderForPostgreSQL": "3.3.0",
-          "DWKit-Security": "3.3.0",
+          "DWKit-Core": "3.4.0",
+          "DWKit-ProviderForMSSQL": "3.4.0",
+          "DWKit-ProviderForOracle": "3.4.0",
+          "DWKit-ProviderForPostgreSQL": "3.4.0",
+          "DWKit-Security": "3.4.0",
+          "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.15",
+          "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": "3.1.15",
           "Microsoft.CSharp": "4.7.0",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
-          "WorkflowEngine.NETCore-Core": "5.1.4",
-          "WorkflowEngine.NETCore-FilesPlugin": "5.1.4"
+          "Microsoft.Extensions.Logging.Console": "5.0.0",
+          "Microsoft.Extensions.Logging.Debug": "5.0.0",
+          "Microsoft.VisualStudio.Web.BrowserLink": "2.2.0",
+          "WorkflowEngine.NETCore-Core": "5.2.1",
+          "WorkflowEngine.NETCore-FilesPlugin": "5.2.1"
         },
         "runtime": {
           "OptimaJet.DWKit.Application.dll": {}
@@ -4943,7 +4949,7 @@
     }
   },
   "libraries": {
-    "OptimaJet.DWKit.StarterApplication/3.3.0": {
+    "OptimaJet.DWKit.StarterApplication/3.4.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -4969,40 +4975,40 @@
       "path": "documentformat.openxml/2.7.2",
       "hashPath": "documentformat.openxml.2.7.2.nupkg.sha512"
     },
-    "DWKit-Core/3.3.0": {
+    "DWKit-Core/3.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rxVCkSs4axR/QjokgX8f3hDtU/9batSIV0AldNV86S/gY5xrRWgpFDlB0YlpKF0jcZSzETPx4rXpyWxBz5GSpg==",
-      "path": "dwkit-core/3.3.0",
-      "hashPath": "dwkit-core.3.3.0.nupkg.sha512"
+      "sha512": "sha512-DTr2pt8chgaicOSX6zc1QmDa0RdBN5m7ZvteeVksKcf2v2iIJlNXVaeWX/94zcIAV0a6yJw9NkJl3N1rnHSQ1A==",
+      "path": "dwkit-core/3.4.0",
+      "hashPath": "dwkit-core.3.4.0.nupkg.sha512"
     },
-    "DWKit-ProviderForMSSQL/3.3.0": {
+    "DWKit-ProviderForMSSQL/3.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3yJL7oJ7YOf2Ei4pHjR2V2+8pQhWeotMFcquLoZFfRO9JygwFpIVQuzn8dfqEs6E4RwcJcQp9R7wotJftm6dbg==",
-      "path": "dwkit-providerformssql/3.3.0",
-      "hashPath": "dwkit-providerformssql.3.3.0.nupkg.sha512"
+      "sha512": "sha512-qU4189knsSWfTx6vV49sRIeVluQJO1eN0Hpb22dCSXWE2B6O/iAgAsxw1BrSkWHGQUK5rJTU8Iei/aSB6y4MtQ==",
+      "path": "dwkit-providerformssql/3.4.0",
+      "hashPath": "dwkit-providerformssql.3.4.0.nupkg.sha512"
     },
-    "DWKit-ProviderForOracle/3.3.0": {
+    "DWKit-ProviderForOracle/3.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kupRn3MljXk/OgTCnIM4rE3Iedlq9yRCKZJ4bIWPj6WFOCLA1G5/DjsDwYo9C0j74LN9vJZ1BKv5UqRXJ/n5WA==",
-      "path": "dwkit-providerfororacle/3.3.0",
-      "hashPath": "dwkit-providerfororacle.3.3.0.nupkg.sha512"
+      "sha512": "sha512-oSZ1BBPHIj21FLEM+hOm35L/2pkj4Lf8xwSdMMnGaBUrIokbryHErjOiVyfs1/HBqz5jr448KrffplKMB+/dlw==",
+      "path": "dwkit-providerfororacle/3.4.0",
+      "hashPath": "dwkit-providerfororacle.3.4.0.nupkg.sha512"
     },
-    "DWKit-ProviderForPostgreSQL/3.3.0": {
+    "DWKit-ProviderForPostgreSQL/3.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PmYTgBt/fXLNFq/dOOgu9F8d8DNJJDAn5cdJLwgh6g0K32a3o6w+NjWcelzjebvK0fwTPNa4zsFMaYvdptDgDA==",
-      "path": "dwkit-providerforpostgresql/3.3.0",
-      "hashPath": "dwkit-providerforpostgresql.3.3.0.nupkg.sha512"
+      "sha512": "sha512-8XZbVxp0wP+f1m53PLWaM/t10GowVxI6iextMU9p/TbAFFTIQYGlARuKYnMwHynN8g/iB6MBW3KZKczsK8UlkQ==",
+      "path": "dwkit-providerforpostgresql/3.4.0",
+      "hashPath": "dwkit-providerforpostgresql.3.4.0.nupkg.sha512"
     },
-    "DWKit-Security/3.3.0": {
+    "DWKit-Security/3.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-g5nYxYWdWdqjseP3rwP6660nzBgtfy/vQ6LXgo8S3KugeTMZJlv/Bmo/ybj2kU6J2D1qqjd5Myv/MUlBAbcArg==",
-      "path": "dwkit-security/3.3.0",
-      "hashPath": "dwkit-security.3.3.0.nupkg.sha512"
+      "sha512": "sha512-9ABQweiluuepntckg85eaWoEL1Hr+qNW3ekpQnREtJJ74L+xMo+vRhU1NbulvzlY2NJj4D5UP/KmJmgf0sFo0A==",
+      "path": "dwkit-security/3.4.0",
+      "hashPath": "dwkit-security.3.4.0.nupkg.sha512"
     },
     "Escape/1.1.0": {
       "type": "package",
@@ -5669,12 +5675,12 @@
       "path": "nuglify/1.5.5",
       "hashPath": "nuglify.1.5.5.nupkg.sha512"
     },
-    "Oracle.ManagedDataAccess.Core/2.18.3": {
+    "Oracle.ManagedDataAccess.Core/2.19.120": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YaN+rm9wgFQAuWxrrR7lUxEQI4WJnNkMTlZb+gbv2W4D/ML2kkgz4N8Z76W9Polx6BU+kK3Vx2R8RD9u7sea7g==",
-      "path": "oracle.manageddataaccess.core/2.18.3",
-      "hashPath": "oracle.manageddataaccess.core.2.18.3.nupkg.sha512"
+      "sha512": "sha512-bwekBNH4CZq3qolK7VYBNJ7pUX9nocnqTvY3KXMreQ6hl22lmk6fi40aGb95/ieVBTmHrcEkOan1WFzy450O4A==",
+      "path": "oracle.manageddataaccess.core/2.19.120",
+      "hashPath": "oracle.manageddataaccess.core.2.19.120.nupkg.sha512"
     },
     "Quartz/3.0.7": {
       "type": "package",
@@ -6628,40 +6634,40 @@
       "path": "thomaslevesque.weakevent/4.1.0",
       "hashPath": "thomaslevesque.weakevent.4.1.0.nupkg.sha512"
     },
-    "WorkflowEngine.NETCore-Core/5.1.4": {
+    "WorkflowEngine.NETCore-Core/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YRPsmNx/I8hpMBT7vM5axVisXGd0ksxZw1w4+XUQH0rrPJlAetZmsrjSW+EPd7I1erIjEjriPCtIe8W5mBzPCQ==",
-      "path": "workflowengine.netcore-core/5.1.4",
-      "hashPath": "workflowengine.netcore-core.5.1.4.nupkg.sha512"
+      "sha512": "sha512-Uv9OC330GGILXM1KkdVjKlrS8zYrypa/WaziO8RvvOl9f/bjhdH5KoHDAEM1/b80U3rbxtRIgXdfx/6/JcSPmQ==",
+      "path": "workflowengine.netcore-core/5.2.1",
+      "hashPath": "workflowengine.netcore-core.5.2.1.nupkg.sha512"
     },
-    "WorkflowEngine.NETCore-FilesPlugin/5.1.4": {
+    "WorkflowEngine.NETCore-FilesPlugin/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DSr0CudFH8pnhMhxHTHhSCBcPlAG0VVkeYq1fmqkIS6+ZIAApHZy0d8BVJTz211/JMHRskLbuYBsues0sGcv1w==",
-      "path": "workflowengine.netcore-filesplugin/5.1.4",
-      "hashPath": "workflowengine.netcore-filesplugin.5.1.4.nupkg.sha512"
+      "sha512": "sha512-9Y2JP+VSnXYTPyZE7VflkD6f8EQo2JJSSzEg5ng94Tu67VP0JgnioU3tvbkXS29mV9mHm5mDiV+olwFWoys4qw==",
+      "path": "workflowengine.netcore-filesplugin/5.2.1",
+      "hashPath": "workflowengine.netcore-filesplugin.5.2.1.nupkg.sha512"
     },
-    "WorkflowEngine.NETCore-ProviderForMSSQL/5.1.4": {
+    "WorkflowEngine.NETCore-ProviderForMSSQL/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k0iQC4YKZRI4UaZyrO/T0SWxCRSnWcO6hS1nC13BI988Zle8XZKiPpYyRjlONifRGpUSYeEWQE96bnpZbo6hNg==",
-      "path": "workflowengine.netcore-providerformssql/5.1.4",
-      "hashPath": "workflowengine.netcore-providerformssql.5.1.4.nupkg.sha512"
+      "sha512": "sha512-faKDmXdKEBGxK0Hlvtmof3jgttzpyONTKb1T2jDN0vvRlmlZIXf2fuHXW7hp34M/U/hrATmDhDb2u06nfvnbQA==",
+      "path": "workflowengine.netcore-providerformssql/5.2.1",
+      "hashPath": "workflowengine.netcore-providerformssql.5.2.1.nupkg.sha512"
     },
-    "WorkflowEngine.NETCore-ProviderForOracle/5.1.4": {
+    "WorkflowEngine.NETCore-ProviderForOracle/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VHzJ/tLVysccAkajgZrx2RWa49eSXrV9MsZ1h2wNO+Bn2xbw+6XiyybHTgXcVngnm5rlZfYDRCTJy7z9efYbjg==",
-      "path": "workflowengine.netcore-providerfororacle/5.1.4",
-      "hashPath": "workflowengine.netcore-providerfororacle.5.1.4.nupkg.sha512"
+      "sha512": "sha512-UABkn2GnHPO/XBK0k71O50Dn0LjeRYULOp6rtfEz5NnNHHL5swrRINtTy3PHx58VOJyKUlC9VqookKM1uNmd/g==",
+      "path": "workflowengine.netcore-providerfororacle/5.2.1",
+      "hashPath": "workflowengine.netcore-providerfororacle.5.2.1.nupkg.sha512"
     },
-    "WorkflowEngine.NETCore-ProviderForPostgreSQL/5.1.4": {
+    "WorkflowEngine.NETCore-ProviderForPostgreSQL/5.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+ftVnchY8lk5XEUMG7hCEZ/NGzEYN76iUZk+f0g4X42eyV+TVzMlDT/YfTk5ZQuY6VKYCjOWpjPVHN/Vnm+QCw==",
-      "path": "workflowengine.netcore-providerforpostgresql/5.1.4",
-      "hashPath": "workflowengine.netcore-providerforpostgresql.5.1.4.nupkg.sha512"
+      "sha512": "sha512-xpztfqMi/UkSsjTpnKWpXursZrKggwihJ73d+OrlRB8giqVA80bLvBUdAcIyCshIrVutgsO8QLjUY8x/jtXsuw==",
+      "path": "workflowengine.netcore-providerforpostgresql/5.2.1",
+      "hashPath": "workflowengine.netcore-providerforpostgresql.5.2.1.nupkg.sha512"
     },
     "YamlDotNet.Signed/5.0.1": {
       "type": "package",
@@ -6670,7 +6676,7 @@
       "path": "yamldotnet.signed/5.0.1",
       "hashPath": "yamldotnet.signed.5.0.1.nupkg.sha512"
     },
-    "OptimaJet.DWKit.Application/3.3.0": {
+    "OptimaJet.DWKit.Application/3.4.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

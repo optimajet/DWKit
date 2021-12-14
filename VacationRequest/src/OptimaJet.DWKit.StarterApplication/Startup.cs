@@ -15,6 +15,7 @@ using OptimaJet.DWKit.Security;
 using System.Linq;
 using IdentityServer4.Models;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using OptimaJet.DWKit.Core.Autocomplete;
 
 namespace OptimaJet.DWKit.StarterApplication
@@ -52,7 +53,24 @@ namespace OptimaJet.DWKit.StarterApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddControllersWithViews().AddNewtonsoftJson();
+            var mvcBuilder = services.AddControllersWithViews();
+            var useDateTimeZoneHandling = GetConfigParam("DWKit:UseDateTimeZoneHandling", bool.Parse, false);
+            if (useDateTimeZoneHandling)
+            {
+                var dateTimeZoneHandling = GetConfigParam("DWKit:DateTimeZoneHandling",
+                    s => Enum.TryParse(s, out DateTimeZoneHandling result) ? result : DateTimeZoneHandling.Utc,
+                    DateTimeZoneHandling.Utc);
+                var dateFormatString = GetConfigParam("DWKit:DateFormatString", s => s, "yyyy'-'MM'-'dd'T'HH':'mm':'ssZ");
+                mvcBuilder.AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.DateTimeZoneHandling = dateTimeZoneHandling;
+                    options.SerializerSettings.DateFormatString = dateFormatString;
+                });
+            }
+            else
+            {
+                mvcBuilder.AddNewtonsoftJson();
+            }
             services.AddCors();
 
             // Add framework services.
@@ -169,6 +187,12 @@ namespace OptimaJet.DWKit.StarterApplication
 #if DEBUG
             TelemetryConfiguration.Active.DisableTelemetry = true;
 #endif
+        }
+
+        private T GetConfigParam<T>(string name, Func<string, T> converter, T defaultValue)
+        {
+            var value = Configuration[name];
+            return !string.IsNullOrWhiteSpace(value) ? converter(value) : defaultValue;
         }
     }
 }

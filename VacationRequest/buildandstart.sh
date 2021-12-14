@@ -1,8 +1,8 @@
 #!/bin/sh
 
 if ! type dotnet > /dev/null; then
-  echo ".NET Core not found. Please install .NET Core SDK 2.1 to run this application"
-  echo "For more information visit https://dotnet.microsoft.com/download/dotnet-core/2.1"
+  echo ".NET Core not found. Please install .NET Core SDK 3.1 to run this application"
+  echo "For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/3.1"
   exit 127
 fi
 
@@ -26,7 +26,7 @@ npm install
 echo ""
 echo "Step 2 Build Webpack"
 echo "------------------------------"
-webpack -p
+npm run dist
 cd ../..
 
 echo ""
@@ -37,7 +37,7 @@ dotnet build
 echo ""
 echo "Step 4 dotnet publish"
 echo "------------------------------"
-dotnet publish -o ./../../bin
+dotnet publish -o ./bin
 
 echo ""
 echo "Starting..."

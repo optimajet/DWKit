@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
@@ -16,14 +16,20 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="3.3.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="DWKit-Core" Version="3.4.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.15" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="3.1.15" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.1.4" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.3.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.3.0" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="3.3.0" />
-    <PackageReference Include="DWKit-Security" Version="3.3.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-FilesPlugin" Version="5.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.2.1" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.4.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.4.0" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="3.4.0" />
+    <PackageReference Include="DWKit-Security" Version="3.4.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-FilesPlugin" Version="5.2.1" />
   </ItemGroup>
 </Project>

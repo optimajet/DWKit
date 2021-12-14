@@ -131,6 +131,13 @@ namespace OptimaJet.DWKit.Application
                 DWKitRuntime.CodeActionsDebugMode = bool.Parse(configuration["DWKit:CodeActionsDebugMode"]);
             }
 
+            var adminRole = configuration["DWKit:AdminRole"];
+            DWKitRuntime.AdminRole = string.IsNullOrWhiteSpace(adminRole) ? "Admins" : adminRole.Trim();
+            var defaultIntegrationApiLogin = configuration["DWKit:DefaultIntegrationApiLogin"];
+            DWKitRuntime.DefaultIntegrationApiLogin = string.IsNullOrWhiteSpace(defaultIntegrationApiLogin)
+                ? "_integration_api"
+                : defaultIntegrationApiLogin.Trim();
+
             CodeActionsCompiler.RegisterAssembly(typeof(WorkflowRuntime).Assembly);
             //It is necessary to have this assembly for compile code with dynamic
             CodeActionsCompiler.RegisterAssembly(typeof(Microsoft.CSharp.RuntimeBinder.Binder).Assembly);

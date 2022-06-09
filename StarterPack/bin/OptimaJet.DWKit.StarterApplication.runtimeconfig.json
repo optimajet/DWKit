@@ -7,7 +7,8 @@
     },
     "configProperties": {
       "Microsoft.AspNetCore.SuppressSameSiteNone": "true",
-      "System.GC.Server": true
+      "System.GC.Server": true,
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
     }
   }
 }

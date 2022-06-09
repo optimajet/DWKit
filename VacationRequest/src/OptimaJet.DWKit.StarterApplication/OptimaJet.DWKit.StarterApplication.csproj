@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>3.4.0</Version>
+    <Version>3.4.1</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <Description>The sample for DWKit</Description>
@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
-    <Copyright>OptimaJet DWKit 2021</Copyright>
+    <Copyright>OptimaJet DWKit 2022</Copyright>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup>

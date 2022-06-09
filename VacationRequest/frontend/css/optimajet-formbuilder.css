@@ -5,6 +5,7 @@
 
 .dwkit-formbuilder{
     display: flex;
+    flex: 1;
     align-items: stretch;
     min-height: 400px;
     min-width: 500px;
@@ -13,7 +14,14 @@
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; 
+    user-select: none;
+}
+
+.dwkit-formbuilder-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .dwkit-formbuilder-preview{
@@ -72,10 +80,12 @@
 }
 
 .dwkit-formbuilder-toolbox{
+    overflow-y: auto;
+    height: 100vh;
     float: right;
     background-color: #1262E2;
     color: white;
-    width: 200px;
+    width: 210px;
 }
 
 .dwkit-formbuilder-toolbox > .ui.input {
@@ -336,7 +346,7 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; 
+    user-select: none;
 }
 .dwkit-formbuilder-header-logo{
     margin-top:10px;
@@ -393,7 +403,7 @@ input .dwkit-formbuilder-item-toolbar-header:hover {
 }
 
 .dwkit-formbuilder-selector{
-    margin-right: 20px;
+    margin-right: -15px;
     float:left;
 }
 
@@ -816,7 +826,7 @@ a.dwkit-btn{
   height: 50px;
   width: 50px;
   background-repeat: no-repeat;
-  margin-right: 5px;  
+  margin-right: 5px;
 }
 
 .dwkit-formbuilder-container-rows{
@@ -1602,7 +1612,7 @@ a.dwkit-btn{
 }
 
 .image-uploaded-preview.compact {
-  display:  inline-flex; 
+  display:  inline-flex;
   vertical-align: bottom;
   margin-right: 10px;
 }
@@ -2342,11 +2352,6 @@ div.filepicker {
   resize: vertical;
 }
 
-.dwkit-formbuilder-toolbox{
-  overflow-y: scroll;
-  height: 100vh;
-}
-
 
 .RichEditor-root {
   background: #fff;
@@ -2605,7 +2610,7 @@ textarea:read-only,
 .events-editor .dwkit-collectioneditor {
   border-spacing: 0 35px;
 }
-/* 
+/*
 .events-editor .dwkit-collectioneditor-header {
   font-weight: normal;
 } */

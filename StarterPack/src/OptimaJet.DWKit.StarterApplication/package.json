@@ -17,7 +17,7 @@
     "license": "SEE LICENSE IN eula.txt",
     "dependencies": {
         "@aspnet/signalr": "1.1.4",
-        "ajv": "^5.5.2",
+        "ajv": "^6.12.3",
         "alertify": "0.3.0",
         "clone": "2.1.2",
         "deepmerge": "1.5.2",

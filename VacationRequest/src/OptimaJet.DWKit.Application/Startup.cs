@@ -132,6 +132,10 @@ namespace OptimaJet.DWKit.StarterApplication
             {
                 MinimumSameSitePolicy = SameSiteMode.None,
                 Secure = CookieSecurePolicy.SameAsRequest,
+                OnAppendCookie = cookieContext =>
+                    AuthenticationHelpers.CheckSameSite(cookieContext.Context, cookieContext.CookieOptions),
+                OnDeleteCookie = cookieContext =>
+                    AuthenticationHelpers.CheckSameSite(cookieContext.Context, cookieContext.CookieOptions),
             });
 
             if (env.IsDevelopment())
@@ -163,7 +167,7 @@ namespace OptimaJet.DWKit.StarterApplication
                 endpoints.MapControllerRoute("workflow", "workflow/{workflowName}/{*other}",
                     defaults: new { controller = "StarterApplication", action = "Index" });
                 endpoints.MapControllerRoute("account", "account/{action}",
-                    defaults: new { controller = "Account", action = "Index" });
+                    defaults: new { controller = "Account", action = "Login" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     "{controller=StarterApplication}/{action=Index}/");

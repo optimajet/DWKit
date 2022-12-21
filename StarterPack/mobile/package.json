@@ -1,6 +1,6 @@
 {
   "name": "frontend-mobile",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android && adb reverse tcp:48800 tcp:48800",

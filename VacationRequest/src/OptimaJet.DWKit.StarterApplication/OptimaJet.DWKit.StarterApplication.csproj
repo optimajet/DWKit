@@ -2,7 +2,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>3.4.1</Version>
+    <Version>3.5.0</Version>
     <Authors>OptimaJet, LLC</Authors>
     <Company>OptimaJet, LLC</Company>
     <Description>The sample for DWKit</Description>
@@ -14,20 +14,20 @@
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.15" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="3.1.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.11" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="5.2.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="5.2.1" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="5.2.1" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="7.2.3" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="7.2.3" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="7.2.3" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
@@ -56,4 +56,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <MetadataFolder Include="..\..\metadata\**" />
+  </ItemGroup>
+  <Target Name="CopyMetadataForIIS" Condition="Exists(@(MetadataFolder))" AfterTargets="Publish">
+    <Copy SourceFiles="@(MetadataFolder)" DestinationFiles="$(PublishDir)metadata\%(RecursiveDir)%(Filename)%(Extension)" />
+  </Target>
 </Project>

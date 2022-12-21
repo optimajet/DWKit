@@ -76,4 +76,10 @@ Check the apk in -> android/app/build/outputs/apk/release/app-release.apk
 
 How to build iOS package
 -------------------
-Open ios folder in xCode and build the project
+Open ios folder in xCode and build the project or execute:
+
+```bash
+npm run ios
+```
+
+If you see a "duplicate output file" error, try this solution - https://stackoverflow.com/questions/65757751/duplicate-output-file.

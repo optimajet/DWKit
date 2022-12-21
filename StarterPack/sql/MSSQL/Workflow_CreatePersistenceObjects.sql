@@ -1,7 +1,7 @@
 /*
 Company: OptimaJet
 Project: WorkflowEngine.NET Provider for MSSQL and Azure SQL
-Version: 5.2
+Version: 6.0
 File: CreatePersistenceObjects.sql
 
 */
@@ -262,6 +262,7 @@ BEGIN
 		)
 
 	CREATE CLUSTERED INDEX IX_NextExecutionDateTime_Clustered ON WorkflowProcessTimer (NextExecutionDateTime)
+    CREATE INDEX IX_ProcessId ON WorkflowProcessTimer (ProcessId)
 
 	PRINT 'WorkflowProcessTimer CREATE TABLE'
 END

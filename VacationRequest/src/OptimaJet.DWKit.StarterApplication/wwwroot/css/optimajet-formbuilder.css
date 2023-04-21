@@ -7,7 +7,7 @@
     display: flex;
     flex: 1;
     align-items: stretch;
-    min-height: 400px;
+    min-height: 0;
     min-width: 500px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -32,8 +32,6 @@
 .dwkit-formbuilder-content{
     width: calc(100% - 200px);
     float: left;
-    /*background-color: #F9F9F9;*/
-    min-height: 400px;
     overflow-y: auto;
 }
 
@@ -81,8 +79,6 @@
 
 .dwkit-formbuilder-toolbox{
     overflow-y: auto;
-    height: 100vh;
-    float: right;
     background-color: #1262E2;
     color: white;
     width: 210px;
@@ -730,12 +726,13 @@ a.dwkit-btn{
 }
 
 .ui.input.error .react-datepicker__input-container > input,
+.ui.input.error > input,
 .error .react-datepicker__input-container > input {
-  background-color: #fff6f6;
-  border-color: #e0b4b4;
-  color: #9f3a38;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+    background-color: #fff6f6;
+    border-color: #e0b4b4;
+    color: #9f3a38 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .files, .file, .dropzone {

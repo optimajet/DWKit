@@ -2,17 +2,17 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <Version>3.5.0</Version>
-    <Authors>OptimaJet, LLC</Authors>
-    <Company>OptimaJet, LLC</Company>
+    <Version>3.6.0</Version>
+    <Authors>Optimajet Limited</Authors>
+    <Company>Optimajet Limited</Company>
     <Description>The sample for DWKit</Description>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
     <PackageProjectUrl>https://dwkit.com/</PackageProjectUrl>
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
-    <Copyright>OptimaJet DWKit 2022</Copyright>
-    <FileVersion>3.5.0</FileVersion>
-    <AssemblyVersion>3.5.0</AssemblyVersion>
+    <Copyright>OptimaJet DWKit 2023</Copyright>
+    <FileVersion>3.6.0</FileVersion>
+    <AssemblyVersion>3.6.0</AssemblyVersion>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -20,7 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
-    <PackageReference Include="DWKit-Core" Version="3.5.0" />
+    <PackageReference Include="DWKit-Core" Version="3.6.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.11" />
@@ -28,10 +28,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="7.2.3" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.5.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.5.0" />
-    <PackageReference Include="DWKit-Security" Version="3.5.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="9.0.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.6.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.6.0" />
+    <PackageReference Include="DWKit-Security" Version="3.6.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />

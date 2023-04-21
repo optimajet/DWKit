@@ -45,6 +45,7 @@
             <i v-if="lang.code === language.code" class="el-icon-check"></i>
           </el-menu-item>
         </el-submenu>
+        <el-menu-item index="1-4" @click="showInstanceInfo">{{ labels.InstanceInfo }}</el-menu-item>
       </el-submenu>
     </el-menu>
 
@@ -178,17 +179,23 @@
 <script type="application/javascript">
   function toolbar_Init(me) {
     const data = me.VueConfig.data;
+    me.VueConfig.methods.UpdateLanguage = function () {
+      data.labels = {
+        ...WorkflowDesignerConstants.ToolbarLabel,
+        ...WorkflowDesignerConstants.Logs,
+        ButtonTextYes: WorkflowDesignerConstants.ButtonTextYes,
+        ButtonTextCancel: WorkflowDesignerConstants.ButtonTextCancel,
+        InformationCopiedToClipboardAndConsole: WorkflowDesignerConstants.InformationCopiedToClipboardAndConsole,
+        InformationLoggedToConsole: WorkflowDesignerConstants.InformationLoggedToConsole,
+      };
+    }
+
+    me.VueConfig.methods.UpdateLanguage();
     const designer = me.graph.designer;
     const isProcess = !!designer.processid;
     data.toImageDialogVisible = false;
     data.imageAspectRatio = 1;
     data.showGrid = false;
-    data.labels = {
-      ...WorkflowDesignerConstants.ToolbarLabel,
-      ...WorkflowDesignerConstants.Logs,
-      ButtonTextYes: WorkflowDesignerConstants.ButtonTextYes,
-      ButtonTextCancel: WorkflowDesignerConstants.ButtonTextCancel,
-    };
     data.legend = false;
     data.logs = false;
     data.settings = null;
@@ -430,6 +437,16 @@
       me.graph.Draw();
     }
 
+    me.VueConfig.methods.showInstanceInfo = function () {
+      me.graph.designer?.getInstanceInfo(data => {
+        console.info('Instance info', data)
 
+        const {notify} = me.VueConfig.methods;
+        navigator.clipboard.writeText(data).then(
+          () => notify(me.VueConfig.data.labels.InformationCopiedToClipboardAndConsole),
+          () => notify(me.VueConfig.data.labels.InformationLoggedToConsole)
+        );
+      })
+    }
   }
 </script>

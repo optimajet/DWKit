@@ -1,0 +1,51 @@
+{
+    "defaultLocale": "en",
+    "langs": [
+        {
+            "name": "English",
+            "locale": "en",
+            "flag":"us",
+            "scripts": ["dwkitadmin.localization_en.js"]
+        },
+        {
+            "name": "French",
+            "locale": "fr",
+            "scripts": ["dwkitadmin.localization_fr.js"]
+        },
+        {
+            "name": "Germany",
+            "locale": "de",
+            "scripts": ["dwkitadmin.localization_de.js"]
+        },
+        {
+            "name": "Italian",
+            "locale": "it",
+            "scripts": ["dwkitadmin.localization_it.js"]
+        },
+        {
+            "name": "Portuguese",
+            "locale": "pt",
+            "scripts": ["dwkitadmin.localization_pt.js"]
+        },
+        {
+            "name": "Russian",
+            "locale": "ru",
+            "scripts": ["dwkitadmin.localization_ru.js"]
+        },
+        {
+            "name": "Spanish",
+            "locale": "es",
+            "scripts": ["dwkitadmin.localization_es.js"]
+        },
+        {
+            "name": "Turkish",
+            "locale": "tr",
+            "scripts": ["dwkitadmin.localization_tr.js"]
+        },
+        {
+            "name": "Persian",
+            "locale": "ir",
+            "scripts": ["dwkitadmin.localization_fa.js"]
+        }
+    ]
+}

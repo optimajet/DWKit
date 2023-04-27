@@ -12,9 +12,7 @@
 [Rr]elease/
 x64/
 build/
-[Bb]in/
-# Not ignore bin in root
-!/[Bb]in/
+/[Bb]in/
 [Oo]bj/
 DLL/
 

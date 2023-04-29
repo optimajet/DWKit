@@ -22,7 +22,7 @@
         "clone": "2.1.2",
         "deepmerge": "1.5.2",
         "draft-convert": "2.1.8",
-        "draft-js": "0.11.3",
+        "draft-js": "0.11.7",
         "es6-promise": "^4.2.4",
         "history": "4.7.2",
         "isomorphic-fetch": "2.2.1",

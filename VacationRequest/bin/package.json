@@ -1,10 +1,10 @@
 {
     "name": "optimajet-dwkit",
-    "version": "3.6.0",
+    "version": "3.7.0",
     "description": "OptimaJet DWKit StarterApplication",
     "scripts": {
-        "dist": "webpack --env.prod",
-        "dist-dev": "webpack --env.NODE_ENV=development"
+        "dist": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --env.prod",
+        "dist-dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --env.NODE_ENV=development"
     },
     "repository": {
         "type": "git",
@@ -66,6 +66,7 @@
         "@babel/preset-react": "^7.9.4",
         "babel-loader": "^8.1.0",
         "babel-polyfill": "^6.26.0",
+        "cross-env": "^7.0.3",
         "dotenv-webpack": "1.7.0",
         "hard-source-webpack-plugin": "^0.13.1",
         "mini-css-extract-plugin": "^1.0.0",

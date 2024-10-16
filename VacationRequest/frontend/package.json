@@ -1,12 +1,12 @@
 {
   "name": "optimajet-dwkit",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "OptimaJet DWKit FrontEnd",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --recursive",
     "start": "webpack-dev-server --hot --inline --env.NODE_ENV=development --port 8085",
-    "dist": "webpack --env.prod",
-    "dist-dev": "webpack --env.NODE_ENV=development"
+    "dist": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --env.prod",
+    "dist-dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --env.NODE_ENV=development"
   },
   "repository": {
     "type": "git",
@@ -67,6 +67,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.3",
     "dotenv-webpack": "1.7.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",

@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "OptimaJet.DWKit.Application/3.6.0": {
+      "OptimaJet.DWKit.Application/3.7.0": {
         "dependencies": {
-          "DWKit-Core": "3.6.0",
-          "DWKit-ProviderForMSSQL": "3.6.0",
-          "DWKit-ProviderForOracle": "3.6.0",
-          "DWKit-ProviderForPostgreSQL": "3.6.0",
-          "DWKit-Security": "3.6.0",
+          "DWKit-Core": "3.7.0",
+          "DWKit-ProviderForMSSQL": "3.7.0",
+          "DWKit-ProviderForOracle": "3.7.0",
+          "DWKit-ProviderForPostgreSQL": "3.7.0",
+          "DWKit-Security": "3.7.0",
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.11",
           "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": "6.0.11",
@@ -57,7 +57,7 @@
           }
         }
       },
-      "DWKit-Core/3.6.0": {
+      "DWKit-Core/3.7.0": {
         "dependencies": {
           "ClosedXML": "0.94.2",
           "Escape": "1.1.0",
@@ -86,54 +86,54 @@
         },
         "runtime": {
           "lib/net6.0/OptimaJet.DWKit.Core.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.6.0.0"
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
           }
         }
       },
-      "DWKit-ProviderForMSSQL/3.6.0": {
+      "DWKit-ProviderForMSSQL/3.7.0": {
         "dependencies": {
-          "DWKit-Core": "3.6.0",
+          "DWKit-Core": "3.7.0",
           "System.Data.Common": "4.3.0",
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "WorkflowEngine.NETCore-ProviderForMSSQL": "9.0.0"
         },
         "runtime": {
           "lib/net6.0/OptimaJet.DWKit.MSSQL.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.6.0.0"
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
           }
         }
       },
-      "DWKit-ProviderForOracle/3.6.0": {
+      "DWKit-ProviderForOracle/3.7.0": {
         "dependencies": {
-          "DWKit-Core": "3.6.0",
+          "DWKit-Core": "3.7.0",
           "WorkflowEngine.NETCore-ProviderForOracle": "9.0.0"
         },
         "runtime": {
           "lib/net6.0/OptimaJet.DWKit.Oracle.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.6.0.0"
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
           }
         }
       },
-      "DWKit-ProviderForPostgreSQL/3.6.0": {
+      "DWKit-ProviderForPostgreSQL/3.7.0": {
         "dependencies": {
-          "DWKit-Core": "3.6.0",
-          "Npgsql": "4.1.3.1",
+          "DWKit-Core": "3.7.0",
+          "Npgsql": "4.1.14",
           "System.Data.Common": "4.3.0",
           "WorkflowEngine.NETCore-ProviderForPostgreSQL": "9.0.0"
         },
         "runtime": {
           "lib/net6.0/OptimaJet.DWKit.PostgreSQL.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.6.0.0"
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
           }
         }
       },
-      "DWKit-Security/3.6.0": {
+      "DWKit-Security/3.7.0": {
         "dependencies": {
-          "DWKit-Core": "3.6.0",
+          "DWKit-Core": "3.7.0",
           "IdentityServer4": "4.1.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.30",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
@@ -150,8 +150,8 @@
         },
         "runtime": {
           "lib/net6.0/OptimaJet.DWKit.Security.dll": {
-            "assemblyVersion": "3.6.0.0",
-            "fileVersion": "3.6.0.0"
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
           }
         }
       },
@@ -184,7 +184,7 @@
           "Microsoft.CSharp": "4.7.0",
           "System.Collections.NonGeneric": "4.3.0",
           "System.Data.Common": "4.3.0",
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Emit": "4.3.0",
@@ -1313,14 +1313,14 @@
           }
         }
       },
-      "Npgsql/4.1.3.1": {
+      "Npgsql/4.1.14": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "runtime": {
           "lib/netcoreapp3.0/Npgsql.dll": {
-            "assemblyVersion": "4.1.3.1",
-            "fileVersion": "4.1.3.1"
+            "assemblyVersion": "4.1.14.0",
+            "fileVersion": "4.1.14.0"
           }
         }
       },
@@ -1345,7 +1345,7 @@
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Configuration.ConfigurationManager": "6.0.0",
           "System.Data.Common": "4.3.0",
-          "System.Data.SqlClient": "4.8.5",
+          "System.Data.SqlClient": "4.8.6",
           "System.Net.NameResolution": "4.3.0",
           "System.Reflection.TypeExtensions": "4.5.0",
           "System.Runtime.Serialization.Xml": "4.3.0",
@@ -1587,7 +1587,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0",
@@ -1595,22 +1595,22 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
-            "assemblyVersion": "4.6.1.5",
-            "fileVersion": "4.700.22.51706"
+            "assemblyVersion": "4.6.1.6",
+            "fileVersion": "4.700.23.52603"
           }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "rid": "unix",
             "assetType": "runtime",
-            "assemblyVersion": "4.6.1.5",
-            "fileVersion": "4.700.22.51706"
+            "assemblyVersion": "4.6.1.6",
+            "fileVersion": "4.700.23.52603"
           },
           "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "4.6.1.5",
-            "fileVersion": "4.700.22.51706"
+            "assemblyVersion": "4.6.1.6",
+            "fileVersion": "4.700.23.52603"
           }
         }
       },
@@ -2687,7 +2687,7 @@
       },
       "WorkflowEngine.NETCore-ProviderForPostgreSQL/9.0.0": {
         "dependencies": {
-          "Npgsql": "4.1.3.1",
+          "Npgsql": "4.1.14",
           "WorkflowEngine.NETCore-Core": "9.0.0"
         },
         "runtime": {
@@ -2708,7 +2708,7 @@
     }
   },
   "libraries": {
-    "OptimaJet.DWKit.Application/3.6.0": {
+    "OptimaJet.DWKit.Application/3.7.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2727,40 +2727,40 @@
       "path": "documentformat.openxml/2.7.2",
       "hashPath": "documentformat.openxml.2.7.2.nupkg.sha512"
     },
-    "DWKit-Core/3.6.0": {
+    "DWKit-Core/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8N3X8TWtMwob+Ok7KGlPpC1AQXDi2Wg9w0MiCS50vaHvuLr7fQlM/MfSUVPfyk6Kh9cT4xWmhtobpa3rPVybVQ==",
-      "path": "dwkit-core/3.6.0",
-      "hashPath": "dwkit-core.3.6.0.nupkg.sha512"
+      "sha512": "sha512-WPHISd0eZdFoT9qIqrMmATc2Q9J7QSyEZLwXumVNxYkLSRujtA5ZJHvBxm7HFTtnt4VZEzfBj3aTuMPRlsw2EQ==",
+      "path": "dwkit-core/3.7.0",
+      "hashPath": "dwkit-core.3.7.0.nupkg.sha512"
     },
-    "DWKit-ProviderForMSSQL/3.6.0": {
+    "DWKit-ProviderForMSSQL/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ip+fgUK5IW3Zd47RlC8hind+7REKH95NbVRwbn5SWR9YkWfGSHPk8rs4wrQMUsGfdK9Sc1QdLmfTo45U1rvisA==",
-      "path": "dwkit-providerformssql/3.6.0",
-      "hashPath": "dwkit-providerformssql.3.6.0.nupkg.sha512"
+      "sha512": "sha512-VlYw9xLyEalNu4wpxuirOue2eOekKAnCSEOwWUb27C+0MMnTKHsOE+MgSOwKWr405IbSfD3ZXmRyV+qVgNtvNg==",
+      "path": "dwkit-providerformssql/3.7.0",
+      "hashPath": "dwkit-providerformssql.3.7.0.nupkg.sha512"
     },
-    "DWKit-ProviderForOracle/3.6.0": {
+    "DWKit-ProviderForOracle/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CG3XBuJ9HjybFYXkk0Paslwvt7RadRvIC7wHNpPdJByFzw2Ls+7K2B9ASSbE/Isc9Z4DmCjCErdQ4AvH6oJEQg==",
-      "path": "dwkit-providerfororacle/3.6.0",
-      "hashPath": "dwkit-providerfororacle.3.6.0.nupkg.sha512"
+      "sha512": "sha512-ZVH5MD0VVykxURgYfrVsNAovbZ/c14tmYSH1PQgWeQcgrG8AygdXWF8ZIQUZHgTXa7yNqeIIb/gMIA0dxmD1yA==",
+      "path": "dwkit-providerfororacle/3.7.0",
+      "hashPath": "dwkit-providerfororacle.3.7.0.nupkg.sha512"
     },
-    "DWKit-ProviderForPostgreSQL/3.6.0": {
+    "DWKit-ProviderForPostgreSQL/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-35vQoM48HWQkSdCBXrSx2+9mznARms5h1H/QTH2EoefqkNK+7I4TWHltiN/SifIJTkN0QOBbVPSrUlSxo/Kenw==",
-      "path": "dwkit-providerforpostgresql/3.6.0",
-      "hashPath": "dwkit-providerforpostgresql.3.6.0.nupkg.sha512"
+      "sha512": "sha512-MiY9vo24wPe1TAKsLB52aE5rxslZJKqm6wH1zXZqlOCGujtb/hgSZxF3hwyNO0gKV6egtr7WFK88B2O9Gyl/pQ==",
+      "path": "dwkit-providerforpostgresql/3.7.0",
+      "hashPath": "dwkit-providerforpostgresql.3.7.0.nupkg.sha512"
     },
-    "DWKit-Security/3.6.0": {
+    "DWKit-Security/3.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YRrIXYIzPvu2Wmqu9sK3A/LVOiXMpYYOF+1cBNZ7dXe+rQ2wqS+Wbn7XuaCReZ1olmvSfhCpQFnT7LonA9cTEw==",
-      "path": "dwkit-security/3.6.0",
-      "hashPath": "dwkit-security.3.6.0.nupkg.sha512"
+      "sha512": "sha512-GJk8zuMUQyvN2nnKNXKdKh9Voa/fraTuSWf4WVEgcHQ+wQgDZhKsxbjvdFxbenBlSFtYo30DsPqv/WrjoXMbqw==",
+      "path": "dwkit-security/3.7.0",
+      "hashPath": "dwkit-security.3.7.0.nupkg.sha512"
     },
     "Escape/1.1.0": {
       "type": "package",
@@ -3371,12 +3371,12 @@
       "path": "novell.directory.ldap.netstandard2_0/3.1.0",
       "hashPath": "novell.directory.ldap.netstandard2_0.3.1.0.nupkg.sha512"
     },
-    "Npgsql/4.1.3.1": {
+    "Npgsql/4.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-354pl/Picmt5/AIrm8urFwtxfK4n4NbmfBnLA9yvP8VtILSQF3/sFo3+lGuz+q4iyD18QeNFy0NMNBzsocFVlw==",
-      "path": "npgsql/4.1.3.1",
-      "hashPath": "npgsql.4.1.3.1.nupkg.sha512"
+      "sha512": "sha512-o/C+aEIHaf9nWvzMhRfY/CUm4+y5sx/OojWtFk4nFPs05tjLmh8QvLuRDNstNFEONRuQ0CDcoyHIv9qThqvzGQ==",
+      "path": "npgsql/4.1.14",
+      "hashPath": "npgsql.4.1.14.nupkg.sha512"
     },
     "Oracle.ManagedDataAccess.Core/3.21.100": {
       "type": "package",
@@ -3651,12 +3651,12 @@
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
-    "System.Data.SqlClient/4.8.5": {
+    "System.Data.SqlClient/4.8.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
-      "path": "system.data.sqlclient/4.8.5",
-      "hashPath": "system.data.sqlclient.4.8.5.nupkg.sha512"
+      "sha512": "sha512-2Ij/LCaTQRyAi5lAv7UUTV9R2FobC8xN9mE0fXBZohum/xLl8IZVmE98Rq5ugQHjCgTBRKqpXRb4ORulRdA6Ig==",
+      "path": "system.data.sqlclient/4.8.6",
+      "hashPath": "system.data.sqlclient.4.8.6.nupkg.sha512"
     },
     "System.Diagnostics.Contracts/4.0.1": {
       "type": "package",

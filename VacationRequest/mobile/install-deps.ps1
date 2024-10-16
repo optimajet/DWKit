@@ -1,3 +1,3 @@
 #!/usr/bin/env pwsh
 
-npm install
+npm install --legacy-peer-deps

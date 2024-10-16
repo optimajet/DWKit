@@ -2,7 +2,7 @@
 
 $loc = Get-Location
 
-npm install
+npm install --legacy-peer-deps
 
 Set-Location -Path "ios"
 pod install

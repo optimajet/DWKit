@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>3.6.0</Version>
+    <Version>3.7.0</Version>
     <Authors>Optimajet Limited</Authors>
     <Company>Optimajet Limited</Company>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
@@ -9,9 +9,9 @@
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
     <Description>The sample for DWKit</Description>
-    <Copyright>OptimaJet DWKit 2023</Copyright>
-    <AssemblyVersion>3.6.0</AssemblyVersion>
-    <FileVersion>3.6.0</FileVersion>
+    <Copyright>OptimaJet DWKit 2024</Copyright>
+    <AssemblyVersion>3.7.0</AssemblyVersion>
+    <FileVersion>3.7.0</FileVersion>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,11 +21,11 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="3.6.0" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.6.0" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="3.6.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.6.0" />
-    <PackageReference Include="DWKit-Security" Version="3.6.0" />
+    <PackageReference Include="DWKit-Core" Version="3.7.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="3.7.0" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="3.7.0" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="3.7.0" />
+    <PackageReference Include="DWKit-Security" Version="3.7.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.11" />

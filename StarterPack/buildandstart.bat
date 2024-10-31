@@ -11,7 +11,7 @@ echo -
 echo Step 1 Install NPM packages
 echo ------------------------------
 cd src\OptimaJet.DWKit.StarterApplication
-call npm install
+call npm install --legacy-peer-deps
 
 echo -
 echo Step 2 Build Webpack
@@ -38,5 +38,5 @@ start.bat
 exit
 
 :NO_SDK_ERROR
-echo .NET Core not found. Please install .NET SDK 6.0 to run this application
-echo For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+echo .NET Core not found. Please install .NET SDK 8.0 to run this application
+echo For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/8.0

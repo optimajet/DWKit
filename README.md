@@ -26,7 +26,7 @@ efficient.
 
 ## Development
 
-- [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - [JetBrains Rider](https://www.jetbrains.com/rider/download/)
 
@@ -62,4 +62,4 @@ For commercial use, please contact [sales@optimajet.com](mailto:sales@optimajet.
 - CPU 1 core 1 Ghz
 - RAM 1 Gb
 - HDD/SSD 5 Gb
-- [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)

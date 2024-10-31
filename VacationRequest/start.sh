@@ -1,8 +1,8 @@
 #!/bin/sh
 
 if ! type dotnet > /dev/null; then
-  echo ".NET Core not found. Please install .NET Core 6.0 to run this application"
-  echo "For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/6.0"
+  echo ".NET Core not found. Please install .NET 8.0 to run this application"
+  echo "For more information visit https://dotnet.microsoft.com/en-us/download/dotnet/8.0"
   exit 127
 fi
 

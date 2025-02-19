@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <Authors>Optimajet Limited</Authors>
     <Company>Optimajet Limited</Company>
     <PackageLicenseUrl>https://dwkit.com/agreements/eula/</PackageLicenseUrl>
@@ -9,14 +9,14 @@
     <PackageIconUrl>https://dwkit.com/img/fav/favicon-194x194.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optimajet/DWKit</RepositoryUrl>
     <Description>The sample for DWKit</Description>
-    <Copyright>OptimaJet DWKit 2024</Copyright>
+    <Copyright>OptimaJet DWKit 2025</Copyright>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DWKit-Core" Version="4.0.0" />
+    <PackageReference Include="DWKit-Core" Version="4.0.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="8.0.0" />
@@ -26,10 +26,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="WorkflowEngine.NETCore-Core" Version="9.0.0" />
-    <PackageReference Include="DWKit-ProviderForMSSQL" Version="4.0.0" />
-    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="4.0.0" />
-    <PackageReference Include="DWKit-ProviderForOracle" Version="4.0.0" />
-    <PackageReference Include="DWKit-Security" Version="4.0.0" />
+    <PackageReference Include="DWKit-ProviderForMSSQL" Version="4.0.1" />
+    <PackageReference Include="DWKit-ProviderForPostgreSQL" Version="4.0.1" />
+    <PackageReference Include="DWKit-ProviderForOracle" Version="4.0.1" />
+    <PackageReference Include="DWKit-Security" Version="4.0.1" />
     <PackageReference Include="WorkflowEngine.NETCore-FilesPlugin" Version="9.0.0" />
   </ItemGroup>
 </Project>

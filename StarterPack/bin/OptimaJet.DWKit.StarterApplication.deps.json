@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "OptimaJet.DWKit.StarterApplication/4.0.0": {
+      "OptimaJet.DWKit.StarterApplication/4.0.1": {
         "dependencies": {
           "BundlerMinifier.Core": "2.6.362",
-          "DWKit-Core": "4.0.0",
-          "DWKit-ProviderForMSSQL": "4.0.0",
-          "DWKit-ProviderForPostgreSQL": "4.0.0",
-          "DWKit-Security": "4.0.0",
+          "DWKit-Core": "4.0.1",
+          "DWKit-ProviderForMSSQL": "4.0.1",
+          "DWKit-ProviderForPostgreSQL": "4.0.1",
+          "DWKit-Security": "4.0.1",
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.0",
           "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": "8.0.0",
@@ -20,7 +20,7 @@
           "Microsoft.Extensions.Logging.Console": "8.0.0",
           "Microsoft.Extensions.Logging.Debug": "8.0.0",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.2.0",
-          "OptimaJet.DWKit.Application": "4.0.0",
+          "OptimaJet.DWKit.Application": "4.0.1",
           "WorkflowEngine.NETCore-Core": "9.0.0"
         },
         "runtime": {
@@ -66,7 +66,7 @@
           }
         }
       },
-      "DWKit-Core/4.0.0": {
+      "DWKit-Core/4.0.1": {
         "dependencies": {
           "ClosedXML": "0.94.2",
           "Escape": "1.1.0",
@@ -95,54 +95,54 @@
         },
         "runtime": {
           "lib/net8.0/OptimaJet.DWKit.Core.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
-      "DWKit-ProviderForMSSQL/4.0.0": {
+      "DWKit-ProviderForMSSQL/4.0.1": {
         "dependencies": {
-          "DWKit-Core": "4.0.0",
+          "DWKit-Core": "4.0.1",
           "System.Data.Common": "4.3.0",
           "System.Data.SqlClient": "4.8.6",
           "WorkflowEngine.NETCore-ProviderForMSSQL": "9.0.0"
         },
         "runtime": {
           "lib/net8.0/OptimaJet.DWKit.MSSQL.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
-      "DWKit-ProviderForOracle/4.0.0": {
+      "DWKit-ProviderForOracle/4.0.1": {
         "dependencies": {
-          "DWKit-Core": "4.0.0",
+          "DWKit-Core": "4.0.1",
           "WorkflowEngine.NETCore-ProviderForOracle": "9.0.0"
         },
         "runtime": {
           "lib/net8.0/OptimaJet.DWKit.Oracle.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
-      "DWKit-ProviderForPostgreSQL/4.0.0": {
+      "DWKit-ProviderForPostgreSQL/4.0.1": {
         "dependencies": {
-          "DWKit-Core": "4.0.0",
+          "DWKit-Core": "4.0.1",
           "Npgsql": "4.1.14",
           "System.Data.Common": "4.3.0",
           "WorkflowEngine.NETCore-ProviderForPostgreSQL": "9.0.0"
         },
         "runtime": {
           "lib/net8.0/OptimaJet.DWKit.PostgreSQL.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
-      "DWKit-Security/4.0.0": {
+      "DWKit-Security/4.0.1": {
         "dependencies": {
-          "DWKit-Core": "4.0.0",
+          "DWKit-Core": "4.0.1",
           "IdentityServer4": "4.1.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.1.30",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
@@ -159,8 +159,8 @@
         },
         "runtime": {
           "lib/net8.0/OptimaJet.DWKit.Security.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
@@ -764,22 +764,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "2.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "2.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "2.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "2.1.1.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1251,7 +1251,7 @@
         "runtime": {
           "lib/netstandard2.1/Oracle.ManagedDataAccess.dll": {
             "assemblyVersion": "3.1.21.1",
-            "fileVersion": "3.1.21.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1343,7 +1343,7 @@
           "runtimes/win-arm64/native/sni.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1352,7 +1352,7 @@
           "runtimes/win-x64/native/sni.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1361,7 +1361,7 @@
           "runtimes/win-x86/native/sni.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -2570,13 +2570,13 @@
           }
         }
       },
-      "OptimaJet.DWKit.Application/4.0.0": {
+      "OptimaJet.DWKit.Application/4.0.1": {
         "dependencies": {
-          "DWKit-Core": "4.0.0",
-          "DWKit-ProviderForMSSQL": "4.0.0",
-          "DWKit-ProviderForOracle": "4.0.0",
-          "DWKit-ProviderForPostgreSQL": "4.0.0",
-          "DWKit-Security": "4.0.0",
+          "DWKit-Core": "4.0.1",
+          "DWKit-ProviderForMSSQL": "4.0.1",
+          "DWKit-ProviderForOracle": "4.0.1",
+          "DWKit-ProviderForPostgreSQL": "4.0.1",
+          "DWKit-Security": "4.0.1",
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.0",
           "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": "8.0.0",
@@ -2590,15 +2590,15 @@
         },
         "runtime": {
           "OptimaJet.DWKit.Application.dll": {
-            "assemblyVersion": "4.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1",
+            "fileVersion": "4.0.1.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "OptimaJet.DWKit.StarterApplication/4.0.0": {
+    "OptimaJet.DWKit.StarterApplication/4.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2624,40 +2624,40 @@
       "path": "documentformat.openxml/2.7.2",
       "hashPath": "documentformat.openxml.2.7.2.nupkg.sha512"
     },
-    "DWKit-Core/4.0.0": {
+    "DWKit-Core/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cjC39qSN9SBi9rTOftTwVwhHsbi9mplK1PDnaOHDiWn4RP46F0eJMHoWriG1T3UYdb67YFD/Q62Z5v4Za3Wj0w==",
-      "path": "dwkit-core/4.0.0",
-      "hashPath": "dwkit-core.4.0.0.nupkg.sha512"
+      "sha512": "sha512-erNzUJBkgIURsD+y0cS2XNoEnXCS0RX2xJuDUNPeJlFiX+ZfUblbG7ueUq18fAl/ZbFESF7hIjVGzD7Q0FDUGg==",
+      "path": "dwkit-core/4.0.1",
+      "hashPath": "dwkit-core.4.0.1.nupkg.sha512"
     },
-    "DWKit-ProviderForMSSQL/4.0.0": {
+    "DWKit-ProviderForMSSQL/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vvUYnhmu1EoYjae06DlVVG3mL4ii6TTrf8AQM1Ze0Wp8DpHxq1XMZUm5HdkvVBh2b1Oc4jWDQxM1W/t8VisprA==",
-      "path": "dwkit-providerformssql/4.0.0",
-      "hashPath": "dwkit-providerformssql.4.0.0.nupkg.sha512"
+      "sha512": "sha512-f1lgm5B8+IJ/hl2JBV7YGtfxHXz1Ex+x8LjT9FlexS0ow6MrSimFRt0bu/DRbVJly+DJvpsxpOoEFzXQ26r5lA==",
+      "path": "dwkit-providerformssql/4.0.1",
+      "hashPath": "dwkit-providerformssql.4.0.1.nupkg.sha512"
     },
-    "DWKit-ProviderForOracle/4.0.0": {
+    "DWKit-ProviderForOracle/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-y8P4pZfd239yae1QOhvY7ztc48Ohh9JavZqrfr4EMGh8o+Z9DRoXCiEx2giNgKnj7xlZi1Q8bhizIpNMIEXPDQ==",
-      "path": "dwkit-providerfororacle/4.0.0",
-      "hashPath": "dwkit-providerfororacle.4.0.0.nupkg.sha512"
+      "sha512": "sha512-bJLW6/TmXoU0DP04B5DME3FwfPA7pkSB/n9H/yOjTyz0TAoQo1QokyS0c7fHuGpkJXeVBbHZyrxc/s0nxM6u7w==",
+      "path": "dwkit-providerfororacle/4.0.1",
+      "hashPath": "dwkit-providerfororacle.4.0.1.nupkg.sha512"
     },
-    "DWKit-ProviderForPostgreSQL/4.0.0": {
+    "DWKit-ProviderForPostgreSQL/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bDxyxgUVn8FS/mIyV21CdKxwhl6P24aUgWhSlzVvWASyQyIYuC3zeMQV988n4PJCcQRneC6b/iUzs9j0I4RW3w==",
-      "path": "dwkit-providerforpostgresql/4.0.0",
-      "hashPath": "dwkit-providerforpostgresql.4.0.0.nupkg.sha512"
+      "sha512": "sha512-Ns8rHyr1fJJU+Xa8q6RVy9jJ5fDD8oREHdT18EG/0jKJzKsI5hLCYV22B5CrHpUpSGbqp2sUvC42/L9Qhva8ag==",
+      "path": "dwkit-providerforpostgresql/4.0.1",
+      "hashPath": "dwkit-providerforpostgresql.4.0.1.nupkg.sha512"
     },
-    "DWKit-Security/4.0.0": {
+    "DWKit-Security/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6fcy9Be3BVhAoEdG4hWVDfKH8GA0MscydrMrl5r6KwS2RPs9k8iNtsGsrxMFYPqvE0Dk0WaiW/LcdC6nyaJv3w==",
-      "path": "dwkit-security/4.0.0",
-      "hashPath": "dwkit-security.4.0.0.nupkg.sha512"
+      "sha512": "sha512-huZ2+MgDbz3B3tB67uu/vviVCn3IgZ2Xq5UhyC0GNPssbml1LuWLp4C4RUF5kjVN1mtbfreZPA55b7L5qx9Vfw==",
+      "path": "dwkit-security/4.0.1",
+      "hashPath": "dwkit-security.4.0.1.nupkg.sha512"
     },
     "Escape/1.1.0": {
       "type": "package",
@@ -4269,7 +4269,7 @@
       "path": "yamldotnet.signed/5.0.1",
       "hashPath": "yamldotnet.signed.5.0.1.nupkg.sha512"
     },
-    "OptimaJet.DWKit.Application/4.0.0": {
+    "OptimaJet.DWKit.Application/4.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

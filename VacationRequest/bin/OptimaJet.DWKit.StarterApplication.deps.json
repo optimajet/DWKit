@@ -2628,35 +2628,35 @@
     "DWKit-Core/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-erNzUJBkgIURsD+y0cS2XNoEnXCS0RX2xJuDUNPeJlFiX+ZfUblbG7ueUq18fAl/ZbFESF7hIjVGzD7Q0FDUGg==",
+      "sha512": "sha512-AZhIyf4HY46ZEzNvhib2TrAFV02V8407fKFZYEnWQrbYHHJCRqs6YQBNaenO1N0yNni/0dKTVa09fcfCZO8Uug==",
       "path": "dwkit-core/4.0.1",
       "hashPath": "dwkit-core.4.0.1.nupkg.sha512"
     },
     "DWKit-ProviderForMSSQL/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f1lgm5B8+IJ/hl2JBV7YGtfxHXz1Ex+x8LjT9FlexS0ow6MrSimFRt0bu/DRbVJly+DJvpsxpOoEFzXQ26r5lA==",
+      "sha512": "sha512-UfVaeVZqS8By2KW3EE8eLkVmEfvNc4zoGdu+n5rpxUtmY4jnTjZ8VGGslthXPOEKjqYKTNcWltVGXD/tRx32rw==",
       "path": "dwkit-providerformssql/4.0.1",
       "hashPath": "dwkit-providerformssql.4.0.1.nupkg.sha512"
     },
     "DWKit-ProviderForOracle/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bJLW6/TmXoU0DP04B5DME3FwfPA7pkSB/n9H/yOjTyz0TAoQo1QokyS0c7fHuGpkJXeVBbHZyrxc/s0nxM6u7w==",
+      "sha512": "sha512-VXBbbwalSV5mU++87ktUm1/H+lEcLpDwCLnbGeW9fjmxiU5HvCe3GuHo+YVH/WGsh4+Khm2ZlfEp1ZFfrWRyoQ==",
       "path": "dwkit-providerfororacle/4.0.1",
       "hashPath": "dwkit-providerfororacle.4.0.1.nupkg.sha512"
     },
     "DWKit-ProviderForPostgreSQL/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Ns8rHyr1fJJU+Xa8q6RVy9jJ5fDD8oREHdT18EG/0jKJzKsI5hLCYV22B5CrHpUpSGbqp2sUvC42/L9Qhva8ag==",
+      "sha512": "sha512-Fh47l2CY9loHFmhqYZ7qS5d/1sYyUuYOfhOW5O+AHlrBE90zfJ4Nfd6nIOP+LzLi7B5Rx2KyoeF4/EbF64SCVg==",
       "path": "dwkit-providerforpostgresql/4.0.1",
       "hashPath": "dwkit-providerforpostgresql.4.0.1.nupkg.sha512"
     },
     "DWKit-Security/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-huZ2+MgDbz3B3tB67uu/vviVCn3IgZ2Xq5UhyC0GNPssbml1LuWLp4C4RUF5kjVN1mtbfreZPA55b7L5qx9Vfw==",
+      "sha512": "sha512-yvqqKnY5woeLr+djHX5ZO/dtJIs4tOP+jEVEtuXtnYH/MTG5iGRu1LRP20hmAIBXFsWqcJVVD6mvuCAJkD21xg==",
       "path": "dwkit-security/4.0.1",
       "hashPath": "dwkit-security.4.0.1.nupkg.sha512"
     },
